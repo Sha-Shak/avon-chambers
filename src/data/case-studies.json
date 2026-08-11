@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "supplier-contract-dispute",
+    "area": "Commercial Litigation",
+    "title": "Contract dispute against a national supplier",
+    "metric": "$14.2M",
+    "metricLabel": "Settlement secured",
+    "duration": "11 months",
+    "result": "Settled pre-trial",
+    "summary": "A manufacturing client faced a repudiated five-year supply agreement. We secured settlement two weeks before jury selection."
+  },
+  {
+    "slug": "logistics-acquisition",
+    "area": "Corporate",
+    "title": "Cross-border acquisition of a logistics group",
+    "metric": "$86M",
+    "metricLabel": "Transaction value",
+    "duration": "7 months",
+    "result": "Closed on schedule",
+    "summary": "Buy-side counsel on a three-jurisdiction carve-out, including regulatory clearance and post-closing integration terms."
+  },
+  {
+    "slug": "executive-misclassification-defence",
+    "area": "Employment",
+    "title": "Executive misclassification class defence",
+    "metric": "Full dismissal",
+    "metricLabel": "Claims resolved",
+    "duration": "14 months",
+    "result": "No liability finding",
+    "summary": "Defended a healthcare employer against a putative class action; claims dismissed at the certification stage."
+  },
+  {
+    "slug": "founder-equity-restructuring",
+    "area": "Corporate",
+    "title": "Founder equity restructuring before a Series B",
+    "metric": "$40M",
+    "metricLabel": "Round closed",
+    "duration": "4 months",
+    "result": "Cap table cleared",
+    "summary": "Unwound legacy promises across eleven early contributors and rebuilt the cap table ahead of institutional diligence."
+  }
+]
