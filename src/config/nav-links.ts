@@ -4,7 +4,7 @@ export const navLinks = [
   { label: "Practice Areas", href: "/practice-areas" },
   { label: "Attorneys", href: "/attorneys" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Insights", href: "/insights" },
+  { label: "Articles", href: "/insights" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ] as const;

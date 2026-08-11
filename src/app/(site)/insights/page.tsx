@@ -10,10 +10,10 @@ import { breadcrumbSchema } from "@/lib/schema";
 const DESCRIPTION = `Practical notes and analysis from the partners of ${siteConfig.name} on corporate, litigation, employment, immigration and family law in New York.`;
 
 export const metadata: Metadata = {
-  title: "Insights",
+  title: "Articles",
   description: DESCRIPTION,
   alternates: { canonical: "/insights" },
-  openGraph: { title: `Insights — ${siteConfig.name}`, description: DESCRIPTION, url: "/insights" },
+  openGraph: { title: `Articles — ${siteConfig.name}`, description: DESCRIPTION, url: "/insights" },
 };
 
 export default async function InsightsPage() {
@@ -24,7 +24,7 @@ export default async function InsightsPage() {
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Insights", path: "/insights" },
+          { name: "Articles", path: "/insights" },
         ])}
       />
 
@@ -32,7 +32,7 @@ export default async function InsightsPage() {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">Notes and analysis</p>
-            <h1 className="mt-4 text-4xl text-navy sm:text-5xl">Insights</h1>
+            <h1 className="mt-4 text-4xl text-navy sm:text-5xl">Articles</h1>
             <p className="mt-6 text-base leading-relaxed text-slate">
               Practical writing from the partners at {siteConfig.name} — the questions clients actually ask,
               answered in the open.

@@ -44,7 +44,7 @@ export async function GET() {
   if (insights.length > 0) {
     lines.push(
       "",
-      "## Insights (recent writing)",
+      "## Articles (recent writing)",
       ...insights.map((i) => `- [${i.title}](${siteConfig.url}/insights/${i.slug}): ${i.excerpt}`),
     );
   }

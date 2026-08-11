@@ -13,7 +13,7 @@ const FALLBACK_URL = "https://www.avonchambers.netlify.app";
 
 export const siteConfig = {
   name: "Avon Chambers",
-  legalName: "Avon Chambers LLP",
+  legalName: "Avon Chambers",
   shortName: "Avon Chambers",
   tagline: "Boutique Counsel for Consequential Matters",
   description:

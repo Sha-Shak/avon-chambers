@@ -63,7 +63,7 @@ export default async function InsightDetailPage({
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Insights", path: "/insights" },
+          { name: "Articles", path: "/insights" },
           { name: insight.title, path: `/insights/${insight.slug}` },
         ])}
       />
@@ -76,7 +76,7 @@ export default async function InsightDetailPage({
                 href="/insights"
                 className="inline-flex items-center gap-2 text-[0.6875rem] tracking-[0.2em] text-slate uppercase hover:text-navy"
               >
-                <ArrowLeft className="size-3.5" /> All insights
+                <ArrowLeft className="size-3.5" /> All articles
               </Link>
               <div className="mt-8 flex items-center gap-3 text-xs text-slate">
                 <span className="tracking-[0.12em] text-navy uppercase">{insight.category}</span>

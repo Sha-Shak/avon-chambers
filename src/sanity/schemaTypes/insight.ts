@@ -4,7 +4,7 @@ const CATEGORIES = ["Corporate", "Litigation", "Employment", "Immigration", "Rea
 
 export const insight = defineType({
   name: "insight",
-  title: "Insight (blog post)",
+  title: "Article (blog post)",
   type: "document",
   fields: [
     defineField({
@@ -33,7 +33,7 @@ export const insight = defineType({
       title: "Excerpt",
       type: "text",
       rows: 3,
-      description: "One or two sentences shown on the Insights listing page and in search results.",
+      description: "One or two sentences shown on the Articles listing page and in search results.",
       validation: (rule) => rule.required().max(320),
     }),
     defineField({

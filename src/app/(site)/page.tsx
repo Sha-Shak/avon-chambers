@@ -249,15 +249,15 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 9. Insights */}
+      {/* 9. Articles */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div className="max-w-2xl">
-            <p className="eyebrow">Insights</p>
+            <p className="eyebrow">Articles</p>
             <h2 className="mt-5 text-3xl text-navy sm:text-4xl">Latest writing</h2>
           </div>
           <Link href="/insights" className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-navy uppercase">
-            All insights <ArrowUpRight className="size-4" />
+            All articles <ArrowUpRight className="size-4" />
           </Link>
         </FadeIn>
         <div className="mt-14 grid gap-px border border-navy/10 bg-navy/10 lg:grid-cols-3">

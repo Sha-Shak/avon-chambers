@@ -5,9 +5,9 @@ export const structure: StructureResolver = (S) =>
     .title("Avon Chambers content")
     .items([
       S.listItem()
-        .title("Insights (blog)")
+        .title("Articles (blog)")
         .schemaType("insight")
-        .child(S.documentTypeList("insight").title("Insights").defaultOrdering([{ field: "publishedAt", direction: "desc" }])),
+        .child(S.documentTypeList("insight").title("Articles").defaultOrdering([{ field: "publishedAt", direction: "desc" }])),
       S.listItem()
         .title("Careers")
         .schemaType("jobPost")
