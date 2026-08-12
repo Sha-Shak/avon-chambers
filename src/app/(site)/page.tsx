@@ -12,14 +12,22 @@ import { ArticlesCarousel } from "@/components/articles-carousel";
 import { ConsultationSection } from "@/components/consultation-section";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
-import { getAllAttorneys, getAllCaseStudies, getAllPracticeAreas } from "@/lib/data";
+import {
+  getAllAttorneys,
+  getAllCaseStudies,
+  getAllPracticeAreas,
+} from "@/lib/data";
 import { getAllInsights } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
   description: siteConfig.description,
   alternates: { canonical: "/" },
-  openGraph: { title: `${siteConfig.name} — ${siteConfig.tagline}`, description: siteConfig.description, url: "/" },
+  openGraph: {
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    url: "/",
+  },
 };
 
 /**
@@ -29,7 +37,8 @@ export const metadata: Metadata = {
 const heroContent: Omit<HeroSlide, "image">[] = [
   {
     eyebrow: `${siteConfig.name} · ${siteConfig.address.addressLocality}`,
-    heading: "Counsel for the matters that decide the direction of a company or a family.",
+    heading:
+      "Counsel for the matters that decide the direction of a company or a family.",
     subheading: `A boutique practice of ${siteConfig.stats.totalLawyers} lawyers. Every engagement is led by a partner, priced before it begins, and judged only by the outcome it produces.`,
   },
   {
@@ -52,11 +61,20 @@ const heroSlides: HeroSlide[] = heroContent.map((content, i) => ({
 }));
 
 const trustBadges = [
-  { value: siteConfig.foundingDate, label: `Founded · ${new Date().getFullYear() - Number(siteConfig.foundingDate)} years of practice` },
-  { value: siteConfig.stats.barAssociation, label: "State Bar Association member" },
+  {
+    value: siteConfig.foundingDate,
+    label: `Founded · ${new Date().getFullYear() - Number(siteConfig.foundingDate)} years of practice`,
+  },
+  {
+    value: siteConfig.stats.barAssociation,
+    label: "State Bar Association member",
+  },
   { value: siteConfig.stats.mattersResolved, label: "Matters resolved" },
   { value: siteConfig.stats.favourableOutcomes, label: "Favourable outcomes" },
-  { value: String(siteConfig.stats.jurisdictions), label: "Jurisdictions covered" },
+  {
+    value: String(siteConfig.stats.jurisdictions),
+    label: "Jurisdictions covered",
+  },
 ];
 
 const differentiators = [
@@ -104,24 +122,43 @@ const testimonials = [
 ];
 
 const process = [
-  { step: "01", title: "Consultation", copy: "A confidential 45-minute conversation with the partner who would lead your matter." },
-  { step: "02", title: "Case Assessment", copy: "We review the record, map exposure and give you a written view of realistic outcomes." },
-  { step: "03", title: "Strategy", copy: "An agreed plan with milestones, decision points and a fixed scope of fees." },
-  { step: "04", title: "Resolution", copy: "Negotiation, filing or trial — executed to the outcome we set out to reach." },
+  {
+    step: "01",
+    title: "Consultation",
+    copy: "A confidential 45-minute conversation with the partner who would lead your matter.",
+  },
+  {
+    step: "02",
+    title: "Case Assessment",
+    copy: "We review the record, map exposure and give you a written view of realistic outcomes.",
+  },
+  {
+    step: "03",
+    title: "Strategy",
+    copy: "An agreed plan with milestones, decision points and a fixed scope of fees.",
+  },
+  {
+    step: "04",
+    title: "Resolution",
+    copy: "Negotiation, filing or trial — executed to the outcome we set out to reach.",
+  },
 ];
 
 export default async function HomePage() {
   const practiceAreas = getAllPracticeAreas();
   const attorneys = getAllAttorneys();
   const featuredCaseStudies = getAllCaseStudies().slice(0, 3);
-  const latestInsights = (await getAllInsights()).slice(0, 3);
+  const latestInsights = await getAllInsights();
 
   return (
     <div className="min-h-screen bg-background">
       {/* 1. Hero */}
       <section className="border-b border-foreground/10">
         <FadeIn>
-          <Hero slides={heroSlides} intervalMs={mediaConfig.hero.sliderIntervalMs} />
+          <Hero
+            slides={heroSlides}
+            intervalMs={mediaConfig.hero.sliderIntervalMs}
+          />
         </FadeIn>
       </section>
 
@@ -129,9 +166,17 @@ export default async function HomePage() {
       <section className="border-b border-foreground/10 bg-secondary/60">
         <FadeIn className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-8 px-6 py-12 sm:grid-cols-3 lg:grid-cols-5 lg:px-10">
           {trustBadges.map((b) => (
-            <div key={b.label} className="min-w-0 border-l border-foreground/15 pl-4">
-              <AnimatedNumber value={b.value} className="block font-serif text-2xl text-foreground" />
-              <p className="mt-1 text-xs leading-snug text-muted-foreground">{b.label}</p>
+            <div
+              key={b.label}
+              className="min-w-0 border-l border-foreground/15 pl-4"
+            >
+              <AnimatedNumber
+                value={b.value}
+                className="block font-serif text-2xl text-foreground"
+              />
+              <p className="mt-1 text-xs leading-snug text-muted-foreground">
+                {b.label}
+              </p>
             </div>
           ))}
         </FadeIn>
@@ -141,7 +186,9 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="max-w-2xl">
           <p className="eyebrow">Practice areas</p>
-          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Six disciplines, practised deliberately narrowly.</h2>
+          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
+            Six disciplines, practised deliberately narrowly.
+          </h2>
         </FadeIn>
         <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
           {practiceAreas.map((p, i) => (
@@ -164,15 +211,25 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy/95" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
-            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">Why {siteConfig.name}</p>
-            <h2 className="mt-5 text-3xl sm:text-4xl">Small by design. Accountable by consequence.</h2>
+            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">
+              Why {siteConfig.name}
+            </p>
+            <h2 className="mt-5 text-3xl sm:text-4xl">
+              Small by design. Accountable by consequence.
+            </h2>
           </FadeIn>
           <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
             {differentiators.map((d, i) => (
-              <FadeIn key={d.title} delay={i * 70} className="border-t border-cream/20 pt-6">
+              <FadeIn
+                key={d.title}
+                delay={i * 70}
+                className="border-t border-cream/20 pt-6"
+              >
                 <d.icon className="size-5 text-cream/70" strokeWidth={1.25} />
                 <h3 className="mt-5 text-lg text-cream">{d.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/60">{d.copy}</p>
+                <p className="mt-3 text-sm leading-relaxed text-cream/60">
+                  {d.copy}
+                </p>
               </FadeIn>
             ))}
           </div>
@@ -184,9 +241,14 @@ export default async function HomePage() {
         <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div className="max-w-2xl">
             <p className="eyebrow">Selected outcomes</p>
-            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Featured case studies</h2>
+            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
+              Featured case studies
+            </h2>
           </div>
-          <Link href="/case-studies" className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase">
+          <Link
+            href="/case-studies"
+            className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
+          >
             All case studies <ArrowUpRight className="size-4" />
           </Link>
         </FadeIn>
@@ -204,7 +266,9 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">The practice</p>
-            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Attorneys</h2>
+            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
+              Attorneys
+            </h2>
           </FadeIn>
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {attorneys.map((a, i) => (
@@ -220,12 +284,21 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="max-w-2xl">
           <p className="eyebrow">Client experience</p>
-          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">In their words</h2>
+          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
+            In their words
+          </h2>
         </FadeIn>
         <div className="mt-14 grid gap-10 lg:grid-cols-3">
           {testimonials.map((t, i) => (
-            <FadeIn key={t.name} delay={i * 70} as="blockquote" className="border-t border-foreground/15 pt-6">
-              <p className="text-base leading-relaxed text-muted-foreground italic">&ldquo;{t.quote}&rdquo;</p>
+            <FadeIn
+              key={t.name}
+              delay={i * 70}
+              as="blockquote"
+              className="border-t border-foreground/15 pt-6"
+            >
+              <p className="text-base leading-relaxed text-muted-foreground italic">
+                &ldquo;{t.quote}&rdquo;
+              </p>
               <footer className="mt-8">
                 <p className="text-sm text-foreground not-italic">{t.name}</p>
                 <p className="mt-1 text-xs text-muted-foreground">{t.role}</p>
@@ -240,18 +313,24 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">How we work</p>
-            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Four steps, no ambiguity</h2>
+            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
+              Four steps, no ambiguity
+            </h2>
           </FadeIn>
           <ol className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((p, i) => (
               <FadeIn key={p.step} as="li" delay={i * 70} className="relative">
-                <span className="font-serif text-sm text-muted-foreground">{p.step}</span>
+                <span className="font-serif text-sm text-muted-foreground">
+                  {p.step}
+                </span>
                 <div className="mt-4 flex items-center gap-3">
                   <span className="size-2 shrink-0 rounded-full bg-foreground" />
                   <span className="h-px flex-1 bg-foreground/20" />
                 </div>
                 <h3 className="mt-5 text-lg text-foreground">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.copy}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {p.copy}
+                </p>
               </FadeIn>
             ))}
           </ol>
@@ -263,9 +342,14 @@ export default async function HomePage() {
         <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div className="max-w-2xl">
             <p className="eyebrow">Articles</p>
-            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Latest writing</h2>
+            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
+              Latest writing
+            </h2>
           </div>
-          <Link href="/insights" className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase">
+          <Link
+            href="/insights"
+            className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
+          >
             All articles <ArrowUpRight className="size-4" />
           </Link>
         </FadeIn>

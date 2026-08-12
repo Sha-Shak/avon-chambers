@@ -27,12 +27,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const insight = await getInsight(slug);
-  if (!insight) return { title: "Unavailable", robots: { index: false, follow: false } };
+  if (!insight)
+    return { title: "Unavailable", robots: { index: false, follow: false } };
 
   const title = insight.seo?.metaTitle ?? insight.title;
   const description = insight.seo?.metaDescription ?? insight.excerpt;
   const ogImageAsset = insight.seo?.ogImage?.asset ?? insight.coverImage?.asset;
-  const image = ogImageAsset ? urlForImage(ogImageAsset).width(1200).height(630).url() : mediaConfig.og.default.src;
+  const image = ogImageAsset
+    ? urlForImage(ogImageAsset).width(1200).height(630).url()
+    : mediaConfig.og.default.src;
 
   return {
     title,
@@ -59,7 +62,11 @@ export async function generateMetadata({
 }
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
+  return new Date(iso).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 }
 
 export default async function InsightDetailPage({
@@ -71,15 +78,24 @@ export default async function InsightDetailPage({
   const insight = await getInsight(slug);
   if (!insight) notFound();
 
-  const author = insight.authorSlug ? getAttorney(insight.authorSlug) : undefined;
-  const morePosts = (await getAllInsights()).filter((i) => i.slug !== insight.slug).slice(0, 3);
+  const author = insight.authorSlug
+    ? getAttorney(insight.authorSlug)
+    : undefined;
+  const morePosts = (await getAllInsights())
+    .filter((i) => i.slug !== insight.slug)
+    .slice(0, 3);
 
   return (
     <div>
       <JsonLd
         data={insightSchema(
           insight,
-          author ? { name: author.name, url: `${siteConfig.url}/attorneys/${author.slug}` } : undefined,
+          author
+            ? {
+                name: author.name,
+                url: `${siteConfig.url}/attorneys/${author.slug}`,
+              }
+            : undefined,
         )}
       />
       <JsonLd
@@ -101,21 +117,31 @@ export default async function InsightDetailPage({
                 <ArrowLeft className="size-3.5" /> All articles
               </Link>
               <div className="mt-8 flex items-center gap-3 text-xs text-muted-foreground">
-                <span className="tracking-[0.12em] text-foreground uppercase">{insight.category}</span>
+                <span className="tracking-[0.12em] text-foreground uppercase">
+                  {insight.category}
+                </span>
                 <span aria-hidden>·</span>
-                <time dateTime={insight.publishedAt}>{formatDate(insight.publishedAt)}</time>
+                <time dateTime={insight.publishedAt}>
+                  {formatDate(insight.publishedAt)}
+                </time>
                 <span aria-hidden>·</span>
                 <span>{insight.readingTime}</span>
               </div>
-              <h1 className="mt-6 text-4xl leading-[1.12] text-foreground sm:text-5xl">{insight.title}</h1>
-              <p className="mt-6 text-base leading-relaxed text-muted-foreground">{insight.excerpt}</p>
+              <h1 className="mt-6 text-4xl leading-[1.12] text-foreground sm:text-5xl">
+                {insight.title}
+              </h1>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+                {insight.excerpt}
+              </p>
               {author && (
                 <Link
                   href={`/attorneys/${author.slug}`}
                   className="mt-8 inline-flex items-center gap-3 border-t border-foreground/10 pt-6 hover:opacity-80"
                 >
                   <span className="text-sm text-foreground">{author.name}</span>
-                  <span className="text-xs text-muted-foreground">{author.title}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {author.title}
+                  </span>
                 </Link>
               )}
             </FadeIn>
@@ -126,12 +152,15 @@ export default async function InsightDetailPage({
           <FadeIn className="mx-auto max-w-5xl px-6 pt-12 lg:px-10">
             <div className="relative aspect-16/9 w-full overflow-hidden">
               <Image
-                src={urlForImage(insight.coverImage).width(1600).height(900).url()}
+                src={urlForImage(insight.coverImage)
+                  .width(1600)
+                  .height(900)
+                  .url()}
                 alt={insight.coverImage.alt ?? insight.title}
                 fill
                 sizes="(min-width: 1024px) 960px, 100vw"
                 className="object-cover"
-                priority
+                loading="lazy"
               />
             </div>
           </FadeIn>
@@ -149,7 +178,9 @@ export default async function InsightDetailPage({
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
             <FadeIn className="max-w-2xl">
               <p className="eyebrow">Keep reading</p>
-              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">More from the firm</h2>
+              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
+                More from the firm
+              </h2>
             </FadeIn>
             <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
               {morePosts.map((post, i) => (

@@ -7,17 +7,23 @@ import { urlForImage } from "@/sanity/image";
 import type { InsightMeta } from "@/types";
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
+  return new Date(iso).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 }
 
 export function InsightCard({ insight }: { insight: InsightMeta }) {
-  const author = insight.authorSlug ? getAttorney(insight.authorSlug) : undefined;
+  const author = insight.authorSlug
+    ? getAttorney(insight.authorSlug)
+    : undefined;
 
   return (
     <article className="flex h-full flex-col bg-card">
       {/* object-contain (never object-cover) so cover images of any aspect ratio sit fully
           visible on their neutral frame instead of being cropped or stretched. */}
-      <div className="relative aspect-[4/3] w-full shrink-0 bg-secondary">
+      <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-secondary">
         {insight.coverImage?.asset ? (
           <Image
             // Only constrain width: passing both width AND height makes the Sanity image
@@ -41,19 +47,28 @@ export function InsightCard({ insight }: { insight: InsightMeta }) {
             />
           </div>
         )}
+        <div className="absolute inset-x-0 bottom-0 bg-foreground/70 px-5 py-3 text-cream backdrop-blur-sm">
+          <div className="flex items-center gap-2 text-[0.6875rem] tracking-[0.12em] uppercase">
+            <span>{insight.category}</span>
+            <span aria-hidden>·</span>
+            <time
+              dateTime={insight.publishedAt}
+              className="tracking-normal normal-case"
+            >
+              {formatDate(insight.publishedAt)}
+            </time>
+          </div>
+        </div>
       </div>
       <div className="flex flex-1 flex-col p-8">
-        <div className="flex items-center gap-3 text-xs text-muted-foreground">
-          <span className="tracking-[0.12em] text-foreground uppercase">{insight.category}</span>
-          <span aria-hidden>·</span>
-          <span>{formatDate(insight.publishedAt)}</span>
-        </div>
-        <h3 className="mt-6 text-xl leading-snug text-foreground">
+        <h3 className="text-xl leading-snug text-foreground">
           <Link href={`/insights/${insight.slug}`} className="hover:underline">
             {insight.title}
           </Link>
         </h3>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{insight.excerpt}</p>
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          {insight.excerpt}
+        </p>
         <div className="mt-6 flex items-center justify-between text-xs text-muted-foreground">
           <span>{author ? author.name : "Avon Chambers"}</span>
           <span>{insight.readingTime}</span>
