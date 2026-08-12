@@ -114,6 +114,24 @@ than invented:
   a Cloudflare Turnstile widget for the site's hostname and set both Turnstile
   environment variables above; the server verifies every token before sending
   email.
+
+### Testing the contact-form protection locally
+
+Put these **test-only** values in `.env.local`, restart `npm run dev`, and
+submit the contact form. They make Cloudflare's visible test widget always
+pass; the server accepts its `test` action only outside production.
+
+```bash
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+```
+
+To test an expected verification failure, replace both values with
+`2x00000000000000000000AB` and `2x0000000000000000000000000000000AA`,
+respectively, then restart the dev server. To test the local rate limit,
+submit the form six times within 15 minutes; the sixth request returns a
+`429 Too Many Requests` response. Never deploy these test keys.
+
 - **Social links** in the footer (LinkedIn, X) point to `#` — add the real
   profile URLs in `src/components/layout/site-footer.tsx`.
 - **OG image**: the default social-share image is generated on the fly from

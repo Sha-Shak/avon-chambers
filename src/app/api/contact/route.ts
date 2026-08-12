@@ -58,6 +58,9 @@ type TurnstileResponse = {
   hostname?: string;
 };
 
+const TURNSTILE_TEST_SITE_KEY = "1x00000000000000000000AA";
+const TURNSTILE_TEST_SECRET_KEY = "1x0000000000000000000000000000000AA";
+
 async function verifyTurnstile(token: string | undefined, ip: string) {
   const secret = process.env.TURNSTILE_SECRET_KEY;
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
@@ -76,14 +79,20 @@ async function verifyTurnstile(token: string | undefined, ip: string) {
       { method: "POST", body: formData, signal: AbortSignal.timeout(5_000) },
     );
     const result = (await response.json()) as TurnstileResponse;
+    const isDevelopmentTest =
+      process.env.NODE_ENV !== "production" &&
+      siteKey === TURNSTILE_TEST_SITE_KEY &&
+      secret === TURNSTILE_TEST_SECRET_KEY;
     const expectedHostname = new URL(siteConfig.url).hostname;
 
     return {
       valid:
         response.ok &&
         result.success &&
-        result.action === "contact_form" &&
-        result.hostname === expectedHostname,
+        (isDevelopmentTest
+          ? result.action === "test"
+          : result.action === "contact_form" &&
+            result.hostname === expectedHostname),
     };
   } catch {
     return { valid: false };
