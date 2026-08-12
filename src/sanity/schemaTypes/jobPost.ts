@@ -9,7 +9,12 @@ export const jobPost = defineType({
       name: "title",
       title: "Job title",
       type: "string",
-      validation: (rule) => rule.required(),
+      description: "Also used as the page/search title unless a meta title is set below.",
+      validation: (rule) =>
+        rule
+          .required()
+          .max(70)
+          .warning("Titles over ~60 characters are usually truncated in Google search results."),
     }),
     defineField({
       name: "slug",
@@ -44,7 +49,7 @@ export const jobPost = defineType({
       title: "Summary",
       type: "text",
       rows: 3,
-      description: "One or two sentences shown on the Careers listing page.",
+      description: "One or two sentences shown on the Careers listing page, and in search results unless a meta description is set below.",
       validation: (rule) => rule.required().max(320),
     }),
     defineField({
@@ -64,6 +69,18 @@ export const jobPost = defineType({
       title: "Closing date",
       type: "datetime",
       description: "Optional. Once this date passes, the posting disappears from /careers automatically (but a direct link keeps working).",
+    }),
+    defineField({
+      name: "updatedAt",
+      title: "Updated at",
+      type: "datetime",
+      description:
+        "Leave blank until you actually revise the posting. When set, it replaces \"Posted at\" as the freshness signal search engines see (the sitemap).",
+    }),
+    defineField({
+      name: "seo",
+      title: "SEO & Social",
+      type: "seo",
     }),
     defineField({
       name: "body",

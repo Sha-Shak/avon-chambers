@@ -29,19 +29,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const [insights, jobs] = await Promise.all([getAllInsights(), getAllJobPosts()]);
 
-  const insightPages: MetadataRoute.Sitemap = insights.map((insight) => ({
-    url: `${siteConfig.url}/insights/${insight.slug}`,
-    lastModified: insight.updatedAt ?? insight.publishedAt,
-    changeFrequency: "yearly",
-    priority: 0.6,
-  }));
+  const insightPages: MetadataRoute.Sitemap = insights
+    .filter((insight) => !insight.seo?.noIndex)
+    .map((insight) => ({
+      url: `${siteConfig.url}/insights/${insight.slug}`,
+      lastModified: insight.updatedAt ?? insight.publishedAt,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    }));
 
-  const jobPages: MetadataRoute.Sitemap = jobs.filter(isJobOpen).map((job) => ({
-    url: `${siteConfig.url}/careers/${job.slug}`,
-    lastModified: job.postedAt,
-    changeFrequency: "weekly",
-    priority: 0.5,
-  }));
+  const jobPages: MetadataRoute.Sitemap = jobs
+    .filter(isJobOpen)
+    .filter((job) => !job.seo?.noIndex)
+    .map((job) => ({
+      url: `${siteConfig.url}/careers/${job.slug}`,
+      lastModified: job.updatedAt ?? job.postedAt,
+      changeFrequency: "weekly",
+      priority: 0.5,
+    }));
 
   return [...staticPages, ...practiceAreaPages, ...attorneyPages, ...insightPages, ...jobPages];
 }

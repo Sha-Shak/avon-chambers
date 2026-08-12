@@ -11,7 +11,12 @@ export const insight = defineType({
       name: "title",
       title: "Title",
       type: "string",
-      validation: (rule) => rule.required(),
+      description: "Also used as the page/search title unless a meta title is set below.",
+      validation: (rule) =>
+        rule
+          .required()
+          .max(70)
+          .warning("Titles over ~60 characters are usually truncated in Google search results."),
     }),
     defineField({
       name: "slug",
@@ -33,7 +38,8 @@ export const insight = defineType({
       title: "Excerpt",
       type: "text",
       rows: 3,
-      description: "One or two sentences shown on the Articles listing page and in search results.",
+      description:
+        "One or two sentences shown on the Articles listing page, and in search results unless a meta description is set below.",
       validation: (rule) => rule.required().max(320),
     }),
     defineField({
@@ -70,20 +76,9 @@ export const insight = defineType({
       initialValue: "5 min read",
     }),
     defineField({
-      name: "seoDescription",
-      title: "SEO description",
-      type: "string",
-      description:
-        "Optional. A ~155 character description for search results and social previews. Falls back to the excerpt (which can run longer) when left blank.",
-      validation: (rule) => rule.max(160),
-    }),
-    defineField({
-      name: "keywords",
-      title: "Keywords",
-      type: "array",
-      of: [{ type: "string" }],
-      description: "Optional. A short list of terms this article should be found for.",
-      options: { layout: "tags" },
+      name: "seo",
+      title: "SEO & Social",
+      type: "seo",
     }),
     defineField({
       name: "body",

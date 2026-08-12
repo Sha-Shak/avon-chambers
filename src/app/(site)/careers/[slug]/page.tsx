@@ -7,8 +7,10 @@ import { FadeIn } from "@/components/fade-in";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
+import { mediaConfig } from "@/config/media.config";
 import { getJobPost, getJobPostSlugs } from "@/lib/content";
 import { breadcrumbSchema, jobPostingSchema } from "@/lib/schema";
+import { urlForImage } from "@/sanity/image";
 
 export async function generateStaticParams() {
   const slugs = await getJobPostSlugs();
@@ -24,11 +26,31 @@ export async function generateMetadata({
   const job = await getJobPost(slug);
   if (!job) return { title: "Unavailable", robots: { index: false, follow: false } };
 
+  const title = job.seo?.metaTitle ?? job.title;
+  const description = job.seo?.metaDescription ?? job.summary;
+  const image = job.seo?.ogImage?.asset
+    ? urlForImage(job.seo.ogImage.asset).width(1200).height(630).url()
+    : mediaConfig.og.default.src;
+
   return {
-    title: job.title,
-    description: job.summary,
+    title,
+    description,
+    keywords: job.seo?.keywords,
     alternates: { canonical: `/careers/${job.slug}` },
-    openGraph: { title: `${job.title} — ${siteConfig.name}`, description: job.summary, url: `/careers/${job.slug}` },
+    robots: job.seo?.noIndex ? { index: false, follow: true } : undefined,
+    openGraph: {
+      title: `${title} — ${siteConfig.name}`,
+      description,
+      url: `/careers/${job.slug}`,
+      type: "website",
+      images: [{ url: image }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} — ${siteConfig.name}`,
+      description,
+      images: [image],
+    },
   };
 }
 

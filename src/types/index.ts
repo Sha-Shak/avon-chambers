@@ -82,6 +82,20 @@ export interface CaseStudy {
   summary: string;
 }
 
+/**
+ * Optional overrides for search/social metadata, set on the "SEO & Social"
+ * panel of any Sanity document. Every field is optional — the page always
+ * has a sensible fallback (its own title/excerpt/cover image) — so this is
+ * absent entirely on documents where no one has opened that panel.
+ */
+export interface SeoFields {
+  metaTitle?: string;
+  metaDescription?: string;
+  keywords?: string[];
+  ogImage?: { asset?: { _ref: string }; alt?: string } | null;
+  noIndex?: boolean;
+}
+
 export interface InsightMeta {
   slug: string;
   title: string;
@@ -91,9 +105,7 @@ export interface InsightMeta {
   publishedAt: string; // ISO date
   updatedAt?: string; // ISO date, only set once a post is actually revised
   readingTime: string;
-  /** Optional short description for meta tags; falls back to `excerpt` when absent. */
-  seoDescription?: string;
-  keywords?: string[];
+  seo?: SeoFields;
   coverImage?: { asset?: { _ref: string }; alt?: string } | null;
 }
 
@@ -110,9 +122,11 @@ export interface JobPostMeta {
   location: string;
   type: JobType;
   postedAt: string; // ISO date
+  updatedAt?: string; // ISO date, only set once a posting is actually revised
   closingDate?: string; // ISO date
   summary: string;
   applyEmail: string;
+  seo?: SeoFields;
 }
 
 export interface JobPost extends JobPostMeta {

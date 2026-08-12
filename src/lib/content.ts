@@ -1,6 +1,16 @@
 import { client } from "@/sanity/client";
 import type { Insight, InsightMeta, JobPost, JobPostMeta } from "@/types";
 
+const SEO_FIELDS = `
+  seo{
+    metaTitle,
+    metaDescription,
+    keywords,
+    ogImage,
+    noIndex
+  }
+`;
+
 const INSIGHT_META_FIELDS = `
   "slug": slug.current,
   title,
@@ -10,9 +20,8 @@ const INSIGHT_META_FIELDS = `
   publishedAt,
   updatedAt,
   readingTime,
-  seoDescription,
-  keywords,
-  coverImage
+  coverImage,
+  ${SEO_FIELDS}
 `;
 
 const JOB_META_FIELDS = `
@@ -22,9 +31,11 @@ const JOB_META_FIELDS = `
   location,
   type,
   postedAt,
+  updatedAt,
   closingDate,
   summary,
-  applyEmail
+  applyEmail,
+  ${SEO_FIELDS}
 `;
 
 // ---- Insights (blog) --------------------------------------------------

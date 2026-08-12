@@ -29,18 +29,19 @@ export async function generateMetadata({
   const insight = await getInsight(slug);
   if (!insight) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const description = insight.seoDescription ?? insight.excerpt;
-  const image = insight.coverImage?.asset
-    ? urlForImage(insight.coverImage.asset).width(1200).height(630).url()
-    : mediaConfig.og.default.src;
+  const title = insight.seo?.metaTitle ?? insight.title;
+  const description = insight.seo?.metaDescription ?? insight.excerpt;
+  const ogImageAsset = insight.seo?.ogImage?.asset ?? insight.coverImage?.asset;
+  const image = ogImageAsset ? urlForImage(ogImageAsset).width(1200).height(630).url() : mediaConfig.og.default.src;
 
   return {
-    title: insight.title,
+    title,
     description,
-    keywords: insight.keywords,
+    keywords: insight.seo?.keywords,
     alternates: { canonical: `/insights/${insight.slug}` },
+    robots: insight.seo?.noIndex ? { index: false, follow: true } : undefined,
     openGraph: {
-      title: `${insight.title} — ${siteConfig.name}`,
+      title: `${title} — ${siteConfig.name}`,
       description,
       url: `/insights/${insight.slug}`,
       type: "article",
@@ -50,7 +51,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${insight.title} — ${siteConfig.name}`,
+      title: `${title} — ${siteConfig.name}`,
       description,
       images: [image],
     },
