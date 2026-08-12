@@ -24,13 +24,13 @@ fonts, with no runtime dependency on Google's CDN).
 
 See `.env.example` for the full list with comments. In short:
 
-| Variable | What it's for | Where to get it |
-| --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Your real domain, used to build every absolute URL (metadata, JSON-LD, sitemap, robots.txt, llms.txt) | Your own domain |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Enables Google Analytics 4 | GA4 property → Data Streams |
-| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Connects the site (and the `/studio` admin UI) to your Sanity project | sanity.io/manage |
-| `NEXT_PUBLIC_SANITY_DATASET` | Almost always `production` | sanity.io/manage |
-| `SANITY_API_WRITE_TOKEN` | Only needed once, to run the migration script below. Never expose this client-side. | sanity.io/manage → API → Tokens |
+| Variable                        | What it's for                                                                                         | Where to get it                 |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`          | Your real domain, used to build every absolute URL (metadata, JSON-LD, sitemap, robots.txt, llms.txt) | Your own domain                 |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Enables Google Analytics 4                                                                            | GA4 property → Data Streams     |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Connects the site (and the `/studio` admin UI) to your Sanity project                                 | sanity.io/manage                |
+| `NEXT_PUBLIC_SANITY_DATASET`    | Almost always `production`                                                                            | sanity.io/manage                |
+| `SANITY_API_WRITE_TOKEN`        | Only needed once, to run the migration script below. Never expose this client-side.                   | sanity.io/manage → API → Tokens |
 
 ## Setting up the content management system (Sanity)
 
@@ -70,15 +70,15 @@ don't need a redeploy).
 
 ## Editing content
 
-| To change... | Edit... |
-| --- | --- |
-| A blog post (Insights) | `/studio` in your browser — not a file |
-| A job posting (Careers) | `/studio` in your browser — not a file |
-| An attorney's bio, photo, stats, etc. | `src/data/attorneys.json` |
-| A practice area | `src/data/practice-areas.json` |
-| A case study | `src/data/case-studies.json` |
-| Firm name, address, phone, stats | `src/config/site.config.ts` |
-| Logo, hero image, OG image | `src/config/media.config.ts` |
+| To change...                          | Edit...                                |
+| ------------------------------------- | -------------------------------------- |
+| A blog post (Insights)                | `/studio` in your browser — not a file |
+| A job posting (Careers)               | `/studio` in your browser — not a file |
+| An attorney's bio, photo, stats, etc. | `src/data/attorneys.json`              |
+| A practice area                       | `src/data/practice-areas.json`         |
+| A case study                          | `src/data/case-studies.json`           |
+| Firm name, address, phone, stats      | `src/config/site.config.ts`            |
+| Logo, hero image, OG image            | `src/config/media.config.ts`           |
 
 Attorneys, practice areas, and case studies stayed as JSON files rather
 than moving into Sanity, since you specifically asked for the attorney
@@ -87,7 +87,7 @@ less often than blog posts or job listings, and are cross-referenced with
 each other by slug (an attorney's `practiceAreaSlugs` must match a real
 slug in `practice-areas.json`).
 
-`src/content/` holds the *original* markdown seed files — the app doesn't
+`src/content/` holds the _original_ markdown seed files — the app doesn't
 read them anymore, they exist only as input for the one-time migration
 script. Safe to delete once you've confirmed the migrated content in
 `/studio` looks right.
@@ -103,12 +103,13 @@ than invented:
   to `noindex` until you replace it. These need the firm's own counsel, not
   generated boilerplate — see each `page.tsx` for exactly where the real
   copy goes.
-- **The contact form** validates and logs submissions server-side
-  (`src/app/api/contact/route.ts`) but doesn't send them anywhere yet —
-  wire up a real provider (Resend, Postmark, SES, SMTP) before launch, or
-  submissions only reach your server logs. There's a honeypot field for
-  basic spam filtering already in place; swap in something like Cloudflare
-  Turnstile there if you want stronger protection.
+- **The contact form** delivers submissions through Resend. Set
+  `RESEND_API_KEY` and a Resend-verified `CONTACT_FROM_EMAIL` in the deploy
+  environment; optionally set `CONTACT_TO_EMAIL` to change the recipient
+  (it otherwise uses the address in `src/config/site.config.ts`). The form
+  never claims success until Resend accepts the message. There's a honeypot
+  field for basic spam filtering already in place; swap in something like
+  Cloudflare Turnstile there if you want stronger protection.
 - **Social links** in the footer (LinkedIn, X) point to `#` — add the real
   profile URLs in `src/components/layout/site-footer.tsx`.
 - **OG image**: the default social-share image is generated on the fly from

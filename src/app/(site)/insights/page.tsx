@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
-import { InsightCard } from "@/components/cards/insight-card";
-import { FeaturedInsightCard } from "@/components/cards/featured-insight-card";
+import { InsightsCollection } from "@/components/insights-collection";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
@@ -14,7 +13,11 @@ export const metadata: Metadata = {
   title: "Articles",
   description: DESCRIPTION,
   alternates: { canonical: "/insights" },
-  openGraph: { title: `Articles — ${siteConfig.name}`, description: DESCRIPTION, url: "/insights" },
+  openGraph: {
+    title: `Articles — ${siteConfig.name}`,
+    description: DESCRIPTION,
+    url: "/insights",
+  },
 };
 
 export default async function InsightsPage() {
@@ -33,10 +36,12 @@ export default async function InsightsPage() {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">Notes and analysis</p>
-            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Articles</h1>
+            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">
+              Articles
+            </h1>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Practical writing from the partners at {siteConfig.name} — the questions clients actually ask,
-              answered in the open.
+              Practical writing from the partners at {siteConfig.name} — the
+              questions clients actually ask, answered in the open.
             </p>
           </FadeIn>
         </div>
@@ -44,22 +49,11 @@ export default async function InsightsPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         {insights.length > 0 ? (
-          <>
-            <FadeIn>
-              <FeaturedInsightCard insight={insights[0]} />
-            </FadeIn>
-            {insights.length > 1 && (
-              <div className="mt-16 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
-                {insights.slice(1).map((insight, i) => (
-                  <FadeIn key={insight.slug} delay={i * 60}>
-                    <InsightCard insight={insight} />
-                  </FadeIn>
-                ))}
-              </div>
-            )}
-          </>
+          <InsightsCollection insights={insights} />
         ) : (
-          <p className="max-w-xl text-muted-foreground">New writing is on its way — check back shortly.</p>
+          <p className="max-w-xl text-muted-foreground">
+            New writing is on its way — check back shortly.
+          </p>
         )}
       </section>
 
