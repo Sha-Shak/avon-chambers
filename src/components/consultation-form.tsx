@@ -1,12 +1,14 @@
 "use client";
 
 import { useId, useState, type FormEvent } from "react";
+import Script from "next/script";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
 type Status = "idle" | "submitting" | "success" | "error";
+const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export function ConsultationForm({
   submitLabel = "Request consultation",
@@ -37,20 +39,27 @@ export function ConsultationForm({
           phone: data.get("phone"),
           message: data.get("message"),
           company: data.get("company"), // honeypot
+          turnstileToken: data.get("turnstileToken"),
           attorneySlug,
         }),
       });
 
       if (!response.ok) {
         const payload = await response.json().catch(() => null);
-        throw new Error(payload?.error ?? "Something went wrong. Please try again.");
+        throw new Error(
+          payload?.error ?? "Something went wrong. Please try again.",
+        );
       }
 
       setStatus("success");
       form.reset();
     } catch (err) {
       setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again.",
+      );
     }
   }
 
@@ -59,15 +68,19 @@ export function ConsultationForm({
       <div className="border border-cream/15 p-8">
         <p className="font-serif text-xl text-cream">Request received.</p>
         <p className="mt-3 text-sm leading-relaxed text-cream/70">
-          Thank you — a member of the team will follow up within one business day to schedule your
-          consultation.
+          Thank you — a member of the team will follow up within one business
+          day to schedule your consultation.
         </p>
       </div>
     );
   }
 
   return (
-    <form className="space-y-6 border border-cream/15 p-8" onSubmit={handleSubmit} noValidate>
+    <form
+      className="space-y-6 border border-cream/15 p-8"
+      onSubmit={handleSubmit}
+      noValidate
+    >
       {/* Honeypot field: hidden from real visitors via CSS, so only bots fill it in. */}
       <div className="hidden" aria-hidden="true">
         <label htmlFor={`${idPrefix}-company`}>Company</label>
@@ -94,7 +107,10 @@ export function ConsultationForm({
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor={`${idPrefix}-phone`} className="text-xs text-cream/60">
+          <Label
+            htmlFor={`${idPrefix}-phone`}
+            className="text-xs text-cream/60"
+          >
             Phone
           </Label>
           <Input
@@ -120,7 +136,10 @@ export function ConsultationForm({
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor={`${idPrefix}-message`} className="text-xs text-cream/60">
+        <Label
+          htmlFor={`${idPrefix}-message`}
+          className="text-xs text-cream/60"
+        >
           How can we help?
         </Label>
         <Textarea
@@ -131,6 +150,22 @@ export function ConsultationForm({
           placeholder="A short summary of your matter."
         />
       </div>
+
+      {turnstileSiteKey && (
+        <>
+          <Script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            strategy="afterInteractive"
+          />
+          <div
+            className="cf-turnstile"
+            data-sitekey={turnstileSiteKey}
+            data-action="contact_form"
+            data-response-field-name="turnstileToken"
+            data-theme="auto"
+          />
+        </>
+      )}
 
       {status === "error" && errorMessage && (
         <p role="alert" className="text-sm text-red-300">

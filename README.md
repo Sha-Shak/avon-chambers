@@ -24,13 +24,15 @@ fonts, with no runtime dependency on Google's CDN).
 
 See `.env.example` for the full list with comments. In short:
 
-| Variable                        | What it's for                                                                                         | Where to get it                 |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`          | Your real domain, used to build every absolute URL (metadata, JSON-LD, sitemap, robots.txt, llms.txt) | Your own domain                 |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Enables Google Analytics 4                                                                            | GA4 property → Data Streams     |
-| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Connects the site (and the `/studio` admin UI) to your Sanity project                                 | sanity.io/manage                |
-| `NEXT_PUBLIC_SANITY_DATASET`    | Almost always `production`                                                                            | sanity.io/manage                |
-| `SANITY_API_WRITE_TOKEN`        | Only needed once, to run the migration script below. Never expose this client-side.                   | sanity.io/manage → API → Tokens |
+| Variable                         | What it's for                                                                                         | Where to get it                 |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`           | Your real domain, used to build every absolute URL (metadata, JSON-LD, sitemap, robots.txt, llms.txt) | Your own domain                 |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID`  | Enables Google Analytics 4                                                                            | GA4 property → Data Streams     |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID`  | Connects the site (and the `/studio` admin UI) to your Sanity project                                 | sanity.io/manage                |
+| `NEXT_PUBLIC_SANITY_DATASET`     | Almost always `production`                                                                            | sanity.io/manage                |
+| `SANITY_API_WRITE_TOKEN`         | Only needed once, to run the migration script below. Never expose this client-side.                   | sanity.io/manage → API → Tokens |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Public key that displays Cloudflare Turnstile on the contact form.                                    | Cloudflare Turnstile dashboard  |
+| `TURNSTILE_SECRET_KEY`           | Private key that verifies each Turnstile response on the server.                                      | Cloudflare Turnstile dashboard  |
 
 ## Setting up the content management system (Sanity)
 
@@ -107,9 +109,11 @@ than invented:
   `RESEND_API_KEY` and a Resend-verified `CONTACT_FROM_EMAIL` in the deploy
   environment; optionally set `CONTACT_TO_EMAIL` to change the recipient
   (it otherwise uses the address in `src/config/site.config.ts`). The form
-  never claims success until Resend accepts the message. There's a honeypot
-  field for basic spam filtering already in place; swap in something like
-  Cloudflare Turnstile there if you want stronger protection.
+  never claims success until Resend accepts the message. It limits each IP to
+  five requests per 15 minutes and includes a honeypot. For production, create
+  a Cloudflare Turnstile widget for the site's hostname and set both Turnstile
+  environment variables above; the server verifies every token before sending
+  email.
 - **Social links** in the footer (LinkedIn, X) point to `#` — add the real
   profile URLs in `src/components/layout/site-footer.tsx`.
 - **OG image**: the default social-share image is generated on the fly from
