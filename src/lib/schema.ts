@@ -1,5 +1,6 @@
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
+import { urlForImage } from "@/sanity/image";
 import type { Attorney, CaseStudy, Insight, JobPost, PracticeArea } from "@/types";
 
 const abs = (pathname: string) => `${siteConfig.url}${pathname}`;
@@ -112,16 +113,32 @@ export function caseStudySchema(study: CaseStudy) {
   };
 }
 
-export function insightSchema(insight: Insight, authorName: string) {
+/** Rough word count from Portable Text blocks, for the BlogPosting `wordCount` field. */
+function wordCount(body: Insight["body"]) {
+  const text = body
+    .filter((block) => block._type === "block")
+    .flatMap((block) => (block.children ?? []).map((child) => child.text ?? ""))
+    .join(" ");
+  return text.split(/\s+/).filter(Boolean).length;
+}
+
+export function insightSchema(insight: Insight, author?: { name: string; url?: string }) {
+  const authorName = author?.name ?? siteConfig.name;
+  const image = insight.coverImage?.asset ? urlForImage(insight.coverImage.asset).width(1600).url() : undefined;
+
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: insight.title,
-    description: insight.excerpt,
+    description: insight.seoDescription ?? insight.excerpt,
+    image,
+    articleSection: insight.category,
+    keywords: insight.keywords?.length ? insight.keywords.join(", ") : undefined,
+    wordCount: wordCount(insight.body),
     datePublished: insight.publishedAt,
-    dateModified: insight.publishedAt,
+    dateModified: insight.updatedAt ?? insight.publishedAt,
     url: abs(`/insights/${insight.slug}`),
-    author: { "@type": "Person", name: authorName },
+    author: author?.url ? { "@type": "Person", name: authorName, url: author.url } : { "@type": "Person", name: authorName },
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,

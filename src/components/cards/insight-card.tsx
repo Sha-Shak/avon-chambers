@@ -43,24 +43,24 @@ export function InsightCard({ insight }: { insight: InsightMeta }) {
         )}
       </div>
       <div className="flex flex-1 flex-col p-8">
-        <div className="flex items-center gap-3 text-xs text-slate">
-          <span className="tracking-[0.12em] text-navy uppercase">{insight.category}</span>
+        <div className="flex items-center gap-3 text-xs text-muted-foreground">
+          <span className="tracking-[0.12em] text-foreground uppercase">{insight.category}</span>
           <span aria-hidden>·</span>
           <span>{formatDate(insight.publishedAt)}</span>
         </div>
-        <h3 className="mt-6 text-xl leading-snug text-navy">
+        <h3 className="mt-6 text-xl leading-snug text-foreground">
           <Link href={`/insights/${insight.slug}`} className="hover:underline">
             {insight.title}
           </Link>
         </h3>
-        <p className="mt-4 text-sm leading-relaxed text-slate">{insight.excerpt}</p>
-        <div className="mt-6 flex items-center justify-between text-xs text-slate">
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{insight.excerpt}</p>
+        <div className="mt-6 flex items-center justify-between text-xs text-muted-foreground">
           <span>{author ? author.name : "Avon Chambers"}</span>
           <span>{insight.readingTime}</span>
         </div>
         <Link
           href={`/insights/${insight.slug}`}
-          className="mt-6 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-navy uppercase"
+          className="mt-6 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
         >
           Read article <ArrowRight className="size-3.5" />
         </Link>

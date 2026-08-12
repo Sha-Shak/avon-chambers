@@ -56,18 +56,18 @@ export default async function JobDetailPage({
         ])}
       />
 
-      <section className="border-b border-navy/10">
+      <section className="border-b border-foreground/10">
         <div className="mx-auto max-w-3xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn>
             <Link
               href="/careers"
-              className="inline-flex items-center gap-2 text-[0.6875rem] tracking-[0.2em] text-slate uppercase hover:text-navy"
+              className="inline-flex items-center gap-2 text-[0.6875rem] tracking-[0.2em] text-muted-foreground uppercase hover:text-foreground"
             >
               <ArrowLeft className="size-3.5" /> All roles
             </Link>
             <p className="eyebrow mt-8">{job.department}</p>
-            <h1 className="mt-4 text-4xl leading-[1.1] text-navy sm:text-5xl">{job.title}</h1>
-            <div className="mt-6 flex flex-wrap items-center gap-5 text-sm text-slate">
+            <h1 className="mt-4 text-4xl leading-[1.1] text-foreground sm:text-5xl">{job.title}</h1>
+            <div className="mt-6 flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="size-4" strokeWidth={1.5} /> {job.location}
               </span>
@@ -84,10 +84,10 @@ export default async function JobDetailPage({
         <div className="prose-insight prose">
           <PortableText value={job.body} />
         </div>
-        <FadeIn delay={80} className="mt-12 border-t border-navy/15 pt-8">
-          <p className="text-sm text-slate">
+        <FadeIn delay={80} className="mt-12 border-t border-foreground/15 pt-8">
+          <p className="text-sm text-muted-foreground">
             Apply by emailing{" "}
-            <a href={`mailto:${job.applyEmail}?subject=${encodeURIComponent(job.title)}`} className="text-navy hover:underline">
+            <a href={`mailto:${job.applyEmail}?subject=${encodeURIComponent(job.title)}`} className="text-foreground hover:underline">
               {job.applyEmail}
             </a>{" "}
             directly — no account, portal or CV upload required.

@@ -28,12 +28,12 @@ export default function CaseStudiesPage() {
         ])}
       />
 
-      <section className="border-b border-navy/10">
+      <section className="border-b border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">Selected outcomes</p>
-            <h1 className="mt-4 text-4xl text-navy sm:text-5xl">Case Studies</h1>
-            <p className="mt-6 text-base leading-relaxed text-slate">
+            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Case Studies</h1>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
               A sample of matters we&rsquo;ve resolved for clients, described at the level of detail our
               confidentiality obligations allow. Each links back to the practice area and, where public, the
               partner who led it.
@@ -50,7 +50,7 @@ export default function CaseStudiesPage() {
             </FadeIn>
           ))}
         </div>
-        <p className="mt-10 text-xs text-slate">Prior results do not guarantee a similar outcome.</p>
+        <p className="mt-10 text-xs text-muted-foreground">Prior results do not guarantee a similar outcome.</p>
       </section>
 
       <ConsultationSection

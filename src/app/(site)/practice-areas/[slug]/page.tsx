@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
@@ -68,6 +69,17 @@ export default async function PracticeAreaDetailPage({
         ])}
       />
 
+      <div className="relative aspect-21/9 w-full overflow-hidden">
+        <Image
+          src={area.image.src}
+          alt={area.image.alt}
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+      </div>
+
       <section className="bg-navy text-cream">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn className="max-w-3xl">
@@ -86,15 +98,15 @@ export default async function PracticeAreaDetailPage({
         </div>
       </section>
 
-      <section className="border-b border-navy/10">
+      <section className="border-b border-foreground/10">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[0.35fr_0.65fr] lg:px-10 lg:py-28">
           <FadeIn>
             <p className="eyebrow">Overview</p>
-            <h2 className="mt-5 text-2xl text-navy sm:text-3xl">What we handle</h2>
+            <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">What we handle</h2>
           </FadeIn>
           <FadeIn delay={80} className="space-y-6">
             {area.overview.map((p) => (
-              <p key={p.slice(0, 24)} className="text-base leading-relaxed text-slate">
+              <p key={p.slice(0, 24)} className="text-base leading-relaxed text-muted-foreground">
                 {p}
               </p>
             ))}
@@ -102,18 +114,18 @@ export default async function PracticeAreaDetailPage({
         </div>
       </section>
 
-      <section className="border-b border-navy/10 bg-secondary/50">
+      <section className="border-b border-foreground/10 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">How we help</p>
-            <h2 className="mt-5 text-3xl text-navy sm:text-4xl">Services within {area.title}</h2>
+            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Services within {area.title}</h2>
           </FadeIn>
           <div className="mt-14 grid gap-8 sm:grid-cols-2">
             {area.services.map((s, i) => (
-              <FadeIn key={s.title} delay={i * 60} className="border-t border-navy/20 pt-6">
-                <span className="font-serif text-sm text-slate">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-xl text-navy">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate">{s.copy}</p>
+              <FadeIn key={s.title} delay={i * 60} className="border-t border-foreground/20 pt-6">
+                <span className="font-serif text-sm text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 text-xl text-foreground">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
               </FadeIn>
             ))}
           </div>
@@ -124,16 +136,16 @@ export default async function PracticeAreaDetailPage({
         <div className="grid gap-12 lg:grid-cols-[0.35fr_0.65fr]">
           <FadeIn>
             <p className="eyebrow">Common questions</p>
-            <h2 className="mt-5 text-2xl text-navy sm:text-3xl">What clients ask before engaging us</h2>
+            <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">What clients ask before engaging us</h2>
           </FadeIn>
           <FadeIn delay={80}>
-            <Accordion type="single" collapsible className="border-t border-navy/15">
+            <Accordion type="single" collapsible className="border-t border-foreground/15">
               {area.faqs.map((f, i) => (
-                <AccordionItem key={f.q} value={`item-${i}`} className="border-b border-navy/15">
-                  <AccordionTrigger className="py-6 text-left text-base text-navy hover:no-underline">
+                <AccordionItem key={f.q} value={`item-${i}`} className="border-b border-foreground/15">
+                  <AccordionTrigger className="py-6 text-left text-base text-foreground hover:no-underline">
                     {f.q}
                   </AccordionTrigger>
-                  <AccordionContent className="pb-6 text-sm leading-relaxed text-slate">{f.a}</AccordionContent>
+                  <AccordionContent className="pb-6 text-sm leading-relaxed text-muted-foreground">{f.a}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
@@ -142,11 +154,11 @@ export default async function PracticeAreaDetailPage({
       </section>
 
       {relatedAttorneys.length > 0 && (
-        <section className="border-y border-navy/10 bg-secondary/50">
+        <section className="border-y border-foreground/10 bg-secondary/50">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
             <FadeIn className="max-w-2xl">
               <p className="eyebrow">The team</p>
-              <h2 className="mt-5 text-3xl text-navy sm:text-4xl">Attorneys in this practice</h2>
+              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Attorneys in this practice</h2>
             </FadeIn>
             <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {relatedAttorneys.map((a, i) => (
@@ -164,11 +176,11 @@ export default async function PracticeAreaDetailPage({
           <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
             <div className="max-w-2xl">
               <p className="eyebrow">Selected outcomes</p>
-              <h2 className="mt-5 text-3xl text-navy sm:text-4xl">Related case studies</h2>
+              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Related case studies</h2>
             </div>
             <Link
               href="/case-studies"
-              className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-navy uppercase"
+              className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
             >
               All case studies <ArrowUpRight className="size-4" />
             </Link>

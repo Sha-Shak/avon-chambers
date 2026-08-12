@@ -5,9 +5,11 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { ArrowLeft } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
+import { InsightCard } from "@/components/cards/insight-card";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
+import { mediaConfig } from "@/config/media.config";
 import { getAttorney } from "@/lib/data";
 import { getAllInsights, getInsight, getInsightSlugs } from "@/lib/content";
 import { breadcrumbSchema, insightSchema } from "@/lib/schema";
@@ -27,16 +29,30 @@ export async function generateMetadata({
   const insight = await getInsight(slug);
   if (!insight) return { title: "Unavailable", robots: { index: false, follow: false } };
 
+  const description = insight.seoDescription ?? insight.excerpt;
+  const image = insight.coverImage?.asset
+    ? urlForImage(insight.coverImage.asset).width(1200).height(630).url()
+    : mediaConfig.og.default.src;
+
   return {
     title: insight.title,
-    description: insight.excerpt,
+    description,
+    keywords: insight.keywords,
     alternates: { canonical: `/insights/${insight.slug}` },
     openGraph: {
       title: `${insight.title} — ${siteConfig.name}`,
-      description: insight.excerpt,
+      description,
       url: `/insights/${insight.slug}`,
       type: "article",
       publishedTime: insight.publishedAt,
+      modifiedTime: insight.updatedAt ?? insight.publishedAt,
+      images: [{ url: image }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${insight.title} — ${siteConfig.name}`,
+      description,
+      images: [image],
     },
   };
 }
@@ -59,7 +75,12 @@ export default async function InsightDetailPage({
 
   return (
     <div>
-      <JsonLd data={insightSchema(insight, author?.name ?? siteConfig.name)} />
+      <JsonLd
+        data={insightSchema(
+          insight,
+          author ? { name: author.name, url: `${siteConfig.url}/attorneys/${author.slug}` } : undefined,
+        )}
+      />
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
@@ -69,31 +90,31 @@ export default async function InsightDetailPage({
       />
 
       <article>
-        <section className="border-b border-navy/10">
+        <section className="border-b border-foreground/10">
           <div className="mx-auto max-w-3xl px-6 py-20 lg:px-10 lg:py-28">
             <FadeIn>
               <Link
                 href="/insights"
-                className="inline-flex items-center gap-2 text-[0.6875rem] tracking-[0.2em] text-slate uppercase hover:text-navy"
+                className="inline-flex items-center gap-2 text-[0.6875rem] tracking-[0.2em] text-muted-foreground uppercase hover:text-foreground"
               >
                 <ArrowLeft className="size-3.5" /> All articles
               </Link>
-              <div className="mt-8 flex items-center gap-3 text-xs text-slate">
-                <span className="tracking-[0.12em] text-navy uppercase">{insight.category}</span>
+              <div className="mt-8 flex items-center gap-3 text-xs text-muted-foreground">
+                <span className="tracking-[0.12em] text-foreground uppercase">{insight.category}</span>
                 <span aria-hidden>·</span>
-                <span>{formatDate(insight.publishedAt)}</span>
+                <time dateTime={insight.publishedAt}>{formatDate(insight.publishedAt)}</time>
                 <span aria-hidden>·</span>
                 <span>{insight.readingTime}</span>
               </div>
-              <h1 className="mt-6 text-4xl leading-[1.12] text-navy sm:text-5xl">{insight.title}</h1>
-              <p className="mt-6 text-base leading-relaxed text-slate">{insight.excerpt}</p>
+              <h1 className="mt-6 text-4xl leading-[1.12] text-foreground sm:text-5xl">{insight.title}</h1>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground">{insight.excerpt}</p>
               {author && (
                 <Link
                   href={`/attorneys/${author.slug}`}
-                  className="mt-8 inline-flex items-center gap-3 border-t border-navy/10 pt-6 hover:opacity-80"
+                  className="mt-8 inline-flex items-center gap-3 border-t border-foreground/10 pt-6 hover:opacity-80"
                 >
-                  <span className="text-sm text-navy">{author.name}</span>
-                  <span className="text-xs text-slate">{author.title}</span>
+                  <span className="text-sm text-foreground">{author.name}</span>
+                  <span className="text-xs text-muted-foreground">{author.title}</span>
                 </Link>
               )}
             </FadeIn>
@@ -123,18 +144,17 @@ export default async function InsightDetailPage({
       </article>
 
       {morePosts.length > 0 && (
-        <section className="border-t border-navy/10 bg-secondary/50">
+        <section className="border-t border-foreground/10 bg-secondary/50">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
             <FadeIn className="max-w-2xl">
               <p className="eyebrow">Keep reading</p>
-              <h2 className="mt-5 text-3xl text-navy sm:text-4xl">More from the firm</h2>
+              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">More from the firm</h2>
             </FadeIn>
-            <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {morePosts.map((post) => (
-                <Link key={post.slug} href={`/insights/${post.slug}`} className="block bg-card p-8 hover:bg-secondary/70">
-                  <p className="eyebrow">{post.category}</p>
-                  <h3 className="mt-4 text-lg text-navy">{post.title}</h3>
-                </Link>
+            <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
+              {morePosts.map((post, i) => (
+                <FadeIn key={post.slug} delay={i * 60}>
+                  <InsightCard insight={post} />
+                </FadeIn>
               ))}
             </div>
           </div>

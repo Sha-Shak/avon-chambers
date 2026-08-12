@@ -8,11 +8,14 @@ export function FadeIn({
   className,
   delay = 0,
   as: Tag = "div",
+  variant = "up",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   as?: ElementType;
+  /** Direction the content settles in from. Defaults to "up", the idiom used across most of the site. */
+  variant?: "up" | "left" | "right";
 }) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
@@ -55,7 +58,7 @@ export function FadeIn({
       ref={ref as never}
       data-visible={visible}
       style={{ transitionDelay: `${delay}ms` }}
-      className={cn("fade-up", className)}
+      className={cn(`fade-${variant}`, className)}
     >
       {children}
     </Tag>

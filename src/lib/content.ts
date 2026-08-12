@@ -8,7 +8,10 @@ const INSIGHT_META_FIELDS = `
   excerpt,
   authorSlug,
   publishedAt,
+  updatedAt,
   readingTime,
+  seoDescription,
+  keywords,
   coverImage
 `;
 

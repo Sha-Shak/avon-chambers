@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 import { ConsultationForm } from "@/components/consultation-form";
+import { SocialLinks } from "@/components/social-links";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -25,12 +26,12 @@ export default function ContactPage() {
         ])}
       />
 
-      <section className="border-b border-navy/10">
+      <section className="border-b border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">Speak with counsel</p>
-            <h1 className="mt-4 text-4xl text-navy sm:text-5xl">Contact</h1>
-            <p className="mt-6 text-base leading-relaxed text-slate">
+            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Contact</h1>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
               Every enquiry is read by a partner, not routed through an intake queue. Call, email, or use the
               form below to request a confidential consultation.
             </p>
@@ -42,31 +43,31 @@ export default function ContactPage() {
         <div className="grid gap-16 lg:grid-cols-[0.45fr_0.55fr]">
           <FadeIn className="space-y-10">
             <div className="flex gap-4">
-              <Phone className="mt-0.5 size-5 shrink-0 text-slate" strokeWidth={1.5} />
+              <Phone className="mt-0.5 size-5 shrink-0 text-muted-foreground" strokeWidth={1.5} />
               <div>
                 <p className="eyebrow">Direct line</p>
                 <a
                   href={`tel:${siteConfig.consultationPhoneE164}`}
-                  className="mt-2 block text-lg text-navy hover:underline"
+                  className="mt-2 block text-lg text-foreground hover:underline"
                 >
                   {siteConfig.consultationPhoneDisplay}
                 </a>
               </div>
             </div>
             <div className="flex gap-4">
-              <Mail className="mt-0.5 size-5 shrink-0 text-slate" strokeWidth={1.5} />
+              <Mail className="mt-0.5 size-5 shrink-0 text-muted-foreground" strokeWidth={1.5} />
               <div>
                 <p className="eyebrow">Email</p>
-                <a href={`mailto:${siteConfig.email}`} className="mt-2 block text-lg text-navy hover:underline">
+                <a href={`mailto:${siteConfig.email}`} className="mt-2 block text-lg text-foreground hover:underline">
                   {siteConfig.email}
                 </a>
               </div>
             </div>
             <div className="flex gap-4">
-              <MapPin className="mt-0.5 size-5 shrink-0 text-slate" strokeWidth={1.5} />
+              <MapPin className="mt-0.5 size-5 shrink-0 text-muted-foreground" strokeWidth={1.5} />
               <div>
                 <p className="eyebrow">Office</p>
-                <p className="mt-2 text-base leading-relaxed text-navy">
+                <p className="mt-2 text-base leading-relaxed text-foreground">
                   {siteConfig.address.streetAddress}
                   <br />
                   {siteConfig.address.addressLocality}, {siteConfig.address.addressRegion}{" "}
@@ -75,16 +76,20 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <Clock className="mt-0.5 size-5 shrink-0 text-slate" strokeWidth={1.5} />
+              <Clock className="mt-0.5 size-5 shrink-0 text-muted-foreground" strokeWidth={1.5} />
               <div>
                 <p className="eyebrow">Hours</p>
-                <p className="mt-2 text-base leading-relaxed text-navy">{siteConfig.officeHours}</p>
+                <p className="mt-2 text-base leading-relaxed text-foreground">{siteConfig.officeHours}</p>
               </div>
             </div>
-            <p className="max-w-sm text-xs leading-relaxed text-slate">
+            <p className="max-w-sm text-xs leading-relaxed text-muted-foreground">
               Everything you send is treated as privileged and confidential, whether or not we go on to
               represent you.
             </p>
+            <div>
+              <p className="eyebrow">Follow us</p>
+              <SocialLinks variant="light" className="mt-4" />
+            </div>
           </FadeIn>
 
           <FadeIn delay={100}>

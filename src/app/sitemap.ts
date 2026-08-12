@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const insightPages: MetadataRoute.Sitemap = insights.map((insight) => ({
     url: `${siteConfig.url}/insights/${insight.slug}`,
-    lastModified: insight.publishedAt,
+    lastModified: insight.updatedAt ?? insight.publishedAt,
     changeFrequency: "yearly",
     priority: 0.6,
   }));

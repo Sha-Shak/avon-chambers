@@ -99,6 +99,33 @@
   --ring: oklch(0.256 0.055 262.5);
 }
 
+/*
+ * Dark mode overrides.
+ *
+ * Only the semantic/role tokens are redefined here (background, foreground,
+ * card, secondary, muted, accent, border, input, ring) — the brand tokens
+ * (--navy, --cream, --gold, --slate) stay constant on purpose, so sections
+ * that are deliberately always-dark (the footer, CTA bands, hero bands)
+ * keep looking the same in both themes instead of "double-inverting".
+ */
+:root.dark {
+  --background: oklch(0.17 0.02 262.5);
+  --foreground: oklch(0.95 0.01 85);
+  --card: oklch(0.21 0.022 262.5);
+  --card-foreground: oklch(0.95 0.01 85);
+  --popover: oklch(0.21 0.022 262.5);
+  --popover-foreground: oklch(0.95 0.01 85);
+  --secondary: oklch(0.26 0.025 262.5);
+  --secondary-foreground: oklch(0.95 0.01 85);
+  --muted: oklch(0.26 0.025 262.5);
+  --muted-foreground: oklch(0.68 0.02 262.5);
+  --accent: oklch(0.26 0.025 262.5);
+  --accent-foreground: oklch(0.95 0.01 85);
+  --border: oklch(0.32 0.025 262.5);
+  --input: oklch(0.32 0.025 262.5);
+  --ring: oklch(0.75 0.03 262.5);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -125,7 +152,7 @@
   font-size: 0.6875rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--muted-foreground);
 }
 
 @utility fade-up {
@@ -147,11 +174,60 @@
   }
 }
 
+/* Same easing/timing as fade-up, entering from the side instead — used sparingly for variety. */
+@utility fade-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@utility fade-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Fades the hero's text panel out at its own edges, so the glass dissolves
+   into the photo instead of reading as a box pasted on top of it. Applies
+   to both the tint/blur (which sit behind, and share this mask) and the
+   panel's own edge — the "solid" zone in the middle is generous enough
+   that the text and buttons never sit in the faded band. */
+@utility hero-panel-blend {
+  mask-image: radial-gradient(ellipse 78% 72% at center, black 45%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 78% 72% at center, black 45%, transparent 100%);
+}
+
 @utility prose-insight {
-  --tw-prose-body: var(--slate);
-  --tw-prose-headings: var(--navy);
-  --tw-prose-bold: var(--navy);
-  --tw-prose-links: var(--navy);
+  --tw-prose-body: var(--muted-foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-links: var(--foreground);
   --tw-prose-bullets: var(--gold);
   max-width: 65ch;
 }

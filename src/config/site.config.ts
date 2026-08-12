@@ -31,12 +31,25 @@ export const siteConfig = {
     postalCode: "1209",
     addressCountry: "Bangladesh",
   },
+  /**
+   * Social profile links, shown in the footer, contact page and the
+   * consultation CTA, and fed into the Organization JSON-LD `sameAs` list.
+   * These are placeholder handles — swap in the firm's real profile URLs
+   * whenever they're created; nothing else needs to change.
+   */
   social: {
-    linkedIn: "",
-    facebook: "",
-    instagram: "",
-    youtube: "",
-    twitter: "",
+    linkedIn: "https://www.linkedin.com/company/avon-chambers",
+    facebook: "https://www.facebook.com/avonchambers",
+    instagram: "https://www.instagram.com/avonchambers",
+    twitter: "https://x.com/avonchambers",
+    threads: "https://www.threads.net/@avonchambers",
+    youtube: "https://www.youtube.com/@avonchambers",
+    tiktok: "https://www.tiktok.com/@avonchambers",
+  },
+  /** WhatsApp click-to-chat, used by the floating WhatsApp button on every page. */
+  whatsapp: {
+    number: "+8801521327783",
+    message: "Hello Avon Chambers, I'd like to book a consultation.",
   },
   /**
    * Editorial firm-wide figures used in marketing copy (About, Practice

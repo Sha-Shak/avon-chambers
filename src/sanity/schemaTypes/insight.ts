@@ -56,11 +56,34 @@ export const insight = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "updatedAt",
+      title: "Updated at",
+      type: "datetime",
+      description:
+        "Leave blank until you actually revise the post. When set, it replaces \"Published at\" as the freshness signal search engines see (JSON-LD dateModified and the sitemap).",
+    }),
+    defineField({
       name: "readingTime",
       title: "Reading time",
       type: "string",
       description: "Shown next to the date, e.g. \"6 min read\".",
       initialValue: "5 min read",
+    }),
+    defineField({
+      name: "seoDescription",
+      title: "SEO description",
+      type: "string",
+      description:
+        "Optional. A ~155 character description for search results and social previews. Falls back to the excerpt (which can run longer) when left blank.",
+      validation: (rule) => rule.max(160),
+    }),
+    defineField({
+      name: "keywords",
+      title: "Keywords",
+      type: "array",
+      of: [{ type: "string" }],
+      description: "Optional. A short list of terms this article should be found for.",
+      options: { layout: "tags" },
     }),
     defineField({
       name: "body",

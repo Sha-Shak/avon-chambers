@@ -25,11 +25,39 @@ export const mediaConfig = {
     favicon: "/favicon.png",
   },
   hero: {
-    home: {
-      src: "/images/hero-office.jpg",
-      alt: "Attorneys of Avon Chambers in conference with a client",
-      width: 1600,
-      height: 1104,
+    /**
+     * Homepage hero slideshow — one image per narrative beat (branding,
+     * track record, practice areas); see `heroContent` in the homepage for
+     * the matching copy. The firm's own photo leads, followed by placeholder
+     * stock photography (hotlinked from Unsplash) — swap any entry for real
+     * firm photography later; nothing else needs to change.
+     */
+    homeSlides: [
+      {
+        src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1786546841/avon-chambers-office.png",
+        alt: "Attorneys of Avon Chambers in conference with a client",
+      },
+      {
+        src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1786545610/Stack_of_Law_Books.jpg",
+        alt: "Avon Chambers Office",
+      },
+      {
+        src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1786546383/avon-chambers-office-02.jpg",
+        alt: "Avon Chambers Office",
+      },
+    ],
+    /** How long each hero slide stays on screen before advancing, in milliseconds. */
+    sliderIntervalMs: 6000,
+  },
+  /**
+   * Law/court-themed accent photography for section backgrounds (e.g. the
+   * homepage "Why Avon Chambers" band). Placeholder Unsplash photography —
+   * swap for real firm photography later.
+   */
+  accents: {
+    whyAvonChambers: {
+      src: "https://images.unsplash.com/photo-1483600516620-7254872369ae?w=1920&auto=format&fit=crop&q=80",
+      alt: "Looking up at courthouse columns and ceiling detail",
     },
   },
   /** Fallback used when an attorney record has no working photo. */
@@ -39,12 +67,17 @@ export const mediaConfig = {
     width: 700,
     height: 800,
   },
-  /** Default Open Graph / Twitter card image for pages without a more specific one. */
+  /**
+   * Default Open Graph / Twitter card image for pages without a more
+   * specific one (e.g. an insight's own cover image). Points at the hero
+   * photo until a dedicated 1200x630 OG image is supplied — drop one in
+   * at /public/images/og/default.jpg and update the path here.
+   */
   og: {
     default: {
-      src: "/images/og/default.jpg",
-      width: 1200,
-      height: 630,
+      src: "/images/hero-office.jpg",
+      width: 1600,
+      height: 1104,
     },
   },
 } as const;

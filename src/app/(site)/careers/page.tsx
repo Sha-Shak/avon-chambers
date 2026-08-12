@@ -27,12 +27,12 @@ export default async function CareersPage() {
         ])}
       />
 
-      <section className="border-b border-navy/10">
+      <section className="border-b border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">Careers</p>
-            <h1 className="mt-4 text-4xl text-navy sm:text-5xl">Work at {siteConfig.name}</h1>
-            <p className="mt-6 text-base leading-relaxed text-slate">
+            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Work at {siteConfig.name}</h1>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
               We stay small on purpose, so every hire matters. Below are the roles we&rsquo;re actively
               filling — apply directly by email, no account or portal required.
             </p>
@@ -48,10 +48,10 @@ export default async function CareersPage() {
             ))}
           </div>
         ) : (
-          <p className="max-w-xl border-t border-navy/15 pt-8 text-slate">
+          <p className="max-w-xl border-t border-foreground/15 pt-8 text-muted-foreground">
             We don&apos;t have any open roles right now, but we&rsquo;re always glad to hear from strong
             candidates. Send a note to{" "}
-            <a href={`mailto:${siteConfig.email}`} className="text-navy hover:underline">
+            <a href={`mailto:${siteConfig.email}`} className="text-foreground hover:underline">
               {siteConfig.email}
             </a>
             .

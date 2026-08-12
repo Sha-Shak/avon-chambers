@@ -50,6 +50,11 @@ export interface PracticeAreaFaq {
   a: string;
 }
 
+export interface PracticeAreaImage {
+  src: string;
+  alt: string;
+}
+
 export interface PracticeArea {
   slug: string;
   title: string;
@@ -57,6 +62,8 @@ export interface PracticeArea {
   icon: string;
   copy: string;
   valueProp: string;
+  /** Representative photo shown on the practice area card and detail hero. */
+  image: PracticeAreaImage;
   overview: string[];
   services: PracticeAreaService[];
   faqs: PracticeAreaFaq[];
@@ -82,7 +89,11 @@ export interface InsightMeta {
   excerpt: string;
   authorSlug?: string;
   publishedAt: string; // ISO date
+  updatedAt?: string; // ISO date, only set once a post is actually revised
   readingTime: string;
+  /** Optional short description for meta tags; falls back to `excerpt` when absent. */
+  seoDescription?: string;
+  keywords?: string[];
   coverImage?: { asset?: { _ref: string }; alt?: string } | null;
 }
 

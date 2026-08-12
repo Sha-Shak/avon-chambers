@@ -15,10 +15,10 @@ export function AttorneyCard({ attorney }: { attorney: Attorney }) {
           className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
         />
       </div>
-      <h3 className="mt-5 text-lg text-navy">{attorney.name}</h3>
-      <p className="mt-1 text-sm text-slate">{attorney.title}</p>
-      <p className="mt-3 text-xs tracking-[0.12em] text-navy uppercase">{attorney.area}</p>
-      <span className="mt-4 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-navy uppercase">
+      <h3 className="mt-5 text-lg text-foreground">{attorney.name}</h3>
+      <p className="mt-1 text-sm text-muted-foreground">{attorney.title}</p>
+      <p className="mt-3 text-xs tracking-[0.12em] text-foreground uppercase">{attorney.area}</p>
+      <span className="mt-4 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase">
         View profile
         <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
       </span>

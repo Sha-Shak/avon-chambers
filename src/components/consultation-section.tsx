@@ -1,6 +1,7 @@
 import { Lock, MapPin, Phone } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 import { ConsultationForm } from "@/components/consultation-form";
+import { SocialLinks } from "@/components/social-links";
 import { siteConfig } from "@/config/site.config";
 
 export function ConsultationSection({
@@ -69,6 +70,7 @@ export function ConsultationSection({
               </div>
             </div>
           </dl>
+          <SocialLinks variant="dark" className="mt-8" />
         </FadeIn>
 
         <FadeIn delay={100}>

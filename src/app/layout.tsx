@@ -1,4 +1,5 @@
 import { Inter, Playfair_Display } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -16,8 +17,12 @@ const inter = Inter({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

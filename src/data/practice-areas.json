@@ -3,6 +3,10 @@
     "slug": "corporate-law",
     "title": "Corporate Law",
     "icon": "Building2",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?w=1200&auto=format&fit=crop&q=80",
+      "alt": "A modern office boardroom"
+    },
     "copy": "Formation, financings, governance and exits — structured so the deal survives scrutiny.",
     "valueProp": "Transactional counsel for companies between $5M and $150M, led by the partner who negotiates the deal.",
     "overview": [
@@ -57,6 +61,10 @@
     "slug": "litigation",
     "title": "Litigation",
     "icon": "Scale",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1589216532372-1c2a367900d9?w=1200&auto=format&fit=crop&q=80",
+      "alt": "A judge's gavel in dramatic light"
+    },
     "copy": "Commercial disputes and appeals, prepared for trial from the first filing onward.",
     "valueProp": "Commercial dispute resolution and appellate work, first-chaired by a trial partner.",
     "overview": [
@@ -81,6 +89,10 @@
     "slug": "family-law",
     "title": "Family Law",
     "icon": "Users",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1596392954601-545d4243c2cb?w=1200&auto=format&fit=crop&q=80",
+      "alt": "A parent and child holding hands"
+    },
     "copy": "Divorce, custody and settlement negotiation handled with discretion and steadiness.",
     "valueProp": "Private client representation in divorce, custody and financial settlement.",
     "overview": [
@@ -105,6 +117,10 @@
     "slug": "immigration",
     "title": "Immigration",
     "icon": "Plane",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1553697388-94e804e2f0f6?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Two US passports held up in a city square"
+    },
     "copy": "Employment visas, residency and compliance for individuals and hiring companies.",
     "valueProp": "Employment-based immigration for companies hiring across borders, and for the people they hire.",
     "overview": [
@@ -129,6 +145,10 @@
     "slug": "real-estate",
     "title": "Real Estate",
     "icon": "Home",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=1200&auto=format&fit=crop&q=80",
+      "alt": "A modern white commercial building"
+    },
     "copy": "Acquisitions, leasing and development counsel across commercial and residential assets.",
     "valueProp": "Transactional real estate counsel for owners, developers and commercial tenants.",
     "overview": [
@@ -153,6 +173,10 @@
     "slug": "employment-law",
     "title": "Employment Law",
     "icon": "Briefcase",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1758520145140-c2dd8e78fc02?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Colleagues working late in an office"
+    },
     "copy": "Executive agreements, investigations and tribunal defence for employers and leaders.",
     "valueProp": "Employment counsel for employers making decisions, and executives negotiating terms.",
     "overview": [

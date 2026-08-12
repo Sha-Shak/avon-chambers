@@ -99,12 +99,12 @@ export default async function AttorneyProfilePage({
         </div>
       </section>
 
-      <section className="border-b border-navy/10 bg-secondary/60">
+      <section className="border-b border-foreground/10 bg-secondary/60">
         <FadeIn className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 lg:grid-cols-4 lg:px-10">
           {attorney.stats.map((s) => (
-            <div key={s.label} className="min-w-0 border-l border-navy/15 pl-5">
-              <p className="font-serif text-3xl text-navy">{s.value}</p>
-              <p className="mt-1 text-xs leading-snug text-slate">{s.label}</p>
+            <div key={s.label} className="min-w-0 border-l border-foreground/15 pl-5">
+              <p className="font-serif text-3xl text-foreground">{s.value}</p>
+              <p className="mt-1 text-xs leading-snug text-muted-foreground">{s.label}</p>
             </div>
           ))}
         </FadeIn>
@@ -114,10 +114,10 @@ export default async function AttorneyProfilePage({
         <div className="grid gap-16 lg:grid-cols-[0.62fr_0.38fr]">
           <FadeIn>
             <p className="eyebrow">Biography</p>
-            <h2 className="mt-5 text-2xl text-navy sm:text-3xl">About {attorney.name.split(" ")[0]}</h2>
+            <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">About {attorney.name.split(" ")[0]}</h2>
             <div className="mt-8 space-y-6">
               {attorney.bio.map((p) => (
-                <p key={p.slice(0, 24)} className="text-base leading-relaxed text-slate">
+                <p key={p.slice(0, 24)} className="text-base leading-relaxed text-muted-foreground">
                   {p}
                 </p>
               ))}
@@ -127,9 +127,9 @@ export default async function AttorneyProfilePage({
           <FadeIn delay={80} className="space-y-12">
             <div>
               <p className="eyebrow">Education</p>
-              <ul className="mt-5 space-y-4 border-t border-navy/15 pt-5">
+              <ul className="mt-5 space-y-4 border-t border-foreground/15 pt-5">
                 {attorney.education.map((e) => (
-                  <li key={e} className="text-sm leading-relaxed text-slate">
+                  <li key={e} className="text-sm leading-relaxed text-muted-foreground">
                     {e}
                   </li>
                 ))}
@@ -137,9 +137,9 @@ export default async function AttorneyProfilePage({
             </div>
             <div>
               <p className="eyebrow">Bar admissions</p>
-              <ul className="mt-5 space-y-4 border-t border-navy/15 pt-5">
+              <ul className="mt-5 space-y-4 border-t border-foreground/15 pt-5">
                 {attorney.admissions.map((e) => (
-                  <li key={e} className="text-sm leading-relaxed text-slate">
+                  <li key={e} className="text-sm leading-relaxed text-muted-foreground">
                     {e}
                   </li>
                 ))}
@@ -147,21 +147,21 @@ export default async function AttorneyProfilePage({
             </div>
             <div>
               <p className="eyebrow">Contact</p>
-              <ul className="mt-5 space-y-4 border-t border-navy/15 pt-5 text-sm text-slate">
+              <ul className="mt-5 space-y-4 border-t border-foreground/15 pt-5 text-sm text-muted-foreground">
                 <li className="flex gap-3">
-                  <Phone className="mt-0.5 size-4 shrink-0 text-slate" strokeWidth={1.5} />
-                  <a href={`tel:${attorney.phone.replace(/[^\d+]/g, "")}`} className="hover:text-navy">
+                  <Phone className="mt-0.5 size-4 shrink-0 text-muted-foreground" strokeWidth={1.5} />
+                  <a href={`tel:${attorney.phone.replace(/[^\d+]/g, "")}`} className="hover:text-foreground">
                     {attorney.phone}
                   </a>
                 </li>
                 <li className="flex gap-3">
-                  <Mail className="mt-0.5 size-4 shrink-0 text-slate" strokeWidth={1.5} />
-                  <a href={`mailto:${attorney.email}`} className="break-all hover:text-navy">
+                  <Mail className="mt-0.5 size-4 shrink-0 text-muted-foreground" strokeWidth={1.5} />
+                  <a href={`mailto:${attorney.email}`} className="break-all hover:text-foreground">
                     {attorney.email}
                   </a>
                 </li>
                 <li className="flex gap-3">
-                  <MapPin className="mt-0.5 size-4 shrink-0 text-slate" strokeWidth={1.5} />
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-muted-foreground" strokeWidth={1.5} />
                   <span className="leading-relaxed">
                     {siteConfig.address.streetAddress}
                     <br />
@@ -175,22 +175,22 @@ export default async function AttorneyProfilePage({
         </div>
       </section>
 
-      <section className="border-y border-navy/10 bg-secondary/50">
+      <section className="border-y border-foreground/10 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">Representative work</p>
-            <h2 className="mt-5 text-3xl text-navy sm:text-4xl">Notable matters</h2>
+            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Notable matters</h2>
           </FadeIn>
           <ol className="mt-14 grid gap-10 sm:grid-cols-2">
             {attorney.notableCases.map((c, i) => (
-              <FadeIn key={c.slice(0, 24)} as="li" delay={i * 60} className="border-t border-navy/20 pt-6">
-                <span className="font-serif text-sm text-slate">{String(i + 1).padStart(2, "0")}</span>
-                <p className="mt-4 text-base leading-relaxed text-navy">{c}</p>
+              <FadeIn key={c.slice(0, 24)} as="li" delay={i * 60} className="border-t border-foreground/20 pt-6">
+                <span className="font-serif text-sm text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                <p className="mt-4 text-base leading-relaxed text-foreground">{c}</p>
               </FadeIn>
             ))}
           </ol>
           <FadeIn className="mt-12">
-            <p className="text-xs text-slate">Prior results do not guarantee a similar outcome.</p>
+            <p className="text-xs text-muted-foreground">Prior results do not guarantee a similar outcome.</p>
           </FadeIn>
         </div>
       </section>
@@ -201,10 +201,10 @@ export default async function AttorneyProfilePage({
             {attorney.awards.length > 0 && (
               <FadeIn>
                 <p className="eyebrow">Recognition</p>
-                <h2 className="mt-5 text-2xl text-navy sm:text-3xl">Awards</h2>
-                <ul className="mt-8 divide-y divide-navy/10 border-t border-navy/15">
+                <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">Awards</h2>
+                <ul className="mt-8 divide-y divide-navy/10 border-t border-foreground/15">
                   {attorney.awards.map((w) => (
-                    <li key={w} className="py-5 text-sm leading-relaxed text-slate">
+                    <li key={w} className="py-5 text-sm leading-relaxed text-muted-foreground">
                       {w}
                     </li>
                   ))}
@@ -214,10 +214,10 @@ export default async function AttorneyProfilePage({
             {attorney.publications.length > 0 && (
               <FadeIn delay={80}>
                 <p className="eyebrow">Writing</p>
-                <h2 className="mt-5 text-2xl text-navy sm:text-3xl">Publications</h2>
-                <ul className="mt-8 divide-y divide-navy/10 border-t border-navy/15">
+                <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">Publications</h2>
+                <ul className="mt-8 divide-y divide-navy/10 border-t border-foreground/15">
                   {attorney.publications.map((w) => (
-                    <li key={w} className="py-5 text-sm leading-relaxed text-slate">
+                    <li key={w} className="py-5 text-sm leading-relaxed text-muted-foreground">
                       {w}
                     </li>
                   ))}

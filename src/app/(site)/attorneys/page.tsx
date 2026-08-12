@@ -28,14 +28,14 @@ export default function AttorneysPage() {
         ])}
       />
 
-      <section className="border-b border-navy/10">
+      <section className="border-b border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn className="max-w-3xl">
             <p className="eyebrow">Attorneys</p>
-            <h1 className="mt-6 text-4xl leading-[1.1] text-navy sm:text-5xl">
+            <h1 className="mt-6 text-4xl leading-[1.1] text-foreground sm:text-5xl">
               {siteConfig.stats.totalLawyers} lawyers. The one you meet is the one who does the work.
             </h1>
-            <p className="mt-7 text-base leading-relaxed text-slate">
+            <p className="mt-7 text-base leading-relaxed text-muted-foreground">
               Every engagement at {siteConfig.name} is led by a partner from the first call to the last
               filing. Associates support the mechanics; they do not inherit the matter.
             </p>
