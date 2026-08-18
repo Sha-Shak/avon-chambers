@@ -1,200 +1,568 @@
 [
   {
-    "slug": "corporate-law",
-    "title": "Corporate Law",
-    "icon": "Building2",
-    "image": {
-      "src": "https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?w=1200&auto=format&fit=crop&q=80",
-      "alt": "A modern office boardroom"
-    },
-    "copy": "Formation, financings, governance and exits — structured so the deal survives scrutiny.",
-    "valueProp": "Transactional counsel for companies between $5M and $150M, led by the partner who negotiates the deal.",
-    "overview": [
-      "We act for founders, boards, family-held businesses and private investors on the transactions that change ownership, control or capital structure. That includes formation and reorganisation, venture and debt financings, mergers and acquisitions on either side, joint ventures, and the shareholder arrangements that hold a company together once outside money arrives.",
-      "Most of our corporate work is repeat work. Nine companies retain us as outside general counsel, which means we see the commercial history behind a transaction rather than meeting it at the term sheet. When a deal is contested, our litigation partners are in the same building and read the documents before they are signed rather than afterwards.",
-      "Fees for transactional matters are agreed in writing before work begins, staged against milestones, and revised only when the scope of the deal itself changes."
-    ],
-    "services": [
-      {
-        "title": "Mergers & acquisitions",
-        "copy": "Buy-side and sell-side representation from letter of intent through closing and post-closing adjustment, including diligence, disclosure schedules and indemnity negotiation."
-      },
-      {
-        "title": "Financings & capital structure",
-        "copy": "Priced rounds, convertible instruments, venture debt and recapitalisations — with cap table modelling before documents are drafted, not after."
-      },
-      {
-        "title": "Governance & board advice",
-        "copy": "Shareholder agreements, board procedure, conflicted transactions, fiduciary questions and the documentation that stands up in a later dispute."
-      },
-      {
-        "title": "Outside general counsel",
-        "copy": "A fixed monthly arrangement for companies without in-house counsel: contracts, employment questions, commercial terms and escalation as needed."
-      }
-    ],
-    "faqs": [
-      {
-        "q": "How quickly can you start on a live transaction?",
-        "a": "Within two business days in most cases. We take an initial call, confirm there is no conflict, and issue a written scope and fee estimate before any substantive work begins."
-      },
-      {
-        "q": "Do you work on a fixed fee?",
-        "a": "Yes for defined pieces of work — formation, a financing round, a share purchase agreement. Fees are staged against milestones. Matters that turn contested move to an agreed hourly arrangement, and we tell you before that happens, not after."
-      },
-      {
-        "q": "Is our transaction too small for the firm?",
-        "a": "We regularly act on transactions from $2M upward. Below that we will usually say so at the first call and point you toward a more economical option rather than take the engagement."
-      },
-      {
-        "q": "Who will actually handle the work?",
-        "a": "A partner leads every corporate matter and negotiates directly with the other side. Associates support diligence and closing mechanics; they do not run the deal."
-      },
-      {
-        "q": "What happens if diligence uncovers a serious problem?",
-        "a": "We tell you immediately with a written view of the options: reprice, restructure, indemnify, or walk. We will give you a recommendation, including the recommendation not to proceed."
-      }
-    ],
-    "attorneySlugs": ["helena-marchetti", "daniel-osgood", "rohan-mehta"],
-    "caseStudySlugs": ["logistics-acquisition", "founder-equity-restructuring", "supplier-contract-dispute"]
-  },
-  {
     "slug": "litigation",
     "title": "Litigation",
     "icon": "Scale",
     "image": {
       "src": "https://images.unsplash.com/photo-1589216532372-1c2a367900d9?w=1200&auto=format&fit=crop&q=80",
-      "alt": "A judge's gavel in dramatic light"
+      "alt": "Law books in a legal setting"
     },
-    "copy": "Commercial disputes and appeals, prepared for trial from the first filing onward.",
-    "valueProp": "Commercial dispute resolution and appellate work, first-chaired by a trial partner.",
+    "copy": "Representation in complex disputes before courts at all levels.",
+    "valueProp": "Meticulous preparation, strategic insight and persuasive advocacy for high-stakes disputes.",
     "overview": [
-      "We represent companies and individuals in commercial disputes before the state and federal courts of New York and Connecticut, and in arbitration.",
-      "Every matter is built as though it will be tried. That discipline is usually why it settles on favourable terms instead."
+      "We represent clients in complex disputes before courts at all levels, working to protect their interests and seek favourable outcomes.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
     ],
     "services": [
-      { "title": "Commercial disputes", "copy": "Contract, partnership, shareholder and supplier litigation." },
-      { "title": "Appeals", "copy": "Appellate briefing and argument, including matters tried by other firms." },
-      { "title": "Urgent relief", "copy": "Injunctions, attachments and temporary restraining orders." }
+      {
+        "title": "Court representation",
+        "copy": "Strategic representation in complex disputes."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on litigation matters and the options available to you."
+      }
     ],
     "faqs": [
-      { "q": "How long does a commercial case take?", "a": "Most of our disputes resolve in nine to eighteen months. We give you a written timeline after case assessment." },
-      { "q": "Will we have to go to trial?", "a": "Roughly one matter in eight reaches trial. We prepare all of them as though they will." },
-      { "q": "How are litigation fees handled?", "a": "Hourly, with a monthly budget agreed in advance and flagged before it is exceeded." },
-      { "q": "Can you take over a case from another firm?", "a": "Yes. We review the existing record first and tell you candidly what can still be repaired." }
+      {
+        "q": "How can I discuss a dispute with the chambers?",
+        "a": "Contact Avon Chambers to arrange a confidential consultation."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
     ],
-    "attorneySlugs": ["daniel-osgood", "helena-marchetti"],
-    "caseStudySlugs": ["supplier-contract-dispute", "executive-misclassification-defence"]
+    "attorneySlugs": [],
+    "caseStudySlugs": []
   },
   {
-    "slug": "family-law",
-    "title": "Family Law",
-    "icon": "Users",
+    "slug": "arbitration",
+    "title": "Arbitration",
+    "icon": "Scale",
     "image": {
-      "src": "https://images.unsplash.com/photo-1596392954601-545d4243c2cb?w=1200&auto=format&fit=crop&q=80",
-      "alt": "A parent and child holding hands"
+      "src": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&auto=format&fit=crop&q=80",
+      "alt": "People in a professional meeting"
     },
-    "copy": "Divorce, custody and settlement negotiation handled with discretion and steadiness.",
-    "valueProp": "Private client representation in divorce, custody and financial settlement.",
+    "copy": "Domestic and international arbitration support.",
+    "valueProp": "Efficient, confidential and commercially focused dispute resolution.",
     "overview": [
-      "We act in divorce, separation, custody and support matters, with particular attention to cases involving business interests, trusts or property held across states.",
-      "The work is confidential, deliberately unaggressive where that serves you, and firm where it does not."
+      "We assist clients in domestic and international arbitration proceedings.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
     ],
     "services": [
-      { "title": "Divorce & separation", "copy": "Negotiated settlements and contested proceedings." },
-      { "title": "Custody & parenting", "copy": "Parenting plans, relocation and modification applications." },
-      { "title": "Financial analysis", "copy": "Valuation of business interests, property and deferred compensation." }
+      {
+        "title": "Arbitration proceedings",
+        "copy": "Advice and representation through arbitration."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on arbitration matters and the options available to you."
+      }
     ],
     "faqs": [
-      { "q": "Is the first conversation confidential?", "a": "Yes. Everything you tell us is privileged whether or not we go on to represent you." },
-      { "q": "Can this be resolved without court?", "a": "Often. Most of our matters conclude by negotiation or mediation." },
-      { "q": "How are fees structured?", "a": "An initial retainer against hourly work, with monthly statements and no unexplained entries." },
-      { "q": "What should I bring to the consultation?", "a": "Whatever you have to hand. Nothing is required for the first meeting." }
+      {
+        "q": "Do you handle international arbitration?",
+        "a": "Yes. Avon Chambers advises on domestic and international arbitration matters."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
     ],
-    "attorneySlugs": ["rohan-mehta", "helena-marchetti"],
-    "caseStudySlugs": ["founder-equity-restructuring"]
+    "attorneySlugs": [],
+    "caseStudySlugs": []
   },
   {
-    "slug": "immigration",
-    "title": "Immigration",
-    "icon": "Plane",
+    "slug": "corporate-commercial",
+    "title": "Corporate & Commercial",
+    "icon": "Building2",
     "image": {
-      "src": "https://images.unsplash.com/photo-1553697388-94e804e2f0f6?w=1200&auto=format&fit=crop&q=80",
-      "alt": "Two US passports held up in a city square"
+      "src": "https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?w=1200&auto=format&fit=crop&q=80",
+      "alt": "A modern office boardroom"
     },
-    "copy": "Employment visas, residency and compliance for individuals and hiring companies.",
-    "valueProp": "Employment-based immigration for companies hiring across borders, and for the people they hire.",
+    "copy": "Practical advice on corporate and commercial matters.",
+    "valueProp": "End-to-end advisory and transactional support for businesses and companies.",
     "overview": [
-      "We prepare and file employment-based petitions, permanent residency applications and compliance programmes for employers, and advise individuals on status and timing.",
-      "Filings are partner-reviewed before submission; we do not send work to a processing centre."
+      "Our work includes business structuring, corporate governance, joint ventures, shareholder agreements, mergers and acquisitions, and cross-border transactions.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
     ],
     "services": [
-      { "title": "Employment visas", "copy": "H-1B, L-1, O-1, E-2 and TN petitions and extensions." },
-      { "title": "Permanent residency", "copy": "PERM, EB-1, EB-2 and adjustment of status." },
-      { "title": "Employer compliance", "copy": "I-9 audits, public access files and internal policy review." }
+      {
+        "title": "Corporate advisory",
+        "copy": "Advice on governance, transactions and commercial arrangements."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on corporate & commercial matters and the options available to you."
+      }
     ],
     "faqs": [
-      { "q": "How far ahead should we start a visa filing?", "a": "Four to six months where the calendar allows; we will tell you if a faster route exists." },
-      { "q": "What is your approval rate?", "a": "97% across more than 600 petitions filed. Prior results do not guarantee a similar outcome." },
-      { "q": "Do you handle requests for evidence?", "a": "Yes, including on filings prepared by another firm." },
-      { "q": "Can you advise both the employer and the employee?", "a": "Often, with written consent from both after a conflicts review." }
+      {
+        "q": "Can you advise on business structuring?",
+        "a": "Yes. The chambers advises businesses on structuring and related corporate matters."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
     ],
-    "attorneySlugs": ["adaeze-okonkwo"],
-    "caseStudySlugs": ["executive-misclassification-defence"]
+    "attorneySlugs": [],
+    "caseStudySlugs": []
   },
   {
-    "slug": "real-estate",
-    "title": "Real Estate",
+    "slug": "property-real-estate",
+    "title": "Property & Real Estate",
     "icon": "Home",
     "image": {
       "src": "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=1200&auto=format&fit=crop&q=80",
-      "alt": "A modern white commercial building"
+      "alt": "A commercial building"
     },
-    "copy": "Acquisitions, leasing and development counsel across commercial and residential assets.",
-    "valueProp": "Transactional real estate counsel for owners, developers and commercial tenants.",
+    "copy": "Advice across the lifecycle of real-estate transactions.",
+    "valueProp": "Commercially focused property advice for developers, investors, landlords and occupiers.",
     "overview": [
-      "We handle acquisitions and dispositions, financing, commercial leasing, development approvals and title matters across New York and the surrounding states.",
-      "Closings are managed to the date in the contract, with the diligence calendar circulated at the outset."
+      "Our property practice covers acquisition, development, leasing, financing and disposal.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
     ],
     "services": [
-      { "title": "Acquisitions & sales", "copy": "Contract negotiation, diligence and closing for commercial and residential assets." },
-      { "title": "Commercial leasing", "copy": "Landlord and tenant representation, including build-out and assignment terms." },
-      { "title": "Development", "copy": "Land use approvals, construction contracts and lender requirements." }
+      {
+        "title": "Property transactions",
+        "copy": "Advice on property acquisition, leasing, financing and disposal."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on property & real estate matters and the options available to you."
+      }
     ],
     "faqs": [
-      { "q": "How quickly can you close?", "a": "We have closed financed acquisitions in 30 days where the lender cooperates." },
-      { "q": "Do you review leases for tenants?", "a": "Yes, on a fixed fee for standard commercial leases." },
-      { "q": "Can you coordinate with our lender and title company?", "a": "We run that coordination as part of the engagement." },
-      { "q": "Do you handle disputes arising from a closing?", "a": "Yes, with our litigation partners." }
+      {
+        "q": "Who do you act for?",
+        "a": "We act for developers, investors, landlords and corporate occupiers."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
     ],
-    "attorneySlugs": ["rohan-mehta", "helena-marchetti"],
-    "caseStudySlugs": ["logistics-acquisition"]
+    "attorneySlugs": [],
+    "caseStudySlugs": []
   },
   {
-    "slug": "employment-law",
-    "title": "Employment Law",
-    "icon": "Briefcase",
+    "slug": "banking-finance",
+    "title": "Banking & Finance",
+    "icon": "Landmark",
     "image": {
-      "src": "https://images.unsplash.com/photo-1758520145140-c2dd8e78fc02?w=1200&auto=format&fit=crop&q=80",
-      "alt": "Colleagues working late in an office"
+      "src": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Professionals discussing a business matter"
     },
-    "copy": "Executive agreements, investigations and tribunal defence for employers and leaders.",
-    "valueProp": "Employment counsel for employers making decisions, and executives negotiating terms.",
+    "copy": "Financing advice for banks, institutions and borrowers.",
+    "valueProp": "Legal support for financing transactions and restructuring.",
     "overview": [
-      "We advise on executive agreements, restrictive covenants, workplace investigations, terminations and litigation defence.",
-      "The practice is deliberately split: we act for employers and for senior individuals, never both in the same matter."
+      "We act for domestic and international banks, financial institutions and corporate borrowers.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
     ],
     "services": [
-      { "title": "Executive agreements", "copy": "Offer terms, equity, severance and restrictive covenants." },
-      { "title": "Investigations", "copy": "Independent workplace investigations with a defensible written record." },
-      { "title": "Litigation defence", "copy": "Agency charges, single-plaintiff and class claims." }
+      {
+        "title": "Financing transactions",
+        "copy": "Advice on syndicated lending, asset financing, project finance and debt restructuring."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on banking & finance matters and the options available to you."
+      }
     ],
     "faqs": [
-      { "q": "Is our non-compete still enforceable?", "a": "It depends on jurisdiction and role; we give a written assessment within a week." },
-      { "q": "Who conducts the investigation?", "a": "A partner, with a written protocol agreed before interviews begin." },
-      { "q": "Do you act for employees?", "a": "Yes, for senior executives — never against a current employer client." },
-      { "q": "How fast can you respond to a termination question?", "a": "Same business day. Most of these decisions cannot wait." }
+      {
+        "q": "What financing matters do you handle?",
+        "a": "Our work includes lending, asset and project finance, and debt restructuring."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
     ],
-    "attorneySlugs": ["adaeze-okonkwo", "daniel-osgood"],
-    "caseStudySlugs": ["executive-misclassification-defence", "supplier-contract-dispute"]
+    "attorneySlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "taxation",
+    "title": "Taxation",
+    "icon": "ReceiptText",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Financial documents on a desk"
+    },
+    "copy": "Tax structuring, planning, compliance and dispute-resolution advice.",
+    "valueProp": "Practical tax advice for corporates, investors and high-net-worth individuals.",
+    "overview": [
+      "We advise on tax-efficient structuring, cross-border planning, corporate tax compliance, transfer pricing, indirect taxes and the tax aspects of mergers and acquisitions.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
+    ],
+    "services": [
+      {
+        "title": "Tax advisory",
+        "copy": "Planning, compliance and dispute-resolution support."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on taxation matters and the options available to you."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Do you advise on cross-border tax planning?",
+        "a": "Yes. The chambers advises on cross-border planning and tax-efficient structuring."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
+    ],
+    "attorneySlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "intellectual-property",
+    "title": "Intellectual Property",
+    "icon": "Lightbulb",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Notes and ideas on a desk"
+    },
+    "copy": "Protection and commercial use of intellectual-property assets.",
+    "valueProp": "Support to identify, protect and leverage valuable intellectual property.",
+    "overview": [
+      "Our services cover trademark registration, copyright enforcement, patent licensing, IP portfolio management and brand protection.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
+    ],
+    "services": [
+      {
+        "title": "IP protection",
+        "copy": "Advice on registration, enforcement, licensing and portfolio management."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on intellectual property matters and the options available to you."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can you help protect a brand?",
+        "a": "Yes. The chambers advises on trademarks, copyright and brand protection."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
+    ],
+    "attorneySlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "employment",
+    "title": "Employment",
+    "icon": "Briefcase",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Colleagues working together"
+    },
+    "copy": "Employment-law advice for employers and executives.",
+    "valueProp": "Legal precision and practical advice on workforce matters.",
+    "overview": [
+      "We advise on employment contracts, disputes and workforce restructuring.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
+    ],
+    "services": [
+      {
+        "title": "Employment advice",
+        "copy": "Advice on contracts, disputes and restructuring."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on employment matters and the options available to you."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can you advise on employment disputes?",
+        "a": "Yes. Avon Chambers advises on a range of employment matters."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
+    ],
+    "attorneySlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "it-tech",
+    "title": "IT, Tech & Start-Up Advisory",
+    "icon": "Monitor",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Technology hardware on a desk"
+    },
+    "copy": "Technology-sector advice and practical legal support for founders and emerging companies.",
+    "valueProp": "Legal advice on technology, innovation and business growth—from incorporation and IP protection to technology agreements and compliance.",
+    "overview": [
+      "We advise on legal issues in the technology sector, including software licensing, data protection, cybersecurity and technology agreements.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process.",
+      "We guide founders and emerging companies on structuring, investor relations, IP protection and compliance.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
+    ],
+    "services": [
+      {
+        "title": "Technology agreements",
+        "copy": "Advice on licensing, data protection, cybersecurity and commercial technology agreements."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on it & tech matters and the options available to you."
+      },
+      {
+        "title": "Start-up support",
+        "copy": "Advice on incorporation, growth and business legal needs."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on start-up advisory matters and the options available to you."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Do you advise technology businesses?",
+        "a": "Yes. The chambers advises on legal issues affecting the technology sector."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      },
+      {
+        "q": "Can you support an early-stage company?",
+        "a": "Yes. Avon Chambers advises founders and emerging companies."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
+    ],
+    "attorneySlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "crime-financial-crime",
+    "title": "Crime & Financial Crime",
+    "icon": "ShieldAlert",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Columns of a courthouse"
+    },
+    "copy": "Strategic defence and regulatory guidance in financial-crime matters.",
+    "valueProp": "Representation in matters involving fraud, money laundering, bribery and related allegations.",
+    "overview": [
+      "We represent clients in matters involving allegations of fraud, money laundering, bribery and other financial crimes.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
+    ],
+    "services": [
+      {
+        "title": "Defence and guidance",
+        "copy": "Strategic defence and regulatory guidance."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on crime & financial crime matters and the options available to you."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I arrange a confidential discussion?",
+        "a": "Contact Avon Chambers to discuss your matter confidentially."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
+    ],
+    "attorneySlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "bangladeshi-law",
+    "title": "New & Developing Areas of Bangladeshi Law",
+    "icon": "Scale",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Legal reference books"
+    },
+    "copy": "Advice on new and developing areas of Bangladeshi law.",
+    "valueProp": "Current legal advice as the Bangladeshi legal framework develops.",
+    "overview": [
+      "The Bangladeshi legal framework is developing and legislation and regulations are regularly introduced in new areas. Our lawyers advise on matters including intellectual property, copyright, employment and revenue law.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
+    ],
+    "services": [
+      {
+        "title": "Developing legal areas",
+        "copy": "Advice on emerging legislation and regulations in Bangladesh."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on new & developing areas of bangladeshi law matters and the options available to you."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Which developing areas do you advise on?",
+        "a": "The chambers advises on areas including intellectual property, copyright, employment and revenue law."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
+    ],
+    "attorneySlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "international",
+    "title": "International",
+    "icon": "Globe2",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1200&auto=format&fit=crop&q=80",
+      "alt": "A globe representing international connections"
+    },
+    "copy": "International perspective through overseas legal associations.",
+    "valueProp": "International support supported by associations with firms overseas.",
+    "overview": [
+      "Avon Chambers has experience and associations with law firms overseas, including in England and India.",
+      "Our approach is to understand the client’s circumstances, provide clear legal advice and offer practical support throughout the process."
+    ],
+    "services": [
+      {
+        "title": "International legal coordination",
+        "copy": "Support informed by overseas legal associations."
+      },
+      {
+        "title": "Consultation and legal advice",
+        "copy": "Confidential initial advice on international matters and the options available to you."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Do you have overseas legal associations?",
+        "a": "Yes. The chambers has close links and associations with firms in England, India and elsewhere."
+      },
+      {
+        "q": "How do I begin?",
+        "a": "Contact Avon Chambers by phone, email or the contact form to discuss your matter and arrange an initial consultation."
+      },
+      {
+        "q": "Who can use this service?",
+        "a": "We provide legal services to corporate firms, companies and private clients, subject to an initial review of the matter."
+      },
+      {
+        "q": "How are fees discussed?",
+        "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
+      }
+    ],
+    "attorneySlugs": [],
+    "caseStudySlugs": []
   }
 ]

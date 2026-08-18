@@ -18,8 +18,8 @@ export function SiteFooter() {
         <div className="max-w-sm">
           <p className="font-serif text-2xl">{siteConfig.name}</p>
           <p className="mt-4 text-sm leading-relaxed text-cream/60">
-            A boutique practice advising companies, founders and families on matters where the
-            outcome matters more than the hours.
+            A Bangladesh-based set of law chambers providing professional legal advice and representation
+            to corporate and private clients.
           </p>
           <p className="mt-6 text-sm text-cream/60">
             {siteConfig.address.streetAddress}

@@ -82,6 +82,14 @@ export interface CaseStudy {
   summary: string;
 }
 
+/** A testimonial image is optional; the UI supplies a neutral avatar when absent. */
+export interface ClientTestimonial {
+  quote: string;
+  name: string;
+  role: string;
+  image?: string;
+}
+
 /**
  * Optional overrides for search/social metadata, set on the "SEO & Social"
  * panel of any Sanity document. Every field is optional — the page always

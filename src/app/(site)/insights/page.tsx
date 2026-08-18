@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site.config";
 import { getAllInsights } from "@/lib/content";
 import { breadcrumbSchema } from "@/lib/schema";
 
-const DESCRIPTION = `Practical notes and analysis from the partners of ${siteConfig.name} on corporate, litigation, employment, immigration and family law in New York.`;
+const DESCRIPTION = `Articles and legal insights from ${siteConfig.name} in Bangladesh.`;
 
 export const metadata: Metadata = {
   title: "Articles",

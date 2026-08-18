@@ -10,9 +10,10 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getFeaturedAttorneys, getAllPracticeAreas } from "@/lib/data";
 import { breadcrumbSchema, organizationId } from "@/lib/schema";
+import { PracticeAreaIcon } from "@/lib/icons";
 
-const TITLE = `About ${siteConfig.name} — Boutique New York Law Firm Since ${siteConfig.foundingDate}`;
-const DESCRIPTION = `${siteConfig.name} is a ${siteConfig.stats.totalLawyers}-lawyer New York firm founded in ${siteConfig.foundingDate}. A partner leads every matter, fees are scoped in writing, and we answer within ${siteConfig.stats.responseCommitment}.`;
+const TITLE = `About ${siteConfig.name}`;
+const DESCRIPTION = `${siteConfig.name} is a Bangladesh-based set of law chambers providing professional legal advice and representation to corporate and private clients.`;
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -23,61 +24,44 @@ export const metadata: Metadata = {
 
 const principles = [
   {
-    title: "A partner leads every matter",
-    body: "The lawyer you meet at the consultation negotiates, drafts and appears. Associates support the mechanics; they never inherit the file.",
+    title: "Dedicated service",
+    body: "We are committed to providing clients with outstanding legal services, support and guidance throughout the process.",
   },
   {
-    title: "Scope and fees in writing first",
-    body: "Before work begins you receive a written scope, the fee basis, and the name of the partner accountable for the outcome. No surprise revisions.",
+    title: "Professional expertise",
+    body: "Our team includes Barristers, Solicitors, Advocates and Legal Consultants with expertise across a variety of legal matters.",
   },
   {
-    title: "We decline what we don't do well",
-    body: `${siteConfig.stats.totalLawyers} lawyers cannot credibly practise everything. If your matter sits outside our six areas, we say so on the first call and point you somewhere better.`,
+    title: "Practical solutions",
+    body: "We work to understand each client’s needs and provide commercially focused, practical legal advice.",
   },
   {
-    title: `Answers within ${siteConfig.stats.responseCommitment}`,
-    body: "Every client enquiry received on a business day gets a substantive reply from the partner or their direct line by the end of that day.",
+    title: "Confidentiality assured",
+    body: "We maintain high professional standards and treat client matters with care and confidentiality.",
   },
 ];
 
 const timeline = [
-  {
-    year: "1998",
-    body: "Helena Marchetti leaves a Wall Street corporate group and opens the firm on a single premise: the clients who most need a partner's judgement should actually receive it.",
-  },
-  {
-    year: "2004",
-    body: "The litigation practice opens under Daniel Osgood, giving corporate clients trial capability without an outside referral.",
-  },
-  {
-    year: "2011",
-    body: "Family law and immigration are added after years of handling both informally for existing business clients.",
-  },
-  {
-    year: "2019",
-    body: `The firm moves to ${siteConfig.address.streetAddress}, putting all ${siteConfig.stats.totalLawyers} lawyers on one floor — still the reason matters cross practice areas without being handed off.`,
-  },
-  {
-    year: "Today",
-    body: "Six practice areas, ten lawyers, and a deliberate cap on growth: we take the number of matters our partners can personally lead.",
-  },
+  { year: "Our chambers", body: "Avon Chambers is a vibrant and progressive set of law chambers serving corporate firms, companies and private clients." },
+  { year: "Our team", body: "Our lawyers work individually and collectively, enabling clients to draw on the experience of the team as a whole." },
+  { year: "Our reach", body: "We have experience and associations with law firms overseas, including in England and India." },
 ];
 
 const steps = [
   {
     step: "01",
     title: "Tell us what happened",
-    body: "A 45-minute consultation with the partner who would lead the matter. Privileged, whether or not we go on to act.",
+    body: "Contact us to discuss your legal matter and the support you need.",
   },
   {
     step: "02",
-    title: "Get a written assessment",
-    body: "Where you stand, the realistic outcomes, the likely timeline, and what it costs — in writing, before you commit.",
+    title: "Receive practical advice",
+    body: "Our team will provide professional advice tailored to the relevant legal issues.",
   },
   {
     step: "03",
     title: "We do the work",
-    body: "Your partner runs the matter end to end, with scheduled updates and no unexplained billing.",
+    body: "We provide support and representation throughout the legal process.",
   },
 ];
 
@@ -85,10 +69,10 @@ export default function AboutPage() {
   const practiceAreas = getAllPracticeAreas();
   const featured = getFeaturedAttorneys();
   const facts = [
-    { value: siteConfig.foundingDate, label: "Year the firm was founded" },
-    { value: String(siteConfig.stats.totalLawyers), label: "Lawyers, one floor" },
+    { value: "Service", label: "Dedicated service" },
+    { value: "Team", label: "Legal professionals" },
     { value: String(practiceAreas.length), label: "Practice areas" },
-    { value: siteConfig.stats.responseCommitment, label: "Response commitment" },
+    { value: "Advice", label: "Practical solutions" },
   ];
 
   return (
@@ -115,18 +99,17 @@ export default function AboutPage() {
           <FadeIn>
             <p className="eyebrow">Our firm</p>
             <h1 className="mt-6 text-4xl leading-[1.1] text-foreground sm:text-5xl">
-              A ten-lawyer firm built so the partner you hire is the partner you get.
+              Professional legal expertise under one roof.
             </h1>
             <p className="mt-7 text-base leading-relaxed text-muted-foreground">
-              {siteConfig.name} has practised from lower Manhattan since {siteConfig.foundingDate}. We advise
-              founders, closely held businesses, executives and families across six areas of law — and we
-              have stayed small on purpose, because the alternative is delegation dressed up as capacity.
+              {siteConfig.name} is a Bangladesh-based set of law chambers comprising seasoned Barristers,
+              Solicitors, Advocates and Legal Consultants. We provide professional legal services to
+              corporate firms, companies and private clients across a range of legal matters.
             </p>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              Most of our work arrives by referral from clients we advised through something difficult: a
-              shareholder dispute, an acquisition, a custody arrangement, a visa refused two weeks before a
-              start date. What they tend to remember is not the outcome alone but knowing, at every point,
-              who was accountable for it.
+              Our lawyers bring individual expertise and work collectively as a team, giving clients access
+              to comprehensive specialist legal advice. We are vibrant, progressive and bold, and look
+              forward to being of service.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Button asChild variant="navy" size="xl" className="rounded-none">
@@ -151,7 +134,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="max-w-2xl">
           <p className="eyebrow">How we work</p>
-          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Four commitments we put in writing</h2>
+          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Our commitment</h2>
         </FadeIn>
         <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2">
           {principles.map((p, i) => (
@@ -167,7 +150,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">History</p>
-            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Twenty-eight years, deliberately small</h2>
+            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">A glimpse of our chambers</h2>
           </FadeIn>
           <ol className="mt-14 space-y-10">
             {timeline.map((t, i) => (
@@ -185,10 +168,10 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="max-w-2xl">
           <p className="eyebrow">What we handle</p>
-          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Six practice areas</h2>
+          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Our legal practices</h2>
           <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-            Each area is led by a partner with at least a decade in it. Select one to see how we approach
-            the work, what it costs, and who would run your matter.
+            Our lawyers have individual expertise in a number of areas, helping clients obtain comprehensive
+            specialist legal advice under one roof.
           </p>
         </FadeIn>
         <div className="mt-12 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
@@ -198,11 +181,13 @@ export default function AboutPage() {
                 href={`/practice-areas/${area.slug}`}
                 className="group flex h-full items-center justify-between gap-4 p-8"
               >
-                <span className="font-serif text-lg text-foreground">{area.title}</span>
-                <ArrowRight
-                  className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1"
-                  strokeWidth={1.5}
-                />
+                <span className="flex min-w-0 items-center gap-4">
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-navy text-cream">
+                    <PracticeAreaIcon name={area.icon} className="size-4" strokeWidth={1.25} />
+                  </span>
+                  <span className="font-serif text-lg text-foreground">{area.title}</span>
+                </span>
+                <ArrowRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
               </Link>
             </FadeIn>
           ))}
@@ -213,7 +198,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">The people</p>
-            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Who you would be working with</h2>
+          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Our legal professionals</h2>
           </FadeIn>
           <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
             {featured.map((a, i) => (
@@ -244,7 +229,7 @@ export default function AboutPage() {
       <ConsultationSection
         eyebrow="Book a consultation"
         heading="Start with a conversation, not a retainer."
-        blurb="Forty-five minutes with the partner who would lead your matter. You leave with a view of where you stand, whether or not you instruct us."
+        blurb="Discuss your legal matter with Avon Chambers and learn how we may assist."
       />
     </div>
   );

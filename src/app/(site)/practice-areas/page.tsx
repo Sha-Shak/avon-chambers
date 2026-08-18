@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
-import { AnimatedNumber } from "@/components/animated-number";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
-import { getAllAttorneys, getAllPracticeAreas } from "@/lib/data";
+import { getAllPracticeAreas } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
 
-const DESCRIPTION = `Six practice areas at ${siteConfig.name}: corporate law, litigation, family law, immigration, real estate and employment law — each led by a partner.`;
+const DESCRIPTION = `Explore the legal practice areas of ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
 
 export const metadata: Metadata = {
   title: "Practice Areas",
@@ -19,13 +18,11 @@ export const metadata: Metadata = {
 
 export default function PracticeAreasPage() {
   const practiceAreas = getAllPracticeAreas();
-  const totalLawyers = getAllAttorneys().length;
-
   const approach = [
-    { value: String(siteConfig.stats.totalLawyers), label: "Lawyers in the firm" },
+    { value: "Service", label: "Dedicated service" },
     { value: String(practiceAreas.length), label: "Practice areas" },
-    { value: "1", label: "Partner per matter" },
-    { value: siteConfig.stats.responseCommitment, label: "Response commitment" },
+    { value: "Advice", label: "Practical legal advice" },
+    { value: "Care", label: "Confidentiality assured" },
   ];
 
   return (
@@ -42,24 +39,22 @@ export default function PracticeAreasPage() {
           <FadeIn>
             <p className="eyebrow">Practice areas</p>
             <h1 className="mt-6 text-4xl leading-[1.1] text-foreground sm:text-5xl">
-              We practise six areas of law, and decline the rest.
+              Comprehensive legal advice under one roof.
             </h1>
             <p className="mt-7 text-base leading-relaxed text-muted-foreground">
-              A firm of {siteConfig.stats.totalLawyers} lawyers cannot credibly do everything, so we do not
-              try. Each of our {practiceAreas.length} practice areas is led by a partner who has spent at
-              least a decade in it, and each engagement is scoped and priced in writing before work begins.
+              Avon Chambers brings together Barristers, Solicitors, Advocates and Legal Consultants with
+              individual expertise in a range of legal matters. Explore our {practiceAreas.length} practice
+              areas to learn how we may assist.
             </p>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              The areas overlap on purpose. A shareholder dispute is a corporate matter and a litigation
-              matter; an executive hire is employment and immigration. Because the whole firm sits on one
-              floor, those matters are handled by the people who see both sides of them rather than passed
-              between departments.
+              We provide professional advice and all-round legal services to corporate firms, companies and
+              private clients, with practical solutions tailored to their requirements.
             </p>
           </FadeIn>
           <FadeIn delay={120} className="grid grid-cols-2 gap-8 self-center">
             {approach.map((a) => (
               <div key={a.label} className="border-l border-foreground/15 pl-5">
-                <AnimatedNumber value={a.value} className="block font-serif text-3xl text-foreground" />
+                <span className="block font-serif text-3xl text-foreground">{a.value}</span>
                 <p className="mt-2 text-xs leading-snug text-muted-foreground">{a.label}</p>
               </div>
             ))}
@@ -79,12 +74,6 @@ export default function PracticeAreasPage() {
             </FadeIn>
           ))}
         </div>
-        {totalLawyers < siteConfig.stats.totalLawyers && (
-          <p className="mt-6 text-xs text-muted-foreground">
-            Full profiles are published for our partners and senior associates; the firm total above reflects
-            everyone currently practising at {siteConfig.name}.
-          </p>
-        )}
       </section>
 
       <ConsultationSection

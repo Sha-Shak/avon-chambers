@@ -1,35 +1,31 @@
 ---
 title: "Litigation Paralegal"
 department: "Litigation"
-location: "New York, NY (On-site)"
+location: "Dhaka, Bangladesh"
 type: "Full-time"
 postedAt: "2026-07-28"
-summary: "Support the litigation team across active commercial disputes and appeals — trial preparation, filings and discovery management for a docket that's usually headed toward trial, even when it settles first."
-applyEmail: "careers@avonchambers.com"
+summary: "Support Avon Chambers' litigation practice through legal research, document preparation and matter coordination."
+applyEmail: "avonchambers@gmail.com"
 ---
 
 ## About the role
 
-Our litigation practice prepares every matter as though it will be tried, and our paralegal support reflects that: this is not a filing-and-scheduling role, it's a substantive position on a small team handling commercial disputes and appeals in the state and federal courts of New York and Connecticut.
+Avon Chambers is seeking a litigation paralegal to support its dispute-resolution work. The role helps the team provide organised, professional and practical support to clients throughout their matters.
 
 ## What you'll work on
 
-- Trial preparation, including exhibit and witness organisation for a trial partner who first-chairs the matter personally
-- Discovery management, from document review coordination to deposition logistics
-- State and federal court filings, with an emphasis on getting the mechanics exactly right the first time
-- Direct support to the litigation partner, without layers of associate hand-offs in between
+- Legal research and document preparation
+- Organising case materials, correspondence and filings
+- Supporting hearings, meetings and client communication
+- Coordinating with the litigation team on active matters
 
 ## What we're looking for
 
-- 2+ years of litigation paralegal experience, ideally in commercial disputes
-- Working knowledge of New York state and SDNY/EDNY federal court procedure
-- Comfortable with a fast-moving, detail-intensive docket where deadlines are non-negotiable
-- A paralegal certificate or equivalent practical experience
-
-## Compensation and structure
-
-This is a full-time, on-site role based in our lower Manhattan office. Compensation is discussed openly during the interview process and benchmarked against comparable New York litigation practices.
+- Relevant paralegal or legal-support experience
+- Strong organisational and research skills
+- Care with confidential information and legal documents
+- A collaborative and client-focused approach
 
 ## How to apply
 
-Send a resume to [careers@avonchambers.com](mailto:careers@avonchambers.com) with "Litigation Paralegal" in the subject line. We reply to every applicant, whether or not it's a fit.
+Send your resume to [avonchambers@gmail.com](mailto:avonchambers@gmail.com) with “Litigation Paralegal” in the subject line.

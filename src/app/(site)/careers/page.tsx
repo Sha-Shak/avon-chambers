@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site.config";
 import { getAllJobPosts, isJobOpen } from "@/lib/content";
 import { breadcrumbSchema } from "@/lib/schema";
 
-const DESCRIPTION = `Open roles at ${siteConfig.name}, a boutique New York law firm. Apply directly by email — no portal, no account required.`;
+const DESCRIPTION = `Career opportunities at ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
 
 export const metadata: Metadata = {
   title: "Careers",

@@ -11,7 +11,7 @@ export default function AttorneyAdvertisingPage() {
   return (
     <LegalPlaceholder
       title="Attorney Advertising"
-      note="This page is a placeholder. Attorney advertising disclosures are governed by state bar rules that vary by jurisdiction (New York's are in Rule 7.1 of the Rules of Professional Conduct) and should be confirmed with the firm's own counsel rather than generated. Replace the content of this page (src/app/attorney-advertising/page.tsx) once that's ready, and remove the noindex tag in its metadata."
+      note="This page is a placeholder. Advertising and professional-conduct requirements vary by jurisdiction and should be confirmed with the chambers' own counsel before publication. Replace this placeholder with approved content and remove the noindex tag when ready."
     />
   );
 }

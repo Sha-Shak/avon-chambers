@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site.config";
 import { getAllCaseStudies } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
 
-const DESCRIPTION = `Selected outcomes from ${siteConfig.name}: settlements, acquisitions and defences across corporate, commercial litigation and employment matters in New York.`;
+const DESCRIPTION = `Learn about the legal services and practice areas offered by ${siteConfig.name} in Bangladesh.`;
 
 export const metadata: Metadata = {
   title: "Case Studies",
@@ -31,12 +31,11 @@ export default function CaseStudiesPage() {
       <section className="border-b border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn className="max-w-2xl">
-            <p className="eyebrow">Selected outcomes</p>
-            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Case Studies</h1>
+            <p className="eyebrow">Our services</p>
+            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Practice Areas</h1>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              A sample of matters we&rsquo;ve resolved for clients, described at the level of detail our
-              confidentiality obligations allow. Each links back to the practice area and, where public, the
-              partner who led it.
+              Avon Chambers provides practical legal advice and representation across a range of legal
+              matters. Contact us to discuss the support you require.
             </p>
           </FadeIn>
         </div>

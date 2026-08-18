@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { breadcrumbSchema } from "@/lib/schema";
 
-const DESCRIPTION = `Speak with a partner at ${siteConfig.name} in lower Manhattan. Call ${siteConfig.consultationPhoneDisplay} or request a 45-minute confidential consultation.`;
+const DESCRIPTION = `Contact ${siteConfig.name} in Dhanmondi, Dhaka for professional legal advice and representation.`;
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -32,8 +32,7 @@ export default function ContactPage() {
             <p className="eyebrow">Speak with counsel</p>
             <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Contact</h1>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Every enquiry is read by a partner, not routed through an intake queue. Call, email, or use the
-              form below to request a confidential consultation.
+              Contact Avon Chambers by phone, email or the form below to discuss your legal matter.
             </p>
           </FadeIn>
         </div>

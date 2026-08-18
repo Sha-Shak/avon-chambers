@@ -48,8 +48,8 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
           fill
           sizes="100vw"
           className={cn(
-            "object-cover transition-opacity duration-1000 ease-out",
-            i === index ? "opacity-100" : "opacity-0",
+            "object-cover transition-[opacity,transform] duration-[1600ms] ease-out",
+            i === index ? "scale-100 opacity-100" : "scale-105 opacity-0",
           )}
           priority={i === 0}
         />
@@ -57,6 +57,7 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
 
       {/* Gradient wash so the glass panel and dots stay legible over any part of any photo. */}
       <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-navy/25" />
+      <div className="hero-ambient absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-cream/5" />
 
       <div className="relative z-10 flex h-full items-end px-6 pb-14 sm:items-center sm:pb-0 lg:px-10">
         <div className="relative w-full max-w-2xl p-10 sm:p-14 lg:ml-[max(-1.5rem,calc((100vw-80rem)/2-1.5rem))]">
@@ -70,8 +71,8 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
                   key={slide.heading}
                   aria-hidden={i !== index}
                   className={cn(
-                    "col-start-1 row-start-1 transition-opacity duration-700 ease-out",
-                    i === index ? "opacity-100" : "pointer-events-none opacity-0",
+                    "col-start-1 row-start-1 translate-y-3 transition-[opacity,transform] duration-1000 ease-out",
+                    i === index ? "translate-y-0 opacity-100" : "pointer-events-none opacity-0",
                   )}
                 >
                   <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">{slide.eyebrow}</p>

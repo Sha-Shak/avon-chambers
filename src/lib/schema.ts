@@ -20,7 +20,6 @@ export function organizationSchema() {
     url: siteConfig.url,
     logo: abs(mediaConfig.brand.logo.src),
     description: siteConfig.description,
-    foundingDate: siteConfig.foundingDate,
     telephone: siteConfig.consultationPhoneE164,
     email: siteConfig.email,
     address: {

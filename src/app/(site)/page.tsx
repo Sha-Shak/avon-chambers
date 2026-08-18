@@ -10,6 +10,7 @@ import { AttorneyCard } from "@/components/cards/attorney-card";
 import { CaseStudyCard } from "@/components/cards/case-study-card";
 import { ArticlesCarousel } from "@/components/articles-carousel";
 import { ConsultationSection } from "@/components/consultation-section";
+import { TestimonialsMarquee } from "@/components/testimonials-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import {
@@ -18,6 +19,8 @@ import {
   getAllPracticeAreas,
 } from "@/lib/data";
 import { getAllInsights } from "@/lib/content";
+import testimonialsData from "@/data/testimonials.json";
+import type { ClientTestimonial } from "@/types";
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
@@ -32,26 +35,23 @@ export const metadata: Metadata = {
 
 /**
  * Copy for each hero beat, paired index-for-index with `mediaConfig.hero.homeSlides`:
- * branding first, then the firm's track record, then what it practises.
+ * branding first, then the chambers' approach, then what it practises.
  */
 const heroContent: Omit<HeroSlide, "image">[] = [
   {
     eyebrow: `${siteConfig.name} · ${siteConfig.address.addressLocality}`,
-    heading:
-      "Counsel for the matters that decide the direction of a company or a family.",
-    subheading: `A boutique practice of ${siteConfig.stats.totalLawyers} lawyers. Every engagement is led by a partner, priced before it begins, and judged only by the outcome it produces.`,
+    heading: "Your trusted legal partner.",
+    subheading: "Avon Chambers brings together Barristers, Solicitors, Advocates and Legal Consultants to provide practical legal advice and representation.",
   },
   {
-    eyebrow: "Track record",
-    heading: `${siteConfig.stats.mattersResolved} matters resolved. ${siteConfig.stats.favourableOutcomes} favourable outcomes.`,
-    subheading:
-      "Twenty-eight years representing companies, founders and families in matters where the outcome mattered most — audited by the clients who came back for the next one.",
+    eyebrow: "Our commitment",
+    heading: "Dedicated service. Professional expertise. Practical solutions.",
+    subheading: "We are a dynamic and vibrant chambers committed to clear advice, high professional standards and confidentiality.",
   },
   {
     eyebrow: "Practice areas",
-    heading: "Six disciplines, one partner, start to finish.",
-    subheading:
-      "Corporate, litigation, family, immigration, real estate and employment law — practised deliberately narrowly, never handed down to someone junior.",
+    heading: "Comprehensive legal advice under one roof.",
+    subheading: "Our lawyers have individual expertise across a range of legal matters, serving corporate and private clients.",
   },
 ];
 
@@ -62,85 +62,63 @@ const heroSlides: HeroSlide[] = heroContent.map((content, i) => ({
 
 const trustBadges = [
   {
-    value: siteConfig.foundingDate,
-    label: `Founded · ${new Date().getFullYear() - Number(siteConfig.foundingDate)} years of practice`,
+    value: "Service",
+    label: "Dedicated service",
   },
   {
-    value: siteConfig.stats.barAssociation,
-    label: "State Bar Association member",
+    value: "Advice",
+    label: "Practical legal advice",
   },
-  { value: siteConfig.stats.mattersResolved, label: "Matters resolved" },
-  { value: siteConfig.stats.favourableOutcomes, label: "Favourable outcomes" },
-  {
-    value: String(siteConfig.stats.jurisdictions),
-    label: "Jurisdictions covered",
-  },
+  { value: "Expertise", label: "Professional expertise" },
+  { value: "Care", label: "Confidentiality assured" },
+  { value: "Support", label: "Always in touch" },
 ];
 
 const differentiators = [
   {
     icon: Gem,
-    title: "Boutique attention",
-    copy: "A partner leads every matter. No files handed down, no rotating associates.",
+    title: "Dedicated service",
+    copy: "We are committed to providing outstanding legal services, support and guidance throughout the process.",
   },
   {
     icon: Target,
-    title: "Documented track record",
-    copy: `${siteConfig.stats.mattersResolved} matters resolved, including nine-figure disputes across three circuits.`,
+    title: "Professional expertise",
+    copy: "Our team brings individual expertise across a wide variety of legal specializations.",
   },
   {
     icon: Clock,
-    title: `${siteConfig.stats.responseCommitment} response`,
-    copy: "Client calls and emails answered the same business day — in writing, on record.",
+    title: "Practical solutions",
+    copy: "We provide commercially focused advice that responds to each client’s legal needs.",
   },
   {
     icon: ShieldCheck,
     title: "Specific expertise",
-    copy: "Sector depth in fintech, healthcare, construction and cross-border employment.",
+    copy: "We serve corporate firms, companies and private clients across a range of legal matters.",
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "They took a dispute we thought would define our year and closed it in under three months. Clear advice, no theatre.",
-    name: "M. Aldridge",
-    role: "Chief Executive, Manufacturing Group",
-  },
-  {
-    quote:
-      "The partner who pitched us is the partner who argued our case. That alone set them apart from the larger firms.",
-    name: "S. Whitfield",
-    role: "General Counsel, Fintech Platform",
-  },
-  {
-    quote:
-      "During the most difficult year of my life they were calm, precise and always reachable. I never felt like a file number.",
-    name: "J. Carrington",
-    role: "Private Client",
-  },
-];
+const testimonials = testimonialsData as ClientTestimonial[];
 
 const process = [
   {
     step: "01",
     title: "Consultation",
-    copy: "A confidential 45-minute conversation with the partner who would lead your matter.",
+    copy: "A confidential conversation about your legal matter and how we may assist.",
   },
   {
     step: "02",
-    title: "Case Assessment",
-    copy: "We review the record, map exposure and give you a written view of realistic outcomes.",
+    title: "Initial assessment",
+    copy: "We listen carefully, review the relevant information and identify the legal issues.",
   },
   {
     step: "03",
     title: "Strategy",
-    copy: "An agreed plan with milestones, decision points and a fixed scope of fees.",
+    copy: "We provide practical advice and a clear approach tailored to your requirements.",
   },
   {
     step: "04",
     title: "Resolution",
-    copy: "Negotiation, filing or trial — executed to the outcome we set out to reach.",
+    copy: "We provide support and representation throughout the process.",
   },
 ];
 
@@ -190,12 +168,14 @@ export default async function HomePage() {
             Six disciplines, practised deliberately narrowly.
           </h2>
         </FadeIn>
-        <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
-          {practiceAreas.map((p, i) => (
-            <FadeIn key={p.slug} delay={i * 60} className="flex bg-card">
-              <PracticeAreaCard area={p} />
-            </FadeIn>
-          ))}
+        <div className="practice-marquee mt-14 overflow-hidden" aria-label="Practice areas">
+          <div className="practice-marquee-track flex w-max gap-4">
+            {[...practiceAreas, ...practiceAreas].map((p, i) => (
+              <div key={`${p.slug}-${i}`} className="w-[min(86vw,22rem)] shrink-0 lg:w-[calc((100vw-8.5rem)/4)] lg:max-w-[18rem]">
+                <PracticeAreaCard area={p} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -288,24 +268,7 @@ export default async function HomePage() {
             In their words
           </h2>
         </FadeIn>
-        <div className="mt-14 grid gap-10 lg:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <FadeIn
-              key={t.name}
-              delay={i * 70}
-              as="blockquote"
-              className="border-t border-foreground/15 pt-6"
-            >
-              <p className="text-base leading-relaxed text-muted-foreground italic">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <footer className="mt-8">
-                <p className="text-sm text-foreground not-italic">{t.name}</p>
-                <p className="mt-1 text-xs text-muted-foreground">{t.role}</p>
-              </footer>
-            </FadeIn>
-          ))}
-        </div>
+        <FadeIn className="mt-14"><TestimonialsMarquee testimonials={testimonials} /></FadeIn>
       </section>
 
       {/* 8. Process */}
@@ -353,9 +316,13 @@ export default async function HomePage() {
             All articles <ArrowUpRight className="size-4" />
           </Link>
         </FadeIn>
-        {latestInsights.length > 0 && (
+        {latestInsights.length > 0 ? (
           <FadeIn className="mt-14">
             <ArticlesCarousel insights={latestInsights} />
+          </FadeIn>
+        ) : (
+          <FadeIn className="mt-14 border-t border-foreground/10 pt-8 text-muted-foreground">
+            New writing is on its way — check back shortly.
           </FadeIn>
         )}
       </section>

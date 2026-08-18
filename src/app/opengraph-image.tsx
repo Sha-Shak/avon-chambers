@@ -50,7 +50,7 @@ export default function OgImage() {
             color: "rgba(247,244,236,0.7)",
           }}
         >
-          <span>Est. {siteConfig.foundingDate}</span>
+          <span>{siteConfig.address.addressLocality}, {siteConfig.address.addressRegion}</span>
           <span>{siteConfig.address.addressLocality}</span>
         </div>
       </div>

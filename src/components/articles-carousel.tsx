@@ -39,23 +39,25 @@ export function ArticlesCarousel({
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="grid">
-        {slides.map((slide, i) => (
-          <div
-            key={slide.map((insight) => insight.slug).join("-")}
-            aria-hidden={i !== index}
-            className={cn(
-              "col-start-1 row-start-1 transition-opacity duration-700 ease-out",
-              i === index ? "opacity-100" : "pointer-events-none opacity-0",
-            )}
-          >
-            <div className="grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
-              {slide.map((insight) => (
-                <InsightCard key={insight.slug} insight={insight} />
-              ))}
+      <div className="overflow-hidden border border-foreground/10 bg-secondary/40 p-2 sm:p-3">
+        <div className="grid">
+          {slides.map((slide, i) => (
+            <div
+              key={slide.map((insight) => insight.slug).join("-")}
+              aria-hidden={i !== index}
+              className={cn(
+                "col-start-1 row-start-1 translate-y-2 transition-[opacity,transform] duration-700 ease-out",
+                i === index ? "translate-y-0 opacity-100" : "pointer-events-none opacity-0",
+              )}
+            >
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {slide.map((insight) => (
+                  <InsightCard key={insight.slug} insight={insight} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {slides.length > 1 && (

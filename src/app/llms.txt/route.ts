@@ -27,7 +27,7 @@ export async function GET() {
     "",
     `> ${siteConfig.description}`,
     "",
-    `${siteConfig.name} is a boutique law firm founded in ${siteConfig.foundingDate}, based in ${siteConfig.address.addressLocality}, ${siteConfig.address.addressRegion}. A partner leads every engagement across ${practiceAreas.length} practice areas.`,
+    `${siteConfig.name} is a Bangladesh-based set of law chambers comprising Barristers, Solicitors, Advocates and Legal Consultants. It provides legal services across ${practiceAreas.length} practice areas from ${siteConfig.address.addressLocality}, ${siteConfig.address.addressRegion}.`,
     "",
     "## Practice areas",
     ...practiceAreas.map((p) => `- [${p.title}](${siteConfig.url}/practice-areas/${p.slug}): ${p.copy}`),

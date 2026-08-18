@@ -23,7 +23,7 @@ export function SocialLinks({
 }) {
   return (
     <div className={cn("flex gap-4", className)}>
-      {platforms.map(({ key, label, Icon }) => (
+      {platforms.filter(({ key }) => siteConfig.social[key]).map(({ key, label, Icon }) => (
         <a
           key={key}
           href={siteConfig.social[key]}

@@ -34,7 +34,7 @@ export const jobPost = defineType({
       name: "location",
       title: "Location",
       type: "string",
-      description: "e.g. \"New York, NY (Hybrid)\"",
+      description: "e.g. \"Dhaka, Bangladesh (On-site)\"",
       validation: (rule) => rule.required(),
     }),
     defineField({

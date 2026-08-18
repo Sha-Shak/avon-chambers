@@ -231,3 +231,56 @@
   --tw-prose-bullets: var(--gold);
   max-width: 65ch;
 }
+
+@keyframes practice-marquee {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hero-ambient {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.hero-ambient {
+  animation: hero-ambient 9s ease-in-out infinite;
+}
+
+.practice-marquee-track {
+  animation: practice-marquee 65s linear infinite;
+}
+
+.practice-marquee:hover .practice-marquee-track {
+  animation-play-state: paused;
+}
+
+.testimonials-marquee-track {
+  animation: practice-marquee 85s linear infinite;
+}
+
+.testimonials-marquee:hover .testimonials-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .practice-marquee-track {
+    animation: none;
+  }
+
+  .testimonials-marquee-track {
+    animation: none;
+  }
+
+  .hero-ambient {
+    animation: none;
+  }
+}

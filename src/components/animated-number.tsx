@@ -19,7 +19,7 @@ function format(n: number, decimals: number, useGrouping: boolean) {
 
 /**
  * Counts up from zero to the numeric value it's given, then settles on the
- * exact original string. Values with no digits (e.g. "NYSBA") render as-is —
+ * exact original string. Values with no digits (e.g. "Service") render as-is —
  * there's nothing to animate. Starts once scrolled into view.
  */
 export function AnimatedNumber({ value, className }: { value: string; className?: string }) {
