@@ -20,15 +20,15 @@ export const siteConfig = {
     "Avon Chambers is a boutique New York law firm representing companies, founders and families in corporate, litigation, family, immigration, real estate and employment matters.",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? FALLBACK_URL).replace(/\/$/, ""),
   foundingDate: "1998",
-  email: "avonchambers.client@gmail.com",
+  email: "info@avonchambers.com",
   consultationPhoneDisplay: "(88) 01521327783",
   consultationPhoneE164: "+8801521327783",
   officeHours: "Sat–Thurs, 9:30am – 6:30pm",
   address: {
-    streetAddress: "Road 8, House 12",
+    streetAddress: "Flat 4A, Level 3, Kanak Bindu, House 39A, Road No. 8",
     addressLocality: "Dhanmondi",
     addressRegion: "Dhaka",
-    postalCode: "1209",
+    postalCode: "1205",
     addressCountry: "Bangladesh",
   },
   /**
