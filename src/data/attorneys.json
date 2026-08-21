@@ -46,9 +46,9 @@
       "Wellesley College Alumnae Achievement Award (2017)"
     ],
     "publications": [
-      "\u201cEarn-outs after the disclosure amendments,\u201d New York Business Law Review, 2025",
-      "\u201cGovernance for companies that outgrow their founders,\u201d Avon Chambers Insights, 2024",
-      "\u201cDiligence findings and the ten-day problem,\u201d Deal Practice Quarterly, 2022",
+      "“Earn-outs after the disclosure amendments,” New York Business Law Review, 2025",
+      "“Governance for companies that outgrow their founders,” Avon Chambers Insights, 2024",
+      "“Diligence findings and the ten-day problem,” Deal Practice Quarterly, 2022",
       "Contributing editor, Mid-Market M&A Handbook (4th ed., 2020)"
     ],
     "featured": true,
@@ -86,7 +86,7 @@
       "Defence verdict in a two-week partnership dissolution trial in Supreme Court, New York County."
     ],
     "awards": ["Best Lawyers in America — Commercial Litigation (2016–2026)"],
-    "publications": ["\u201cPreparing witnesses without over-rehearsing them,\u201d Avon Chambers Insights, 2026"],
+    "publications": ["“Preparing witnesses without over-rehearsing them,” Avon Chambers Insights, 2026"],
     "featured": true,
     "position": 2
   },
@@ -115,7 +115,303 @@
     ],
     "notableCases": ["Full dismissal of a putative misclassification class action at the certification stage."],
     "awards": ["Super Lawyers Rising Star — Employment (2018–2022)"],
-    "publications": ["\u201cNon-competes after the latest circuit split,\u201d Avon Chambers Insights, 2026"],
+    "publications": ["“Non-competes after the latest circuit split,” Avon Chambers Insights, 2026"],
+    "featured": true,
+    "position": 3
+  },
+  {
+    "slug": "rohan-mehta",
+    "name": "Rohan Mehta",
+    "title": "Associate",
+    "area": "Real Estate & Family",
+    "areas": ["Real Estate", "Family Law"],
+    "practiceAreaSlugs": ["real-estate", "family-law"],
+    "photo": "/images/attorneys/attorney-4.jpg",
+    "email": "r.mehta@avonchambers.com",
+    "phone": "(212) 555-0197",
+    "intro": "Rohan handles acquisitions, leasing and development matters, and supports the firm's private client work.",
+    "bio": [
+      "Rohan Mehta joined Avon Chambers in 2021 and works across commercial real estate transactions and family law matters requiring careful asset analysis."
+    ],
+    "education": ["J.D., Fordham University School of Law (2020)", "B.A., Urban Studies, Rutgers University (2017)"],
+    "admissions": ["New York State Bar (2021)"],
+    "stats": [
+      { "value": "5", "label": "Years in practice" },
+      { "value": "$220M", "label": "Property value handled" },
+      { "value": "70+", "label": "Leases negotiated" },
+      { "value": "2", "label": "Practice groups" }
+    ],
+    "notableCases": ["Closed a 42-unit mixed-use conversion within a 60-day financing window."],
+    "awards": [],
+    "publications": [],
+    "featured": true,
+    "position": 4
+  },
+   {
+    "slug": "helena-marchetti",
+    "name": "Helena Marchetti",
+    "title": "Founding Partner",
+    "area": "Corporate & M&A",
+    "areas": ["Corporate Law", "Real Estate"],
+    "practiceAreaSlugs": ["corporate-law", "real-estate"],
+    "photo": "/images/attorneys/attorney-1.jpg",
+    "email": "h.marchetti@avonchambers.com",
+    "phone": "(212) 555-0191",
+    "intro": "Helena advises founders, boards and private investors on the transactions that change the shape of a company — and on the governance that has to hold afterwards.",
+    "bio": [
+      "Helena Marchetti founded Avon Chambers in 1998 after eight years in the corporate group of a Wall Street firm, where she came to a plain conclusion: the clients who most needed a partner's judgement were the ones least likely to receive it. She built the practice around the opposite premise.",
+      "Her work centres on mid-market mergers, acquisitions and financings, typically between $10M and $150M, with a concentration in fintech, healthcare services and industrial manufacturing. She has led more than 240 completed transactions and sits as outside general counsel to nine companies, several of which she has advised since incorporation.",
+      "Clients retain Helena for the difficult conversations as much as the documents — valuation disputes between founders, board deadlock, the diligence finding that arrives ten days before signing. She negotiates directly, drafts her own key provisions, and does not hand a matter to an associate once the engagement is signed.",
+      "Helena chairs the firm's opinion committee and teaches an annual seminar on deal governance at the Columbia Law School Center for Transactional Studies."
+    ],
+    "education": [
+      "J.D., Columbia Law School (1990) — Harlan Fiske Stone Scholar",
+      "B.A., Economics, Wellesley College (1986) — magna cum laude",
+      "Advanced Negotiation Programme, Harvard Law School (2004)"
+    ],
+    "admissions": [
+      "New York State Bar (1991)",
+      "Connecticut State Bar (1996)",
+      "U.S. District Court, Southern District of New York",
+      "U.S. Court of Appeals, Second Circuit"
+    ],
+    "stats": [
+      { "value": "34", "label": "Years in practice" },
+      { "value": "240+", "label": "Transactions closed" },
+      { "value": "$2.1B", "label": "Aggregate deal value" },
+      { "value": "9", "label": "Boards advised as outside GC" }
+    ],
+    "notableCases": [
+      "Lead counsel on the $86M cross-border acquisition of a three-country logistics group, including regulatory clearance in two jurisdictions.",
+      "Restructured founder equity across eleven early contributors ahead of a $40M Series B, clearing diligence without a holdback.",
+      "Defended a portfolio company board against a books-and-records action; petition withdrawn after a negotiated inspection protocol.",
+      "Advised on the sale of a family-held manufacturer to a strategic buyer at 11.4x EBITDA, with full seller indemnity capped at escrow."
+    ],
+    "awards": [
+      "Best Lawyers in America — Corporate Law (2014–2026)",
+      "Chambers USA, Band 2 — New York Corporate/M&A (2019–2026)",
+      "New York Law Journal, Distinguished Leader (2021)",
+      "Wellesley College Alumnae Achievement Award (2017)"
+    ],
+    "publications": [
+      "“Earn-outs after the disclosure amendments,” New York Business Law Review, 2025",
+      "“Governance for companies that outgrow their founders,” Avon Chambers Insights, 2024",
+      "“Diligence findings and the ten-day problem,” Deal Practice Quarterly, 2022",
+      "Contributing editor, Mid-Market M&A Handbook (4th ed., 2020)"
+    ],
+    "featured": true,
+    "position": 1
+  },
+  {
+    "slug": "daniel-osgood",
+    "name": "Daniel Osgood",
+    "title": "Senior Partner",
+    "area": "Commercial Litigation",
+    "areas": ["Litigation", "Employment Law"],
+    "practiceAreaSlugs": ["litigation", "employment-law"],
+    "photo": "/images/attorneys/attorney-2.jpg",
+    "email": "d.osgood@avonchambers.com",
+    "phone": "(212) 555-0193",
+    "intro": "Daniel tries commercial cases and prepares every matter as though it will be tried, which is usually why it is not.",
+    "bio": [
+      "Daniel Osgood leads the firm's litigation practice, handling commercial disputes, contract and partnership litigation, and appeals in the state and federal courts of New York and Connecticut.",
+      "He has first-chaired 31 trials and argued 14 appeals. Clients come to him at the point where negotiation has failed and the record still needs to be built properly."
+    ],
+    "education": ["J.D., Georgetown University Law Center (1994)", "B.A., History, Amherst College (1991)"],
+    "admissions": [
+      "New York State Bar (1995)",
+      "U.S. District Court, Southern and Eastern Districts of New York",
+      "U.S. Court of Appeals, Second Circuit"
+    ],
+    "stats": [
+      { "value": "31", "label": "Trials first-chaired" },
+      { "value": "$310M", "label": "Recovered for clients" },
+      { "value": "14", "label": "Appeals argued" },
+      { "value": "30", "label": "Years in practice" }
+    ],
+    "notableCases": [
+      "$14.2M pre-trial settlement in a repudiated supply agreement dispute.",
+      "Defence verdict in a two-week partnership dissolution trial in Supreme Court, New York County."
+    ],
+    "awards": ["Best Lawyers in America — Commercial Litigation (2016–2026)"],
+    "publications": ["“Preparing witnesses without over-rehearsing them,” Avon Chambers Insights, 2026"],
+    "featured": true,
+    "position": 2
+  },
+  {
+    "slug": "adaeze-okonkwo",
+    "name": "Adaeze Okonkwo",
+    "title": "Partner",
+    "area": "Employment & Immigration",
+    "areas": ["Employment Law", "Immigration"],
+    "practiceAreaSlugs": ["employment-law", "immigration"],
+    "photo": "/images/attorneys/attorney-3.jpg",
+    "email": "a.okonkwo@avonchambers.com",
+    "phone": "(212) 555-0195",
+    "intro": "Adaeze advises employers and senior executives on the agreements, investigations and visas that decide who can work, and on what terms.",
+    "bio": [
+      "Adaeze Okonkwo handles executive agreements, workplace investigations, tribunal defence and employment-based immigration for companies hiring across borders.",
+      "She previously served as in-house employment counsel to a 4,000-person healthcare group, which informs how she weighs litigation risk against operational reality."
+    ],
+    "education": ["J.D., NYU School of Law (2011)", "B.Sc., Industrial Relations, Cornell University (2008)"],
+    "admissions": ["New York State Bar (2012)", "New Jersey State Bar (2015)"],
+    "stats": [
+      { "value": "14", "label": "Years in practice" },
+      { "value": "600+", "label": "Visa matters filed" },
+      { "value": "97%", "label": "Petition approval rate" },
+      { "value": "40+", "label": "Investigations led" }
+    ],
+    "notableCases": ["Full dismissal of a putative misclassification class action at the certification stage."],
+    "awards": ["Super Lawyers Rising Star — Employment (2018–2022)"],
+    "publications": ["“Non-competes after the latest circuit split,” Avon Chambers Insights, 2026"],
+    "featured": true,
+    "position": 3
+  },
+  {
+    "slug": "rohan-mehta",
+    "name": "Rohan Mehta",
+    "title": "Associate",
+    "area": "Real Estate & Family",
+    "areas": ["Real Estate", "Family Law"],
+    "practiceAreaSlugs": ["real-estate", "family-law"],
+    "photo": "/images/attorneys/attorney-4.jpg",
+    "email": "r.mehta@avonchambers.com",
+    "phone": "(212) 555-0197",
+    "intro": "Rohan handles acquisitions, leasing and development matters, and supports the firm's private client work.",
+    "bio": [
+      "Rohan Mehta joined Avon Chambers in 2021 and works across commercial real estate transactions and family law matters requiring careful asset analysis."
+    ],
+    "education": ["J.D., Fordham University School of Law (2020)", "B.A., Urban Studies, Rutgers University (2017)"],
+    "admissions": ["New York State Bar (2021)"],
+    "stats": [
+      { "value": "5", "label": "Years in practice" },
+      { "value": "$220M", "label": "Property value handled" },
+      { "value": "70+", "label": "Leases negotiated" },
+      { "value": "2", "label": "Practice groups" }
+    ],
+    "notableCases": ["Closed a 42-unit mixed-use conversion within a 60-day financing window."],
+    "awards": [],
+    "publications": [],
+    "featured": true,
+    "position": 4
+  },
+   {
+    "slug": "helena-marchetti",
+    "name": "Helena Marchetti",
+    "title": "Founding Partner",
+    "area": "Corporate & M&A",
+    "areas": ["Corporate Law", "Real Estate"],
+    "practiceAreaSlugs": ["corporate-law", "real-estate"],
+    "photo": "/images/attorneys/attorney-1.jpg",
+    "email": "h.marchetti@avonchambers.com",
+    "phone": "(212) 555-0191",
+    "intro": "Helena advises founders, boards and private investors on the transactions that change the shape of a company — and on the governance that has to hold afterwards.",
+    "bio": [
+      "Helena Marchetti founded Avon Chambers in 1998 after eight years in the corporate group of a Wall Street firm, where she came to a plain conclusion: the clients who most needed a partner's judgement were the ones least likely to receive it. She built the practice around the opposite premise.",
+      "Her work centres on mid-market mergers, acquisitions and financings, typically between $10M and $150M, with a concentration in fintech, healthcare services and industrial manufacturing. She has led more than 240 completed transactions and sits as outside general counsel to nine companies, several of which she has advised since incorporation.",
+      "Clients retain Helena for the difficult conversations as much as the documents — valuation disputes between founders, board deadlock, the diligence finding that arrives ten days before signing. She negotiates directly, drafts her own key provisions, and does not hand a matter to an associate once the engagement is signed.",
+      "Helena chairs the firm's opinion committee and teaches an annual seminar on deal governance at the Columbia Law School Center for Transactional Studies."
+    ],
+    "education": [
+      "J.D., Columbia Law School (1990) — Harlan Fiske Stone Scholar",
+      "B.A., Economics, Wellesley College (1986) — magna cum laude",
+      "Advanced Negotiation Programme, Harvard Law School (2004)"
+    ],
+    "admissions": [
+      "New York State Bar (1991)",
+      "Connecticut State Bar (1996)",
+      "U.S. District Court, Southern District of New York",
+      "U.S. Court of Appeals, Second Circuit"
+    ],
+    "stats": [
+      { "value": "34", "label": "Years in practice" },
+      { "value": "240+", "label": "Transactions closed" },
+      { "value": "$2.1B", "label": "Aggregate deal value" },
+      { "value": "9", "label": "Boards advised as outside GC" }
+    ],
+    "notableCases": [
+      "Lead counsel on the $86M cross-border acquisition of a three-country logistics group, including regulatory clearance in two jurisdictions.",
+      "Restructured founder equity across eleven early contributors ahead of a $40M Series B, clearing diligence without a holdback.",
+      "Defended a portfolio company board against a books-and-records action; petition withdrawn after a negotiated inspection protocol.",
+      "Advised on the sale of a family-held manufacturer to a strategic buyer at 11.4x EBITDA, with full seller indemnity capped at escrow."
+    ],
+    "awards": [
+      "Best Lawyers in America — Corporate Law (2014–2026)",
+      "Chambers USA, Band 2 — New York Corporate/M&A (2019–2026)",
+      "New York Law Journal, Distinguished Leader (2021)",
+      "Wellesley College Alumnae Achievement Award (2017)"
+    ],
+    "publications": [
+      "“Earn-outs after the disclosure amendments,” New York Business Law Review, 2025",
+      "“Governance for companies that outgrow their founders,” Avon Chambers Insights, 2024",
+      "“Diligence findings and the ten-day problem,” Deal Practice Quarterly, 2022",
+      "Contributing editor, Mid-Market M&A Handbook (4th ed., 2020)"
+    ],
+    "featured": true,
+    "position": 1
+  },
+  {
+    "slug": "daniel-osgood",
+    "name": "Daniel Osgood",
+    "title": "Senior Partner",
+    "area": "Commercial Litigation",
+    "areas": ["Litigation", "Employment Law"],
+    "practiceAreaSlugs": ["litigation", "employment-law"],
+    "photo": "/images/attorneys/attorney-2.jpg",
+    "email": "d.osgood@avonchambers.com",
+    "phone": "(212) 555-0193",
+    "intro": "Daniel tries commercial cases and prepares every matter as though it will be tried, which is usually why it is not.",
+    "bio": [
+      "Daniel Osgood leads the firm's litigation practice, handling commercial disputes, contract and partnership litigation, and appeals in the state and federal courts of New York and Connecticut.",
+      "He has first-chaired 31 trials and argued 14 appeals. Clients come to him at the point where negotiation has failed and the record still needs to be built properly."
+    ],
+    "education": ["J.D., Georgetown University Law Center (1994)", "B.A., History, Amherst College (1991)"],
+    "admissions": [
+      "New York State Bar (1995)",
+      "U.S. District Court, Southern and Eastern Districts of New York",
+      "U.S. Court of Appeals, Second Circuit"
+    ],
+    "stats": [
+      { "value": "31", "label": "Trials first-chaired" },
+      { "value": "$310M", "label": "Recovered for clients" },
+      { "value": "14", "label": "Appeals argued" },
+      { "value": "30", "label": "Years in practice" }
+    ],
+    "notableCases": [
+      "$14.2M pre-trial settlement in a repudiated supply agreement dispute.",
+      "Defence verdict in a two-week partnership dissolution trial in Supreme Court, New York County."
+    ],
+    "awards": ["Best Lawyers in America — Commercial Litigation (2016–2026)"],
+    "publications": ["“Preparing witnesses without over-rehearsing them,” Avon Chambers Insights, 2026"],
+    "featured": true,
+    "position": 2
+  },
+  {
+    "slug": "adaeze-okonkwo",
+    "name": "Adaeze Okonkwo",
+    "title": "Partner",
+    "area": "Employment & Immigration",
+    "areas": ["Employment Law", "Immigration"],
+    "practiceAreaSlugs": ["employment-law", "immigration"],
+    "photo": "/images/attorneys/attorney-3.jpg",
+    "email": "a.okonkwo@avonchambers.com",
+    "phone": "(212) 555-0195",
+    "intro": "Adaeze advises employers and senior executives on the agreements, investigations and visas that decide who can work, and on what terms.",
+    "bio": [
+      "Adaeze Okonkwo handles executive agreements, workplace investigations, tribunal defence and employment-based immigration for companies hiring across borders.",
+      "She previously served as in-house employment counsel to a 4,000-person healthcare group, which informs how she weighs litigation risk against operational reality."
+    ],
+    "education": ["J.D., NYU School of Law (2011)", "B.Sc., Industrial Relations, Cornell University (2008)"],
+    "admissions": ["New York State Bar (2012)", "New Jersey State Bar (2015)"],
+    "stats": [
+      { "value": "14", "label": "Years in practice" },
+      { "value": "600+", "label": "Visa matters filed" },
+      { "value": "97%", "label": "Petition approval rate" },
+      { "value": "40+", "label": "Investigations led" }
+    ],
+    "notableCases": ["Full dismissal of a putative misclassification class action at the certification stage."],
+    "awards": ["Super Lawyers Rising Star — Employment (2018–2022)"],
+    "publications": ["“Non-competes after the latest circuit split,” Avon Chambers Insights, 2026"],
     "featured": true,
     "position": 3
   },

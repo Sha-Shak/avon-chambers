@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
-import { AttorneyCard } from "@/components/cards/attorney-card";
+import { AttorneyGrid } from "@/components/attorney-grid";
 import { CaseStudyCard } from "@/components/cards/case-study-card";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -160,13 +160,7 @@ export default async function PracticeAreaDetailPage({
               <p className="eyebrow">The team</p>
               <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Attorneys in this practice</h2>
             </FadeIn>
-            <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {relatedAttorneys.map((a, i) => (
-                <FadeIn key={a.slug} delay={i * 60}>
-                  <AttorneyCard attorney={a} />
-                </FadeIn>
-              ))}
-            </div>
+            <AttorneyGrid attorneys={relatedAttorneys} gap="gap-8" className="mt-14" />
           </div>
         </section>
       )}

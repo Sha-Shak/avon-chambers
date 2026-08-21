@@ -6,11 +6,12 @@ import { FadeIn } from "@/components/fade-in";
 import { Hero, type HeroSlide } from "@/components/hero";
 import { AnimatedNumber } from "@/components/animated-number";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
-import { AttorneyCard } from "@/components/cards/attorney-card";
+import { AttorneyGrid } from "@/components/attorney-grid";
 import { CaseStudyCard } from "@/components/cards/case-study-card";
 import { ArticlesCarousel } from "@/components/articles-carousel";
 import { ConsultationSection } from "@/components/consultation-section";
 import { TestimonialsMarquee } from "@/components/testimonials-marquee";
+import { InteractiveMarquee } from "@/components/interactive-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import {
@@ -124,7 +125,7 @@ const process = [
 
 export default async function HomePage() {
   const practiceAreas = getAllPracticeAreas();
-  const attorneys = getAllAttorneys();
+  const featuredAttorneys = getAllAttorneys().slice(0, 4);
   const featuredCaseStudies = getAllCaseStudies().slice(0, 3);
   const latestInsights = await getAllInsights();
 
@@ -168,15 +169,17 @@ export default async function HomePage() {
             Six disciplines, practised deliberately narrowly.
           </h2>
         </FadeIn>
-        <div className="practice-marquee mt-14 overflow-hidden" aria-label="Practice areas">
-          <div className="practice-marquee-track flex w-max gap-4">
-            {[...practiceAreas, ...practiceAreas].map((p, i) => (
-              <div key={`${p.slug}-${i}`} className="w-[min(86vw,22rem)] shrink-0 lg:w-[calc((100vw-8.5rem)/4)] lg:max-w-[18rem]">
-                <PracticeAreaCard area={p} />
-              </div>
-            ))}
-          </div>
-        </div>
+        <InteractiveMarquee
+          ariaLabel="Practice areas"
+          className="mt-14"
+          trackClassName="gap-4"
+          speedPxPerSec={26}
+          items={practiceAreas.map((p) => (
+            <div key={p.slug} className="w-[min(86vw,22rem)] shrink-0 lg:w-[calc((100vw-8.5rem)/4)] lg:max-w-[18rem]">
+              <PracticeAreaCard area={p} />
+            </div>
+          ))}
+        />
       </section>
 
       {/* 4. Why Avon Chambers */}
@@ -244,19 +247,21 @@ export default async function HomePage() {
       {/* 6. Attorneys */}
       <section className="border-y border-foreground/10 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <FadeIn className="max-w-2xl">
-            <p className="eyebrow">The practice</p>
-            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
-              Attorneys
-            </h2>
+          <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
+            <div className="max-w-2xl">
+              <p className="eyebrow">The practice</p>
+              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
+                Attorneys
+              </h2>
+            </div>
+            <Link
+              href="/attorneys"
+              className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
+            >
+              All attorneys <ArrowUpRight className="size-4" />
+            </Link>
           </FadeIn>
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {attorneys.map((a, i) => (
-              <FadeIn key={a.slug} delay={i * 70}>
-                <AttorneyCard attorney={a} />
-              </FadeIn>
-            ))}
-          </div>
+          <AttorneyGrid attorneys={featuredAttorneys} gap="gap-8" delayStepMs={70} className="mt-14" />
         </div>
       </section>
 

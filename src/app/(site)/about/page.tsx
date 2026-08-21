@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/fade-in";
 import { AnimatedNumber } from "@/components/animated-number";
-import { AttorneyCard } from "@/components/cards/attorney-card";
+import { AttorneyGrid } from "@/components/attorney-grid";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
@@ -196,17 +196,19 @@ export default function AboutPage() {
 
       <section className="border-y border-foreground/10 bg-background">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <FadeIn className="max-w-2xl">
-            <p className="eyebrow">The people</p>
-          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Our legal professionals</h2>
+          <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
+            <div className="max-w-2xl">
+              <p className="eyebrow">The people</p>
+              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Our legal professionals</h2>
+            </div>
+            <Link
+              href="/attorneys"
+              className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
+            >
+              All attorneys <ArrowUpRight className="size-4" />
+            </Link>
           </FadeIn>
-          <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-            {featured.map((a, i) => (
-              <FadeIn key={a.slug} delay={i * 60}>
-                <AttorneyCard attorney={a} />
-              </FadeIn>
-            ))}
-          </div>
+          <AttorneyGrid attorneys={featured} className="mt-14" />
         </div>
       </section>
 
