@@ -131,11 +131,28 @@
     border-color: var(--color-border);
   }
 
+  /*
+   * Site-wide backstop against horizontal scroll. Individual overflow causes are
+   * fixed at their source (see min-w-0 on grid/flex columns); this ensures a
+   * future wide child can never make the whole page pannable on a phone.
+   *
+   * `clip` rather than `hidden` on purpose: `overflow-x: hidden` on html/body
+   * makes the element a scroll container, which silently breaks `position:
+   * sticky` descendants (the site header) and scroll-into-view anchoring.
+   * `clip` clips without creating one, so sticky keeps working.
+   */
+  html {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   h1,
@@ -263,12 +280,40 @@
   animation-play-state: paused;
 }
 
-.testimonials-marquee-track {
-  animation: practice-marquee 85s linear infinite;
+/*
+ * Shifts the track by exactly one repeat of the testimonial set
+ * (--marquee-shift, set by TestimonialsMarquee) so the last card is followed by
+ * the first with identical spacing — a continuous, non-interactive loop.
+ */
+@keyframes testimonials-marquee {
+  from {
+    transform: translate3d(var(--marquee-shift, -50%), 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-.testimonials-marquee:hover .testimonials-marquee-track {
-  animation-play-state: paused;
+.testimonials-marquee-track {
+  animation: testimonials-marquee var(--marquee-duration, 84s) linear infinite;
+  will-change: transform;
+}
+
+/* `clip` creates no scroll container, so the track cannot be knocked off its
+   animated offset by find-in-page or scroll-into-view on a duplicated card.
+   Falls back to the element's own `overflow-hidden` where unsupported. */
+@supports (overflow: clip) {
+  .testimonials-marquee {
+    overflow: clip;
+  }
+}
+
+/* Pause on hover only where a real pointer exists — a touch tap latches :hover
+   on mobile and would stall the marquee. */
+@media (hover: hover) and (pointer: fine) {
+  .testimonials-marquee:hover .testimonials-marquee-track {
+    animation-play-state: paused;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

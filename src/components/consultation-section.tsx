@@ -24,7 +24,7 @@ export function ConsultationSection({
   return (
     <section className="bg-navy text-cream">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 lg:grid-cols-2 lg:px-10 lg:py-32">
-        <FadeIn>
+        <FadeIn className="min-w-0">
           <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">{eyebrow}</p>
           <h2 className="mt-5 text-3xl sm:text-4xl">{heading}</h2>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-cream/60">{blurb}</p>
@@ -73,7 +73,7 @@ export function ConsultationSection({
           <SocialLinks variant="dark" className="mt-8" />
         </FadeIn>
 
-        <FadeIn delay={100}>
+        <FadeIn delay={100} className="min-w-0">
           <ConsultationForm submitLabel={submitLabel} attorneySlug={attorneySlug} />
         </FadeIn>
       </div>

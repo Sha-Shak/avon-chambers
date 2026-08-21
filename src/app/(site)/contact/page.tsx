@@ -39,8 +39,11 @@ export default function ContactPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+        {/* min-w-0 on both columns: grid items default to min-width:auto, so any
+            wide min-content child would otherwise stretch the column past the
+            viewport and scroll the whole page sideways on mobile. */}
         <div className="grid gap-16 lg:grid-cols-[0.45fr_0.55fr]">
-          <FadeIn className="space-y-10">
+          <FadeIn className="min-w-0 space-y-10">
             <div className="flex gap-4">
               <Phone className="mt-0.5 size-5 shrink-0 text-muted-foreground" strokeWidth={1.5} />
               <div>
@@ -91,9 +94,9 @@ export default function ContactPage() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={100}>
+          <FadeIn delay={100} className="min-w-0">
             <div className="bg-navy p-1">
-              <div className="bg-navy p-7 text-cream">
+              <div className="bg-navy p-4 text-cream sm:p-7">
                 <ConsultationForm />
               </div>
             </div>

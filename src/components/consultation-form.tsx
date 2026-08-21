@@ -65,7 +65,7 @@ export function ConsultationForm({
 
   if (status === "success") {
     return (
-      <div className="border border-cream/15 p-8">
+      <div className="min-w-0 border border-cream/15 p-6 sm:p-8">
         <p className="font-serif text-xl text-cream">Request received.</p>
         <p className="mt-3 text-sm leading-relaxed text-cream/70">
           Thank you — a member of the team will follow up within one business
@@ -77,7 +77,7 @@ export function ConsultationForm({
 
   return (
     <form
-      className="space-y-6 border border-cream/15 p-8"
+      className="min-w-0 space-y-6 border border-cream/15 p-6 sm:p-8"
       onSubmit={handleSubmit}
       noValidate
     >
@@ -173,11 +173,16 @@ export function ConsultationForm({
         </p>
       )}
 
+      {/* `whitespace-normal` + auto height: the uppercase, wide-tracked label is
+          ~200px on its own, and `whitespace-nowrap` (the Button base) turns that
+          into a min-content floor that grid/flex parents propagate outward as
+          page-level horizontal scroll on narrow phones. Letting it wrap keeps
+          the floor at the longest single word instead. */}
       <Button
         type="submit"
         variant="creamOutline"
         size="xl"
-        className="w-full rounded-none"
+        className="h-auto min-h-12 w-full rounded-none px-4 py-3 text-center whitespace-normal sm:px-8"
         disabled={status === "submitting"}
       >
         {status === "submitting" ? "Sending…" : submitLabel}
