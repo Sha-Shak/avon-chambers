@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site.config";
-import { getAllAttorneys, getAllPracticeAreas } from "@/lib/data";
+import { getAllLawyers, getAllPracticeAreas } from "@/lib/data";
 import { getAllInsights, getAllJobPosts, isJobOpen } from "@/lib/content";
 
 // Insights and careers now live in Sanity and can change between deploys,
@@ -16,7 +16,7 @@ export const revalidate = 3600;
  * something the site doesn't actually contain.
  */
 export async function GET() {
-  const attorneys = getAllAttorneys();
+  const lawyers = getAllLawyers();
   const practiceAreas = getAllPracticeAreas();
   const [allInsights, allJobs] = await Promise.all([getAllInsights(), getAllJobPosts()]);
   const insights = allInsights.slice(0, 8);
@@ -32,8 +32,8 @@ export async function GET() {
     "## Practice areas",
     ...practiceAreas.map((p) => `- [${p.title}](${siteConfig.url}/practice-areas/${p.slug}): ${p.copy}`),
     "",
-    "## Attorneys",
-    ...attorneys.map((a) => `- [${a.name}](${siteConfig.url}/attorneys/${a.slug}): ${a.title} — ${a.intro}`),
+    "## Lawyers",
+    ...lawyers.map((l) => `- [${l.name}](${siteConfig.url}/lawyers/${l.slug}): ${l.title} — ${l.intro}`),
     "",
     "## Key pages",
     `- [About](${siteConfig.url}/about)`,

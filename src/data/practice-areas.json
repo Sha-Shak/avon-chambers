@@ -41,7 +41,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -86,9 +86,91 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
+  {
+  "slug": "civil-litigation",
+  "title": "Civil Litigation",
+  "icon": "Scale",
+  "image": {
+    "src": "https://images.unsplash.com/photo-1589216532372-1c2a367900d9?w=1200&auto=format&fit=crop&q=80",
+    "alt": "Law books in a legal setting"
+  },
+  "copy": "Strategic legal representation and practical advice in contractual, commercial, financial, property-related and other civil disputes.",
+  "valueProp": "Careful case assessment, strong pleadings, evidence-based advocacy and commercially sensible dispute-resolution strategies throughout the litigation process.",
+  "overview": [
+    "Our Civil Litigation practice provides strategic legal representation and practical advice in disputes involving contractual, commercial, financial, property-related and other civil claims.",
+    "We assist clients throughout the litigation process, from pre-litigation assessment and pleadings to trial, judgment, execution and appellate proceedings.",
+    "We represent individuals, businesses, organisations and other clients in a broad range of civil disputes before the courts and tribunals of Bangladesh."
+  ],
+  "services": [
+    {
+      "title": "Civil Suits & Dispute Resolution",
+      "copy": "Advice and representation in civil disputes, including disputes arising from contracts, transactions, obligations, rights and liabilities."
+    },
+    {
+      "title": "Contractual Disputes",
+      "copy": "Representation in claims involving breach of contract, non-performance, recovery of contractual dues, damages and enforcement of contractual rights."
+    },
+    {
+      "title": "Money Recovery & Financial Claims",
+      "copy": "Assistance with recovery suits and other civil claims concerning unpaid debts, outstanding dues, compensation and financial obligations."
+    },
+    {
+      "title": "Declaration & Injunction",
+      "copy": "Representation in suits seeking declaration of legal rights, permanent or temporary injunctions, and protection against unlawful interference with a client's rights or interests."
+    },
+    {
+      "title": "Specific Performance",
+      "copy": "Advice and litigation concerning the enforcement of contractual obligations, including suits for specific performance of agreements."
+    },
+    {
+      "title": "Partition & Property-Related Civil Disputes",
+      "copy": "Representation in partition suits, disputes concerning ownership or possession, and other civil claims involving property rights and interests."
+    },
+    {
+      "title": "Civil Appeals & Revisions",
+      "copy": "Representation in appeals, revisions and other appellate or supervisory proceedings arising from judgments and orders of civil courts."
+    },
+    {
+      "title": "Execution of Decrees",
+      "copy": "Assistance in enforcing civil court judgments and decrees, including proceedings relating to recovery, possession and other forms of execution."
+    },
+    {
+      "title": "Interim & Procedural Relief",
+      "copy": "Advice and representation concerning temporary injunctions, status quo orders, attachment and other interim measures necessary to protect a client's position during litigation."
+    },
+    {
+      "title": "Pre-Litigation Advisory",
+      "copy": "Assessment of legal claims, available remedies, evidentiary considerations and litigation risks before commencing or responding to civil proceedings."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Who do you act for?",
+      "a": "We act for individuals, companies, business entities, organisations and other clients involved in civil disputes, whether as claimants, defendants, appellants or respondents."
+    },
+    {
+      "q": "Can you assess my case before I file a suit?",
+      "a": "Yes. We review the relevant facts and documents, identify the available causes of action and remedies, and advise on the appropriate legal strategy before proceedings are commenced."
+    },
+    {
+      "q": "How long will a civil case take?",
+      "a": "The duration depends on the nature and complexity of the dispute, the evidence involved, procedural developments and the court's schedule. We provide realistic guidance based on the circumstances of each matter."
+    },
+    {
+      "q": "Can a civil dispute be resolved without going to trial?",
+      "a": "In appropriate cases, settlement, negotiation or other dispute-resolution mechanisms may provide a more efficient solution. We advise clients on the available options and their respective legal and commercial implications."
+    },
+    {
+      "q": "How are legal fees discussed?",
+      "a": "Fees are discussed transparently after considering the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated to the client before commencement of the engagement."
+    }
+  ],
+  "lawyerSlugs": [],
+  "caseStudySlugs": []
+},
   {
     "slug": "corporate-commercial",
     "title": "Corporate & Commercial",
@@ -131,7 +213,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -176,7 +258,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -221,7 +303,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -266,7 +348,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -311,7 +393,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -356,7 +438,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -427,7 +509,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -472,7 +554,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -517,7 +599,7 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
   },
   {
@@ -562,7 +644,277 @@
         "a": "We discuss the appropriate fee arrangement with clients in light of the nature, scope and urgency of the matter."
       }
     ],
-    "attorneySlugs": [],
+    "lawyerSlugs": [],
     "caseStudySlugs": []
-  }
+  },
+  {
+  "slug": "criminal-law",
+  "title": "Criminal Law",
+  "icon": "Scale",
+  "image": {
+    "src": "https://images.unsplash.com/photo-1589216532372-1c2a367900d9?w=1200&auto=format&fit=crop&q=80",
+    "alt": "Law books in a legal setting"
+  },
+  "copy": "Comprehensive legal representation and strategic advice for individuals, businesses and organisations involved in criminal proceedings.",
+  "valueProp": "Protecting clients' legal rights through carefully assessed evidence, effective defence strategies and consideration of available procedural and substantive remedies.",
+  "overview": [
+    "Our Criminal Law practice provides comprehensive legal representation and strategic advice to individuals, businesses and organisations involved in criminal proceedings.",
+    "We assist clients at every stage of a criminal matter, from initial consultation and investigation through trial, appeal and other post-judgment proceedings.",
+    "We represent clients in a wide range of criminal matters before the courts and relevant authorities of Bangladesh, with a focus on protecting legal rights and developing effective defence strategies."
+  ],
+  "services": [
+    {
+      "title": "Criminal Defence",
+      "copy": "Representation of accused persons in criminal cases, with a focus on developing effective defence strategies and protecting their legal and procedural rights."
+    },
+    {
+      "title": "Bail & Anticipatory Bail",
+      "copy": "Advice and representation in regular bail, anticipatory bail and other applications for release from custody at appropriate stages of criminal proceedings."
+    },
+    {
+      "title": "Criminal Complaints & Proceedings",
+      "copy": "Assistance in initiating and pursuing criminal complaints, including assessment of the facts, applicable offences, supporting evidence and appropriate legal remedies."
+    },
+    {
+      "title": "Investigation & Police Proceedings",
+      "copy": "Legal assistance during investigation, including advice concerning police inquiries, statements, notices, arrest, seizure and other investigative procedures."
+    },
+    {
+      "title": "Criminal Trial",
+      "copy": "Representation of accused persons and other parties throughout trial proceedings, including examination and cross-examination of witnesses, submission of evidence and legal arguments."
+    },
+    {
+      "title": "Criminal Appeals & Revisions",
+      "copy": "Representation in criminal appeals, revisions and other appellate or supervisory proceedings challenging judgments, convictions, sentences or significant procedural orders."
+    },
+    {
+      "title": "Quashing & Constitutional Remedies",
+      "copy": "Advice and representation in appropriate proceedings seeking to challenge unlawful criminal proceedings or actions of public authorities, including remedies available before the High Court Division."
+    },
+    {
+      "title": "Cyber & Technology-Related Offences",
+      "copy": "Representation and legal advice concerning criminal allegations arising from digital communications, online activities, electronic evidence and technology-related offences."
+    },
+    {
+      "title": "Financial & Commercial Offences",
+      "copy": "Advice and representation in criminal matters involving allegations of fraud, cheating, breach of trust, forgery, misappropriation and other offences arising from financial or commercial transactions."
+    },
+    {
+      "title": "Criminal Proceedings Against Companies & Individuals",
+      "copy": "Representation of corporate entities, directors, officers, employees and individuals facing criminal allegations arising from business or professional activities."
+    },
+    {
+      "title": "Post-Conviction & Sentence-Related Matters",
+      "copy": "Advice and representation concerning appeals, sentence-related remedies and other available legal proceedings following conviction or judgment."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Who do you act for?",
+      "a": "We represent accused persons, complainants, victims, companies, directors, officers and other individuals or entities involved in criminal proceedings."
+    },
+    {
+      "q": "Can you advise me before a criminal case is filed?",
+      "a": "Yes. Early legal advice can be important in assessing potential criminal liability, available remedies, evidentiary issues and appropriate steps before proceedings are initiated."
+    },
+    {
+      "q": "Can you help if I have been arrested or am at risk of arrest?",
+      "a": "Yes. We provide urgent legal assistance concerning arrest, custody, bail and other available remedies, subject to the circumstances and applicable law."
+    },
+    {
+      "q": "What should I do if I receive a police notice or summons?",
+      "a": "You should obtain legal advice before taking substantive steps. We can review the notice, explain its legal implications and advise on the appropriate response."
+    },
+    {
+      "q": "Can a criminal case be challenged before trial?",
+      "a": "In appropriate circumstances, available legal remedies may allow a party to challenge criminal proceedings or specific orders before the trial is concluded. The appropriate remedy depends on the facts, procedural stage and applicable law."
+    },
+    {
+      "q": "How are legal fees discussed?",
+      "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+    }
+  ],
+  "lawyerSlugs": [],
+  "caseStudySlugs": []
+},
+{
+  "slug": "family-law",
+  "title": "Family Law",
+  "icon": "HeartHandshake",
+  "image": {
+    "src": "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&auto=format&fit=crop&q=80",
+    "alt": "Family sitting together at home"
+  },
+  "copy": "Sensitive, practical and strategic legal advice and representation in matters involving marriage, divorce, children, financial rights and family relationships.",
+  "valueProp": "Careful legal assessment, practical guidance and effective representation focused on protecting clients' legal rights and long-term interests in complex family disputes.",
+  "overview": [
+    "Our Family Law practice provides sensitive, practical and strategic legal advice and representation in matters affecting marriage, divorce, children, financial rights and other family relationships.",
+    "We assist clients in resolving complex and often highly personal family disputes while protecting their legal rights and long-term interests.",
+    "We advise and represent individuals in a broad range of family and matrimonial matters before the Family Courts and other relevant courts and authorities of Bangladesh, with particular attention to the personal and financial circumstances involved in each matter."
+  ],
+  "services": [
+    {
+      "title": "Marriage & Matrimonial Matters",
+      "copy": "Legal advice concerning marriage, matrimonial rights and obligations, validity of marriage and other legal issues arising from marital relationships."
+    },
+    {
+      "title": "Divorce & Dissolution of Marriage",
+      "copy": "Advice and representation concerning divorce, dissolution of marriage and related legal proceedings, including the rights and obligations of the parties following separation."
+    },
+    {
+      "title": "Dower & Maintenance",
+      "copy": "Representation in claims relating to dower, maintenance and other financial rights arising from marriage or the dissolution of a marital relationship."
+    },
+    {
+      "title": "Child Custody & Guardianship",
+      "copy": "Advice and representation concerning custody, guardianship, care and welfare of children, with the best interests of the child remaining central to the legal strategy."
+    },
+    {
+      "title": "Child Maintenance",
+      "copy": "Assistance with claims concerning financial support and maintenance for children, including assessment of the parties' respective legal obligations."
+    },
+    {
+      "title": "Restitution of Conjugal Rights",
+      "copy": "Representation in proceedings concerning claims for restitution of conjugal rights and related matrimonial disputes."
+    },
+    {
+      "title": "Matrimonial Property & Financial Rights",
+      "copy": "Advice concerning financial interests, property-related claims and other rights arising between spouses in connection with marriage, separation or divorce."
+    },
+    {
+      "title": "Domestic & Family Disputes",
+      "copy": "Legal assistance in disputes involving spouses and family members, including advice on available civil, family and other legal remedies."
+    },
+    {
+      "title": "Family Court Proceedings",
+      "copy": "Representation before Family Courts in proceedings involving dissolution of marriage, dower, maintenance, guardianship, custody and other matters falling within the court's jurisdiction."
+    },
+    {
+      "title": "Appeals & Related Proceedings",
+      "copy": "Representation in appeals, revisions and other proceedings arising from judgments and orders in family and matrimonial matters."
+    },
+    {
+      "title": "Negotiation & Settlement",
+      "copy": "Assistance in negotiating practical settlements in family disputes, where appropriate, with a view to resolving issues efficiently while protecting the client's legal rights and interests."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Who do you act for?",
+      "a": "We represent individuals involved in matrimonial and family disputes, including spouses, parents, guardians and other parties seeking to protect their legal rights and interests."
+    },
+    {
+      "q": "Can you advise me before filing a family case?",
+      "a": "Yes. We assess the circumstances, relevant documents and available legal remedies and advise on the appropriate course of action before proceedings are initiated."
+    },
+    {
+      "q": "What rights do I have after separation or divorce?",
+      "a": "The applicable rights depend on the circumstances of the marriage, the parties involved and the governing personal and statutory laws. We assess the specific situation and advise on matters such as dower, maintenance, custody and other available remedies."
+    },
+    {
+      "q": "Can custody of a child be challenged or changed?",
+      "a": "In appropriate circumstances, custody and guardianship arrangements may be addressed through legal proceedings. The relevant court will consider the applicable law and the welfare and best interests of the child."
+    },
+    {
+      "q": "Can a family dispute be resolved without litigation?",
+      "a": "Yes. Where appropriate, negotiation, mediation or settlement may provide a more practical and less contentious way of resolving family disputes. We advise clients on the available options and their legal implications."
+    },
+    {
+      "q": "How are legal fees discussed?",
+      "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+    }
+  ],
+  "lawyerSlugs": [],
+  "caseStudySlugs": []
+},
+{
+  "slug": "constitutional-litigation-writ",
+  "title": "Constitutional Litigation (Writ)",
+  "icon": "Landmark",
+  "image": {
+    "src": "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=1200&auto=format&fit=crop&q=80",
+    "alt": "Supreme Court and legal books"
+  },
+  "copy": "Constitutional and public law representation before the High Court Division of the Supreme Court of Bangladesh.",
+  "valueProp": "Careful assessment of unlawful public action, identification of appropriate constitutional remedies and strategic representation throughout judicial review proceedings.",
+  "overview": [
+    "Our Writ practice focuses on constitutional and public law remedies before the High Court Division of the Supreme Court of Bangladesh.",
+    "We advise and represent individuals, businesses and organisations seeking judicial review of unlawful actions, decisions and omissions of public authorities, as well as protection of constitutional and legal rights.",
+    "We represent clients in constitutional and administrative law matters involving government authorities, statutory bodies, public officials and other entities exercising public functions."
+  ],
+  "services": [
+    {
+      "title": "Judicial Review",
+      "copy": "Representation in proceedings challenging unlawful, arbitrary, unreasonable or procedurally improper actions and decisions of public authorities."
+    },
+    {
+      "title": "Fundamental Rights",
+      "copy": "Advice and representation in matters concerning infringement or threatened infringement of fundamental rights guaranteed under the Constitution of Bangladesh."
+    },
+    {
+      "title": "Administrative & Government Decisions",
+      "copy": "Challenge to unlawful administrative decisions, orders, circulars, notifications and other actions taken by government authorities and statutory bodies."
+    },
+    {
+      "title": "Certiorari",
+      "copy": "Representation in appropriate proceedings seeking to have unlawful orders, decisions or proceedings of public authorities declared without lawful authority and of no legal effect."
+    },
+    {
+      "title": "Mandamus",
+      "copy": "Proceedings seeking directions requiring a public authority or statutory body to perform a legal duty or exercise a power in accordance with law."
+    },
+    {
+      "title": "Prohibition",
+      "copy": "Advice and representation in proceedings seeking to restrain a court, tribunal or authority from acting beyond its lawful jurisdiction or in violation of legal requirements."
+    },
+    {
+      "title": "Declaration & Constitutional Remedies",
+      "copy": "Assistance in seeking appropriate declarations and other constitutional remedies where a client's legal or constitutional rights have been affected by unlawful public action."
+    },
+    {
+      "title": "Public Employment & Service Matters",
+      "copy": "Representation in matters involving appointment, promotion, disciplinary proceedings, suspension, dismissal, termination, service conditions and other disputes concerning public employment."
+    },
+    {
+      "title": "Regulatory & Licensing Matters",
+      "copy": "Advice and representation concerning government licences, permits, approvals, registrations and regulatory decisions, including challenges to unlawful refusal, cancellation or adverse administrative action."
+    },
+    {
+      "title": "Government & Statutory Bodies",
+      "copy": "Representation in disputes involving ministries, government departments, statutory authorities, local authorities and other public bodies exercising statutory or public functions."
+    },
+    {
+      "title": "Writ Appeals & Related Proceedings",
+      "copy": "Representation in appeals and other proceedings arising from judgments, orders and decisions of the High Court Division in constitutional and administrative matters."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "When can a writ petition be filed?",
+      "a": "A writ petition may be appropriate where a public authority or other entity exercising public functions has acted unlawfully, exceeded its jurisdiction, failed to perform a legal duty or infringed a legal or constitutional right. The availability of the remedy depends on the facts and applicable law."
+    },
+    {
+      "q": "Can a government decision be challenged through a writ?",
+      "a": "Yes, in appropriate circumstances. Government and administrative decisions may be subject to judicial review where they are unlawful, made without jurisdiction, procedurally improper or otherwise amenable to constitutional review."
+    },
+    {
+      "q": "Can I file a writ against a private person or company?",
+      "a": "Writ jurisdiction primarily concerns public authorities and the exercise of public functions. Whether a particular private entity or action falls within the scope of constitutional judicial review depends on the nature of the function and the applicable legal framework."
+    },
+    {
+      "q": "Can a writ petition stop an unlawful government action?",
+      "a": "In appropriate cases, the High Court Division may grant interim or other appropriate relief to protect the petitioner's position while the matter is being considered. The availability and scope of such relief depend on the circumstances of each case."
+    },
+    {
+      "q": "Do I need to challenge the decision through another legal remedy first?",
+      "a": "Not necessarily in every case. The maintainability of a writ petition may depend on the availability and adequacy of alternative remedies, the nature of the impugned action and other legal considerations. We assess these issues before recommending the appropriate course of action."
+    },
+    {
+      "q": "How are legal fees discussed?",
+      "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+    }
+  ],
+  "lawyerSlugs": [],
+  "caseStudySlugs": []
+}
 ]

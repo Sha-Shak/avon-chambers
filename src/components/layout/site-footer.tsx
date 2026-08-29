@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site.config";
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms of Engagement", href: "/terms-of-engagement" },
-  { label: "Attorney Advertising", href: "/attorney-advertising" },
+  { label: "Lawyer Advertising", href: "/lawyer-advertising" },
   { label: "Accessibility", href: "/accessibility" },
 ];
 

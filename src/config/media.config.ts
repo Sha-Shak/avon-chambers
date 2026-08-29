@@ -6,8 +6,8 @@
  * brand mark is a one-file edit — nothing in components/ or app/ hardcodes
  * an image path directly.
  *
- * Per-person photos live alongside each record in data/attorneys.json
- * instead, since those are 1:1 with a specific attorney rather than a
+ * Per-person photos live alongside each record in data/lawyers.json
+ * instead, since those are 1:1 with a specific lawyer rather than a
  * site-wide asset — see that file's `photo` field.
  *
  * Paths are relative to /public. Drop a replacement file at the same path
@@ -35,7 +35,7 @@ export const mediaConfig = {
     homeSlides: [
       {
         src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1786546841/avon-chambers-office.png",
-        alt: "Attorneys of Avon Chambers in conference with a client",
+        alt: "Lawyers of Avon Chambers in conference with a client",
       },
       {
         src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1786545610/Stack_of_Law_Books.jpg",
@@ -60,9 +60,9 @@ export const mediaConfig = {
       alt: "Looking up at courthouse columns and ceiling detail",
     },
   },
-  /** Fallback used when an attorney record has no working photo. */
+  /** Fallback used when a lawyer record has no working photo. */
   placeholderAvatar: {
-    src: "/images/brand/attorney-placeholder.svg",
+    src: "/images/brand/lawyer-placeholder.svg",
     alt: "Portrait placeholder",
     width: 700,
     height: 800,

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { InteractiveMarquee } from "@/components/interactive-marquee";
 import type { ClientTestimonial } from "@/types";
 
-const FALLBACK_AVATAR = "/images/brand/attorney-placeholder.svg";
+const FALLBACK_AVATAR = "/images/brand/lawyer-placeholder.svg";
 
 export function TestimonialsMarquee({ testimonials }: { testimonials: ClientTestimonial[] }) {
   return (

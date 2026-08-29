@@ -11,7 +11,7 @@ export function ConsultationSection({
   submitLabel = "Request consultation",
   contactPhone = siteConfig.consultationPhoneDisplay,
   contactEmail,
-  attorneySlug,
+  lawyerSlug,
 }: {
   eyebrow?: string;
   heading?: string;
@@ -19,7 +19,7 @@ export function ConsultationSection({
   submitLabel?: string;
   contactPhone?: string;
   contactEmail?: string;
-  attorneySlug?: string;
+  lawyerSlug?: string;
 }) {
   return (
     <section className="bg-navy text-cream">
@@ -74,7 +74,7 @@ export function ConsultationSection({
         </FadeIn>
 
         <FadeIn delay={100} className="min-w-0">
-          <ConsultationForm submitLabel={submitLabel} attorneySlug={attorneySlug} />
+          <ConsultationForm submitLabel={submitLabel} lawyerSlug={lawyerSlug} />
         </FadeIn>
       </div>
     </section>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
-import { AttorneyGrid } from "@/components/attorney-grid";
+import { LawyerGrid } from "@/components/lawyer-grid";
 import { CaseStudyCard } from "@/components/cards/case-study-card";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -12,7 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { PracticeAreaIcon } from "@/lib/icons";
 import {
   getAllPracticeAreas,
-  getAttorneys,
+  getLawyers,
   getCaseStudies,
   getPracticeArea,
 } from "@/lib/data";
@@ -53,7 +53,7 @@ export default async function PracticeAreaDetailPage({
   const area = getPracticeArea(slug);
   if (!area) notFound();
 
-  const relatedAttorneys = getAttorneys(area.attorneySlugs);
+  const relatedLawyers = getLawyers(area.lawyerSlugs);
   const relatedCases = getCaseStudies(area.caseStudySlugs);
   const { service, faqPage } = practiceAreaSchema(area);
 
@@ -153,14 +153,14 @@ export default async function PracticeAreaDetailPage({
         </div>
       </section>
 
-      {relatedAttorneys.length > 0 && (
+      {relatedLawyers.length > 0 && (
         <section className="border-y border-foreground/10 bg-secondary/50">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
             <FadeIn className="max-w-2xl">
               <p className="eyebrow">The team</p>
-              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Attorneys in this practice</h2>
+              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Lawyers in this practice</h2>
             </FadeIn>
-            <AttorneyGrid attorneys={relatedAttorneys} gap="gap-8" className="mt-14" />
+            <LawyerGrid lawyers={relatedLawyers} gap="gap-8" className="mt-14" />
           </div>
         </section>
       )}

@@ -2,14 +2,14 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AttorneyGrid } from "@/components/attorney-grid";
+import { LawyerGrid } from "@/components/lawyer-grid";
 import { Button } from "@/components/ui/button";
-import type { Attorney } from "@/types";
+import type { Lawyer } from "@/types";
 
 /**
- * Attorneys revealed per "page". 4 divides evenly into every breakpoint's
- * column count (1 on mobile, 2 on sm, 4 on lg — see ATTORNEY_GRID_COLUMNS_CLASS
- * in attorney-grid.tsx) so a batch always completes whole rows instead of
+ * Lawyers revealed per "page". 4 divides evenly into every breakpoint's
+ * column count (1 on mobile, 2 on sm, 4 on lg — see LAWYER_GRID_COLUMNS_CLASS
+ * in lawyer-grid.tsx) so a batch always completes whole rows instead of
  * leaving a partial row dangling. If the grid's columns ever change, update
  * this to their least common multiple to stay row-aligned at every breakpoint.
  */
@@ -19,31 +19,31 @@ const DEFAULT_ITEMS_PER_PAGE = 4;
     a deliberate fetch rather than a flicker — mirrors RouteLoader's approach. */
 const LOAD_MORE_DELAY_MS = 500;
 
-export function AttorneyDirectory({
-  attorneys,
+export function LawyerDirectory({
+  lawyers,
   itemsPerPage = DEFAULT_ITEMS_PER_PAGE,
 }: {
-  attorneys: Attorney[];
-  /** Attorneys revealed per batch. Defaults to a value that stays row-aligned at every breakpoint — see {@link DEFAULT_ITEMS_PER_PAGE}. */
+  lawyers: Lawyer[];
+  /** Lawyers revealed per batch. Defaults to a value that stays row-aligned at every breakpoint — see {@link DEFAULT_ITEMS_PER_PAGE}. */
   itemsPerPage?: number;
 }) {
-  const [visibleCount, setVisibleCount] = useState(Math.min(itemsPerPage, attorneys.length));
+  const [visibleCount, setVisibleCount] = useState(Math.min(itemsPerPage, lawyers.length));
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const loadingRef = useRef(false);
   const timeoutRef = useRef<number | undefined>(undefined);
-  const hasMore = visibleCount < attorneys.length;
+  const hasMore = visibleCount < lawyers.length;
 
   const loadMore = useCallback(() => {
     if (loadingRef.current) return;
     loadingRef.current = true;
     setIsLoadingMore(true);
     timeoutRef.current = window.setTimeout(() => {
-      setVisibleCount((count) => Math.min(count + itemsPerPage, attorneys.length));
+      setVisibleCount((count) => Math.min(count + itemsPerPage, lawyers.length));
       loadingRef.current = false;
       setIsLoadingMore(false);
     }, LOAD_MORE_DELAY_MS);
-  }, [attorneys.length, itemsPerPage]);
+  }, [lawyers.length, itemsPerPage]);
 
   useEffect(() => () => window.clearTimeout(timeoutRef.current), []);
 
@@ -60,7 +60,7 @@ export function AttorneyDirectory({
 
   return (
     <div>
-      <AttorneyGrid attorneys={attorneys.slice(0, visibleCount)} />
+      <LawyerGrid lawyers={lawyers.slice(0, visibleCount)} />
       {hasMore && (
         <div ref={sentinelRef} className="mt-12 flex justify-center">
           {isLoadingMore ? (
@@ -68,7 +68,7 @@ export function AttorneyDirectory({
               className="flex flex-col items-center gap-3"
               role="status"
               aria-live="polite"
-              aria-label="Loading more attorneys"
+              aria-label="Loading more lawyers"
             >
               <Image
                 src="/images/brand/Avon_Chambers_Logo.webp"
@@ -80,7 +80,7 @@ export function AttorneyDirectory({
             </div>
           ) : (
             <Button type="button" variant="navyOutline" onClick={loadMore}>
-              Load more attorneys
+              Load more lawyers
             </Button>
           )}
         </div>

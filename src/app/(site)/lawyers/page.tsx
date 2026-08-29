@@ -1,37 +1,37 @@
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
-import { AttorneyDirectory } from "@/components/attorney-directory";
+import { LawyerDirectory } from "@/components/lawyer-directory";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
-import { getAllAttorneys } from "@/lib/data";
+import { getAllLawyers } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
 
 const DESCRIPTION = `Meet the legal professionals of ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
 
 export const metadata: Metadata = {
-  title: "Attorneys",
+  title: "Lawyers",
   description: DESCRIPTION,
-  alternates: { canonical: "/attorneys" },
-  openGraph: { title: `Attorneys — ${siteConfig.name}`, description: DESCRIPTION, url: "/attorneys" },
+  alternates: { canonical: "/lawyers" },
+  openGraph: { title: `Lawyers — ${siteConfig.name}`, description: DESCRIPTION, url: "/lawyers" },
 };
 
-export default function AttorneysPage() {
-  const attorneys = getAllAttorneys();
+export default function LawyersPage() {
+  const lawyers = getAllLawyers();
 
   return (
     <div>
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Attorneys", path: "/attorneys" },
+          { name: "Lawyers", path: "/lawyers" },
         ])}
       />
 
       <section className="border-b border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeIn className="max-w-3xl">
-            <p className="eyebrow">Attorneys</p>
+            <p className="eyebrow">Lawyers</p>
             <h1 className="mt-6 text-4xl leading-[1.1] text-foreground sm:text-5xl">
               Legal professionals with a broad range of expertise.
             </h1>
@@ -44,7 +44,7 @@ export default function AttorneysPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-        <AttorneyDirectory attorneys={attorneys} />
+        <LawyerDirectory lawyers={lawyers} />
       </section>
 
       <ConsultationSection eyebrow="Book a consultation" heading="Not sure who to speak with? Start here." />

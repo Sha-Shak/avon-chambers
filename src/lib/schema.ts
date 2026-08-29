@@ -1,7 +1,7 @@
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { urlForImage } from "@/sanity/image";
-import type { Attorney, CaseStudy, Insight, JobPost, PracticeArea } from "@/types";
+import type { Lawyer, CaseStudy, Insight, JobPost, PracticeArea } from "@/types";
 
 const abs = (pathname: string) => `${siteConfig.url}${pathname}`;
 
@@ -36,24 +36,24 @@ export function organizationSchema() {
 }
 
 /**
- * Individual attorney schema. Uses Person (not the schema.org "Attorney"
+ * Individual lawyer schema. Uses Person (not the schema.org "Attorney"
  * type, which represents the professional service/business rather than an
  * individual) with worksFor pointing back at the firm record above.
  */
-export function attorneySchema(attorney: Attorney) {
+export function lawyerSchema(lawyer: Lawyer) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: attorney.name,
-    jobTitle: attorney.title,
-    description: attorney.intro,
-    image: abs(attorney.photo),
-    url: abs(`/attorneys/${attorney.slug}`),
-    email: attorney.email,
-    telephone: attorney.phone,
+    name: lawyer.name,
+    jobTitle: lawyer.title,
+    description: lawyer.intro,
+    image: abs(lawyer.photo),
+    url: abs(`/lawyers/${lawyer.slug}`),
+    email: lawyer.email,
+    telephone: lawyer.phone,
     worksFor: { "@id": organizationId() },
-    knowsAbout: attorney.areas,
-    alumniOf: attorney.education.map((line) => ({
+    knowsAbout: lawyer.areas,
+    alumniOf: lawyer.education.map((line) => ({
       "@type": "CollegeOrUniversity",
       name: line.split(",")[1]?.trim().replace(/\s*\(.*\)$/, "") ?? line,
     })),

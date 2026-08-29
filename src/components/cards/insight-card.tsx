@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getAttorney } from "@/lib/data";
+import { getLawyer } from "@/lib/data";
 import { mediaConfig } from "@/config/media.config";
 import { urlForImage } from "@/sanity/image";
 import type { InsightMeta } from "@/types";
@@ -16,7 +16,7 @@ function formatDate(iso: string) {
 
 export function InsightCard({ insight }: { insight: InsightMeta }) {
   const author = insight.authorSlug
-    ? getAttorney(insight.authorSlug)
+    ? getLawyer(insight.authorSlug)
     : undefined;
 
   return (

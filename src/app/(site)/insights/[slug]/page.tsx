@@ -10,7 +10,7 @@ import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
-import { getAttorney } from "@/lib/data";
+import { getLawyer } from "@/lib/data";
 import { getAllInsights, getInsight, getInsightSlugs } from "@/lib/content";
 import { breadcrumbSchema, insightSchema } from "@/lib/schema";
 import { urlForImage } from "@/sanity/image";
@@ -79,7 +79,7 @@ export default async function InsightDetailPage({
   if (!insight) notFound();
 
   const author = insight.authorSlug
-    ? getAttorney(insight.authorSlug)
+    ? getLawyer(insight.authorSlug)
     : undefined;
   const morePosts = (await getAllInsights())
     .filter((i) => i.slug !== insight.slug)
@@ -93,7 +93,7 @@ export default async function InsightDetailPage({
           author
             ? {
                 name: author.name,
-                url: `${siteConfig.url}/attorneys/${author.slug}`,
+                url: `${siteConfig.url}/lawyers/${author.slug}`,
               }
             : undefined,
         )}
@@ -135,7 +135,7 @@ export default async function InsightDetailPage({
               </p>
               {author && (
                 <Link
-                  href={`/attorneys/${author.slug}`}
+                  href={`/lawyers/${author.slug}`}
                   className="mt-8 inline-flex items-center gap-3 border-t border-foreground/10 pt-6 hover:opacity-80"
                 >
                   <span className="text-sm text-foreground">{author.name}</span>

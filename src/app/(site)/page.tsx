@@ -6,7 +6,7 @@ import { FadeIn } from "@/components/fade-in";
 import { Hero, type HeroSlide } from "@/components/hero";
 import { AnimatedNumber } from "@/components/animated-number";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
-import { AttorneyGrid } from "@/components/attorney-grid";
+import { LawyerGrid } from "@/components/lawyer-grid";
 import { CaseStudyCard } from "@/components/cards/case-study-card";
 import { ArticlesCarousel } from "@/components/articles-carousel";
 import { ConsultationSection } from "@/components/consultation-section";
@@ -15,7 +15,7 @@ import { InteractiveMarquee } from "@/components/interactive-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import {
-  getAllAttorneys,
+  getAllLawyers,
   getAllCaseStudies,
   getAllPracticeAreas,
 } from "@/lib/data";
@@ -125,7 +125,7 @@ const process = [
 
 export default async function HomePage() {
   const practiceAreas = getAllPracticeAreas();
-  const featuredAttorneys = getAllAttorneys().slice(0, 4);
+  const featuredLawyers = getAllLawyers().slice(0, 4);
   const featuredCaseStudies = getAllCaseStudies().slice(0, 3);
   const latestInsights = await getAllInsights();
 
@@ -244,24 +244,24 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 6. Attorneys */}
+      {/* 6. Lawyers */}
       <section className="border-y border-foreground/10 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
             <div className="max-w-2xl">
               <p className="eyebrow">The practice</p>
               <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
-                Attorneys
+                Lawyers
               </h2>
             </div>
             <Link
-              href="/attorneys"
+              href="/lawyers"
               className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
             >
-              All attorneys <ArrowUpRight className="size-4" />
+              All lawyers <ArrowUpRight className="size-4" />
             </Link>
           </FadeIn>
-          <AttorneyGrid attorneys={featuredAttorneys} gap="gap-8" delayStepMs={70} className="mt-14" />
+          <LawyerGrid lawyers={featuredLawyers} gap="gap-8" delayStepMs={70} className="mt-14" />
         </div>
       </section>
 

@@ -53,7 +53,7 @@ export const insight = defineType({
       title: "Author",
       type: "string",
       description:
-        "Must match an attorney's slug in src/data/attorneys.json, e.g. \"helena-marchetti\". Leave blank to credit the firm generally.",
+        "Must match a lawyer's slug in src/data/lawyers.json, e.g. \"helena-marchetti\". Leave blank to credit the firm generally.",
     }),
     defineField({
       name: "publishedAt",

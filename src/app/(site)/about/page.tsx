@@ -4,11 +4,11 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/fade-in";
 import { AnimatedNumber } from "@/components/animated-number";
-import { AttorneyGrid } from "@/components/attorney-grid";
+import { LawyerGrid } from "@/components/lawyer-grid";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
-import { getFeaturedAttorneys, getAllPracticeAreas } from "@/lib/data";
+import { getFeaturedLawyers, getAllPracticeAreas } from "@/lib/data";
 import { breadcrumbSchema, organizationId } from "@/lib/schema";
 import { PracticeAreaIcon } from "@/lib/icons";
 
@@ -67,7 +67,7 @@ const steps = [
 
 export default function AboutPage() {
   const practiceAreas = getAllPracticeAreas();
-  const featured = getFeaturedAttorneys();
+  const featured = getFeaturedLawyers();
   const facts = [
     { value: "Service", label: "Dedicated service" },
     { value: "Team", label: "Legal professionals" },
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 <Link href="/contact">Book a consultation</Link>
               </Button>
               <Button asChild variant="navyOutline" size="xl" className="rounded-none">
-                <Link href="/attorneys">Meet the attorneys</Link>
+                <Link href="/lawyers">Meet the lawyers</Link>
               </Button>
             </div>
           </FadeIn>
@@ -202,13 +202,13 @@ export default function AboutPage() {
               <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Our legal professionals</h2>
             </div>
             <Link
-              href="/attorneys"
+              href="/lawyers"
               className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
             >
-              All attorneys <ArrowUpRight className="size-4" />
+              All lawyers <ArrowUpRight className="size-4" />
             </Link>
           </FadeIn>
-          <AttorneyGrid attorneys={featured} className="mt-14" />
+          <LawyerGrid lawyers={featured} className="mt-14" />
         </div>
       </section>
 

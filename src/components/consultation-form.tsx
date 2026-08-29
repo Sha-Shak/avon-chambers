@@ -12,10 +12,10 @@ const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export function ConsultationForm({
   submitLabel = "Request consultation",
-  attorneySlug,
+  lawyerSlug,
 }: {
   submitLabel?: string;
-  attorneySlug?: string;
+  lawyerSlug?: string;
 }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -40,7 +40,7 @@ export function ConsultationForm({
           message: data.get("message"),
           company: data.get("company"), // honeypot
           turnstileToken: data.get("turnstileToken"),
-          attorneySlug,
+          lawyerSlug,
         }),
       });
 

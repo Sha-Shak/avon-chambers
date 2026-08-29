@@ -18,7 +18,7 @@ const consultationSchema = z.object({
   email: z.string().trim().email("Enter a valid email address").max(320),
   phone: z.string().trim().max(40).optional().or(z.literal("")),
   message: z.string().trim().max(4000).optional().or(z.literal("")),
-  attorneySlug: z.string().trim().max(100).optional(),
+  lawyerSlug: z.string().trim().max(100).optional(),
   turnstileToken: z.string().max(2048).optional(),
   // Honeypot: real visitors never populate this hidden field.
   company: z.string().max(0, "Spam detected").optional().or(z.literal("")),
@@ -146,7 +146,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, email, phone, message, attorneySlug, turnstileToken } =
+  const { name, email, phone, message, lawyerSlug, turnstileToken } =
     parsed.data;
 
   const turnstile = await verifyTurnstile(turnstileToken, ip);
@@ -176,7 +176,7 @@ export async function POST(request: Request) {
     ["Name", name],
     ["Email", email],
     ["Phone", phone || "Not provided"],
-    ["Requested attorney", attorneySlug || "Not specified"],
+    ["Requested lawyer", lawyerSlug || "Not specified"],
     ["Message", message || "Not provided"],
   ];
 

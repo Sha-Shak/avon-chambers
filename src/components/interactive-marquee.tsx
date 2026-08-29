@@ -43,7 +43,7 @@ export function InteractiveMarquee({
   const pausedUntilRef = useRef(0);
   const draggingRef = useRef(false);
   const hoveredRef = useRef(false);
-  const dragRef = useRef({ startX: 0, startScrollLeft: 0, moved: false });
+  const dragRef = useRef({ startX: 0, startScrollLeft: 0, moved: false, pointerId: 0 });
   const reducedMotionRef = useRef(false);
 
   const wrapScroll = useCallback(() => {
@@ -116,8 +116,12 @@ export function InteractiveMarquee({
     const track = trackRef.current;
     if (!track) return;
     draggingRef.current = true;
-    dragRef.current = { startX: e.clientX, startScrollLeft: track.scrollLeft, moved: false };
-    track.setPointerCapture(e.pointerId);
+    dragRef.current = { startX: e.clientX, startScrollLeft: track.scrollLeft, moved: false, pointerId: e.pointerId };
+    // Pointer capture is intentionally NOT taken here. Capturing on every
+    // pointerdown — even a plain click with no movement — retargets the
+    // click event that follows to this element instead of whatever was
+    // actually under the pointer, silently swallowing every card link.
+    // It's taken lazily in onPointerMove, only once a drag is confirmed.
   }, []);
 
   const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
@@ -125,8 +129,13 @@ export function InteractiveMarquee({
     const track = trackRef.current;
     if (!track) return;
     const dx = e.clientX - dragRef.current.startX;
-    if (Math.abs(dx) > 3) dragRef.current.moved = true;
-    track.scrollLeft = dragRef.current.startScrollLeft - dx;
+    if (!dragRef.current.moved && Math.abs(dx) > 3) {
+      dragRef.current.moved = true;
+      track.setPointerCapture(dragRef.current.pointerId);
+    }
+    if (dragRef.current.moved) {
+      track.scrollLeft = dragRef.current.startScrollLeft - dx;
+    }
   }, []);
 
   const endDrag = useCallback(

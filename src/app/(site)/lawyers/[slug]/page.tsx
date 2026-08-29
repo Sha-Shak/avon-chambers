@@ -7,11 +7,11 @@ import { FadeIn } from "@/components/fade-in";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
-import { getAllAttorneys, getAttorney, getPracticeAreasForAttorney } from "@/lib/data";
-import { attorneySchema, breadcrumbSchema } from "@/lib/schema";
+import { getAllLawyers, getLawyer, getPracticeAreasForLawyer } from "@/lib/data";
+import { lawyerSchema, breadcrumbSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
-  return getAllAttorneys().map((a) => ({ slug: a.slug }));
+  return getAllLawyers().map((l) => ({ slug: l.slug }));
 }
 
 export async function generateMetadata({
@@ -20,43 +20,43 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const attorney = getAttorney(slug);
-  if (!attorney) return { title: "Unavailable", robots: { index: false, follow: false } };
+  const lawyer = getLawyer(slug);
+  if (!lawyer) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = `${attorney.name}, ${attorney.title}`;
+  const title = `${lawyer.name}, ${lawyer.title}`;
   return {
     title,
-    description: attorney.intro,
-    alternates: { canonical: `/attorneys/${attorney.slug}` },
+    description: lawyer.intro,
+    alternates: { canonical: `/lawyers/${lawyer.slug}` },
     openGraph: {
       title: `${title} — ${siteConfig.name}`,
-      description: attorney.intro,
-      url: `/attorneys/${attorney.slug}`,
+      description: lawyer.intro,
+      url: `/lawyers/${lawyer.slug}`,
       type: "profile",
-      images: [{ url: attorney.photo }],
+      images: [{ url: lawyer.photo }],
     },
   };
 }
 
-export default async function AttorneyProfilePage({
+export default async function LawyerProfilePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const attorney = getAttorney(slug);
-  if (!attorney) notFound();
+  const lawyer = getLawyer(slug);
+  if (!lawyer) notFound();
 
-  const areaLinks = getPracticeAreasForAttorney(attorney);
+  const areaLinks = getPracticeAreasForLawyer(lawyer);
 
   return (
     <div>
-      <JsonLd data={attorneySchema(attorney)} />
+      <JsonLd data={lawyerSchema(lawyer)} />
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Attorneys", path: "/attorneys" },
-          { name: attorney.name, path: `/attorneys/${attorney.slug}` },
+          { name: "Lawyers", path: "/lawyers" },
+          { name: lawyer.name, path: `/lawyers/${lawyer.slug}` },
         ])}
       />
 
@@ -65,8 +65,8 @@ export default async function AttorneyProfilePage({
           <FadeIn>
             <div className="relative aspect-3/4 w-full overflow-hidden">
               <Image
-                src={attorney.photo}
-                alt={`Portrait of ${attorney.name}`}
+                src={lawyer.photo}
+                alt={`Portrait of ${lawyer.name}`}
                 fill
                 sizes="(min-width: 1024px) 38vw, 100vw"
                 className="object-cover"
@@ -76,13 +76,13 @@ export default async function AttorneyProfilePage({
           </FadeIn>
           <FadeIn delay={100} className="self-center">
             <Link
-              href="/attorneys"
+              href="/lawyers"
               className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase hover:text-cream"
             >
-              Attorneys
+              Lawyers
             </Link>
-            <h1 className="mt-7 text-4xl leading-[1.1] sm:text-5xl">{attorney.name}</h1>
-            <p className="mt-4 text-base text-cream/70">{attorney.title}</p>
+            <h1 className="mt-7 text-4xl leading-[1.1] sm:text-5xl">{lawyer.name}</h1>
+            <p className="mt-4 text-base text-cream/70">{lawyer.title}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {areaLinks.map((p) => (
                 <Link
@@ -94,14 +94,14 @@ export default async function AttorneyProfilePage({
                 </Link>
               ))}
             </div>
-            <p className="mt-9 max-w-xl text-base leading-relaxed text-cream/70">{attorney.intro}</p>
+            <p className="mt-9 max-w-xl text-base leading-relaxed text-cream/70">{lawyer.intro}</p>
           </FadeIn>
         </div>
       </section>
 
       <section className="border-b border-foreground/10 bg-secondary/60">
         <FadeIn className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 lg:grid-cols-4 lg:px-10">
-          {attorney.stats.map((s) => (
+          {lawyer.stats.map((s) => (
             <div key={s.label} className="min-w-0 border-l border-foreground/15 pl-5">
               <p className="font-serif text-3xl text-foreground">{s.value}</p>
               <p className="mt-1 text-xs leading-snug text-muted-foreground">{s.label}</p>
@@ -114,9 +114,9 @@ export default async function AttorneyProfilePage({
         <div className="grid gap-16 lg:grid-cols-[0.62fr_0.38fr]">
           <FadeIn>
             <p className="eyebrow">Biography</p>
-            <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">About {attorney.name.split(" ")[0]}</h2>
+            <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">About {lawyer.name.split(" ")[0]}</h2>
             <div className="mt-8 space-y-6">
-              {attorney.bio.map((p) => (
+              {lawyer.bio.map((p) => (
                 <p key={p.slice(0, 24)} className="text-base leading-relaxed text-muted-foreground">
                   {p}
                 </p>
@@ -128,7 +128,7 @@ export default async function AttorneyProfilePage({
             <div>
               <p className="eyebrow">Education</p>
               <ul className="mt-5 space-y-4 border-t border-foreground/15 pt-5">
-                {attorney.education.map((e) => (
+                {lawyer.education.map((e) => (
                   <li key={e} className="text-sm leading-relaxed text-muted-foreground">
                     {e}
                   </li>
@@ -138,7 +138,7 @@ export default async function AttorneyProfilePage({
             <div>
               <p className="eyebrow">Bar admissions</p>
               <ul className="mt-5 space-y-4 border-t border-foreground/15 pt-5">
-                {attorney.admissions.map((e) => (
+                {lawyer.admissions.map((e) => (
                   <li key={e} className="text-sm leading-relaxed text-muted-foreground">
                     {e}
                   </li>
@@ -150,14 +150,14 @@ export default async function AttorneyProfilePage({
               <ul className="mt-5 space-y-4 border-t border-foreground/15 pt-5 text-sm text-muted-foreground">
                 <li className="flex gap-3">
                   <Phone className="mt-0.5 size-4 shrink-0 text-muted-foreground" strokeWidth={1.5} />
-                  <a href={`tel:${attorney.phone.replace(/[^\d+]/g, "")}`} className="hover:text-foreground">
-                    {attorney.phone}
+                  <a href={`tel:${lawyer.phone.replace(/[^\d+]/g, "")}`} className="hover:text-foreground">
+                    {lawyer.phone}
                   </a>
                 </li>
                 <li className="flex gap-3">
                   <Mail className="mt-0.5 size-4 shrink-0 text-muted-foreground" strokeWidth={1.5} />
-                  <a href={`mailto:${attorney.email}`} className="break-all hover:text-foreground">
-                    {attorney.email}
+                  <a href={`mailto:${lawyer.email}`} className="break-all hover:text-foreground">
+                    {lawyer.email}
                   </a>
                 </li>
                 <li className="flex gap-3">
@@ -182,7 +182,7 @@ export default async function AttorneyProfilePage({
             <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Notable matters</h2>
           </FadeIn>
           <ol className="mt-14 grid gap-10 sm:grid-cols-2">
-            {attorney.notableCases.map((c, i) => (
+            {lawyer.notableCases.map((c, i) => (
               <FadeIn key={c.slice(0, 24)} as="li" delay={i * 60} className="border-t border-foreground/20 pt-6">
                 <span className="font-serif text-sm text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
                 <p className="mt-4 text-base leading-relaxed text-foreground">{c}</p>
@@ -195,15 +195,15 @@ export default async function AttorneyProfilePage({
         </div>
       </section>
 
-      {(attorney.awards.length > 0 || attorney.publications.length > 0) && (
+      {(lawyer.awards.length > 0 || lawyer.publications.length > 0) && (
         <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
           <div className="grid gap-16 lg:grid-cols-2">
-            {attorney.awards.length > 0 && (
+            {lawyer.awards.length > 0 && (
               <FadeIn>
                 <p className="eyebrow">Recognition</p>
                 <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">Awards</h2>
                 <ul className="mt-8 divide-y divide-navy/10 border-t border-foreground/15">
-                  {attorney.awards.map((w) => (
+                  {lawyer.awards.map((w) => (
                     <li key={w} className="py-5 text-sm leading-relaxed text-muted-foreground">
                       {w}
                     </li>
@@ -211,12 +211,12 @@ export default async function AttorneyProfilePage({
                 </ul>
               </FadeIn>
             )}
-            {attorney.publications.length > 0 && (
+            {lawyer.publications.length > 0 && (
               <FadeIn delay={80}>
                 <p className="eyebrow">Writing</p>
                 <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">Publications</h2>
                 <ul className="mt-8 divide-y divide-navy/10 border-t border-foreground/15">
-                  {attorney.publications.map((w) => (
+                  {lawyer.publications.map((w) => (
                     <li key={w} className="py-5 text-sm leading-relaxed text-muted-foreground">
                       {w}
                     </li>
@@ -229,13 +229,13 @@ export default async function AttorneyProfilePage({
       )}
 
       <ConsultationSection
-        eyebrow={`${attorney.title} · ${attorney.area}`}
-        heading={`Book a consultation with ${attorney.name}.`}
-        blurb={`Consultations with ${attorney.name} run 45 minutes and are held in person or by call, at your preference.`}
-        submitLabel={`Request time with ${attorney.name.split(" ")[0]}`}
-        contactPhone={attorney.phone}
-        contactEmail={attorney.email}
-        attorneySlug={attorney.slug}
+        eyebrow={`${lawyer.title} · ${lawyer.area}`}
+        heading={`Book a consultation with ${lawyer.name}.`}
+        blurb={`Consultations with ${lawyer.name} run 45 minutes and are held in person or by call, at your preference.`}
+        submitLabel={`Request time with ${lawyer.name.split(" ")[0]}`}
+        contactPhone={lawyer.phone}
+        contactEmail={lawyer.email}
+        lawyerSlug={lawyer.slug}
       />
     </div>
   );

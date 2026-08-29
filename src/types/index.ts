@@ -3,25 +3,25 @@ import type { PortableTextBlock } from "@portabletext/types";
 /**
  * Shared content types for Avon Chambers.
  *
- * Attorney and PracticeArea records are cross-referenced by slug
- * (attorney.practiceAreaSlugs <-> practiceArea.attorneySlugs) so either
+ * Lawyer and PracticeArea records are cross-referenced by slug
+ * (lawyer.practiceAreaSlugs <-> practiceArea.lawyerSlugs) so either
  * side can be looked up from the other without duplicating data.
  */
 
-export interface AttorneyStat {
+export interface LawyerStat {
   value: string;
   label: string;
 }
 
-export interface Attorney {
+export interface Lawyer {
   slug: string;
   name: string;
   title: string;
   /** Short label shown on cards, e.g. "Corporate & M&A" */
   area: string;
-  /** Full practice area names this attorney covers, for display */
+  /** Full practice area names this lawyer covers, for display */
   areas: string[];
-  /** Practice area slugs this attorney covers, for cross-linking */
+  /** Practice area slugs this lawyer covers, for cross-linking */
   practiceAreaSlugs: string[];
   photo: string;
   email: string;
@@ -30,7 +30,7 @@ export interface Attorney {
   bio: string[];
   education: string[];
   admissions: string[];
-  stats: AttorneyStat[];
+  stats: LawyerStat[];
   notableCases: string[];
   awards: string[];
   publications: string[];
@@ -67,7 +67,7 @@ export interface PracticeArea {
   overview: string[];
   services: PracticeAreaService[];
   faqs: PracticeAreaFaq[];
-  attorneySlugs: string[];
+  lawyerSlugs: string[];
   caseStudySlugs: string[];
 }
 

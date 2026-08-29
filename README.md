@@ -3,7 +3,7 @@
 Next.js 16 (App Router) rebuild of the Avon Chambers marketing site —
 migrated from a Lovable/TanStack Start export, cleaned up, and made
 data-driven. Insights (blog) and Careers content is managed through a
-Sanity Studio built into the app; everything else (attorneys, practice
+Sanity Studio built into the app; everything else (lawyers, practice
 areas, case studies, firm details) is plain JSON/config files in the repo.
 
 ## Quick start
@@ -76,17 +76,17 @@ don't need a redeploy).
 | ------------------------------------- | -------------------------------------- |
 | A blog post (Insights)                | `/studio` in your browser — not a file |
 | A job posting (Careers)               | `/studio` in your browser — not a file |
-| An attorney's bio, photo, stats, etc. | `src/data/attorneys.json`              |
+| A lawyer's bio, photo, stats, etc.    | `src/data/lawyers.json`                |
 | A practice area                       | `src/data/practice-areas.json`         |
 | A case study                          | `src/data/case-studies.json`           |
 | Firm name, address, phone, stats      | `src/config/site.config.ts`            |
 | Logo, hero image, OG image            | `src/config/media.config.ts`           |
 
-Attorneys, practice areas, and case studies stayed as JSON files rather
-than moving into Sanity, since you specifically asked for the attorney
+Lawyers, practice areas, and case studies stayed as JSON files rather
+than moving into Sanity, since you specifically asked for the lawyer
 roster to be a JSON file you can edit directly — and since these change far
 less often than blog posts or job listings, and are cross-referenced with
-each other by slug (an attorney's `practiceAreaSlugs` must match a real
+each other by slug (a lawyer's `practiceAreaSlugs` must match a real
 slug in `practice-areas.json`).
 
 `src/content/` holds the _original_ markdown seed files — the app doesn't
@@ -100,7 +100,7 @@ A few things were deliberately left as clearly-marked placeholders rather
 than invented:
 
 - **Legal pages** (`/privacy-policy`, `/terms-of-engagement`,
-  `/attorney-advertising`, `/accessibility`) are real, working pages but
+  `/lawyer-advertising`, `/accessibility`) are real, working pages but
   contain a placeholder notice instead of actual policy text, and are set
   to `noindex` until you replace it. These need the firm's own counsel, not
   generated boilerplate — see each `page.tsx` for exactly where the real
@@ -159,7 +159,7 @@ and is the only place `globals.css` is imported.
   same data sources that render the pages (including live Sanity content),
   so it can't drift out of sync with what's actually on the site.
 - JSON-LD structured data is on every page: `LegalService` for the firm,
-  `Person` for each attorney (not schema.org's `Attorney` type, which
+  `Person` for each lawyer (not schema.org's `Attorney` type, which
   represents the business/service, not an individual), `Service` +
   `FAQPage` for practice areas, `BlogPosting` for insights, `JobPosting`
   for careers, and `BreadcrumbList` throughout.
