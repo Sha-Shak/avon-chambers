@@ -166,7 +166,7 @@ export default async function HomePage() {
         <FadeIn className="max-w-2xl">
           <p className="eyebrow">Practice areas</p>
           <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
-            Six disciplines, practised deliberately narrowly.
+            {practiceAreas.length} disciplines, practised deliberately narrowly.
           </h2>
         </FadeIn>
         <InteractiveMarquee
