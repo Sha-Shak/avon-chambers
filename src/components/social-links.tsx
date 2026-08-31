@@ -8,8 +8,8 @@ const platforms = [
   { key: "instagram", label: "Instagram", Icon: FaInstagram },
   { key: "twitter", label: "X (formerly Twitter)", Icon: FaXTwitter },
   { key: "threads", label: "Threads", Icon: FaThreads },
-  { key: "youtube", label: "YouTube", Icon: FaYoutube },
-  { key: "tiktok", label: "TikTok", Icon: FaTiktok },
+  // { key: "youtube", label: "YouTube", Icon: FaYoutube },
+  // { key: "tiktok", label: "TikTok", Icon: FaTiktok },
 ] as const;
 
 type PlatformKey = (typeof platforms)[number]["key"];
@@ -29,7 +29,10 @@ export function SocialLinks({
   /** "md" (default, used in tight spots like the footer) or "lg" for a more prominent CTA. */
   size?: "md" | "lg";
 }) {
-  const visible = platforms.filter(({ key }) => siteConfig.social[key] && (!only || only.includes(key)));
+  const visible = platforms.filter(
+    ({ key }): key is keyof typeof siteConfig.social =>
+      key in siteConfig.social && Boolean(siteConfig.social[key]) && (!only || only.includes(key)),
+  );
 
   return (
     <div className={cn("flex gap-4", className)}>

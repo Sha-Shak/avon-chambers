@@ -37,13 +37,13 @@ export const siteConfig = {
    * changing shared layout components.
    */
   social: {
-    linkedIn: "https://www.linkedin.com/company/avon-chambers",
+    linkedIn: "https://www.linkedin.com/company/avonchambers",
     facebook: "https://www.facebook.com/avonchambers",
-    instagram: "https://www.instagram.com/avonchambers",
+    instagram: "https://www.instagram.com/avon.chambers",
     twitter: "https://x.com/avonchambers",
-    threads: "https://www.threads.net/@avonchambers",
-    youtube: "https://www.youtube.com/@avonchambers",
-    tiktok: "https://www.tiktok.com/@avonchambers",
+    threads: "https://www.threads.net/@avon.chambers",
+    // youtube: "https://www.youtube.com/@avonchambers",
+    // tiktok: "https://www.tiktok.com/@avonchambers",
   },
   /** WhatsApp click-to-chat, used by the floating WhatsApp button on every page. */
   whatsapp: {
