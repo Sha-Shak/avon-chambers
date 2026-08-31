@@ -29,10 +29,7 @@ export function SocialLinks({
   /** "md" (default, used in tight spots like the footer) or "lg" for a more prominent CTA. */
   size?: "md" | "lg";
 }) {
-  const visible = platforms.filter(
-    ({ key }): key is keyof typeof siteConfig.social =>
-      key in siteConfig.social && Boolean(siteConfig.social[key]) && (!only || only.includes(key)),
-  );
+  const visible = platforms.filter(({ key }) => siteConfig.social[key] && (!only || only.includes(key)));
 
   return (
     <div className={cn("flex gap-4", className)}>
