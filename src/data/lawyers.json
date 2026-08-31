@@ -52,12 +52,12 @@
         "label": "Years in practice"
       },
       {
-        "value": "N/A",
-        "label": ""
+        "value": "4",
+        "label": "Bar & court admissions"
       },
       {
-        "value": "N/A",
-        "label": ""
+        "value": "4",
+        "label": "Professional recognitions"
       },
       {
         "value": "11",
@@ -123,16 +123,16 @@
         "label": "Years in practice"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "3",
+        "label": "Jurisdictions qualified"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "5",
+        "label": "Bar & court admissions"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "4",
+        "label": "Practice areas"
       }
     ],
     "notableCases": [],
@@ -190,12 +190,12 @@
         "label": "Transaction value"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "4",
+        "label": "Jurisdictions of practice"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "5",
+        "label": "Practice areas"
       }
     ],
     "notableCases": [
@@ -321,12 +321,12 @@
         "label": "Property value handled"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "5",
+        "label": "Practice areas"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "2",
+        "label": "Bar & court admissions"
       }
     ],
     "notableCases": [],
@@ -500,7 +500,7 @@
     "publications": [
       "‘New Policies and reformed obstructions’ by Barrister Alif on a Legal Journal"
     ],
-    "featured": true,
+    "featured": false,
     "position": 7
   },
   {
@@ -774,16 +774,16 @@
         "label": "Years of experience"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "9",
+        "label": "Practice areas"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "7",
+        "label": "Qualifications & certifications"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "2",
+        "label": "UPenn specializations"
       }
     ],
     "notableCases": [],
@@ -835,16 +835,16 @@
         "label": "Years of practice in litigation"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "2",
+        "label": "Notable matters"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "5",
+        "label": "Practice areas"
       },
       {
-        "value": "",
-        "label": ""
+        "value": "2",
+        "label": "Bar & court admissions"
       }
     ],
     "notableCases": [
@@ -893,6 +893,18 @@
       {
         "value": "3",
         "label": "Years of practice in litigation"
+      },
+      {
+        "value": "4",
+        "label": "Practice areas"
+      },
+      {
+        "value": "5",
+        "label": "Subjects taught"
+      },
+      {
+        "value": "2",
+        "label": "Academic qualifications"
       }
     ],
     "notableCases": [],

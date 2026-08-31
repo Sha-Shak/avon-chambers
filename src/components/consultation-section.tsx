@@ -1,25 +1,21 @@
 import { Lock, MapPin, Phone } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
-import { ConsultationForm } from "@/components/consultation-form";
 import { SocialLinks } from "@/components/social-links";
+import { WhatsAppCta } from "@/components/whatsapp-cta";
 import { siteConfig } from "@/config/site.config";
 
 export function ConsultationSection({
   eyebrow = "Book a consultation",
   heading = "Tell us what happened. We'll tell you where you stand.",
   blurb = "Initial consultations are 45 minutes and held with the partner who would lead your matter.",
-  submitLabel = "Request consultation",
   contactPhone = siteConfig.consultationPhoneDisplay,
   contactEmail,
-  lawyerSlug,
 }: {
   eyebrow?: string;
   heading?: string;
   blurb?: string;
-  submitLabel?: string;
   contactPhone?: string;
   contactEmail?: string;
-  lawyerSlug?: string;
 }) {
   return (
     <section className="bg-navy text-cream">
@@ -70,11 +66,21 @@ export function ConsultationSection({
               </div>
             </div>
           </dl>
-          <SocialLinks variant="dark" className="mt-8" />
         </FadeIn>
 
-        <FadeIn delay={100} className="min-w-0">
-          <ConsultationForm submitLabel={submitLabel} lawyerSlug={lawyerSlug} />
+        <FadeIn delay={100} className="flex min-w-0 flex-col justify-center gap-10 border border-cream/15 p-8 sm:p-10">
+          <div>
+            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">Get in touch</p>
+            <p className="mt-4 text-base leading-relaxed text-cream/70">
+              The fastest way to reach us — message the team directly on WhatsApp and we&rsquo;ll respond
+              as soon as we can.
+            </p>
+          </div>
+          <WhatsAppCta message={heading.replace(/\.$/, "")} />
+          <div>
+            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">Follow us</p>
+            <SocialLinks variant="dark" size="lg" only={["linkedIn", "facebook", "instagram"]} className="mt-5" />
+          </div>
         </FadeIn>
       </div>
     </section>

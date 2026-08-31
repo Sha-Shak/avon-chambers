@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
-import { ConsultationForm } from "@/components/consultation-form";
+import { WhatsAppCta } from "@/components/whatsapp-cta";
 import { SocialLinks } from "@/components/social-links";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
@@ -32,7 +32,7 @@ export default function ContactPage() {
             <p className="eyebrow">Speak with counsel</p>
             <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Contact</h1>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Contact Avon Chambers by phone, email or the form below to discuss your legal matter.
+              Contact Avon Chambers by phone, email or WhatsApp to discuss your legal matter.
             </p>
           </FadeIn>
         </div>
@@ -90,15 +90,17 @@ export default function ContactPage() {
             </p>
             <div>
               <p className="eyebrow">Follow us</p>
-              <SocialLinks variant="light" className="mt-4" />
+              <SocialLinks variant="light" size="lg" only={["linkedIn", "facebook", "instagram"]} className="mt-4" />
             </div>
           </FadeIn>
 
           <FadeIn delay={100} className="min-w-0">
-            <div className="bg-navy p-1">
-              <div className="bg-navy p-4 text-cream sm:p-7">
-                <ConsultationForm />
-              </div>
+            <div className="flex h-full flex-col justify-center gap-6 border border-foreground/10 bg-navy p-8 text-cream sm:p-10">
+              <p className="text-base leading-relaxed text-cream/70">
+                The fastest way to reach us — message the team directly on WhatsApp and we&rsquo;ll
+                respond as soon as we can.
+              </p>
+              <WhatsAppCta />
             </div>
           </FadeIn>
         </div>

@@ -15,7 +15,7 @@ import { InteractiveMarquee } from "@/components/interactive-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import {
-  getAllLawyers,
+  getFeaturedLawyers,
   getAllCaseStudies,
   getAllPracticeAreas,
 } from "@/lib/data";
@@ -125,7 +125,7 @@ const process = [
 
 export default async function HomePage() {
   const practiceAreas = getAllPracticeAreas();
-  const featuredLawyers = getAllLawyers().slice(0, 4);
+  const featuredLawyers = getFeaturedLawyers();
   const featuredCaseStudies = getAllCaseStudies().slice(0, 3);
   const latestInsights = await getAllInsights();
 

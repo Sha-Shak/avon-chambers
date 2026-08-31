@@ -12,18 +12,28 @@ const platforms = [
   { key: "tiktok", label: "TikTok", Icon: FaTiktok },
 ] as const;
 
+type PlatformKey = (typeof platforms)[number]["key"];
+
 /** Reused on the footer, contact page and consultation CTA — one source of truth for the platform list. */
 export function SocialLinks({
   variant = "dark",
   className,
+  only,
+  size = "md",
 }: {
   /** "dark" for use on a navy background (cream icons), "light" for the default page background. */
   variant?: "dark" | "light";
   className?: string;
+  /** Restrict to specific platforms (e.g. ["linkedIn", "facebook", "instagram"]) — defaults to every platform configured in site.config. */
+  only?: readonly PlatformKey[];
+  /** "md" (default, used in tight spots like the footer) or "lg" for a more prominent CTA. */
+  size?: "md" | "lg";
 }) {
+  const visible = platforms.filter(({ key }) => siteConfig.social[key] && (!only || only.includes(key)));
+
   return (
     <div className={cn("flex gap-4", className)}>
-      {platforms.filter(({ key }) => siteConfig.social[key]).map(({ key, label, Icon }) => (
+      {visible.map(({ key, label, Icon }) => (
         <a
           key={key}
           href={siteConfig.social[key]}
@@ -32,7 +42,7 @@ export function SocialLinks({
           aria-label={label}
           className={variant === "dark" ? "text-cream/60 hover:text-cream" : "text-muted-foreground hover:text-foreground"}
         >
-          <Icon className="size-4" />
+          <Icon className={size === "lg" ? "size-6" : "size-4"} />
         </a>
       ))}
     </div>
