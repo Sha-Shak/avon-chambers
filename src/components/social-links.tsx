@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaLinkedin, FaThreads, FaTiktok, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaLinkedin, FaThreads, FaXTwitter } from "react-icons/fa6";
 import { siteConfig } from "@/config/site.config";
 import { cn } from "@/lib/utils";
 
