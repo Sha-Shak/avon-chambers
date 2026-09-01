@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getLawyersByTier, type LawyerTier } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 
 const DESCRIPTION = `Meet the legal professionals of ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   title: "Lawyers",
   description: DESCRIPTION,
   alternates: { canonical: "/lawyers" },
-  openGraph: { title: `Lawyers — ${siteConfig.name}`, description: DESCRIPTION, url: "/lawyers" },
+  openGraph: buildOpenGraph({ title: `Lawyers — ${siteConfig.name}`, description: DESCRIPTION, url: "/lawyers" }),
 };
 
 /** Section heading per tier — plural where that reads naturally, "Of Counsel" stays as-is. */

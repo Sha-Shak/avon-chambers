@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllJobPosts, isJobOpen } from "@/lib/content";
 import { breadcrumbSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 
 const DESCRIPTION = `Career opportunities at ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: "Careers",
   description: DESCRIPTION,
   alternates: { canonical: "/careers" },
-  openGraph: { title: `Careers — ${siteConfig.name}`, description: DESCRIPTION, url: "/careers" },
+  openGraph: buildOpenGraph({ title: `Careers — ${siteConfig.name}`, description: DESCRIPTION, url: "/careers" }),
 };
 
 export default async function CareersPage() {

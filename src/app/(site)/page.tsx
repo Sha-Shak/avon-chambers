@@ -14,6 +14,7 @@ import { InteractiveMarquee } from "@/components/interactive-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { getFeaturedLawyers, getAllPracticeAreas } from "@/lib/data";
+import { buildOpenGraph } from "@/lib/seo";
 import { getAllInsights } from "@/lib/content";
 import testimonialsData from "@/data/testimonials.json";
 import type { ClientTestimonial } from "@/types";
@@ -22,11 +23,11 @@ export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
   description: siteConfig.description,
   alternates: { canonical: "/" },
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     url: "/",
-  },
+  }),
 };
 
 /**

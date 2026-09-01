@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllCaseStudies } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 
 const DESCRIPTION = `Learn about the legal services and practice areas offered by ${siteConfig.name} in Bangladesh.`;
 
@@ -13,7 +14,11 @@ export const metadata: Metadata = {
   title: "Case Studies",
   description: DESCRIPTION,
   alternates: { canonical: "/case-studies" },
-  openGraph: { title: `Case Studies — ${siteConfig.name}`, description: DESCRIPTION, url: "/case-studies" },
+  openGraph: buildOpenGraph({
+    title: `Case Studies — ${siteConfig.name}`,
+    description: DESCRIPTION,
+    url: "/case-studies",
+  }),
 };
 
 export default function CaseStudiesPage() {

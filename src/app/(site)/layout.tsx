@@ -7,6 +7,7 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { organizationSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,24 +17,14 @@ export const metadata: Metadata = {
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.name }],
   alternates: { canonical: "/" },
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     url: "/",
-    siteName: siteConfig.name,
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: mediaConfig.og.default.src,
-        width: mediaConfig.og.default.width,
-        height: mediaConfig.og.default.height,
-        alt: `${siteConfig.name} — ${siteConfig.tagline}`,
-      },
-    ],
-  },
+  }),
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
@@ -47,6 +38,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true },
+  },
+  // Not read by Google, but some other search tools and SEO auditors still
+  // look for a plain `<meta name="publisher">` tag.
+  other: {
+    publisher: siteConfig.name,
   },
 };
 

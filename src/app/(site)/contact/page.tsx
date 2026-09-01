@@ -6,6 +6,7 @@ import { SocialLinks } from "@/components/social-links";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { breadcrumbSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 
 const DESCRIPTION = `Contact ${siteConfig.name} in Dhanmondi, Dhaka for professional legal advice and representation.`;
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description: DESCRIPTION,
   alternates: { canonical: "/contact" },
-  openGraph: { title: `Contact ${siteConfig.name}`, description: DESCRIPTION, url: "/contact" },
+  openGraph: buildOpenGraph({ title: `Contact ${siteConfig.name}`, description: DESCRIPTION, url: "/contact" }),
 };
 
 export default function ContactPage() {

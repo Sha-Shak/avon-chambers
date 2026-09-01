@@ -17,6 +17,7 @@ import {
   getPracticeArea,
 } from "@/lib/data";
 import { breadcrumbSchema, practiceAreaSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 import { siteConfig } from "@/config/site.config";
 
 export function generateStaticParams() {
@@ -36,11 +37,12 @@ export async function generateMetadata({
     title: area.title,
     description: area.valueProp,
     alternates: { canonical: `/practice-areas/${area.slug}` },
-    openGraph: {
+    openGraph: buildOpenGraph({
       title: `${area.title} — ${siteConfig.name}`,
       description: area.valueProp,
       url: `/practice-areas/${area.slug}`,
-    },
+      image: { url: area.image.src, alt: area.image.alt },
+    }),
   };
 }
 

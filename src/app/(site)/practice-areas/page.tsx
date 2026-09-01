@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllPracticeAreas } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 
 const DESCRIPTION = `Explore the legal practice areas of ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
 
@@ -13,7 +14,11 @@ export const metadata: Metadata = {
   title: "Practice Areas",
   description: DESCRIPTION,
   alternates: { canonical: "/practice-areas" },
-  openGraph: { title: `Practice Areas — ${siteConfig.name}`, description: DESCRIPTION, url: "/practice-areas" },
+  openGraph: buildOpenGraph({
+    title: `Practice Areas — ${siteConfig.name}`,
+    description: DESCRIPTION,
+    url: "/practice-areas",
+  }),
 };
 
 export default function PracticeAreasPage() {

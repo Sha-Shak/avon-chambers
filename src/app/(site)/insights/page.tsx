@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllInsights } from "@/lib/content";
 import { breadcrumbSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 
 const DESCRIPTION = `Articles and legal insights from ${siteConfig.name} in Bangladesh.`;
 
@@ -13,11 +14,11 @@ export const metadata: Metadata = {
   title: "Articles",
   description: DESCRIPTION,
   alternates: { canonical: "/insights" },
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: `Articles — ${siteConfig.name}`,
     description: DESCRIPTION,
     url: "/insights",
-  },
+  }),
 };
 
 export default async function InsightsPage() {

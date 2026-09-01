@@ -10,6 +10,7 @@ import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { getJobPost, getJobPostSlugs } from "@/lib/content";
 import { breadcrumbSchema, jobPostingSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 import { urlForImage } from "@/sanity/image";
 
 export async function generateStaticParams() {
@@ -38,13 +39,12 @@ export async function generateMetadata({
     keywords: job.seo?.keywords,
     alternates: { canonical: `/careers/${job.slug}` },
     robots: job.seo?.noIndex ? { index: false, follow: true } : undefined,
-    openGraph: {
+    openGraph: buildOpenGraph({
       title: `${title} — ${siteConfig.name}`,
       description,
       url: `/careers/${job.slug}`,
-      type: "website",
-      images: [{ url: image }],
-    },
+      image: { url: image },
+    }),
     twitter: {
       card: "summary_large_image",
       title: `${title} — ${siteConfig.name}`,

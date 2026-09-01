@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site.config";
 import { getAllLawyers, getLawyer, getPracticeAreasForLawyer } from "@/lib/data";
 import { lawyerSchema, breadcrumbSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 
 /** Widest column count the stats row reaches (its `lg:grid-cols-4`) — a
  *  shorter, filtered list is centered instead of stretched to fill it. */
@@ -33,13 +34,13 @@ export async function generateMetadata({
     title,
     description: lawyer.intro,
     alternates: { canonical: `/lawyers/${lawyer.slug}` },
-    openGraph: {
+    openGraph: buildOpenGraph({
       title: `${title} — ${siteConfig.name}`,
       description: lawyer.intro,
       url: `/lawyers/${lawyer.slug}`,
       type: "profile",
-      images: [{ url: lawyer.photo }],
-    },
+      image: { url: lawyer.photo, alt: `Portrait of ${lawyer.name}` },
+    }),
   };
 }
 

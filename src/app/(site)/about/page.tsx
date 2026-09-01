@@ -10,6 +10,7 @@ import { siteConfig } from "@/config/site.config";
 import { getAllPracticeAreas } from "@/lib/data";
 import { breadcrumbSchema, organizationId } from "@/lib/schema";
 import { PracticeAreaIcon } from "@/lib/icons";
+import { buildOpenGraph } from "@/lib/seo";
 
 const TITLE = `About ${siteConfig.name}`;
 const DESCRIPTION = `${siteConfig.name} is a Bangladesh-based set of law chambers providing professional legal advice and representation to corporate and private clients.`;
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: "/about" },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: "/about", type: "website" },
+  openGraph: buildOpenGraph({ title: TITLE, description: DESCRIPTION, url: "/about" }),
 };
 
 const principles = [

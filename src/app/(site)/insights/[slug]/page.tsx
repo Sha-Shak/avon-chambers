@@ -13,6 +13,7 @@ import { mediaConfig } from "@/config/media.config";
 import { getLawyer } from "@/lib/data";
 import { getAllInsights, getInsight, getInsightSlugs } from "@/lib/content";
 import { breadcrumbSchema, insightSchema } from "@/lib/schema";
+import { buildOpenGraph } from "@/lib/seo";
 import { urlForImage } from "@/sanity/image";
 
 export async function generateStaticParams() {
@@ -43,15 +44,15 @@ export async function generateMetadata({
     keywords: insight.seo?.keywords,
     alternates: { canonical: `/insights/${insight.slug}` },
     robots: insight.seo?.noIndex ? { index: false, follow: true } : undefined,
-    openGraph: {
+    openGraph: buildOpenGraph({
       title: `${title} — ${siteConfig.name}`,
       description,
       url: `/insights/${insight.slug}`,
       type: "article",
+      image: { url: image },
       publishedTime: insight.publishedAt,
       modifiedTime: insight.updatedAt ?? insight.publishedAt,
-      images: [{ url: image }],
-    },
+    }),
     twitter: {
       card: "summary_large_image",
       title: `${title} — ${siteConfig.name}`,
