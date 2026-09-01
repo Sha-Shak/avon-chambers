@@ -66,20 +66,30 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
           <div className="hero-panel-blend absolute inset-0 bg-navy/65 backdrop-blur-md" />
           <div className="relative">
             <div className="grid">
-              {slides.map((slide, i) => (
-                <div
-                  key={slide.heading}
-                  aria-hidden={i !== index}
-                  className={cn(
-                    "col-start-1 row-start-1 translate-y-3 transition-[opacity,transform] duration-1000 ease-out",
-                    i === index ? "translate-y-0 opacity-100" : "pointer-events-none opacity-0",
-                  )}
-                >
-                  <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">{slide.eyebrow}</p>
-                  <h1 className="mt-5 text-3xl leading-[1.12] text-cream sm:text-4xl lg:text-5xl">{slide.heading}</h1>
-                  <p className="mt-5 text-sm leading-relaxed text-cream/75 sm:text-base">{slide.subheading}</p>
-                </div>
-              ))}
+              {slides.map((slide, i) => {
+                // Only the first slide's heading is a real <h1> — the others
+                // share its exact styling but render as a <p>, so the page
+                // always has exactly one h1 in the DOM (crawlers read the
+                // static markup, not which slide the animation currently
+                // shows) instead of one per rotating slide.
+                const Heading = i === 0 ? "h1" : "p";
+                return (
+                  <div
+                    key={slide.heading}
+                    aria-hidden={i !== index}
+                    className={cn(
+                      "col-start-1 row-start-1 translate-y-3 transition-[opacity,transform] duration-1000 ease-out",
+                      i === index ? "translate-y-0 opacity-100" : "pointer-events-none opacity-0",
+                    )}
+                  >
+                    <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">{slide.eyebrow}</p>
+                    <Heading className="mt-5 text-3xl leading-[1.12] text-cream sm:text-4xl lg:text-5xl">
+                      {slide.heading}
+                    </Heading>
+                    <p className="mt-5 text-sm leading-relaxed text-cream/75 sm:text-base">{slide.subheading}</p>
+                  </div>
+                );
+              })}
             </div>
             <div className="mt-8 flex flex-col gap-3 min-[420px]:flex-row">
               <Link

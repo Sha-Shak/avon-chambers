@@ -4,12 +4,19 @@
  * copy across multiple pages. Change them here once instead of hunting
  * through JSX.
  *
- * NEXT_PUBLIC_SITE_URL must be set to the real production domain before
- * launch — see .env.example. Metadata, JSON-LD, the sitemap and llms.txt
- * all derive their absolute URLs from siteConfig.url.
+ * NEXT_PUBLIC_SITE_URL must be set to the real production domain — see
+ * .env.example. Metadata, JSON-LD, the sitemap and llms.txt all derive
+ * their absolute URLs from siteConfig.url.
+ *
+ * This must also be set as an environment variable in the Netlify dashboard
+ * (Site settings → Environment variables), not just here — NEXT_PUBLIC_*
+ * values are baked in at build time, so the fallback below only helps local
+ * dev/preview builds that don't set it. If it's wrong or missing there, the
+ * live site will keep emitting canonical tags for the Netlify subdomain
+ * instead of the real domain, however this fallback is set.
  */
 
-const FALLBACK_URL = "https://avonchambers.com";
+const FALLBACK_URL = "https://www.avonchambers.com";
 
 export const siteConfig = {
   name: "Avon Chambers",
