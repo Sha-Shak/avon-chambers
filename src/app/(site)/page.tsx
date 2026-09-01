@@ -7,18 +7,13 @@ import { Hero, type HeroSlide } from "@/components/hero";
 import { AnimatedNumber } from "@/components/animated-number";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
 import { LawyerGrid } from "@/components/lawyer-grid";
-import { CaseStudyCard } from "@/components/cards/case-study-card";
 import { ArticlesCarousel } from "@/components/articles-carousel";
 import { ConsultationSection } from "@/components/consultation-section";
 import { TestimonialsMarquee } from "@/components/testimonials-marquee";
 import { InteractiveMarquee } from "@/components/interactive-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
-import {
-  getFeaturedLawyers,
-  getAllCaseStudies,
-  getAllPracticeAreas,
-} from "@/lib/data";
+import { getFeaturedLawyers, getAllPracticeAreas } from "@/lib/data";
 import { getAllInsights } from "@/lib/content";
 import testimonialsData from "@/data/testimonials.json";
 import type { ClientTestimonial } from "@/types";
@@ -126,7 +121,6 @@ const process = [
 export default async function HomePage() {
   const practiceAreas = getAllPracticeAreas();
   const featuredLawyers = getFeaturedLawyers();
-  const featuredCaseStudies = getAllCaseStudies().slice(0, 3);
   const latestInsights = await getAllInsights();
 
   return (
@@ -219,32 +213,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 5. Case studies */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-        <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
-          <div className="max-w-2xl">
-            <p className="eyebrow">Selected outcomes</p>
-            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
-              Featured case studies
-            </h2>
-          </div>
-          <Link
-            href="/case-studies"
-            className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
-          >
-            All case studies <ArrowUpRight className="size-4" />
-          </Link>
-        </FadeIn>
-        <div className="mt-14 grid gap-8 lg:grid-cols-3">
-          {featuredCaseStudies.map((c, i) => (
-            <FadeIn key={c.slug} delay={i * 70}>
-              <CaseStudyCard study={c} />
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-
-      {/* 6. Lawyers */}
+      {/* 5. Lawyers */}
       <section className="border-y border-foreground/10 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
@@ -265,7 +234,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 7. Testimonials */}
+      {/* 6. Testimonials */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="max-w-2xl">
           <p className="eyebrow">Client experience</p>
@@ -276,7 +245,7 @@ export default async function HomePage() {
         <FadeIn className="mt-14"><TestimonialsMarquee testimonials={testimonials} /></FadeIn>
       </section>
 
-      {/* 8. Process */}
+      {/* 7. Process */}
       <section className="border-y border-foreground/10 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
@@ -305,7 +274,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 9. Articles */}
+      {/* 8. Articles */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div className="max-w-2xl">
@@ -332,7 +301,7 @@ export default async function HomePage() {
         )}
       </section>
 
-      {/* 10. Final CTA */}
+      {/* 9. Final CTA */}
       <ConsultationSection />
     </div>
   );
