@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/fade-in";
 import { AnimatedNumber } from "@/components/animated-number";
-import { LawyerGrid } from "@/components/lawyer-grid";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
-import { getFeaturedLawyers, getAllPracticeAreas } from "@/lib/data";
+import { getAllPracticeAreas } from "@/lib/data";
 import { breadcrumbSchema, organizationId } from "@/lib/schema";
 import { PracticeAreaIcon } from "@/lib/icons";
 
@@ -67,7 +66,6 @@ const steps = [
 
 export default function AboutPage() {
   const practiceAreas = getAllPracticeAreas();
-  const featured = getFeaturedLawyers();
   const facts = [
     { value: "Service", label: "Dedicated service" },
     { value: "Team", label: "Legal professionals" },
@@ -191,24 +189,6 @@ export default function AboutPage() {
               </Link>
             </FadeIn>
           ))}
-        </div>
-      </section>
-
-      <section className="border-y border-foreground/10 bg-background">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
-            <div className="max-w-2xl">
-              <p className="eyebrow">The people</p>
-              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Our legal professionals</h2>
-            </div>
-            <Link
-              href="/lawyers"
-              className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
-            >
-              All lawyers <ArrowUpRight className="size-4" />
-            </Link>
-          </FadeIn>
-          <LawyerGrid lawyers={featured} className="mt-14" />
         </div>
       </section>
 

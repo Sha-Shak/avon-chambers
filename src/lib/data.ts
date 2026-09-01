@@ -30,6 +30,32 @@ export function getLawyersForPracticeArea(practiceAreaSlug: string): Lawyer[] {
   return getAllLawyers().filter((l) => l.practiceAreaSlugs.includes(practiceAreaSlug));
 }
 
+/** Seniority tiers shown as separate sections on the lawyers directory —
+ *  order here is the display order (most senior first). A lawyer's tier is
+ *  derived from their `title` rather than stored separately, so the two can
+ *  never drift out of sync. */
+export const LAWYER_TIERS = ["Partner", "Senior Associate", "Associate", "Of Counsel"] as const;
+export type LawyerTier = (typeof LAWYER_TIERS)[number];
+
+export function getLawyerTier(lawyer: Lawyer): LawyerTier {
+  if (lawyer.title.includes("Partner")) return "Partner";
+  if (lawyer.title === "Senior Associate") return "Senior Associate";
+  if (lawyer.title === "Of Counsel") return "Of Counsel";
+  return "Associate";
+}
+
+/** Every lawyer grouped into their seniority tier, alphabetical by name
+ *  within each tier — powers the segmented /lawyers directory. Tiers with
+ *  no one in them are omitted rather than rendered empty. */
+export function getLawyersByTier(): { tier: LawyerTier; lawyers: Lawyer[] }[] {
+  return LAWYER_TIERS.map((tier) => ({
+    tier,
+    lawyers: lawyers
+      .filter((l) => getLawyerTier(l) === tier)
+      .sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" })),
+  })).filter((group) => group.lawyers.length > 0);
+}
+
 // ---- Practice areas -------------------------------------------------------
 
 export function getAllPracticeAreas(): PracticeArea[] {

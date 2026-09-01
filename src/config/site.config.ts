@@ -20,8 +20,8 @@ export const siteConfig = {
     "Avon Chambers is a Bangladesh-based set of law chambers comprising Barristers, Solicitors, Advocates and Legal Consultants, providing practical legal advice and representation across a range of matters.",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? FALLBACK_URL).replace(/\/$/, ""),
   email: "avonchambers@gmail.com",
-  consultationPhoneDisplay: "(88) 01521327783",
-  consultationPhoneE164: "+8801521327783",
+  consultationPhoneDisplay: "(88) 01841010059",
+  consultationPhoneE164: "+8801841010059",
   officeHours: "Sat–Thurs, 9:30am – 6:30pm",
   address: {
     streetAddress: "Flat 4A, Level 3, Kanak Bindu, House 39A, Road No. 8",
@@ -47,7 +47,7 @@ export const siteConfig = {
   },
   /** WhatsApp click-to-chat, used by the floating WhatsApp button on every page. */
   whatsapp: {
-    number: "+8801521327783",
+    number: "+8801841010059",
     message: "Hello Avon Chambers, I'd like to book a consultation.",
   },
   /** Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX". Leave unset to disable. */

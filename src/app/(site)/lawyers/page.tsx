@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
-import { LawyerDirectory } from "@/components/lawyer-directory";
+import { LawyerGrid } from "@/components/lawyer-grid";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
-import { getAllLawyers } from "@/lib/data";
+import { getLawyersByTier, type LawyerTier } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
 
 const DESCRIPTION = `Meet the legal professionals of ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
@@ -16,8 +16,16 @@ export const metadata: Metadata = {
   openGraph: { title: `Lawyers — ${siteConfig.name}`, description: DESCRIPTION, url: "/lawyers" },
 };
 
+/** Section heading per tier — plural where that reads naturally, "Of Counsel" stays as-is. */
+const TIER_LABELS: Record<LawyerTier, string> = {
+  Partner: "Partners",
+  "Senior Associate": "Senior Associates",
+  Associate: "Associates",
+  "Of Counsel": "Of Counsel",
+};
+
 export default function LawyersPage() {
-  const lawyers = getAllLawyers();
+  const tiers = getLawyersByTier();
 
   return (
     <div>
@@ -43,9 +51,23 @@ export default function LawyersPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-        <LawyerDirectory lawyers={lawyers} />
-      </section>
+      {tiers.map(({ tier, lawyers }, i) => (
+        <section
+          key={tier}
+          className={
+            i % 2 === 1
+              ? "border-y border-foreground/10 bg-secondary/50"
+              : "mx-auto max-w-7xl px-6 lg:px-10"
+          }
+        >
+          <div className={i % 2 === 1 ? "mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32" : "py-24 lg:py-32"}>
+            <FadeIn className="max-w-2xl">
+              <h2 className="text-3xl text-foreground sm:text-4xl">{TIER_LABELS[tier]}</h2>
+            </FadeIn>
+            <LawyerGrid lawyers={lawyers} className="mt-14" />
+          </div>
+        </section>
+      ))}
 
       <ConsultationSection eyebrow="Book a consultation" heading="Not sure who to speak with? Start here." />
     </div>
