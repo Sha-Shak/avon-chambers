@@ -44,15 +44,15 @@ export function getLawyerTier(lawyer: Lawyer): LawyerTier {
   return "Associate";
 }
 
-/** Every lawyer grouped into their seniority tier, alphabetical by name
- *  within each tier — powers the segmented /lawyers directory. Tiers with
+/** Every lawyer grouped into their seniority tier, ordered by `position`
+ *  within each tier — powers the segmented /lawyers directory. Editing a
+ *  lawyer's `position` in lawyers.json is the one place that controls their
+ *  order, both here and in `getAllLawyers()` — lower sorts first. Tiers with
  *  no one in them are omitted rather than rendered empty. */
 export function getLawyersByTier(): { tier: LawyerTier; lawyers: Lawyer[] }[] {
   return LAWYER_TIERS.map((tier) => ({
     tier,
-    lawyers: lawyers
-      .filter((l) => getLawyerTier(l) === tier)
-      .sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" })),
+    lawyers: getAllLawyers().filter((l) => getLawyerTier(l) === tier),
   })).filter((group) => group.lawyers.length > 0);
 }
 
