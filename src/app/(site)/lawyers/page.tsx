@@ -4,7 +4,7 @@ import { LawyerGrid } from "@/components/lawyer-grid";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
-import { getLawyersByTier, type LawyerTier } from "@/lib/data";
+import { getLawyersByTier } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildOpenGraph } from "@/lib/seo";
 
@@ -17,16 +17,22 @@ export const metadata: Metadata = {
   openGraph: buildOpenGraph({ title: `Lawyers — ${siteConfig.name}`, description: DESCRIPTION, url: "/lawyers" }),
 };
 
-/** Section heading per tier — plural where that reads naturally, "Of Counsel" stays as-is. */
-const TIER_LABELS: Record<LawyerTier, string> = {
-  Partner: "Partners",
-  "Senior Associate": "Senior Associates",
-  Associate: "Associates",
-  "Of Counsel": "Of Counsel",
-};
-
 export default function LawyersPage() {
   const tiers = getLawyersByTier();
+
+  // Partners get their own row split — the most senior partner alone,
+  // then the rest — rather than one flat row; every other tier is already
+  // in its intended display order via each lawyer's `position`.
+  const partners = tiers.find((t) => t.tier === "Partner")?.lawyers ?? [];
+  const [leadPartner, ...otherPartners] = partners;
+  // Senior Associates, Associates and Of Counsel all flow through one
+  // undivided section (no border/background split between them), wrapping
+  // naturally at up to 4 per row.
+  const restOfTeam = [
+    ...(tiers.find((t) => t.tier === "Senior Associate")?.lawyers ?? []),
+    ...(tiers.find((t) => t.tier === "Associate")?.lawyers ?? []),
+    ...(tiers.find((t) => t.tier === "Of Counsel")?.lawyers ?? []),
+  ];
 
   return (
     <div>
@@ -52,23 +58,11 @@ export default function LawyersPage() {
         </div>
       </section>
 
-      {tiers.map(({ tier, lawyers }, i) => (
-        <section
-          key={tier}
-          className={
-            i % 2 === 1
-              ? "border-y border-foreground/10 bg-secondary/50"
-              : "mx-auto max-w-7xl px-6 lg:px-10"
-          }
-        >
-          <div className={i % 2 === 1 ? "mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32" : "py-24 lg:py-32"}>
-            <FadeIn className="max-w-2xl">
-              <h2 className="text-3xl text-foreground sm:text-4xl">{TIER_LABELS[tier]}</h2>
-            </FadeIn>
-            <LawyerGrid lawyers={lawyers} className="mt-14" />
-          </div>
-        </section>
-      ))}
+      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+        {leadPartner && <LawyerGrid lawyers={[leadPartner]} />}
+        {otherPartners.length > 0 && <LawyerGrid lawyers={otherPartners} className="mt-12" />}
+        <LawyerGrid lawyers={restOfTeam} className="mt-12" />
+      </section>
 
       <ConsultationSection eyebrow="Book a consultation" heading="Not sure who to speak with? Start here." />
     </div>

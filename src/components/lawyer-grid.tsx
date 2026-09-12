@@ -3,24 +3,26 @@ import { FadeIn } from "@/components/fade-in";
 import { cn } from "@/lib/utils";
 import type { Lawyer } from "@/types";
 
-/** Grid columns shared by every lawyer listing on the site — keep this the
- *  single source of truth so the home, about, practice-area and directory
- *  sections can never drift out of sync with each other. */
-export const LAWYER_GRID_COLUMNS_CLASS = "sm:grid-cols-2 lg:grid-cols-4";
-
-/** Widest column count `LAWYER_GRID_COLUMNS_CLASS` reaches (its `lg:grid-cols-4`) —
- *  used to size cards identically when a shorter list is centered instead of gridded. */
-const MAX_COLUMNS = 4;
+/**
+ * Card width per breakpoint, paired with each supported `gap`. A plain
+ * `w-1/3` alongside a flex `gap` overflows a 3-up row (the gap adds width
+ * on top of the three 33% shares), which wraps the 3rd card onto its own
+ * line — so each share subtracts its portion of the gap via `calc()`,
+ * keeping true 2-up/3-up rows at their breakpoints.
+ */
+const ITEM_WIDTH_BY_GAP: Record<string, string> = {
+  "gap-12": "w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)]",
+  "gap-8": "w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]",
+};
 
 /**
  * The lawyer-card grid used wherever lawyers are listed (home, about,
  * a practice area's "team" section, and the full directory). Centralizing it
  * means the columns, gap and reveal stagger only need to be tuned once.
  *
- * A list shorter than `MAX_COLUMNS` would otherwise sit flush left with an
- * empty trailing cell (CSS grid never centers a partial row on its own), so
- * those switch to a centered flex row instead — cards keep the exact width
- * they'd have in the full grid, they just don't stretch to fill it.
+ * Always a centered flex-wrap row rather than a CSS grid: flexbox centers
+ * each wrapped line independently, so a remainder row (e.g. 5 cards wrapping
+ * to 4 + 1) auto-centers with no special-casing by count.
  */
 export function LawyerGrid({
   lawyers,
@@ -37,22 +39,12 @@ export function LawyerGrid({
 }) {
   if (lawyers.length === 0) return null;
 
-  const isPartialRow = lawyers.length < MAX_COLUMNS;
+  const itemWidth = ITEM_WIDTH_BY_GAP[gap] ?? ITEM_WIDTH_BY_GAP["gap-12"];
 
   return (
-    <div
-      className={cn(
-        isPartialRow ? "flex flex-wrap justify-center" : cn("grid", LAWYER_GRID_COLUMNS_CLASS),
-        gap,
-        className,
-      )}
-    >
+    <div className={cn("flex flex-wrap justify-center", gap, className)}>
       {lawyers.map((lawyer, index) => (
-        <FadeIn
-          key={lawyer.slug}
-          delay={index * delayStepMs}
-          className={isPartialRow ? "w-full sm:w-1/2 lg:w-1/4" : undefined}
-        >
+        <FadeIn key={lawyer.slug} delay={index * delayStepMs} className={itemWidth}>
           <LawyerCard lawyer={lawyer} />
         </FadeIn>
       ))}

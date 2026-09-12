@@ -6,14 +6,13 @@ import { FadeIn } from "@/components/fade-in";
 import { Hero, type HeroSlide } from "@/components/hero";
 import { AnimatedNumber } from "@/components/animated-number";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
-import { LawyerGrid } from "@/components/lawyer-grid";
 import { ArticlesCarousel } from "@/components/articles-carousel";
 import { ConsultationSection } from "@/components/consultation-section";
 import { TestimonialsMarquee } from "@/components/testimonials-marquee";
 import { InteractiveMarquee } from "@/components/interactive-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
-import { getFeaturedLawyers, getAllPracticeAreas } from "@/lib/data";
+import { getAllPracticeAreas } from "@/lib/data";
 import { buildOpenGraph } from "@/lib/seo";
 import { getAllInsights } from "@/lib/content";
 import testimonialsData from "@/data/testimonials.json";
@@ -37,18 +36,18 @@ export const metadata: Metadata = {
 const heroContent: Omit<HeroSlide, "image">[] = [
   {
     eyebrow: `${siteConfig.name} · ${siteConfig.address.addressLocality}`,
-    heading: "Your trusted legal partner.",
-    subheading: "Avon Chambers brings together Barristers, Solicitors, Advocates and Legal Consultants to provide practical legal advice and representation.",
+    heading: "Your trusted legal partner",
+    subheading: "Avon Chambers brings together Barristers, Solicitors, Advocates and Legal Consultants to provide practical legal advice and representation",
   },
   {
     eyebrow: "Our commitment",
-    heading: "Dedicated service. Professional expertise. Practical solutions.",
-    subheading: "We are a dynamic and vibrant chambers committed to clear advice, high professional standards and confidentiality.",
+    heading: "Dedicated service, Professional expertise, Practical solutions",
+    subheading: "We are a dynamic and vibrant chambers committed to clear advice, high professional standards and confidentiality",
   },
   {
     eyebrow: "Practice areas",
-    heading: "Comprehensive legal advice under one roof.",
-    subheading: "Our lawyers have individual expertise across a range of legal matters, serving corporate and private clients.",
+    heading: "Comprehensive legal advice under one roof",
+    subheading: "Our lawyers have individual expertise across a range of legal matters, serving corporate and private clients",
   },
 ];
 
@@ -121,7 +120,6 @@ const process = [
 
 export default async function HomePage() {
   const practiceAreas = getAllPracticeAreas();
-  const featuredLawyers = getFeaturedLawyers();
   const latestInsights = await getAllInsights();
 
   return (
@@ -214,28 +212,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 5. Lawyers */}
-      <section className="border-y border-foreground/10 bg-secondary/50">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
-            <div className="max-w-2xl">
-              <p className="eyebrow">The practice</p>
-              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
-                Lawyers
-              </h2>
-            </div>
-            <Link
-              href="/lawyers"
-              className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
-            >
-              All lawyers <ArrowUpRight className="size-4" />
-            </Link>
-          </FadeIn>
-          <LawyerGrid lawyers={featuredLawyers} gap="gap-8" delayStepMs={70} className="mt-14" />
-        </div>
-      </section>
-
-      {/* 6. Testimonials */}
+      {/* 5. Testimonials */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="max-w-2xl">
           <p className="eyebrow">Client experience</p>
@@ -246,7 +223,7 @@ export default async function HomePage() {
         <FadeIn className="mt-14"><TestimonialsMarquee testimonials={testimonials} /></FadeIn>
       </section>
 
-      {/* 7. Process */}
+      {/* 6. Process */}
       <section className="border-y border-foreground/10 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
@@ -275,7 +252,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 8. Articles */}
+      {/* 7. Articles */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div className="max-w-2xl">
@@ -302,7 +279,7 @@ export default async function HomePage() {
         )}
       </section>
 
-      {/* 9. Final CTA */}
+      {/* 8. Final CTA */}
       <ConsultationSection />
     </div>
   );

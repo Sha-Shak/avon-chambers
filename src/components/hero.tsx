@@ -36,7 +36,7 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
 
   return (
     <div
-      className="relative h-[38rem] sm:h-[42rem] lg:h-[44rem]"
+      className="relative h-[32rem] sm:h-[36rem] lg:h-[38rem]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
