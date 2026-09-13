@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 const heroContent: Omit<HeroSlide, "image">[] = [
   {
     eyebrow: `${siteConfig.name} · ${siteConfig.address.addressLocality}`,
-    heading: "Your trusted legal partner",
+    heading: siteConfig.tagline,
     subheading: "Avon Chambers brings together Barristers, Solicitors, Advocates and Legal Consultants to provide practical legal advice and representation",
   },
   {

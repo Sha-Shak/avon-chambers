@@ -5,10 +5,11 @@ import { navLinks } from "@/config/nav-links";
 import { siteConfig } from "@/config/site.config";
 
 const legalLinks = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Engagement", href: "/terms-of-engagement" },
-  { label: "Lawyer Advertising", href: "/lawyer-advertising" },
-  { label: "Accessibility", href: "/accessibility" },
+  { label: "Terms of Engagement", href: "/policies#terms-of-engagement" },
+  { label: "Privacy Policy", href: "/policies#privacy-policy" },
+  { label: "Lawyer Advertising", href: "/policies#lawyer-advertising" },
+  { label: "Accessibility", href: "/policies#accessibility" },
+  { label: "All Policies", href: "/policies" },
 ];
 
 export function SiteFooter() {

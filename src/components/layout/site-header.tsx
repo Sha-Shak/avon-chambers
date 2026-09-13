@@ -31,7 +31,7 @@ export function SiteHeader() {
       className={cn(
         "sticky top-0 z-50 border-b transition-colors duration-300",
         scrolled || open
-          ? "border-foreground/10 bg-background/95 backdrop-blur"
+          ? "border-foreground/10 bg-background/80 backdrop-blur-md"
           : "border-transparent bg-transparent",
       )}
     >
@@ -84,7 +84,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-foreground/10 bg-background xl:hidden">
+        <div className="border-t border-foreground/10 bg-background/90 backdrop-blur-md xl:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
             {navLinks.map((l) => (
               <Link

@@ -13,6 +13,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${siteConfig.url}/insights`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${siteConfig.url}/careers`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${siteConfig.url}/contact`, changeFrequency: "yearly", priority: 0.8 },
+    { url: `${siteConfig.url}/life-at-avon`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteConfig.url}/policies`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const practiceAreaPages: MetadataRoute.Sitemap = getAllPracticeAreas().map((area) => ({

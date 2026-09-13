@@ -91,6 +91,23 @@ export interface ClientTestimonial {
 }
 
 /**
+ * One photo in the "Life at Avon" gallery. `width`/`height` are the actual
+ * pixel dimensions of `src` — required so the masonry grid can lay images
+ * out at their true aspect ratio (portrait, landscape, or square) without a
+ * layout shift once the image loads.
+ */
+export interface GalleryPhoto {
+  id: string;
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  title: string;
+  description: string;
+  category: string;
+}
+
+/**
  * Optional overrides for search/social metadata, set on the "SEO & Social"
  * panel of any Sanity document. Every field is optional — the page always
  * has a sensible fallback (its own title/excerpt/cover image) — so this is

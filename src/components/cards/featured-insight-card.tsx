@@ -28,7 +28,7 @@ export function FeaturedInsightCard({
     : undefined;
 
   return (
-    <article className="grid gap-10 border border-foreground/10 bg-card lg:grid-cols-2">
+    <article className="grid gap-10 border border-foreground/10 bg-card/85 backdrop-blur-sm lg:grid-cols-2">
       <div className="relative aspect-4/3 w-full bg-secondary lg:aspect-auto">
         {insight.coverImage?.asset ? (
           <Image

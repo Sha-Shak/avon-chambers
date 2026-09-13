@@ -1,11 +1,13 @@
 import lawyersData from "@/data/lawyers.json";
 import practiceAreasData from "@/data/practice-areas.json";
 import caseStudiesData from "@/data/case-studies.json";
-import type { Lawyer, CaseStudy, PracticeArea } from "@/types";
+import galleryData from "@/data/gallery.json";
+import type { Lawyer, CaseStudy, PracticeArea, GalleryPhoto } from "@/types";
 
 const lawyers = lawyersData as Lawyer[];
 const practiceAreas = practiceAreasData as PracticeArea[];
 const caseStudies = caseStudiesData as CaseStudy[];
+const galleryPhotos = galleryData as GalleryPhoto[];
 
 // ---- Lawyers ----------------------------------------------------------
 
@@ -83,4 +85,18 @@ export function getCaseStudy(slug: string): CaseStudy | undefined {
 export function getCaseStudies(slugs: string[]): CaseStudy[] {
   const bySlug = new Map(caseStudies.map((c) => [c.slug, c]));
   return slugs.map((s) => bySlug.get(s)).filter((c): c is CaseStudy => Boolean(c));
+}
+
+// ---- Life at Avon gallery ---------------------------------------------------
+
+/** Edit src/data/gallery.json to add, remove or re-link photos — each entry's
+ *  `src` can point anywhere (a placeholder today, Cloudinary later). */
+export function getGalleryPhotos(): GalleryPhoto[] {
+  return galleryPhotos;
+}
+
+/** Distinct categories in the order they first appear in gallery.json,
+ *  used to render the "All" + per-category filter chips. */
+export function getGalleryCategories(): string[] {
+  return [...new Set(galleryPhotos.map((p) => p.category))];
 }

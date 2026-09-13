@@ -8,7 +8,7 @@ export function PracticeAreaCard({ area }: { area: PracticeArea }) {
   return (
     <Link
       href={`/practice-areas/${area.slug}`}
-      className="group flex h-full w-full flex-col bg-card transition-colors hover:bg-secondary/70"
+      className="group flex h-full w-full flex-col bg-card/85 backdrop-blur-sm transition-colors hover:bg-secondary/70"
     >
       <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden bg-secondary">
         <Image

@@ -3,7 +3,7 @@ import type { CaseStudy } from "@/types";
 
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
-    <article className="flex flex-col border border-foreground/10 bg-card p-8">
+    <article className="flex flex-col border border-foreground/10 bg-card/85 p-8 backdrop-blur-sm">
       <p className="eyebrow">{study.area}</p>
       <AnimatedNumber value={study.metric} className="mt-6 block font-serif text-3xl text-foreground" />
       <p className="mt-1 text-xs text-muted-foreground">{study.metricLabel}</p>

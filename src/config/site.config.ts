@@ -22,7 +22,7 @@ export const siteConfig = {
   name: "Avon Chambers",
   legalName: "Avon Chambers",
   shortName: "Avon Chambers",
-  tagline: "Your Trusted Legal Partner",
+  tagline: "Stands by you, when it matters",
   // Kept at or under 155 characters — the length search engines reliably
   // display in a result snippet before truncating with an ellipsis.
   description:

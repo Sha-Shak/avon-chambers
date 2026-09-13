@@ -11,7 +11,7 @@ export function TestimonialsMarquee({ testimonials }: { testimonials: ClientTest
       items={testimonials.map((testimonial, index) => (
         <figure
           key={`${testimonial.name}-${index}`}
-          className="me-6 flex w-[min(86vw,24rem)] shrink-0 flex-col border border-foreground/10 bg-card p-8 lg:w-[18rem]"
+          className="me-6 flex w-[min(86vw,24rem)] shrink-0 flex-col border border-foreground/10 bg-card/85 p-8 backdrop-blur-sm lg:w-[18rem]"
         >
           <blockquote className="flex-1 text-base leading-relaxed text-muted-foreground italic">
             &ldquo;{testimonial.quote}&rdquo;

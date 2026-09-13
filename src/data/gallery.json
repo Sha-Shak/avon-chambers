@@ -1,0 +1,192 @@
+[
+  {
+    "id": "office-tour-1",
+    "src": "https://picsum.photos/seed/avon-office-lobby/1200/800",
+    "width": 1200,
+    "height": 800,
+    "alt": "The Chambers' reception and waiting area",
+    "title": "Reception & waiting area",
+    "description": "A quiet first impression — where clients settle in before a consultation.",
+    "category": "Office Tour"
+  },
+  {
+    "id": "office-tour-2",
+    "src": "https://picsum.photos/seed/avon-office-library/800/1100",
+    "width": 800,
+    "height": 1100,
+    "alt": "Bookshelves lining the Chambers' library corner",
+    "title": "The library corner",
+    "description": "Every volume within reach of the desks that use them most.",
+    "category": "Office Tour"
+  },
+  {
+    "id": "office-tour-3",
+    "src": "https://picsum.photos/seed/avon-office-desk/1200/800",
+    "width": 1200,
+    "height": 800,
+    "alt": "A partner's desk set up for a working afternoon",
+    "title": "A working desk",
+    "description": "Where the drafting, the calls and the quiet reading happen.",
+    "category": "Office Tour"
+  },
+  {
+    "id": "office-tour-4",
+    "src": "https://picsum.photos/seed/avon-office-plant/800/1100",
+    "width": 800,
+    "height": 1100,
+    "alt": "A decorative plant corner near the Chambers' entrance",
+    "title": "Green corner",
+    "description": "A small, deliberate bit of calm by the front door.",
+    "category": "Office Tour"
+  },
+  {
+    "id": "meetings-1",
+    "src": "https://picsum.photos/seed/avon-meeting-table/1200/800",
+    "width": 1200,
+    "height": 800,
+    "alt": "Lawyers gathered around the meeting room table",
+    "title": "Around the table",
+    "description": "A matter being talked through before it's put in writing.",
+    "category": "Meetings"
+  },
+  {
+    "id": "meetings-2",
+    "src": "https://picsum.photos/seed/avon-meeting-client/1200/900",
+    "width": 1200,
+    "height": 900,
+    "alt": "A lawyer in conversation with a client",
+    "title": "A client conversation",
+    "description": "Listening first — the part of the job that shapes everything after.",
+    "category": "Meetings"
+  },
+  {
+    "id": "meetings-3",
+    "src": "https://picsum.photos/seed/avon-meeting-notes/800/1100",
+    "width": 800,
+    "height": 1100,
+    "alt": "Notes being taken during a strategy meeting",
+    "title": "Taking notes",
+    "description": "Strategy sessions run on detail, not improvisation.",
+    "category": "Meetings"
+  },
+  {
+    "id": "group-photos-1",
+    "src": "https://picsum.photos/seed/avon-group-all/1400/800",
+    "width": 1400,
+    "height": 800,
+    "alt": "The full team of lawyers gathered for a group photo",
+    "title": "The full team",
+    "description": "Barristers, solicitors and consultants — together for once.",
+    "category": "Group Photos"
+  },
+  {
+    "id": "group-photos-2",
+    "src": "https://picsum.photos/seed/avon-group-partners/1200/800",
+    "width": 1200,
+    "height": 800,
+    "alt": "The partners standing together outside Chambers",
+    "title": "The partners",
+    "description": "A short pause for a photo before the day picked back up.",
+    "category": "Group Photos"
+  },
+  {
+    "id": "group-photos-3",
+    "src": "https://picsum.photos/seed/avon-group-associates/1200/800",
+    "width": 1200,
+    "height": 800,
+    "alt": "The associates gathered on the office balcony",
+    "title": "The associates",
+    "description": "The newest chapter of Chambers, on the balcony between hearings.",
+    "category": "Group Photos"
+  },
+  {
+    "id": "firm-outings-1",
+    "src": "https://picsum.photos/seed/avon-outing-beach/1200/800",
+    "width": 1200,
+    "height": 800,
+    "alt": "The team on a coastal retreat",
+    "title": "A weekend by the coast",
+    "description": "An annual retreat, away from case files for a couple of days.",
+    "category": "Firm Outings"
+  },
+  {
+    "id": "firm-outings-2",
+    "src": "https://picsum.photos/seed/avon-outing-hike/800/1100",
+    "width": 800,
+    "height": 1100,
+    "alt": "Colleagues on a countryside walk during a firm outing",
+    "title": "The countryside walk",
+    "description": "Somewhere between the trailhead and lunch, the conversation turns personal.",
+    "category": "Firm Outings"
+  },
+  {
+    "id": "firm-outings-3",
+    "src": "https://picsum.photos/seed/avon-outing-boat/1200/900",
+    "width": 1200,
+    "height": 900,
+    "alt": "The team aboard a boat during a firm trip",
+    "title": "On the water",
+    "description": "An afternoon that had nothing to do with a deadline.",
+    "category": "Firm Outings"
+  },
+  {
+    "id": "chamber-dinner-1",
+    "src": "https://picsum.photos/seed/avon-dinner-table/1200/800",
+    "width": 1200,
+    "height": 800,
+    "alt": "The dining table set for the annual Chambers dinner",
+    "title": "The annual dinner",
+    "description": "One evening a year set aside just to sit down together.",
+    "category": "Chamber Dinner"
+  },
+  {
+    "id": "chamber-dinner-2",
+    "src": "https://picsum.photos/seed/avon-dinner-toast/800/1100",
+    "width": 800,
+    "height": 1100,
+    "alt": "A toast being raised at the Chambers dinner",
+    "title": "A toast to the year",
+    "description": "Marking the wins, and the near-misses that became lessons.",
+    "category": "Chamber Dinner"
+  },
+  {
+    "id": "chamber-dinner-3",
+    "src": "https://picsum.photos/seed/avon-dinner-laughs/1200/800",
+    "width": 1200,
+    "height": 800,
+    "alt": "Colleagues laughing together at the Chambers dinner",
+    "title": "Off the clock",
+    "description": "The same faces from the boardroom, several shades more relaxed.",
+    "category": "Chamber Dinner"
+  },
+  {
+    "id": "celebrations-1",
+    "src": "https://picsum.photos/seed/avon-festival-lights/1200/800",
+    "width": 1200,
+    "height": 800,
+    "alt": "The office decorated for a festival celebration",
+    "title": "Festival at the office",
+    "description": "The reception area dressed up for the season.",
+    "category": "Celebrations"
+  },
+  {
+    "id": "celebrations-2",
+    "src": "https://picsum.photos/seed/avon-festival-cake/800/1100",
+    "width": 800,
+    "height": 1100,
+    "alt": "A cake being cut at a small office celebration",
+    "title": "A small celebration",
+    "description": "A milestone worth pausing the workday for.",
+    "category": "Celebrations"
+  },
+  {
+    "id": "celebrations-3",
+    "src": "https://picsum.photos/seed/avon-festival-group/1200/900",
+    "width": 1200,
+    "height": 900,
+    "alt": "The whole office gathered for a festival photo",
+    "title": "Everyone, together",
+    "description": "The kind of photo that ends up framed by the front desk.",
+    "category": "Celebrations"
+  }
+]

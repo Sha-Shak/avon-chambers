@@ -20,7 +20,7 @@ export function InsightCard({ insight }: { insight: InsightMeta }) {
     : undefined;
 
   return (
-    <article className="flex h-full flex-col bg-card">
+    <article className="flex h-full flex-col bg-card/85 backdrop-blur-sm">
       {/* object-contain (never object-cover) so cover images of any aspect ratio sit fully
           visible on their neutral frame instead of being cropped or stretched. */}
       <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-secondary">
