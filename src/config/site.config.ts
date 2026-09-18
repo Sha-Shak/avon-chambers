@@ -97,7 +97,6 @@ export const siteConfig = {
     linkedIn: "https://www.linkedin.com/company/avonchambers",
     facebook: "https://www.facebook.com/avonchambers",
     instagram: "https://www.instagram.com/avon.chambers",
-    twitter: "https://x.com/avonchambers",
     threads: "https://www.threads.net/@avon.chambers",
     // youtube: "https://www.youtube.com/@avonchambers",
     // tiktok: "https://www.tiktok.com/@avonchambers",

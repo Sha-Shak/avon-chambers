@@ -122,7 +122,7 @@ function GalleryImage({ photo }: { photo: GalleryPhoto }) {
 
   return (
     <>
-      {!loaded && <div className="absolute inset-0 animate-pulse bg-secondary" />}
+      {!loaded && <div className="shimmer absolute inset-0 overflow-hidden bg-foreground/5" aria-hidden="true" />}
       <Image
         src={photo.src}
         alt={photo.alt}
@@ -250,6 +250,7 @@ function Lightbox({
             including modest placeholder-resolution ones, up or down to fit
             it, rather than ever displaying at native pixel size. */}
         <div className="relative h-[70vh] w-full overflow-hidden rounded-lg">
+          <div className="absolute inset-0 animate-pulse bg-cream/5" aria-hidden="true" />
           <Image
             key={photo.id}
             src={photo.src}

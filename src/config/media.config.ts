@@ -38,7 +38,7 @@ export const mediaConfig = {
         alt: "Lawyers of Avon Chambers in conference with a client",
       },
       {
-        src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1786545610/Stack_of_Law_Books.jpg",
+        src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754268/Office-1200-900-3.webp",
         alt: "Avon Chambers Office",
       },
       {

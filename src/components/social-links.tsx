@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaLinkedin, FaThreads, FaXTwitter } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaLinkedin, FaThreads } from "react-icons/fa6";
 import { siteConfig } from "@/config/site.config";
 import { cn } from "@/lib/utils";
 
@@ -6,7 +6,6 @@ const platforms = [
   { key: "linkedIn", label: "LinkedIn", Icon: FaLinkedin },
   { key: "facebook", label: "Facebook", Icon: FaFacebook },
   { key: "instagram", label: "Instagram", Icon: FaInstagram },
-  { key: "twitter", label: "X (formerly Twitter)", Icon: FaXTwitter },
   { key: "threads", label: "Threads", Icon: FaThreads },
   // { key: "youtube", label: "YouTube", Icon: FaYoutube },
   // { key: "tiktok", label: "TikTok", Icon: FaTiktok },

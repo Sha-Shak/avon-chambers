@@ -1,192 +1,402 @@
 [
   {
-    "id": "office-tour-1",
-    "src": "https://picsum.photos/seed/avon-office-lobby/1200/800",
-    "width": 1200,
-    "height": 800,
-    "alt": "The Chambers' reception and waiting area",
-    "title": "Reception & waiting area",
-    "description": "A quiet first impression — where clients settle in before a consultation.",
-    "category": "Office Tour"
-  },
-  {
-    "id": "office-tour-2",
-    "src": "https://picsum.photos/seed/avon-office-library/800/1100",
-    "width": 800,
-    "height": 1100,
-    "alt": "Bookshelves lining the Chambers' library corner",
-    "title": "The library corner",
-    "description": "Every volume within reach of the desks that use them most.",
-    "category": "Office Tour"
-  },
-  {
-    "id": "office-tour-3",
-    "src": "https://picsum.photos/seed/avon-office-desk/1200/800",
-    "width": 1200,
-    "height": 800,
-    "alt": "A partner's desk set up for a working afternoon",
-    "title": "A working desk",
-    "description": "Where the drafting, the calls and the quiet reading happen.",
-    "category": "Office Tour"
-  },
-  {
-    "id": "office-tour-4",
-    "src": "https://picsum.photos/seed/avon-office-plant/800/1100",
-    "width": 800,
-    "height": 1100,
-    "alt": "A decorative plant corner near the Chambers' entrance",
-    "title": "Green corner",
-    "description": "A small, deliberate bit of calm by the front door.",
-    "category": "Office Tour"
-  },
-  {
-    "id": "meetings-1",
-    "src": "https://picsum.photos/seed/avon-meeting-table/1200/800",
-    "width": 1200,
-    "height": 800,
-    "alt": "Lawyers gathered around the meeting room table",
-    "title": "Around the table",
-    "description": "A matter being talked through before it's put in writing.",
-    "category": "Meetings"
-  },
-  {
-    "id": "meetings-2",
-    "src": "https://picsum.photos/seed/avon-meeting-client/1200/900",
+    "id": "our-chambers-1",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754279/Office-1200-900-1.webp",
     "width": 1200,
     "height": 900,
-    "alt": "A lawyer in conversation with a client",
-    "title": "A client conversation",
-    "description": "Listening first — the part of the job that shapes everything after.",
-    "category": "Meetings"
+    "alt": "Avon Chambers office — photo 1",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
   },
   {
-    "id": "meetings-3",
-    "src": "https://picsum.photos/seed/avon-meeting-notes/800/1100",
+    "id": "our-chambers-2",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754277/Office-800-1100-1.webp",
     "width": 800,
     "height": 1100,
-    "alt": "Notes being taken during a strategy meeting",
-    "title": "Taking notes",
-    "description": "Strategy sessions run on detail, not improvisation.",
-    "category": "Meetings"
+    "alt": "Avon Chambers office — photo 2",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
   },
   {
-    "id": "group-photos-1",
-    "src": "https://picsum.photos/seed/avon-group-all/1400/800",
-    "width": 1400,
-    "height": 800,
-    "alt": "The full team of lawyers gathered for a group photo",
-    "title": "The full team",
-    "description": "Barristers, solicitors and consultants — together for once.",
-    "category": "Group Photos"
-  },
-  {
-    "id": "group-photos-2",
-    "src": "https://picsum.photos/seed/avon-group-partners/1200/800",
+    "id": "our-chambers-3",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754276/Office-1200-800-1.webp",
     "width": 1200,
     "height": 800,
-    "alt": "The partners standing together outside Chambers",
-    "title": "The partners",
-    "description": "A short pause for a photo before the day picked back up.",
-    "category": "Group Photos"
+    "alt": "Avon Chambers office — photo 3",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
   },
   {
-    "id": "group-photos-3",
-    "src": "https://picsum.photos/seed/avon-group-associates/1200/800",
-    "width": 1200,
-    "height": 800,
-    "alt": "The associates gathered on the office balcony",
-    "title": "The associates",
-    "description": "The newest chapter of Chambers, on the balcony between hearings.",
-    "category": "Group Photos"
-  },
-  {
-    "id": "firm-outings-1",
-    "src": "https://picsum.photos/seed/avon-outing-beach/1200/800",
-    "width": 1200,
-    "height": 800,
-    "alt": "The team on a coastal retreat",
-    "title": "A weekend by the coast",
-    "description": "An annual retreat, away from case files for a couple of days.",
-    "category": "Firm Outings"
-  },
-  {
-    "id": "firm-outings-2",
-    "src": "https://picsum.photos/seed/avon-outing-hike/800/1100",
+    "id": "our-chambers-4",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754275/Office-800-1100-2.webp",
     "width": 800,
     "height": 1100,
-    "alt": "Colleagues on a countryside walk during a firm outing",
-    "title": "The countryside walk",
-    "description": "Somewhere between the trailhead and lunch, the conversation turns personal.",
-    "category": "Firm Outings"
+    "alt": "Avon Chambers office — photo 4",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
   },
   {
-    "id": "firm-outings-3",
-    "src": "https://picsum.photos/seed/avon-outing-boat/1200/900",
+    "id": "our-chambers-5",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754274/Office-1200-900-2.webp",
     "width": 1200,
     "height": 900,
-    "alt": "The team aboard a boat during a firm trip",
-    "title": "On the water",
-    "description": "An afternoon that had nothing to do with a deadline.",
-    "category": "Firm Outings"
+    "alt": "Avon Chambers office — photo 5",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-6",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754273/Office-1200-800-2.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Avon Chambers office — photo 6",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-7",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754272/Office-800-1100-5.webp",
+    "width": 800,
+    "height": 1100,
+    "alt": "Avon Chambers office — photo 7",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-8",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754269/Office-800-1100-4.webp",
+    "width": 800,
+    "height": 1100,
+    "alt": "Avon Chambers office — photo 8",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-9",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754269/Office-800-1100-3.webp",
+    "width": 800,
+    "height": 1100,
+    "alt": "Avon Chambers office — photo 9",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-10",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754268/Office-1200-900-3.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Avon Chambers office — photo 10",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-11",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754259/Office-1200-900-6.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Avon Chambers office — photo 11",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-12",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754267/Office-1200-900-7.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Avon Chambers office — photo 12",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-13",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754265/Office-1200-800-4.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Avon Chambers office — photo 13",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-14",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754263/Office-1200-900-4.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Avon Chambers office — photo 14",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-15",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754261/Office-1200-900-8.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Avon Chambers office — photo 15",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-16",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754261/Office-1200-800-5.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Avon Chambers office — photo 16",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-chambers-17",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754260/Office-1200-900-5.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Avon Chambers office — photo 17",
+    "title": "Our Chambers",
+    "description": "A look around the Chambers.",
+    "category": "Our Chambers"
+  },
+  {
+    "id": "our-team-1",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755693/C-800-1100-1.webp",
+    "width": 800,
+    "height": 1100,
+    "alt": "Our team — photo 1",
+    "title": "Our team",
+    "description": "The people of Avon Chambers.",
+    "category": "Our Team"
+  },
+  {
+    "id": "our-team-2",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755597/B-1200-900-1.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Our team — photo 2",
+    "title": "Our team",
+    "description": "The people of Avon Chambers.",
+    "category": "Our Team"
+  },
+  {
+    "id": "our-team-3",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789756405/D-1200-900-5.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Our team — photo 3",
+    "title": "Our team",
+    "description": "The people of Avon Chambers.",
+    "category": "Our Team"
+  },
+  {
+    "id": "team-discussions-1",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755709/D-1200-900-1.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Team discussion — photo 1",
+    "title": "Team discussion",
+    "description": "Talking a matter through together.",
+    "category": "Team Discussions"
+  },
+  {
+    "id": "team-discussions-2",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755550/A-1200-800-3.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Team discussion — photo 2",
+    "title": "Team discussion",
+    "description": "Talking a matter through together.",
+    "category": "Team Discussions"
+  },
+  {
+    "id": "team-discussions-3",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789756596/D-1200-900-7.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Team discussion — photo 3",
+    "title": "Team discussion",
+    "description": "Talking a matter through together.",
+    "category": "Team Discussions"
+  },
+  {
+    "id": "client-meetings-1",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755744/D-1200-900-4.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Client meeting — photo 1",
+    "title": "Client meeting",
+    "description": "Listening first, advising second.",
+    "category": "Client Meetings"
+  },
+  {
+    "id": "client-meetings-2",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755733/D-1200-900-3.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Client meeting — photo 2",
+    "title": "Client meeting",
+    "description": "Listening first, advising second.",
+    "category": "Client Meetings"
+  },
+  {
+    "id": "client-meetings-3",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755570/B-1200-900-3.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Client meeting — photo 3",
+    "title": "Client meeting",
+    "description": "Listening first, advising second.",
+    "category": "Client Meetings"
+  },
+  {
+    "id": "client-meetings-4",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755564/A-1200-800-4.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Client meeting — photo 4",
+    "title": "Client meeting",
+    "description": "Listening first, advising second.",
+    "category": "Client Meetings"
+  },
+  {
+    "id": "at-work-1",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755581/B-1200-900-2.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "At work — photo 1",
+    "title": "At work",
+    "description": "Focused time at the desk.",
+    "category": "At Work"
+  },
+  {
+    "id": "at-work-2",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755546/A-1200-800-2.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "At work — photo 2",
+    "title": "At work",
+    "description": "Focused time at the desk.",
+    "category": "At Work"
+  },
+  {
+    "id": "at-work-3",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789755539/A-1200-800-1.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "At work — photo 3",
+    "title": "At work",
+    "description": "Focused time at the desk.",
+    "category": "At Work"
   },
   {
     "id": "chamber-dinner-1",
-    "src": "https://picsum.photos/seed/avon-dinner-table/1200/800",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752433/1200-800-3.webp",
     "width": 1200,
     "height": 800,
-    "alt": "The dining table set for the annual Chambers dinner",
-    "title": "The annual dinner",
-    "description": "One evening a year set aside just to sit down together.",
-    "category": "Chamber Dinner"
-  },
-  {
-    "id": "chamber-dinner-2",
-    "src": "https://picsum.photos/seed/avon-dinner-toast/800/1100",
-    "width": 800,
-    "height": 1100,
-    "alt": "A toast being raised at the Chambers dinner",
-    "title": "A toast to the year",
-    "description": "Marking the wins, and the near-misses that became lessons.",
-    "category": "Chamber Dinner"
-  },
-  {
-    "id": "chamber-dinner-3",
-    "src": "https://picsum.photos/seed/avon-dinner-laughs/1200/800",
-    "width": 1200,
-    "height": 800,
-    "alt": "Colleagues laughing together at the Chambers dinner",
-    "title": "Off the clock",
-    "description": "The same faces from the boardroom, several shades more relaxed.",
+    "alt": "Chamber dinner — photo 1",
+    "title": "Chamber dinner",
+    "description": "An evening set aside to sit down together.",
     "category": "Chamber Dinner"
   },
   {
     "id": "celebrations-1",
-    "src": "https://picsum.photos/seed/avon-festival-lights/1200/800",
-    "width": 1200,
-    "height": 800,
-    "alt": "The office decorated for a festival celebration",
-    "title": "Festival at the office",
-    "description": "The reception area dressed up for the season.",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752490/800-1100-4.webp",
+    "width": 800,
+    "height": 1100,
+    "alt": "Festival celebration — photo 1",
+    "title": "Festival celebration",
+    "description": "Marking the festival season together.",
     "category": "Celebrations"
   },
   {
     "id": "celebrations-2",
-    "src": "https://picsum.photos/seed/avon-festival-cake/800/1100",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752486/800-1100-5.webp",
     "width": 800,
     "height": 1100,
-    "alt": "A cake being cut at a small office celebration",
-    "title": "A small celebration",
-    "description": "A milestone worth pausing the workday for.",
+    "alt": "Festival celebration — photo 2",
+    "title": "Festival celebration",
+    "description": "Marking the festival season together.",
     "category": "Celebrations"
   },
   {
     "id": "celebrations-3",
-    "src": "https://picsum.photos/seed/avon-festival-group/1200/900",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752482/800-1100-6.webp",
+    "width": 800,
+    "height": 1100,
+    "alt": "Festival celebration — photo 3",
+    "title": "Festival celebration",
+    "description": "Marking the festival season together.",
+    "category": "Celebrations"
+  },
+  {
+    "id": "firm-outings-1",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752536/1200-900-4.webp",
     "width": 1200,
     "height": 900,
-    "alt": "The whole office gathered for a festival photo",
-    "title": "Everyone, together",
-    "description": "The kind of photo that ends up framed by the front desk.",
-    "category": "Celebrations"
+    "alt": "Sightseeing outing — photo 1",
+    "title": "Sightseeing outing",
+    "description": "Sightseeing with the team, away from the desk.",
+    "category": "Firm Outings"
+  },
+  {
+    "id": "firm-outings-2",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752525/1200-900-2.webp",
+    "width": 1200,
+    "height": 900,
+    "alt": "Sightseeing outing — photo 2",
+    "title": "Sightseeing outing",
+    "description": "Sightseeing with the team, away from the desk.",
+    "category": "Firm Outings"
+  },
+  {
+    "id": "firm-outings-3",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752514/1200-800-2.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Sightseeing outing — photo 3",
+    "title": "Sightseeing outing",
+    "description": "Sightseeing with the team, away from the desk.",
+    "category": "Firm Outings"
+  },
+  {
+    "id": "firm-outings-5",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752503/800-1100-1.webp",
+    "width": 800,
+    "height": 1100,
+    "alt": "Sightseeing outing — photo 5",
+    "title": "Sightseeing outing",
+    "description": "Sightseeing with the team, away from the desk.",
+    "category": "Firm Outings"
+  },
+  {
+    "id": "firm-outings-6",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752500/800-1100-2.webp",
+    "width": 800,
+    "height": 1100,
+    "alt": "Sightseeing outing — photo 6",
+    "title": "Sightseeing outing",
+    "description": "Sightseeing with the team, away from the desk.",
+    "category": "Firm Outings"
+  },
+  {
+    "id": "firm-outings-7",
+    "src": "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789752458/800-1100-3.webp",
+    "width": 800,
+    "height": 1100,
+    "alt": "Sightseeing outing — photo 7",
+    "title": "Sightseeing outing",
+    "description": "Sightseeing with the team, away from the desk.",
+    "category": "Firm Outings"
   }
 ]

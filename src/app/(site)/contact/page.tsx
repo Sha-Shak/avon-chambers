@@ -91,7 +91,7 @@ export default function ContactPage() {
             </p>
             <div>
               <p className="eyebrow">Follow us</p>
-              <SocialLinks variant="light" size="lg" only={["linkedIn", "facebook", "instagram"]} className="mt-4" />
+              <SocialLinks variant="light" size="lg" only={["linkedIn", "facebook", "instagram", "threads"]} className="mt-4" />
             </div>
           </FadeIn>
 
