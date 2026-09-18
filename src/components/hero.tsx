@@ -36,7 +36,7 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
 
   return (
     <div
-      className="relative h-[32rem] sm:h-[36rem] lg:h-[38rem]"
+      className="relative sm:h-[36rem] lg:h-[38rem]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -59,8 +59,8 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
       <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-navy/25" />
       <div className="hero-ambient absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-cream/5" />
 
-      <div className="relative z-10 flex h-full items-end px-6 pb-14 sm:items-center sm:pb-0 lg:px-10">
-        <div className="relative w-full max-w-2xl p-10 sm:p-14 lg:ml-[max(-1.5rem,calc((100vw-80rem)/2-1.5rem))]">
+      <div className="relative z-10 flex min-h-[28rem] items-end px-4 pt-10 pb-14 sm:h-full sm:min-h-0 sm:items-center sm:px-6 sm:pt-0 sm:pb-0 lg:px-10">
+        <div className="relative w-full max-w-2xl p-6 sm:p-14 lg:ml-[max(-1.5rem,calc((100vw-80rem)/2-1.5rem))]">
           {/* Blended glass: fades at its own edges. Kept separate from the text below so the
               fade never touches — and never dims — the text itself. */}
           <div className="hero-panel-blend absolute inset-0 bg-navy/65 backdrop-blur-md" />

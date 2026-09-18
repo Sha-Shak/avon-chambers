@@ -240,20 +240,23 @@ function Lightbox({
 
       <div
         className={cn(
-          "flex max-h-full max-w-4xl flex-col items-center transition-all duration-300 ease-out",
+          "flex h-full max-h-full w-full max-w-6xl flex-col items-center transition-all duration-300 ease-out",
           entered ? "scale-100 opacity-100" : "scale-95 opacity-0",
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative max-h-[75vh] max-w-full overflow-hidden rounded-lg">
+        {/* A fixed, generously sized box (not sized to the photo's own
+            resolution) — `fill` + `object-contain` then scales every photo,
+            including modest placeholder-resolution ones, up or down to fit
+            it, rather than ever displaying at native pixel size. */}
+        <div className="relative h-[70vh] w-full overflow-hidden rounded-lg">
           <Image
             key={photo.id}
             src={photo.src}
             alt={photo.alt}
-            width={photo.width}
-            height={photo.height}
+            fill
             sizes="90vw"
-            className="max-h-[75vh] w-auto max-w-full object-contain"
+            className="object-contain"
             priority
           />
         </div>
