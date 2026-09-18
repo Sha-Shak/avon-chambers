@@ -240,7 +240,7 @@ function Lightbox({
 
       <div
         className={cn(
-          "flex h-full max-h-full w-full max-w-6xl flex-col items-center transition-all duration-300 ease-out",
+          "flex max-h-full w-full max-w-6xl flex-col items-center justify-center transition-all duration-300 ease-out",
           entered ? "scale-100 opacity-100" : "scale-95 opacity-0",
         )}
         onClick={(e) => e.stopPropagation()}
