@@ -159,7 +159,7 @@ export default async function HomePage() {
       </section>
 
       {/* 2. Trust bar */}
-      <section className="tone-neutral border-b border-foreground/10">
+      <section className="tone-alt border-b border-foreground/10">
         <FadeIn className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-8 px-6 py-12 sm:grid-cols-3 lg:grid-cols-5 lg:px-10">
           {trustBadges.map((b) => (
             <div
@@ -199,8 +199,37 @@ export default async function HomePage() {
         />
       </section>
 
-      {/* 4. Acclamation */}
-      <section className="tone-gold border-y border-foreground/10">
+      {/* 4. Why Avon Chambers */}
+      <section className="bg-navy text-cream">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+          <FadeIn className="max-w-2xl">
+            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">
+              Why {siteConfig.name}
+            </p>
+            <h2 className="mt-5 text-3xl sm:text-4xl">
+              Small by design. Accountable by consequence.
+            </h2>
+          </FadeIn>
+          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+            {differentiators.map((d, i) => (
+              <FadeIn
+                key={d.title}
+                delay={i * 70}
+                className="border-t border-cream/20 pt-6"
+              >
+                <d.icon className="size-5 text-cream/70" strokeWidth={1.25} />
+                <h3 className="mt-5 text-lg text-cream">{d.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-cream/60">
+                  {d.copy}
+                </p>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Acclamation */}
+      <section className="tone-alt border-y border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">Recognition</p>
@@ -242,37 +271,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 5. Why Avon Chambers */}
-      <section className="bg-navy text-cream">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <FadeIn className="max-w-2xl">
-            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">
-              Why {siteConfig.name}
-            </p>
-            <h2 className="mt-5 text-3xl sm:text-4xl">
-              Small by design. Accountable by consequence.
-            </h2>
-          </FadeIn>
-          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-            {differentiators.map((d, i) => (
-              <FadeIn
-                key={d.title}
-                delay={i * 70}
-                className="border-t border-cream/20 pt-6"
-              >
-                <d.icon className="size-5 text-cream/70" strokeWidth={1.25} />
-                <h3 className="mt-5 text-lg text-cream">{d.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/60">
-                  {d.copy}
-                </p>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 6. Testimonials */}
-      <section className="dark bg-navy-light text-foreground">
+      <section className="dark bg-navy text-foreground">
         <div className="py-24 lg:py-32">
           <FadeIn className="mx-auto max-w-2xl px-6 text-center">
             <p className="text-[0.6875rem] tracking-[0.2em] text-muted-foreground uppercase">Client experience</p>
@@ -286,7 +286,7 @@ export default async function HomePage() {
       </section>
 
       {/* 7. Process */}
-      <section className="tone-slate border-y border-foreground/10">
+      <section className="border-t border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">How we work</p>
@@ -315,7 +315,7 @@ export default async function HomePage() {
       </section>
 
       {/* 8. Articles */}
-      <section className="tone-blue">
+      <section className="tone-alt border-y border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div className="max-w-2xl">
