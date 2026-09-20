@@ -1,17 +1,10 @@
 import { Lock, MapPin, Phone } from "lucide-react";
-import { SectionBackdrop } from "@/components/section-backdrop";
 import { FadeIn } from "@/components/fade-in";
 import { SocialLinks } from "@/components/social-links";
 import { WhatsAppCta } from "@/components/whatsapp-cta";
 import { siteConfig } from "@/config/site.config";
 
-/**
- * The closing "book a consultation" band. It's a plain navy band on inner
- * pages; pass `backdrop` (the home page does) to put the office photo behind
- * it, like the home page's other bands.
- */
 export function ConsultationSection({
-  backdrop = false,
   eyebrow = "Book a consultation",
   heading = "Tell us what happened. We'll tell you where you stand.",
   blurb = "Initial consultations are 45 minutes and held with the partner who would lead your matter.",
@@ -23,7 +16,6 @@ export function ConsultationSection({
   blurb?: string;
   contactPhone?: string;
   contactEmail?: string;
-  backdrop?: boolean;
 }) {
   const content = (
     <>
@@ -94,9 +86,5 @@ export function ConsultationSection({
     </>
   );
 
-  return backdrop ? (
-    <SectionBackdrop image="consultation">{content}</SectionBackdrop>
-  ) : (
-    <section className="dark bg-navy text-foreground">{content}</section>
-  );
+  return <section className="dark bg-navy text-foreground">{content}</section>;
 }

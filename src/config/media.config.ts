@@ -83,17 +83,19 @@ export const mediaConfig = {
   },
   /**
    * HOME PAGE BACKDROPS — photos behind the frosted-glass sections of the
-   * home page (one per band). Keep each one a different scene, and different from the hero slides above (components/section-backdrop.tsx). Same idea as banners: swap a
+   * home page (Acclamation and Testimonials). Keep each one a different scene, and different from the hero slides above (components/section-backdrop.tsx). Same idea as banners: swap a
    * link and that section's background changes.
    */
   backdrops: {
-    practiceAreas: image(cloud("v1789755550/A-1200-800-3.webp"), "Lawyers in discussion around a table at Avon Chambers", "center 40%"),
     acclamation: image(cloud("v1789754261/Office-1200-800-5.webp"), "Law books lining the shelves at Avon Chambers", "center 45%"),
-    whyAvonChambers: image(cloud("v1789754261/Office-1200-900-8.webp"), "The boardroom at Avon Chambers", "center 55%"),
     testimonials: image(cloud("v1789754259/Office-1200-900-6.webp"), "The lounge at Avon Chambers", "center 55%"),
-    process: image(cloud("v1789754274/Office-1200-900-2.webp"), "A plant on the reception desk at Avon Chambers", "center 50%"),
-    consultation: image(cloud("v1789754267/Office-1200-900-7.webp"), "A meeting room at Avon Chambers", "center 55%"),
-    articles: image(cloud("v1789755539/A-1200-800-1.webp"), "A lawyer at work at Avon Chambers", "center 50%"),
+  },
+  /** Law/court-themed accent photography for section backgrounds (the "Why Avon Chambers" band). */
+  accents: {
+    whyAvonChambers: {
+      src: "https://images.unsplash.com/photo-1483600516620-7254872369ae?w=1920&auto=format&fit=crop&q=80",
+      alt: "Looking up at courthouse columns and ceiling detail",
+    },
   },
   /**
    * Logos of publications and directories that have recognised the firm,
