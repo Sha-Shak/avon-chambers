@@ -159,7 +159,7 @@ export default async function HomePage() {
       </section>
 
       {/* 2. Trust bar */}
-      <section className="border-b border-foreground/10 bg-secondary/60">
+      <section className="tone-neutral border-b border-foreground/10">
         <FadeIn className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-8 px-6 py-12 sm:grid-cols-3 lg:grid-cols-5 lg:px-10">
           {trustBadges.map((b) => (
             <div
@@ -200,7 +200,7 @@ export default async function HomePage() {
       </section>
 
       {/* 4. Acclamation */}
-      <section className="border-y border-foreground/10 bg-secondary/50">
+      <section className="tone-gold border-y border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">Recognition</p>
@@ -243,16 +243,8 @@ export default async function HomePage() {
       </section>
 
       {/* 5. Why Avon Chambers */}
-      <section className="relative bg-navy text-cream">
-        <Image
-          src={mediaConfig.accents.whyAvonChambers.src}
-          alt={mediaConfig.accents.whyAvonChambers.alt}
-          fill
-          sizes="100vw"
-          className="object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy/95" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      <section className="bg-navy text-cream">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">
               Why {siteConfig.name}
@@ -280,7 +272,7 @@ export default async function HomePage() {
       </section>
 
       {/* 6. Testimonials */}
-      <section className="dark bg-navy text-foreground">
+      <section className="dark bg-navy-light text-foreground">
         <div className="py-24 lg:py-32">
           <FadeIn className="mx-auto max-w-2xl px-6 text-center">
             <p className="text-[0.6875rem] tracking-[0.2em] text-muted-foreground uppercase">Client experience</p>
@@ -294,7 +286,7 @@ export default async function HomePage() {
       </section>
 
       {/* 7. Process */}
-      <section className="border-y border-foreground/10 bg-secondary/50">
+      <section className="tone-slate border-y border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">How we work</p>
@@ -323,7 +315,8 @@ export default async function HomePage() {
       </section>
 
       {/* 8. Articles */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      <section className="tone-blue">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div className="max-w-2xl">
             <p className="eyebrow">Articles</p>
@@ -347,6 +340,7 @@ export default async function HomePage() {
             New writing is on its way — check back shortly.
           </FadeIn>
         )}
+        </div>
       </section>
 
       {/* 9. Final CTA */}

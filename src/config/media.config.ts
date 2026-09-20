@@ -81,13 +81,6 @@ export const mediaConfig = {
     newsEvents: image(cloud("v1789754263/Office-1200-900-4.webp"), "The workspace at Avon Chambers", "center 55%"),
     proBono: image(cloud("v1789754267/Office-1200-900-7.webp"), "A meeting room at Avon Chambers", "center 60%"),
   },
-  /** Law/court-themed accent photography for section backgrounds (the "Why Avon Chambers" band). */
-  accents: {
-    whyAvonChambers: {
-      src: "https://images.unsplash.com/photo-1483600516620-7254872369ae?w=1920&auto=format&fit=crop&q=80",
-      alt: "Looking up at courthouse columns and ceiling detail",
-    },
-  },
   /**
    * Logos of publications and directories that have recognised the firm,
    * shown on the home page "Acclamation" section. Files live in

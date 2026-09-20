@@ -340,3 +340,25 @@
     0 12px 40px color-mix(in oklab, var(--navy) 22%, transparent),
     inset 0 1px 0 color-mix(in oklab, var(--foreground) 16%, transparent);
 }
+
+/*
+ * SECTION TONES — a distinct background colour per home page section, so the
+ * sections read as separate bands. Each mixes a brand colour into the page
+ * background, so they adapt to light and dark theme on their own. Adjust a
+ * percentage to make a tone stronger or subtler; assign tones in page.tsx.
+ */
+@utility tone-neutral {
+  background: var(--secondary);
+}
+
+@utility tone-gold {
+  background: color-mix(in oklab, var(--gold) 26%, var(--background));
+}
+
+@utility tone-slate {
+  background: color-mix(in oklab, var(--slate) 30%, var(--background));
+}
+
+@utility tone-blue {
+  background: color-mix(in oklab, var(--navy-light) 34%, var(--background));
+}
