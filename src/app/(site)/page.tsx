@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowUpRight, Clock, Gem, ShieldCheck, Target } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 import { Hero, type HeroSlide } from "@/components/hero";
-import { SectionBackdrop } from "@/components/section-backdrop";
 import { AnimatedNumber } from "@/components/animated-number";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
 import { ArticlesCarousel } from "@/components/articles-carousel";
@@ -201,11 +200,11 @@ export default async function HomePage() {
       </section>
 
       {/* 4. Acclamation */}
-      <SectionBackdrop image="acclamation">
+      <section className="border-y border-foreground/10 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
-            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">Recognition</p>
-            <h2 className="mt-5 text-3xl sm:text-4xl">Acclamation</h2>
+            <p className="eyebrow">Recognition</p>
+            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Acclamation</h2>
           </FadeIn>
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             {acclamations.map((a, i) => (
@@ -221,27 +220,27 @@ export default async function HomePage() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col px-6 pt-8 pb-7 lg:px-8">
-                  <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">{a.source}</p>
-                  <h3 className="mt-4 text-2xl text-cream sm:text-3xl">{a.highlight}</h3>
+                  <p className="eyebrow">{a.source}</p>
+                  <h3 className="mt-4 text-2xl text-foreground sm:text-3xl">{a.highlight}</h3>
                   {a.years.length > 0 && (
                     <ul className="mt-5 flex flex-wrap gap-2" aria-label="Years recognised">
                       {a.years.map((year) => (
                         <li
                           key={year}
-                          className="rounded-full border border-gold/70 px-3.5 py-1 text-[0.75rem] tracking-[0.12em] text-cream"
+                          className="rounded-full border border-gold/70 px-3.5 py-1 text-[0.75rem] tracking-[0.12em] text-foreground"
                         >
                           {year}
                         </li>
                       ))}
                     </ul>
                   )}
-                  <p className="mt-6 text-sm leading-relaxed text-cream/80">{a.detail}</p>
+                  <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{a.detail}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
         </div>
-      </SectionBackdrop>
+      </section>
 
       {/* 5. Why Avon Chambers */}
       <section className="relative bg-navy text-cream">
@@ -281,10 +280,10 @@ export default async function HomePage() {
       </section>
 
       {/* 6. Testimonials */}
-      <SectionBackdrop image="testimonials">
+      <section className="dark bg-navy text-foreground">
         <div className="py-24 lg:py-32">
           <FadeIn className="mx-auto max-w-2xl px-6 text-center">
-            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">Client experience</p>
+            <p className="text-[0.6875rem] tracking-[0.2em] text-muted-foreground uppercase">Client experience</p>
             <h2 className="mt-5 text-3xl sm:text-4xl">Clients&rsquo; Testimonials</h2>
             <span aria-hidden className="mx-auto mt-6 block h-px w-16 bg-gold/70" />
           </FadeIn>
@@ -292,7 +291,7 @@ export default async function HomePage() {
             <TestimonialMarquee testimonials={testimonials} />
           </FadeIn>
         </div>
-      </SectionBackdrop>
+      </section>
 
       {/* 7. Process */}
       <section className="border-y border-foreground/10 bg-secondary/50">

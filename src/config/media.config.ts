@@ -81,15 +81,6 @@ export const mediaConfig = {
     newsEvents: image(cloud("v1789754263/Office-1200-900-4.webp"), "The workspace at Avon Chambers", "center 55%"),
     proBono: image(cloud("v1789754267/Office-1200-900-7.webp"), "A meeting room at Avon Chambers", "center 60%"),
   },
-  /**
-   * HOME PAGE BACKDROPS — photos behind the frosted-glass sections of the
-   * home page (Acclamation and Testimonials). Keep each one a different scene, and different from the hero slides above (components/section-backdrop.tsx). Same idea as banners: swap a
-   * link and that section's background changes.
-   */
-  backdrops: {
-    acclamation: image(cloud("v1789754261/Office-1200-800-5.webp"), "Law books lining the shelves at Avon Chambers", "center 45%"),
-    testimonials: image(cloud("v1789754259/Office-1200-900-6.webp"), "The lounge at Avon Chambers", "center 55%"),
-  },
   /** Law/court-themed accent photography for section backgrounds (the "Why Avon Chambers" band). */
   accents: {
     whyAvonChambers: {
