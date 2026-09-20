@@ -93,16 +93,16 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
                 );
               })}
             </div>
-            <div className="mt-8 flex flex-col gap-3 min-[420px]:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex h-12 items-center justify-center bg-cream px-6 text-[0.8125rem] tracking-[0.14em] whitespace-nowrap text-navy uppercase transition-colors hover:bg-cream/90"
+                className="inline-flex h-12 w-full items-center justify-center sm:w-auto bg-cream px-6 text-[0.8125rem] tracking-[0.14em] whitespace-nowrap text-navy uppercase transition-colors hover:bg-cream/90"
               >
                 Book a Consultation
               </Link>
               <Link
                 href="/practice-areas"
-                className="inline-flex h-12 items-center justify-center border border-cream/40 px-6 text-[0.8125rem] tracking-[0.14em] whitespace-nowrap text-cream uppercase transition-colors hover:bg-cream/10"
+                className="inline-flex h-12 w-full items-center justify-center sm:w-auto border border-cream/40 px-6 text-[0.8125rem] tracking-[0.14em] whitespace-nowrap text-cream uppercase transition-colors hover:bg-cream/10"
               >
                 Explore Practice Areas
               </Link>
