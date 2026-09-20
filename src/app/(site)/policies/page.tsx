@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
+import { PageBanner } from "@/components/page-banner";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
@@ -48,33 +49,24 @@ export default function PoliciesPage() {
         ])}
       />
 
-      <section className="border-b border-foreground/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <FadeIn className="max-w-3xl">
-            <p className="eyebrow">Policies</p>
-            <h1 className="mt-6 text-4xl leading-[1.1] text-foreground sm:text-5xl">
-              Policies & Terms of Engagement
-            </h1>
-            <p className="mt-7 text-base leading-relaxed text-muted-foreground">
-              {DESCRIPTION} This page is a working draft prepared to give the site complete, honest
-              policy coverage from launch — the firm should have it reviewed by its own counsel and
-              refined to reflect its actual practice before treating any clause as final.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={80} className="mt-10 flex flex-wrap gap-2">
-            {SECTIONS.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="inline-flex items-center rounded-full border border-foreground/15 px-4 py-1.5 text-[0.75rem] tracking-wide text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
-              >
-                {s.label}
-              </a>
-            ))}
-          </FadeIn>
+      <PageBanner
+        image="policies"
+        eyebrow="Policies"
+        title="Policies & Terms of Engagement"
+        description={<>{DESCRIPTION} This page is a working draft prepared to give the site complete, honest policy coverage from launch — the firm should have it reviewed by its own counsel and refined to reflect its actual practice before treating any clause as final.</>}
+      >
+        <div className="mt-8 flex flex-wrap gap-2">
+          {SECTIONS.map((s) => (
+            <a
+              key={s.id}
+              href={`#${s.id}`}
+              className="inline-flex items-center rounded-full border border-cream/25 px-4 py-1.5 text-[0.75rem] tracking-wide text-cream/80 backdrop-blur-sm transition-colors hover:border-cream/60 hover:text-cream"
+            >
+              {s.label}
+            </a>
+          ))}
         </div>
-      </section>
+      </PageBanner>
 
       <div className="mx-auto max-w-3xl px-6 py-20 lg:px-10 lg:py-24">
         <PolicySection id="terms-of-engagement" title="Terms of Engagement">

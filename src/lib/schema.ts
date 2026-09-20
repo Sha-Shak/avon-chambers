@@ -181,3 +181,52 @@ export function jobPostingSchema(job: JobPost) {
     directApply: false,
   };
 }
+
+/** Structured data for a News & Events or Pro Bono post — an Event for events, otherwise a NewsArticle. */
+export function postSchema(post: {
+  title: string;
+  excerpt: string;
+  path: string;
+  publishedAt: string;
+  imageUrl?: string;
+  section: string;
+  event?: { startDate?: string; location?: string };
+}) {
+  const url = abs(post.path);
+  const publisher = {
+    "@type": "Organization",
+    name: siteConfig.name,
+    logo: { "@type": "ImageObject", url: abs(mediaConfig.brand.logo.src) },
+  };
+
+  if (post.event) {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      name: post.title,
+      description: post.excerpt,
+      startDate: post.event.startDate ?? post.publishedAt,
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      location: post.event.location
+        ? { "@type": "Place", name: post.event.location }
+        : { "@type": "Place", name: siteConfig.name, address: siteConfig.address.streetAddress },
+      image: post.imageUrl,
+      organizer: publisher,
+      url,
+    };
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.imageUrl,
+    articleSection: post.section,
+    datePublished: post.publishedAt,
+    url,
+    author: { "@type": "Organization", name: siteConfig.name },
+    publisher,
+    mainEntityOfPage: url,
+  };
+}

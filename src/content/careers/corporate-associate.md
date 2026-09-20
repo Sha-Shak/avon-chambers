@@ -6,7 +6,7 @@ type: "Full-time"
 postedAt: "2026-07-20"
 closingDate: "2026-09-30"
 summary: "Join Avon Chambers to support corporate and commercial matters, providing practical legal services to companies and private clients."
-applyEmail: "avonchambers@gmail.com"
+applyEmail: "info@avonchambers.com"
 ---
 
 ## About the role
@@ -29,4 +29,4 @@ Avon Chambers is seeking a corporate associate to support its Corporate & Commer
 
 ## How to apply
 
-Send your resume and a short note outlining your relevant experience to [avonchambers@gmail.com](mailto:avonchambers@gmail.com).
+Send your resume and a short note outlining your relevant experience to [info@avonchambers.com](mailto:info@avonchambers.com).

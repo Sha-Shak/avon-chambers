@@ -100,7 +100,7 @@ export default async function PracticeAreaDetailPage({
         </div>
       </section>
 
-      <section className="border-b border-foreground/10">
+      <section className="border-b border-foreground/10 bg-secondary/50">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[0.35fr_0.65fr] lg:px-10 lg:py-28">
           <FadeIn>
             <p className="eyebrow">Overview</p>
@@ -116,7 +116,7 @@ export default async function PracticeAreaDetailPage({
         </div>
       </section>
 
-      <section className="border-b border-foreground/10 bg-secondary/50">
+      <section className="border-b border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">How we help</p>

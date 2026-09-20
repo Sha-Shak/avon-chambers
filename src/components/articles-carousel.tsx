@@ -39,7 +39,7 @@ export function ArticlesCarousel({
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="overflow-hidden border border-foreground/10 bg-secondary/40 p-2 sm:p-3">
+      <div className="overflow-hidden">
         <div className="grid">
           {slides.map((slide, i) => (
             <div
@@ -50,7 +50,7 @@ export function ArticlesCarousel({
                 i === index ? "translate-y-0 opacity-100" : "pointer-events-none opacity-0",
               )}
             >
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {slide.map((insight) => (
                   <InsightCard key={insight.slug} insight={insight} />
                 ))}

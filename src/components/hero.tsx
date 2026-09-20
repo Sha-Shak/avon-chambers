@@ -110,7 +110,7 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
       </div>
 
       {slides.length > 1 && (
-        <div className="absolute right-6 bottom-6 z-10 flex gap-2 lg:right-10">
+        <div className="absolute right-6 bottom-16 z-10 flex gap-2 lg:right-10">
           {slides.map((slide, i) => (
             <button
               key={slide.image.src}

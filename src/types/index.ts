@@ -82,12 +82,9 @@ export interface CaseStudy {
   summary: string;
 }
 
-/** A testimonial image is optional; the UI supplies a neutral avatar when absent. */
+/** A client's words. Testimonials are shown anonymously, so only the quote is needed. */
 export interface ClientTestimonial {
   quote: string;
-  name: string;
-  role: string;
-  image?: string;
 }
 
 /**
@@ -155,5 +152,42 @@ export interface JobPostMeta {
 }
 
 export interface JobPost extends JobPostMeta {
+  body: PortableTextBlock[];
+}
+
+export interface SanityPicture {
+  asset?: { _ref: string };
+  alt?: string;
+}
+
+export type NewsEventKind = "News" | "Event";
+
+export interface NewsEventMeta {
+  slug: string;
+  title: string;
+  kind: NewsEventKind;
+  excerpt: string;
+  publishedAt: string; // ISO date
+  eventDate?: string; // ISO date, Events only
+  location?: string; // Events only
+  coverImage?: SanityPicture | null;
+  seo?: SeoFields;
+}
+
+export interface NewsEvent extends NewsEventMeta {
+  body: PortableTextBlock[];
+}
+
+export interface ProBonoMeta {
+  slug: string;
+  title: string;
+  category: string;
+  excerpt: string;
+  publishedAt: string; // ISO date
+  coverImage?: SanityPicture | null;
+  seo?: SeoFields;
+}
+
+export interface ProBonoPost extends ProBonoMeta {
   body: PortableTextBlock[];
 }

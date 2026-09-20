@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FadeIn } from "@/components/fade-in";
+import { PageBanner } from "@/components/page-banner";
 import { InsightsCollection } from "@/components/insights-collection";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -33,20 +33,12 @@ export default async function InsightsPage() {
         ])}
       />
 
-      <section className="border-b border-foreground/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <FadeIn className="max-w-2xl">
-            <p className="eyebrow">Notes and analysis</p>
-            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">
-              Articles
-            </h1>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Practical writing from the partners at {siteConfig.name} — the
-              questions clients actually ask, answered in the open.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageBanner
+        image="articles"
+        eyebrow="Notes and analysis"
+        title="Articles"
+        description={<>Practical writing from the partners at {siteConfig.name} — the questions clients actually ask, answered in the open.</>}
+      />
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         {insights.length > 0 ? (

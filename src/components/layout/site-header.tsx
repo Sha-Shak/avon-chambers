@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
-import { navLinks } from "@/config/nav-links";
+import { navGroups, primaryNavLinks, type NavGroup } from "@/config/nav-links";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -51,18 +51,14 @@ export function SiteHeader() {
         </Link>
 
         <div className="flex items-center gap-5">
-          <nav className="hidden items-center gap-6 xl:flex">
-            {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={cn(
-                  "text-[0.8125rem] tracking-wide transition-colors",
-                  isActive(l.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground",
-                )}
-              >
+          <nav className="hidden items-center gap-5 xl:flex 2xl:gap-6">
+            {primaryNavLinks.map((l) => (
+              <NavLink key={l.href} href={l.href} active={isActive(l.href)}>
                 {l.label}
-              </Link>
+              </NavLink>
+            ))}
+            {navGroups.map((group) => (
+              <NavDropdown key={group.label} group={group} isActive={isActive} />
             ))}
             <Button asChild variant="navy" size="default" className="ml-1 rounded-none">
               <Link href="/contact">Book a Consultation</Link>
@@ -86,15 +82,20 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-foreground/10 bg-background/90 backdrop-blur-md xl:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
-            {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-foreground/5 py-3 text-sm text-foreground last:border-0"
-              >
+            {primaryNavLinks.map((l) => (
+              <MobileLink key={l.href} href={l.href} onNavigate={() => setOpen(false)}>
                 {l.label}
-              </Link>
+              </MobileLink>
+            ))}
+            {navGroups.map((group) => (
+              <div key={group.label} className="flex flex-col">
+                <p className="pt-5 pb-1 text-[0.6875rem] tracking-[0.2em] text-muted-foreground uppercase">{group.label}</p>
+                {group.links.map((l) => (
+                  <MobileLink key={l.href} href={l.href} onNavigate={() => setOpen(false)}>
+                    {l.label}
+                  </MobileLink>
+                ))}
+              </div>
             ))}
             <a
               href={`tel:${siteConfig.consultationPhoneE164}`}
@@ -109,5 +110,117 @@ export function SiteHeader() {
         </div>
       )}
     </header>
+  );
+}
+
+function NavLink({ href, active, children }: { href: string; active: boolean; children: ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "text-[0.8125rem] tracking-wide transition-colors",
+        active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+      )}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function MobileLink({
+  href,
+  onNavigate,
+  children,
+}: {
+  href: string;
+  onNavigate: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onNavigate}
+      className="border-b border-foreground/5 py-3 text-sm text-foreground last:border-0"
+    >
+      {children}
+    </Link>
+  );
+}
+
+/** A header dropdown (e.g. "Newsroom"): opens on hover or click, closes on Escape, outside click, or navigation. */
+function NavDropdown({ group, isActive }: { group: NavGroup; isActive: (href: string) => boolean }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const lastPointer = useRef<string>("");
+  const hasActiveChild = group.links.some((l) => isActive(l.href));
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  return (
+    <div
+      ref={ref}
+      className="relative"
+      onPointerEnter={(e) => e.pointerType === "mouse" && setOpen(true)}
+      onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(false)}
+    >
+      <button
+        type="button"
+        aria-haspopup="menu"
+        aria-expanded={open}
+        // A mouse click keeps the menu open (hover already opened it); touch and keyboard clicks toggle it.
+        onClick={(e) => setOpen((v) => (e.detail > 0 && lastPointer.current === "mouse" ? true : !v))}
+        onPointerDown={(e) => (lastPointer.current = e.pointerType)}
+        className={cn(
+          "inline-flex items-center gap-1 text-[0.8125rem] tracking-wide transition-colors",
+          hasActiveChild || open ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+        )}
+      >
+        {group.label}
+        <ChevronDown className={cn("size-3.5 transition-transform duration-200", open && "rotate-180")} />
+      </button>
+
+      {/* The pt-3 wrapper bridges the gap between button and panel so the hover doesn't drop while moving down. */}
+      <div
+        className={cn(
+          "absolute top-full left-1/2 z-50 -translate-x-1/2 pt-3 transition-all duration-200",
+          open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0",
+        )}
+      >
+        <ul
+          role="menu"
+          className="min-w-52 border border-foreground/10 bg-background/95 py-2 shadow-xl shadow-navy/10 backdrop-blur-md"
+        >
+          {group.links.map((l) => (
+            <li key={l.href} role="none">
+              <Link
+                href={l.href}
+                role="menuitem"
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "block px-5 py-2.5 text-[0.8125rem] tracking-wide transition-colors hover:bg-secondary",
+                  isActive(l.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

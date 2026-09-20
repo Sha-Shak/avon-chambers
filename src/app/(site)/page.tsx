@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock, Gem, ShieldCheck, Target } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
+import Image from "next/image";
 import { Hero, type HeroSlide } from "@/components/hero";
+import { SectionBackdrop } from "@/components/section-backdrop";
 import { AnimatedNumber } from "@/components/animated-number";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
 import { ArticlesCarousel } from "@/components/articles-carousel";
 import { ConsultationSection } from "@/components/consultation-section";
-import { TestimonialsMarquee } from "@/components/testimonials-marquee";
+import { TestimonialMarquee } from "@/components/testimonial-marquee";
 import { InteractiveMarquee } from "@/components/interactive-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
@@ -93,6 +94,30 @@ const differentiators = [
   },
 ];
 
+/**
+ * Recognition shown in the "Acclamation" section, one card each: the
+ * publication's logo, the highlight, then the detail. Logos come from
+ * `mediaConfig.recognition`.
+ */
+const acclamations = [
+  {
+    logo: mediaConfig.recognition.lawAsia,
+    source: "Asia Business Law Journal",
+    highlight: "Top Corporate Lawyer",
+    years: ["2024", "2025", "2026"],
+    detail:
+      "The Managing Partner of Avon Chambers, Mr. Asif Bin Anwar, has found mention as a Top Corporate Lawyer in the Asia Business Law Journal, consecutively for the last three years: 2024, 2025 and 2026.",
+  },
+  {
+    logo: mediaConfig.recognition.legal500,
+    source: "The Legal 500",
+    highlight: "Recommended Lawyer",
+    years: [],
+    detail:
+      "The Managing Partner of Avon Chambers, Mr. Asif Bin Anwar, has also found mention as a recommended lawyer in The Legal 500 for a number of years.",
+  },
+];
+
 const testimonials = testimonialsData as ClientTestimonial[];
 
 const process = [
@@ -125,7 +150,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* 1. Hero */}
-      <section className="border-b border-foreground/10">
+      <section>
         <FadeIn>
           <Hero
             slides={heroSlides}
@@ -134,28 +159,23 @@ export default async function HomePage() {
         </FadeIn>
       </section>
 
-      {/* 2. Trust bar */}
-      <section className="border-b border-foreground/10 bg-secondary/60">
-        <FadeIn className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-8 px-6 py-12 sm:grid-cols-3 lg:grid-cols-5 lg:px-10">
+      {/* 2. Trust bar — a dark frosted strip: its top half overlaps the hero photo, its bottom half sits on a navy band that runs into the next section */}
+      <section className="relative z-10 -mt-12 bg-[linear-gradient(to_bottom,transparent_3rem,var(--navy)_3rem)]">
+        <div className="mx-auto max-w-7xl px-6 pb-14 lg:px-10">
+        <FadeIn className="dark frost-strong grid grid-cols-2 gap-x-8 gap-y-8 rounded-md px-8 py-10 sm:grid-cols-3 lg:grid-cols-5">
           {trustBadges.map((b) => (
-            <div
-              key={b.label}
-              className="min-w-0 border-l border-foreground/15 pl-4"
-            >
-              <AnimatedNumber
-                value={b.value}
-                className="block font-serif text-2xl text-foreground"
-              />
-              <p className="mt-1 text-xs leading-snug text-muted-foreground">
-                {b.label}
-              </p>
+            <div key={b.label} className="min-w-0 border-l border-foreground/25 pl-4">
+              <AnimatedNumber value={b.value} className="block font-serif text-2xl text-foreground" />
+              <p className="mt-1 text-xs leading-snug text-muted-foreground">{b.label}</p>
             </div>
           ))}
         </FadeIn>
+        </div>
       </section>
 
       {/* 3. Practice areas */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      <SectionBackdrop image="practiceAreas">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="max-w-2xl">
           <p className="eyebrow">Practice areas</p>
           <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
@@ -173,87 +193,111 @@ export default async function HomePage() {
             </div>
           ))}
         />
-      </section>
+        </div>
+      </SectionBackdrop>
 
-      {/* 4. Why Avon Chambers */}
-      <section className="relative bg-navy text-cream">
-        <Image
-          src={mediaConfig.accents.whyAvonChambers.src}
-          alt={mediaConfig.accents.whyAvonChambers.alt}
-          fill
-          sizes="100vw"
-          className="object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy/95" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      {/* 4. Acclamation */}
+      <SectionBackdrop image="acclamation">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
-            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">
-              Why {siteConfig.name}
-            </p>
-            <h2 className="mt-5 text-3xl sm:text-4xl">
-              Small by design. Accountable by consequence.
-            </h2>
+            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">Recognition</p>
+            <h2 className="mt-5 text-3xl sm:text-4xl">Acclamation</h2>
           </FadeIn>
-          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-            {differentiators.map((d, i) => (
-              <FadeIn
-                key={d.title}
-                delay={i * 70}
-                className="border-t border-cream/20 pt-6"
-              >
-                <d.icon className="size-5 text-cream/70" strokeWidth={1.25} />
-                <h3 className="mt-5 text-lg text-cream">{d.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/60">
-                  {d.copy}
-                </p>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {acclamations.map((a, i) => (
+              <FadeIn key={a.source} delay={i * 80} className="frost flex flex-col rounded-md p-3">
+                <div className="flex h-40 items-center justify-center rounded-sm bg-white px-8 sm:h-48">
+                  <Image
+                    src={a.logo.src}
+                    alt={a.logo.alt}
+                    width={a.logo.width}
+                    height={a.logo.height}
+                    sizes="(min-width: 768px) 20rem, 60vw"
+                    className="max-h-32 w-auto object-contain sm:max-h-40"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col px-6 pt-8 pb-7 lg:px-8">
+                  <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">{a.source}</p>
+                  <h3 className="mt-4 text-2xl text-cream sm:text-3xl">{a.highlight}</h3>
+                  {a.years.length > 0 && (
+                    <ul className="mt-5 flex flex-wrap gap-2" aria-label="Years recognised">
+                      {a.years.map((year) => (
+                        <li
+                          key={year}
+                          className="rounded-full border border-gold/70 px-3.5 py-1 text-[0.75rem] tracking-[0.12em] text-cream"
+                        >
+                          {year}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <p className="mt-6 text-sm leading-relaxed text-cream/80">{a.detail}</p>
+                </div>
               </FadeIn>
             ))}
           </div>
         </div>
-      </section>
+      </SectionBackdrop>
 
-      {/* 5. Testimonials */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-        <FadeIn className="max-w-2xl">
-          <p className="eyebrow">Client experience</p>
-          <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
-            In their words
-          </h2>
-        </FadeIn>
-        <FadeIn className="mt-14"><TestimonialsMarquee testimonials={testimonials} /></FadeIn>
-      </section>
+      {/* 5. Why Avon Chambers */}
+      <SectionBackdrop image="whyAvonChambers">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+          <FadeIn className="max-w-2xl">
+            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">Why {siteConfig.name}</p>
+            <h2 className="mt-5 text-3xl sm:text-4xl">Small by design. Accountable by consequence.</h2>
+          </FadeIn>
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {differentiators.map((d, i) => (
+              <FadeIn key={d.title} delay={i * 70} className="frost rounded-md p-7">
+                <d.icon className="size-5 text-cream/80" strokeWidth={1.25} />
+                <h3 className="mt-5 text-lg text-cream">{d.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-cream/75">{d.copy}</p>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </SectionBackdrop>
 
-      {/* 6. Process */}
-      <section className="border-y border-foreground/10 bg-secondary/50">
+      {/* 6. Testimonials */}
+      <SectionBackdrop image="testimonials">
+        <div className="py-24 lg:py-32">
+          <FadeIn className="mx-auto max-w-2xl px-6 text-center">
+            <p className="text-[0.6875rem] tracking-[0.2em] text-cream/60 uppercase">Client experience</p>
+            <h2 className="mt-5 text-3xl sm:text-4xl">Clients&rsquo; Testimonials</h2>
+            <span aria-hidden className="mx-auto mt-6 block h-px w-16 bg-gold/70" />
+          </FadeIn>
+          <FadeIn className="mt-16">
+            <TestimonialMarquee testimonials={testimonials} />
+          </FadeIn>
+        </div>
+      </SectionBackdrop>
+
+      {/* 7. How we work */}
+      <SectionBackdrop image="process">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">How we work</p>
-            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
-              Four steps, no ambiguity
-            </h2>
+            <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Four steps, no ambiguity</h2>
           </FadeIn>
-          <ol className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((p, i) => (
-              <FadeIn key={p.step} as="li" delay={i * 70} className="relative">
-                <span className="font-serif text-sm text-muted-foreground">
-                  {p.step}
-                </span>
+              <FadeIn key={p.step} as="li" delay={i * 70} className="frost relative rounded-md p-7">
+                <span className="font-serif text-sm text-muted-foreground">{p.step}</span>
                 <div className="mt-4 flex items-center gap-3">
                   <span className="size-2 shrink-0 rounded-full bg-foreground" />
                   <span className="h-px flex-1 bg-foreground/20" />
                 </div>
                 <h3 className="mt-5 text-lg text-foreground">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {p.copy}
-                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.copy}</p>
               </FadeIn>
             ))}
           </ol>
         </div>
-      </section>
+      </SectionBackdrop>
 
-      {/* 7. Articles */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      {/* 8. Articles */}
+      <SectionBackdrop image="articles">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div className="max-w-2xl">
             <p className="eyebrow">Articles</p>
@@ -277,10 +321,11 @@ export default async function HomePage() {
             New writing is on its way — check back shortly.
           </FadeIn>
         )}
-      </section>
+        </div>
+      </SectionBackdrop>
 
-      {/* 8. Final CTA */}
-      <ConsultationSection />
+      {/* 9. Final CTA */}
+      <ConsultationSection backdrop />
     </div>
   );
 }

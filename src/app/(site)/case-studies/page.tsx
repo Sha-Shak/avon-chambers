@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
+import { PageBanner } from "@/components/page-banner";
 import { CaseStudyCard } from "@/components/cards/case-study-card";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -33,18 +34,12 @@ export default function CaseStudiesPage() {
         ])}
       />
 
-      <section className="border-b border-foreground/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <FadeIn className="max-w-2xl">
-            <p className="eyebrow">Our services</p>
-            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Practice Areas</h1>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Avon Chambers provides practical legal advice and representation across a range of legal
-              matters. Contact us to discuss the support you require.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageBanner
+        image="caseStudies"
+        eyebrow="Our services"
+        title="Practice Areas"
+        description={<>Avon Chambers provides practical legal advice and representation across a range of legal matters. Contact us to discuss the support you require.</>}
+      />
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <div className="grid gap-8 lg:grid-cols-3">

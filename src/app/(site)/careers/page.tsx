@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FadeIn } from "@/components/fade-in";
+import { PageBanner } from "@/components/page-banner";
 import { JobCard } from "@/components/cards/job-card";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
@@ -28,22 +28,16 @@ export default async function CareersPage() {
         ])}
       />
 
-      <section className="border-b border-foreground/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <FadeIn className="max-w-2xl">
-            <p className="eyebrow">Careers</p>
-            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Work at {siteConfig.name}</h1>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              We stay small on purpose, so every hire matters. Below are the roles we&rsquo;re actively
-              filling — apply directly by email, no account or portal required.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageBanner
+        image="careers"
+        eyebrow="Careers"
+        title={`Work at ${siteConfig.name}`}
+        description={<>We stay small on purpose, so every hire matters. Below are the roles we&rsquo;re actively filling — apply directly by email, no account or portal required.</>}
+      />
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
         {openRoles.length > 0 ? (
-          <div>
+          <div className="space-y-5">
             {openRoles.map((job) => (
               <JobCard key={job.slug} job={job} />
             ))}

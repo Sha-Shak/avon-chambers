@@ -9,6 +9,14 @@ export const structure: StructureResolver = (S) =>
         .schemaType("insight")
         .child(S.documentTypeList("insight").title("Articles").defaultOrdering([{ field: "publishedAt", direction: "desc" }])),
       S.listItem()
+        .title("News & Events")
+        .schemaType("newsEvent")
+        .child(S.documentTypeList("newsEvent").title("News & Events").defaultOrdering([{ field: "publishedAt", direction: "desc" }])),
+      S.listItem()
+        .title("Pro Bono")
+        .schemaType("proBono")
+        .child(S.documentTypeList("proBono").title("Pro Bono posts").defaultOrdering([{ field: "publishedAt", direction: "desc" }])),
+      S.listItem()
         .title("Careers")
         .schemaType("jobPost")
         .child(S.documentTypeList("jobPost").title("Job postings").defaultOrdering([{ field: "postedAt", direction: "desc" }])),

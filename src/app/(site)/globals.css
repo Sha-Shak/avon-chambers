@@ -108,6 +108,7 @@
  * that are deliberately always-dark (the footer, CTA bands, hero bands)
  * keep looking the same in both themes instead of "double-inverting".
  */
+.dark,
 :root.dark {
   --background: oklch(0.17 0.02 262.5);
   --foreground: oklch(0.95 0.01 85);
@@ -153,6 +154,11 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: clip;
     max-width: 100%;
+  }
+
+  /* A `dark` wrapper re-themes its contents (see the .dark palette above), so its text colour must follow. */
+  .dark {
+    color: var(--foreground);
   }
 
   h1,
@@ -246,6 +252,14 @@
   --tw-prose-bold: var(--foreground);
   --tw-prose-links: var(--foreground);
   --tw-prose-bullets: var(--gold);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--gold);
+  --tw-prose-captions: var(--muted-foreground);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-hr: var(--border);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
   max-width: 65ch;
 }
 
@@ -291,4 +305,38 @@
   .shimmer::after {
     animation: none;
   }
+}
+
+/*
+ * FROSTED GLASS — the one card style used across the whole site.
+ *
+ * Apply `frost` to anything card-like (practice areas, articles, lawyers,
+ * contact panels...). It's a translucent, blurred panel with a fine light
+ * edge, built from the theme colours, so it follows light/dark automatically
+ * and always keeps its text colours (`text-foreground` etc.) readable.
+ * `frost-strong` is the denser variant for text-heavy panels over busy photos.
+ * Tune the blur, opacity or edge here and every card on the site follows.
+ *
+ * Wrapping any part of the page in an element with the `dark` class re-themes
+ * everything inside it to the dark palette (see the `.dark` block above) — the
+ * photo bands on the home page use that so their glass is always dark.
+ */
+@utility frost {
+  background: color-mix(in oklab, var(--card) 50%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 16%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  box-shadow:
+    0 10px 36px color-mix(in oklab, var(--navy) 18%, transparent),
+    inset 0 1px 0 color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
+@utility frost-strong {
+  background: color-mix(in oklab, var(--card) 66%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 18%, transparent);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  backdrop-filter: blur(22px) saturate(140%);
+  box-shadow:
+    0 12px 40px color-mix(in oklab, var(--navy) 22%, transparent),
+    inset 0 1px 0 color-mix(in oklab, var(--foreground) 16%, transparent);
 }

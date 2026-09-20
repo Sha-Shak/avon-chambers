@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
+import { PageBanner } from "@/components/page-banner";
 import { PhotoGallery } from "@/components/gallery/photo-gallery";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
@@ -33,17 +34,12 @@ export default function LifeAtAvonPage() {
         ])}
       />
 
-      <section className="border-b border-foreground/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <FadeIn className="max-w-3xl">
-            <p className="eyebrow">Life at Avon</p>
-            <h1 className="mt-6 text-4xl leading-[1.1] text-foreground sm:text-5xl">
-              A look inside Chambers
-            </h1>
-            <p className="mt-7 text-base leading-relaxed text-muted-foreground">{DESCRIPTION}</p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageBanner
+        image="lifeAtAvon"
+        eyebrow="Life at Avon"
+        title="A look inside Chambers"
+        description={<>{DESCRIPTION}</>}
+      />
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
         <FadeIn>

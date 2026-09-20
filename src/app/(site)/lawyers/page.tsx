@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FadeIn } from "@/components/fade-in";
+import { PageBanner } from "@/components/page-banner";
 import { LawyerGrid } from "@/components/lawyer-grid";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -43,20 +43,12 @@ export default function LawyersPage() {
         ])}
       />
 
-      <section className="border-b border-foreground/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <FadeIn className="max-w-3xl">
-            <p className="eyebrow">Lawyers</p>
-            <h1 className="mt-6 text-4xl leading-[1.1] text-foreground sm:text-5xl">
-              Legal professionals with a broad range of expertise.
-            </h1>
-            <p className="mt-7 text-base leading-relaxed text-muted-foreground">
-              {siteConfig.name} comprises Barristers, Solicitors, Advocates and Legal Consultants working
-              individually and collectively to provide professional legal services.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageBanner
+        image="lawyers"
+        eyebrow="Lawyers"
+        title="Legal professionals with a broad range of expertise"
+        description={<>{siteConfig.name} comprises Barristers, Solicitors, Advocates and Legal Consultants working individually and collectively to provide professional legal services.</>}
+      />
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         {leadPartner && <LawyerGrid lawyers={[leadPartner]} />}

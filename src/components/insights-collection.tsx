@@ -67,10 +67,10 @@ export function InsightsCollection({ insights }: { insights: InsightMeta[] }) {
         </label>
       </div>
 
-      <div className="divide-y divide-foreground/10 border-y border-foreground/10">
+      <div className="space-y-5">
         {visibleInsights.map((insight, i) => (
           <FadeIn key={insight.slug} delay={i * 45}>
-            <article className="grid gap-5 py-8 sm:grid-cols-[12rem_10rem_minmax(0,1fr)_auto] sm:items-start sm:gap-8">
+            <article className="frost grid gap-5 p-5 sm:grid-cols-[12rem_10rem_minmax(0,1fr)_auto] sm:items-start sm:gap-8 sm:p-6">
               <Link
                 href={`/insights/${insight.slug}`}
                 className="relative aspect-4/3 overflow-hidden bg-secondary"

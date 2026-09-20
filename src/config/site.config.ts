@@ -76,7 +76,7 @@ export const siteConfig = {
     "Cross-Border Legal Matters",
     "Bangladesh Law",
   ],
-  email: "avonchambers@gmail.com",
+  email: "info@avonchambers.com",
   consultationPhoneDisplay: "(88) 01841010059",
   consultationPhoneE164: "+8801841010059",
   officeHours: "Sat–Thurs, 9:30am – 6:30pm",

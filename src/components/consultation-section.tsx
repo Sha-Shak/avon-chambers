@@ -1,10 +1,17 @@
 import { Lock, MapPin, Phone } from "lucide-react";
+import { SectionBackdrop } from "@/components/section-backdrop";
 import { FadeIn } from "@/components/fade-in";
 import { SocialLinks } from "@/components/social-links";
 import { WhatsAppCta } from "@/components/whatsapp-cta";
 import { siteConfig } from "@/config/site.config";
 
+/**
+ * The closing "book a consultation" band. It's a plain navy band on inner
+ * pages; pass `backdrop` (the home page does) to put the office photo behind
+ * it, like the home page's other bands.
+ */
 export function ConsultationSection({
+  backdrop = false,
   eyebrow = "Book a consultation",
   heading = "Tell us what happened. We'll tell you where you stand.",
   blurb = "Initial consultations are 45 minutes and held with the partner who would lead your matter.",
@@ -16,9 +23,10 @@ export function ConsultationSection({
   blurb?: string;
   contactPhone?: string;
   contactEmail?: string;
+  backdrop?: boolean;
 }) {
-  return (
-    <section className="bg-navy text-cream">
+  const content = (
+    <>
       <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 lg:grid-cols-2 lg:px-10 lg:py-32">
         <FadeIn className="min-w-0">
           <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">{eyebrow}</p>
@@ -68,7 +76,7 @@ export function ConsultationSection({
           </dl>
         </FadeIn>
 
-        <FadeIn delay={100} className="flex min-w-0 flex-col justify-center gap-10 border border-cream/15 p-8 sm:p-10">
+        <FadeIn delay={100} className="frost flex min-w-0 flex-col justify-center gap-10 p-8 sm:p-10">
           <div>
             <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">Get in touch</p>
             <p className="mt-4 text-base leading-relaxed text-cream/70">
@@ -83,6 +91,12 @@ export function ConsultationSection({
           </div>
         </FadeIn>
       </div>
-    </section>
+    </>
+  );
+
+  return backdrop ? (
+    <SectionBackdrop image="consultation">{content}</SectionBackdrop>
+  ) : (
+    <section className="dark bg-navy text-foreground">{content}</section>
   );
 }

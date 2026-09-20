@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
+import { PageBanner } from "@/components/page-banner";
 import { WhatsAppCta } from "@/components/whatsapp-cta";
 import { SocialLinks } from "@/components/social-links";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -27,17 +28,12 @@ export default function ContactPage() {
         ])}
       />
 
-      <section className="border-b border-foreground/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <FadeIn className="max-w-2xl">
-            <p className="eyebrow">Speak with counsel</p>
-            <h1 className="mt-4 text-4xl text-foreground sm:text-5xl">Contact</h1>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Contact Avon Chambers by phone, email or WhatsApp to discuss your legal matter.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageBanner
+        image="contact"
+        eyebrow="Speak with counsel"
+        title="Contact"
+        description={<>Contact Avon Chambers by phone, email or WhatsApp to discuss your legal matter.</>}
+      />
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         {/* min-w-0 on both columns: grid items default to min-width:auto, so any
@@ -96,8 +92,8 @@ export default function ContactPage() {
           </FadeIn>
 
           <FadeIn delay={100} className="min-w-0">
-            <div className="flex h-full flex-col justify-center gap-6 border border-foreground/10 bg-navy p-8 text-cream sm:p-10">
-              <p className="text-base leading-relaxed text-cream/70">
+            <div className="frost-strong flex h-full flex-col justify-center gap-6 p-8 sm:p-10">
+              <p className="text-base leading-relaxed text-muted-foreground">
                 The fastest way to reach us — message the team directly on WhatsApp and we&rsquo;ll
                 respond as soon as we can.
               </p>

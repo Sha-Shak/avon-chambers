@@ -4,7 +4,7 @@ import type { JobPostMeta } from "@/types";
 
 export function JobCard({ job }: { job: JobPostMeta }) {
   return (
-    <article className="flex flex-col justify-between gap-6 border-t border-foreground/15 py-8 sm:flex-row sm:items-center">
+    <article className="frost flex flex-col justify-between gap-6 p-7 sm:flex-row sm:items-center sm:p-8">
       <div>
         <p className="eyebrow">{job.department}</p>
         <h3 className="mt-3 text-xl text-foreground">

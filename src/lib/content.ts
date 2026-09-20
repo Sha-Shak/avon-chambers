@@ -1,5 +1,5 @@
 import { client } from "@/sanity/client";
-import type { Insight, InsightMeta, JobPost, JobPostMeta } from "@/types";
+import type { Insight, InsightMeta, JobPost, JobPostMeta, NewsEvent, NewsEventMeta, ProBonoMeta, ProBonoPost } from "@/types";
 
 const SEO_FIELDS = `
   seo{
@@ -35,6 +35,28 @@ const JOB_META_FIELDS = `
   closingDate,
   summary,
   applyEmail,
+  ${SEO_FIELDS}
+`;
+
+const NEWS_EVENT_META_FIELDS = `
+  "slug": slug.current,
+  title,
+  kind,
+  excerpt,
+  publishedAt,
+  eventDate,
+  location,
+  coverImage,
+  ${SEO_FIELDS}
+`;
+
+const PRO_BONO_META_FIELDS = `
+  "slug": slug.current,
+  title,
+  category,
+  excerpt,
+  publishedAt,
+  coverImage,
   ${SEO_FIELDS}
 `;
 
@@ -99,4 +121,56 @@ export async function getJobPost(slug: string): Promise<JobPost | undefined> {
 export function isJobOpen(job: Pick<JobPostMeta, "closingDate">): boolean {
   if (!job.closingDate) return true;
   return new Date(job.closingDate).getTime() >= Date.now();
+}
+
+// ---- News & Events -------------------------------------------------------
+
+export async function getAllNewsEvents(): Promise<NewsEventMeta[]> {
+  return client.fetch(
+    `*[_type == "newsEvent" && defined(slug.current)] | order(publishedAt desc) { ${NEWS_EVENT_META_FIELDS} }`,
+    {},
+    { next: { revalidate: 60 } },
+  );
+}
+
+export async function getNewsEventSlugs(): Promise<string[]> {
+  const items = await client.fetch<{ slug: string }[]>(
+    `*[_type == "newsEvent" && defined(slug.current)]{ "slug": slug.current }`,
+  );
+  return items.map((i) => i.slug);
+}
+
+export async function getNewsEvent(slug: string): Promise<NewsEvent | undefined> {
+  const result = await client.fetch<NewsEvent | null>(
+    `*[_type == "newsEvent" && slug.current == $slug][0]{ ${NEWS_EVENT_META_FIELDS}, body }`,
+    { slug },
+    { next: { revalidate: 60 } },
+  );
+  return result ?? undefined;
+}
+
+// ---- Pro Bono --------------------------------------------------------------
+
+export async function getAllProBonoPosts(): Promise<ProBonoMeta[]> {
+  return client.fetch(
+    `*[_type == "proBono" && defined(slug.current)] | order(publishedAt desc) { ${PRO_BONO_META_FIELDS} }`,
+    {},
+    { next: { revalidate: 60 } },
+  );
+}
+
+export async function getProBonoSlugs(): Promise<string[]> {
+  const items = await client.fetch<{ slug: string }[]>(
+    `*[_type == "proBono" && defined(slug.current)]{ "slug": slug.current }`,
+  );
+  return items.map((i) => i.slug);
+}
+
+export async function getProBonoPost(slug: string): Promise<ProBonoPost | undefined> {
+  const result = await client.fetch<ProBonoPost | null>(
+    `*[_type == "proBono" && slug.current == $slug][0]{ ${PRO_BONO_META_FIELDS}, body }`,
+    { slug },
+    { next: { revalidate: 60 } },
+  );
+  return result ?? undefined;
 }

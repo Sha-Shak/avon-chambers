@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/fade-in";
 import { AnimatedNumber } from "@/components/animated-number";
+import { PageBanner } from "@/components/page-banner";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
@@ -93,14 +94,16 @@ export default function AboutPage() {
         ])}
       />
 
+      <PageBanner
+        image="about"
+        eyebrow="Our firm"
+        title="Professional legal expertise under one roof"
+      />
+
       <section className="border-b border-foreground/10">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:px-10 lg:py-24">
           <FadeIn>
-            <p className="eyebrow">Our firm</p>
-            <h1 className="mt-6 text-4xl leading-[1.1] text-foreground sm:text-5xl">
-              Professional legal expertise under one roof.
-            </h1>
-            <p className="mt-7 text-base leading-relaxed text-muted-foreground">
+            <p className="text-base leading-relaxed text-muted-foreground">
               {siteConfig.name} is a Bangladesh-based set of law chambers comprising seasoned Barristers,
               Solicitors, Advocates and Legal Consultants. We provide professional legal services to
               corporate firms, companies and private clients across a range of legal matters.
@@ -135,9 +138,9 @@ export default function AboutPage() {
           <p className="eyebrow">How we work</p>
           <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Our commitment</h2>
         </FadeIn>
-        <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2">
           {principles.map((p, i) => (
-            <FadeIn key={p.title} delay={i * 60} className="bg-card p-8 lg:p-10">
+            <FadeIn key={p.title} delay={i * 60} className="frost p-8 lg:p-10">
               <h3 className="font-serif text-xl text-foreground">{p.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
             </FadeIn>
@@ -173,9 +176,9 @@ export default function AboutPage() {
             specialist legal advice under one roof.
           </p>
         </FadeIn>
-        <div className="mt-12 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {practiceAreas.map((area, i) => (
-            <FadeIn key={area.slug} delay={i * 50} className="bg-card">
+            <FadeIn key={area.slug} delay={i * 50} className="frost">
               <Link
                 href={`/practice-areas/${area.slug}`}
                 className="group flex h-full items-center justify-between gap-4 p-8"
@@ -198,9 +201,9 @@ export default function AboutPage() {
           <p className="eyebrow">What happens next</p>
           <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Three steps to an answer</h2>
         </FadeIn>
-        <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 lg:grid-cols-3">
           {steps.map((s, i) => (
-            <FadeIn key={s.step} delay={i * 60} className="bg-card p-8 lg:p-10">
+            <FadeIn key={s.step} delay={i * 60} className="frost p-8 lg:p-10">
               <p className="text-[0.6875rem] tracking-[0.2em] text-muted-foreground uppercase">{s.step}</p>
               <h3 className="mt-5 font-serif text-xl text-foreground">{s.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.body}</p>

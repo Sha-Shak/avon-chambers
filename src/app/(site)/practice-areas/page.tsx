@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
+import { PageBanner } from "@/components/page-banner";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
@@ -39,14 +40,16 @@ export default function PracticeAreasPage() {
         ])}
       />
 
+      <PageBanner
+        image="practiceAreas"
+        eyebrow="Practice areas"
+        title="Comprehensive legal advice under one roof"
+      />
+
       <section className="border-b border-foreground/10">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:px-10 lg:py-24">
           <FadeIn>
-            <p className="eyebrow">Practice areas</p>
-            <h1 className="mt-6 text-4xl leading-[1.1] text-foreground sm:text-5xl">
-              Comprehensive legal advice under one roof.
-            </h1>
-            <p className="mt-7 text-base leading-relaxed text-muted-foreground">
+            <p className="text-base leading-relaxed text-muted-foreground">
               Avon Chambers brings together Barristers, Solicitors, Advocates and Legal Consultants with
               individual expertise in a range of legal matters. Explore our {practiceAreas.length} practice
               areas to learn how we may assist.
@@ -72,9 +75,9 @@ export default function PracticeAreasPage() {
           <p className="eyebrow">What we handle</p>
           <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Select an area</h2>
         </FadeIn>
-        <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {practiceAreas.map((area, i) => (
-            <FadeIn key={area.slug} delay={i * 60} className="flex bg-card">
+            <FadeIn key={area.slug} delay={i * 60} className="flex">
               <PracticeAreaCard area={area} />
             </FadeIn>
           ))}

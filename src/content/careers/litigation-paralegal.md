@@ -5,7 +5,7 @@ location: "Dhaka, Bangladesh"
 type: "Full-time"
 postedAt: "2026-07-28"
 summary: "Support Avon Chambers' litigation practice through legal research, document preparation and matter coordination."
-applyEmail: "avonchambers@gmail.com"
+applyEmail: "info@avonchambers.com"
 ---
 
 ## About the role
@@ -28,4 +28,4 @@ Avon Chambers is seeking a litigation paralegal to support its dispute-resolutio
 
 ## How to apply
 
-Send your resume to [avonchambers@gmail.com](mailto:avonchambers@gmail.com) with “Litigation Paralegal” in the subject line.
+Send your resume to [info@avonchambers.com](mailto:info@avonchambers.com) with “Litigation Paralegal” in the subject line.
