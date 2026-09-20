@@ -44,21 +44,21 @@ export const mediaConfig = {
      * track record, practice areas); see `heroContent` in the homepage for
      * the matching copy. The firm's own photo leads, followed by placeholder
      * stock photography (hotlinked from Unsplash) — swap any entry for real
-     * firm photography later; nothing else needs to change.
+     * firm photography later; nothing else needs to change. The third value
+     * of each image is its focal point (CSS object-position, "x% y%") — it
+     * decides which part of the photo stays in view when the hero crops it, so
+     * move it if a slide's main subject is getting cut off.
      */
     homeSlides: [
-      {
-        src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1786546841/avon-chambers-office.png",
-        alt: "Lawyers of Avon Chambers in conference with a client",
-      },
-      {
-        src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754268/Office-1200-900-3.webp",
-        alt: "Avon Chambers Office",
-      },
-      {
-        src: "https://res.cloudinary.com/x1h1eyhj/image/upload/v1789754260/Office-1200-900-5.webp",
-        alt: "A partner's room at Avon Chambers",
-      },
+      image(
+        cloud("v1786546841/avon-chambers-office.png"),
+        "Lawyers of Avon Chambers in conference with a client",
+        // The monogram sits near the top of this photo, so favour the top
+        // (and the right, where the desk is) when it's cropped to a wide strip.
+        "65% 12%",
+      ),
+      image(cloud("v1789754268/Office-1200-900-3.webp"), "Avon Chambers Office", "60% 55%"),
+      image(cloud("v1789754260/Office-1200-900-5.webp"), "A partner's room at Avon Chambers", "55% 62%"),
     ],
     /** How long each hero slide stays on screen before advancing, in milliseconds. */
     sliderIntervalMs: 6000,
