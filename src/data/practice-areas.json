@@ -1,266 +1,7 @@
 [
   {
-    "slug": "civil-litigation",
-    "title": "Civil Litigation",
-    "icon": "Scale",
-    "image": {
-      "src": "https://images.unsplash.com/photo-1589216532372-1c2a367900d9?w=1200&auto=format&fit=crop&q=80",
-      "alt": "Law books in a legal setting"
-    },
-    "copy": "Strategic legal representation and practical advice in contractual, commercial, financial, property-related and other civil disputes.",
-    "valueProp": "Careful case assessment, strong pleadings, evidence-based advocacy and commercially sensible dispute-resolution strategies.",
-    "overview": [
-      "We represent individuals, businesses, organisations and other clients in a broad range of civil disputes before the courts and tribunals of Bangladesh.",
-      "Our approach combines careful case assessment, strong pleadings, evidence-based advocacy and commercially sensible dispute-resolution strategies."
-    ],
-    "services": [
-      {
-        "title": "Civil Suits & Dispute Resolution",
-        "copy": "Advice and representation in civil disputes, including disputes arising from contracts, transactions, obligations, rights and liabilities."
-      },
-      {
-        "title": "Contractual Disputes",
-        "copy": "Representation in claims involving breach of contract, non-performance, recovery of contractual dues, damages and enforcement of contractual rights."
-      },
-      {
-        "title": "Money Recovery & Financial Claims",
-        "copy": "Assistance with recovery suits and other civil claims concerning unpaid debts, outstanding dues, compensation and financial obligations."
-      },
-      {
-        "title": "Declaration & Injunction",
-        "copy": "Representation in suits seeking declaration of legal rights, permanent or temporary injunctions, and protection against unlawful interference with a client's rights or interests."
-      },
-      {
-        "title": "Specific Performance",
-        "copy": "Advice and litigation concerning the enforcement of contractual obligations, including suits for specific performance of agreements."
-      },
-      {
-        "title": "Partition & Property-Related Civil Disputes",
-        "copy": "Representation in partition suits, disputes concerning ownership or possession, and other civil claims involving property rights and interests."
-      },
-      {
-        "title": "Civil Appeals & Revisions",
-        "copy": "Representation in appeals, revisions and other appellate or supervisory proceedings arising from judgments and orders of civil courts."
-      },
-      {
-        "title": "Execution of Decrees",
-        "copy": "Assistance in enforcing civil court judgments and decrees, including proceedings relating to recovery, possession and other forms of execution."
-      },
-      {
-        "title": "Interim & Procedural Relief",
-        "copy": "Advice and representation concerning temporary injunctions, status quo orders, attachment and other interim measures necessary to protect a client's position during litigation."
-      },
-      {
-        "title": "Pre-Litigation Advisory",
-        "copy": "Assessment of legal claims, available remedies, evidentiary considerations and litigation risks before commencing or responding to civil proceedings."
-      }
-    ],
-    "faqs": [
-      {
-        "q": "Who do you act for?",
-        "a": "We act for individuals, companies, business entities, organisations and other clients involved in civil disputes, whether as claimants, defendants, appellants or respondents."
-      },
-      {
-        "q": "Can you assess my case before I file a suit?",
-        "a": "Yes. We review the relevant facts and documents, identify the available causes of action and remedies, and advise on the appropriate legal strategy before proceedings are commenced."
-      },
-      {
-        "q": "How long will a civil case take?",
-        "a": "The duration depends on the nature and complexity of the dispute, the evidence involved, procedural developments and the court's schedule. We provide realistic guidance based on the circumstances of each matter."
-      },
-      {
-        "q": "Can a civil dispute be resolved without going to trial?",
-        "a": "In appropriate cases, settlement, negotiation or other dispute-resolution mechanisms may provide a more efficient solution. We advise clients on the available options and their respective legal and commercial implications."
-      },
-      {
-        "q": "How are legal fees discussed?",
-        "a": "Fees are discussed transparently after considering the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated to the client before commencement of the engagement."
-      }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
-  },
-  {
-    "slug": "criminal-law",
-    "title": "Criminal Law",
-    "icon": "Gavel",
-    "image": {
-      "src": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1200&auto=format&fit=crop&q=80",
-      "alt": "Legal books and courtroom setting"
-    },
-    "copy": "Comprehensive legal representation and strategic advice in criminal proceedings from investigation through trial, appeal and post-judgment proceedings.",
-    "valueProp": "Effective defence strategies, protection of legal rights and careful assessment of evidence and procedural remedies.",
-    "overview": [
-      "We represent clients in a wide range of criminal matters before the courts and relevant authorities of Bangladesh.",
-      "Our approach focuses on protecting clients' legal rights, developing effective defence strategies, carefully assessing evidence and ensuring that every available procedural and substantive remedy is properly considered."
-    ],
-    "services": [
-      {
-        "title": "Criminal Defence",
-        "copy": "Representation of accused persons in criminal cases, with a focus on developing effective defence strategies and protecting their legal and procedural rights."
-      },
-      {
-        "title": "Bail & Anticipatory Bail",
-        "copy": "Advice and representation in regular bail, anticipatory bail and other applications for release from custody at appropriate stages of criminal proceedings."
-      },
-      {
-        "title": "Criminal Complaints & Proceedings",
-        "copy": "Assistance in initiating and pursuing criminal complaints, including assessment of the facts, applicable offences, supporting evidence and appropriate legal remedies."
-      },
-      {
-        "title": "Investigation & Police Proceedings",
-        "copy": "Legal assistance during investigation, including advice concerning police inquiries, statements, notices, arrest, seizure and other investigative procedures."
-      },
-      {
-        "title": "Criminal Trial",
-        "copy": "Representation of accused persons and other parties throughout trial proceedings, including examination and cross-examination of witnesses, submission of evidence and legal arguments."
-      },
-      {
-        "title": "Criminal Appeals & Revisions",
-        "copy": "Representation in criminal appeals, revisions and other appellate or supervisory proceedings challenging judgments, convictions, sentences or significant procedural orders."
-      },
-      {
-        "title": "Quashing & Constitutional Remedies",
-        "copy": "Advice and representation in appropriate proceedings seeking to challenge unlawful criminal proceedings or actions of public authorities, including remedies available before the High Court Division."
-      },
-      {
-        "title": "Cyber & Technology-Related Offences",
-        "copy": "Representation and legal advice concerning criminal allegations arising from digital communications, online activities, electronic evidence and technology-related offences."
-      },
-      {
-        "title": "Financial & Commercial Offences",
-        "copy": "Advice and representation in criminal matters involving allegations of fraud, cheating, breach of trust, forgery, misappropriation and other offences arising from financial or commercial transactions."
-      },
-      {
-        "title": "Criminal Proceedings Against Companies & Individuals",
-        "copy": "Representation of corporate entities, directors, officers, employees and individuals facing criminal allegations arising from business or professional activities."
-      },
-      {
-        "title": "Post-Conviction & Sentence-Related Matters",
-        "copy": "Advice and representation concerning appeals, sentence-related remedies and other available legal proceedings following conviction or judgment."
-      }
-    ],
-    "faqs": [
-      {
-        "q": "Who do you act for?",
-        "a": "We represent accused persons, complainants, victims, companies, directors, officers and other individuals or entities involved in criminal proceedings."
-      },
-      {
-        "q": "Can you advise me before a criminal case is filed?",
-        "a": "Yes. Early legal advice can be important in assessing potential criminal liability, available remedies, evidentiary issues and appropriate steps before proceedings are initiated."
-      },
-      {
-        "q": "Can you help if I have been arrested or am at risk of arrest?",
-        "a": "Yes. We provide urgent legal assistance concerning arrest, custody, bail and other available remedies, subject to the circumstances and applicable law."
-      },
-      {
-        "q": "What should I do if I receive a police notice or summons?",
-        "a": "You should obtain legal advice before taking substantive steps. We can review the notice, explain its legal implications and advise on the appropriate response."
-      },
-      {
-        "q": "Can a criminal case be challenged before trial?",
-        "a": "In appropriate circumstances, available legal remedies may allow a party to challenge criminal proceedings or specific orders before the trial is concluded. The appropriate remedy depends on the facts, procedural stage and applicable law."
-      },
-      {
-        "q": "How are legal fees discussed?",
-        "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
-      }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
-  },
-  {
-    "slug": "family-law",
-    "title": "Family Law",
-    "icon": "HeartHandshake",
-    "image": {
-      "src": "https://images.unsplash.com/photo-1496275068113-fff8c90750d1?w=1200&auto=format&fit=crop&q=80",
-      "alt": "A family walking together hand in hand"
-    },
-    "copy": "Sensitive, practical and strategic legal advice and representation in marriage, divorce, children, financial rights and family disputes.",
-    "valueProp": "Careful legal assessment and practical representation focused on protecting clients' legal rights and long-term interests.",
-    "overview": [
-      "We advise and represent individuals in a broad range of family and matrimonial matters before the Family Courts and other relevant courts and authorities of Bangladesh.",
-      "Our approach combines careful legal assessment, practical guidance and effective representation, with particular attention to the personal and financial circumstances involved in each matter."
-    ],
-    "services": [
-      {
-        "title": "Marriage & Matrimonial Matters",
-        "copy": "Legal advice concerning marriage, matrimonial rights and obligations, validity of marriage and other legal issues arising from marital relationships."
-      },
-      {
-        "title": "Divorce & Dissolution of Marriage",
-        "copy": "Advice and representation concerning divorce, dissolution of marriage and related legal proceedings, including the rights and obligations of the parties following separation."
-      },
-      {
-        "title": "Dower & Maintenance",
-        "copy": "Representation in claims relating to dower, maintenance and other financial rights arising from marriage or the dissolution of a marital relationship."
-      },
-      {
-        "title": "Child Custody & Guardianship",
-        "copy": "Advice and representation concerning custody, guardianship, care and welfare of children, with the best interests of the child remaining central to the legal strategy."
-      },
-      {
-        "title": "Child Maintenance",
-        "copy": "Assistance with claims concerning financial support and maintenance for children, including assessment of the parties' respective legal obligations."
-      },
-      {
-        "title": "Restitution of Conjugal Rights",
-        "copy": "Representation in proceedings concerning claims for restitution of conjugal rights and related matrimonial disputes."
-      },
-      {
-        "title": "Matrimonial Property & Financial Rights",
-        "copy": "Advice concerning financial interests, property-related claims and other rights arising between spouses in connection with marriage, separation or divorce."
-      },
-      {
-        "title": "Domestic & Family Disputes",
-        "copy": "Legal assistance in disputes involving spouses and family members, including advice on available civil, family and other legal remedies."
-      },
-      {
-        "title": "Family Court Proceedings",
-        "copy": "Representation before Family Courts in proceedings involving dissolution of marriage, dower, maintenance, guardianship, custody and other matters falling within the court's jurisdiction."
-      },
-      {
-        "title": "Appeals & Related Proceedings",
-        "copy": "Representation in appeals, revisions and other proceedings arising from judgments and orders in family and matrimonial matters."
-      },
-      {
-        "title": "Negotiation & Settlement",
-        "copy": "Assistance in negotiating practical settlements in family disputes, where appropriate, with a view to resolving issues efficiently while protecting the client's legal rights and interests."
-      }
-    ],
-    "faqs": [
-      {
-        "q": "Who do you act for?",
-        "a": "We represent individuals involved in matrimonial and family disputes, including spouses, parents, guardians and other parties seeking to protect their legal rights and interests."
-      },
-      {
-        "q": "Can you advise me before filing a family case?",
-        "a": "Yes. We assess the circumstances, relevant documents and available legal remedies and advise on the appropriate course of action before proceedings are initiated."
-      },
-      {
-        "q": "What rights do I have after separation or divorce?",
-        "a": "The applicable rights depend on the circumstances of the marriage, the parties involved and the governing personal and statutory laws. We assess the specific situation and advise on matters such as dower, maintenance, custody and other available remedies."
-      },
-      {
-        "q": "Can custody of a child be challenged or changed?",
-        "a": "In appropriate circumstances, custody and guardianship arrangements may be addressed through legal proceedings. The relevant court will consider the applicable law and the welfare and best interests of the child."
-      },
-      {
-        "q": "Can a family dispute be resolved without litigation?",
-        "a": "Yes. Where appropriate, negotiation, mediation or settlement may provide a more practical and less contentious way of resolving family disputes. We advise clients on the available options and their legal implications."
-      },
-      {
-        "q": "How are legal fees discussed?",
-        "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
-      }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
-  },
-  {
     "slug": "constitutional-litigation-writ",
-    "title": "Constitutional Litigation (Writ)",
+    "title": "Constitutional Law & Writs",
     "icon": "Landmark",
     "image": {
       "src": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&auto=format&fit=crop&q=80",
@@ -348,8 +89,224 @@
     "caseStudySlugs": []
   },
   {
+    "slug": "corporate-commercial",
+    "title": "Corporate & Commercial Law",
+    "icon": "BriefcaseBusiness",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Modern corporate office and business setting"
+    },
+    "copy": "Comprehensive legal advice and transactional support for businesses, investors, companies and entrepreneurs across their commercial activities.",
+    "valueProp": "Practical corporate and commercial solutions that support business objectives while managing legal, contractual and regulatory risks.",
+    "overview": [
+      "We advise businesses ranging from emerging enterprises to established companies and corporate groups on their day-to-day legal requirements as well as significant strategic transactions.",
+      "Our approach combines commercial understanding with careful legal analysis to help clients structure transactions effectively, negotiate favourable terms and maintain compliance with applicable laws and regulations.",
+      "We also advise on intellectual property matters — protecting, licensing and enforcing trademarks, copyrights, patents, industrial designs and other intellectual assets alongside our clients' wider corporate and commercial affairs."
+    ],
+    "services": [
+      {
+        "title": "Corporate Structuring & Establishment",
+        "copy": "Advice on establishing and structuring companies and other business entities, including corporate arrangements, ownership structures and related legal requirements."
+      },
+      {
+        "title": "Corporate Governance",
+        "copy": "Advisory on directors' duties, shareholder rights, board and shareholder meetings, corporate resolutions, statutory records and other governance matters."
+      },
+      {
+        "title": "Commercial Contracts",
+        "copy": "Drafting, reviewing and negotiating commercial agreements, including service agreements, supply contracts, distribution arrangements, agency agreements and other business contracts."
+      },
+      {
+        "title": "Shareholders' Agreements",
+        "copy": "Advice on shareholder arrangements, management rights, voting mechanisms, transfer restrictions, exit arrangements and other matters governing relationships between shareholders."
+      },
+      {
+        "title": "Mergers & Acquisitions",
+        "copy": "Legal advice and transactional support for mergers, acquisitions, business transfers and other corporate restructuring transactions, including due diligence and transaction documentation."
+      },
+      {
+        "title": "Investment & Joint Ventures",
+        "copy": "Assistance with domestic and foreign investment structures, joint ventures, strategic partnerships and related contractual and corporate arrangements."
+      },
+      {
+        "title": "Corporate Due Diligence",
+        "copy": "Legal due diligence in connection with investments, acquisitions, financing and other transactions, including review of corporate, contractual, regulatory and litigation-related risks."
+      },
+      {
+        "title": "Regulatory Compliance",
+        "copy": "Advice on corporate and commercial regulatory requirements, statutory obligations, licences, approvals and ongoing compliance applicable to business operations."
+      },
+      {
+        "title": "Corporate Restructuring",
+        "copy": "Advice on reorganisations, changes in ownership or management structures, corporate arrangements and other measures undertaken to improve or restructure a business."
+      },
+      {
+        "title": "Business & Commercial Transactions",
+        "copy": "Legal support for significant commercial transactions, negotiations and strategic business arrangements, with a focus on identifying risks and protecting the client's commercial interests."
+      },
+      {
+        "title": "Corporate Secretarial & Statutory Matters",
+        "copy": "Assistance with corporate filings, statutory documentation, resolutions, changes in corporate particulars and other regulatory requirements applicable to companies."
+      },
+      {
+        "title": "Corporate & Commercial Disputes",
+        "copy": "Advice and representation in disputes arising from shareholder relationships, commercial contracts, business transactions and other corporate or commercial matters."
+      },
+      {
+        "title": "Intellectual Property Protection & Registration",
+        "copy": "Advice and assistance with trademark, copyright, patent and industrial design protection, including searches, applications, registration and renewal of intellectual property rights."
+      },
+      {
+        "title": "Intellectual Property Licensing & Enforcement",
+        "copy": "Drafting and negotiating IP licensing, assignment and commercialisation arrangements, together with advice on portfolio management and enforcement against infringement, passing off and unauthorised online use."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Who do you act for?",
+        "a": "We advise companies, shareholders, directors, investors, entrepreneurs, business groups and other commercial clients across a wide range of corporate and business matters."
+      },
+      {
+        "q": "Can you assist with setting up a company?",
+        "a": "Yes. We provide legal assistance concerning corporate structuring, incorporation, constitutional documents, ownership arrangements and related regulatory requirements."
+      },
+      {
+        "q": "Can you review or negotiate a commercial contract before I sign it?",
+        "a": "Yes. We review contractual terms, identify legal and commercial risks, and assist with negotiation and revision to ensure that the client's interests are appropriately protected."
+      },
+      {
+        "q": "Can you assist with an acquisition or investment?",
+        "a": "Yes. We provide legal support throughout corporate transactions, including transaction structuring, due diligence, negotiation, documentation and completion."
+      },
+      {
+        "q": "How can you help with corporate compliance?",
+        "a": "We advise on applicable statutory and regulatory obligations, corporate governance requirements, filings, approvals and other compliance matters relevant to the client's business."
+      },
+      {
+        "q": "Can you advise shareholders or directors in a corporate dispute?",
+        "a": "Yes. We advise and represent shareholders, directors and companies in disputes involving corporate governance, shareholder rights, contractual obligations and other corporate or commercial issues."
+      },
+      {
+        "q": "How are legal fees discussed?",
+        "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the engagement. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+      },
+      {
+        "q": "Can you help protect our intellectual property?",
+        "a": "Yes. We advise on trademark, copyright, patent and industrial design protection, and assist with licensing, commercialisation and enforcement of intellectual property rights alongside our clients' broader corporate and commercial matters."
+      }
+    ],
+    "lawyerSlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "civil-litigation",
+    "title": "Civil Litigation & Dispute Resolution",
+    "icon": "Scale",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1589216532372-1c2a367900d9?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Law books in a legal setting"
+    },
+    "copy": "Strategic legal representation and practical advice in contractual, commercial, financial, property-related and other civil disputes.",
+    "valueProp": "Careful case assessment, strong pleadings, evidence-based advocacy and commercially sensible dispute-resolution strategies.",
+    "overview": [
+      "We represent individuals, businesses, organisations and other clients in a broad range of civil disputes before the courts and tribunals of Bangladesh.",
+      "Our approach combines careful case assessment, strong pleadings, evidence-based advocacy and commercially sensible dispute-resolution strategies.",
+      "This area also covers dispute resolution and litigation more broadly — from initial case strategy and pleadings through trial advocacy, appeals and enforcement — for commercial, business and other civil-natured disputes before the courts and tribunals of Bangladesh."
+    ],
+    "services": [
+      {
+        "title": "Civil Suits & Dispute Resolution",
+        "copy": "Advice and representation in civil disputes, including disputes arising from contracts, transactions, obligations, rights and liabilities."
+      },
+      {
+        "title": "Contractual Disputes",
+        "copy": "Representation in claims involving breach of contract, non-performance, recovery of contractual dues, damages and enforcement of contractual rights."
+      },
+      {
+        "title": "Money Recovery & Financial Claims",
+        "copy": "Assistance with recovery suits and other civil claims concerning unpaid debts, outstanding dues, compensation and financial obligations."
+      },
+      {
+        "title": "Declaration & Injunction",
+        "copy": "Representation in suits seeking declaration of legal rights, permanent or temporary injunctions, and protection against unlawful interference with a client's rights or interests."
+      },
+      {
+        "title": "Specific Performance",
+        "copy": "Advice and litigation concerning the enforcement of contractual obligations, including suits for specific performance of agreements."
+      },
+      {
+        "title": "Partition & Property-Related Civil Disputes",
+        "copy": "Representation in partition suits, disputes concerning ownership or possession, and other civil claims involving property rights and interests."
+      },
+      {
+        "title": "Civil Appeals & Revisions",
+        "copy": "Representation in appeals, revisions and other appellate or supervisory proceedings arising from judgments and orders of civil courts."
+      },
+      {
+        "title": "Execution of Decrees",
+        "copy": "Assistance in enforcing civil court judgments and decrees, including proceedings relating to recovery, possession and other forms of execution."
+      },
+      {
+        "title": "Interim & Procedural Relief",
+        "copy": "Advice and representation concerning temporary injunctions, status quo orders, attachment and other interim measures necessary to protect a client's position during litigation."
+      },
+      {
+        "title": "Pre-Litigation Advisory",
+        "copy": "Assessment of legal claims, available remedies, evidentiary considerations and litigation risks before commencing or responding to civil proceedings."
+      },
+      {
+        "title": "Dispute Assessment & Strategy",
+        "copy": "Assessment of legal disputes, available causes of action, potential defences, evidentiary issues, risks and available remedies to develop an appropriate litigation strategy."
+      },
+      {
+        "title": "Pleadings & Court Proceedings",
+        "copy": "Preparation and review of plaints, written statements, petitions, applications, affidavits and other pleadings and procedural documents required throughout litigation."
+      },
+      {
+        "title": "Evidence & Witnesses",
+        "copy": "Strategic assistance concerning documentary evidence, witness preparation, examination and cross-examination and other evidentiary issues arising during litigation."
+      },
+      {
+        "title": "Trial Advocacy",
+        "copy": "Representation throughout trial proceedings, including presentation of evidence, examination and cross-examination of witnesses, legal submissions and final arguments."
+      },
+      {
+        "title": "Commercial & Business Litigation",
+        "copy": "Representation in disputes involving contracts, commercial transactions, shareholder relationships, financial obligations, business arrangements and other corporate or commercial interests."
+      },
+      {
+        "title": "Regulatory & Administrative Litigation",
+        "copy": "Advice and representation in disputes involving government authorities, statutory bodies, regulatory decisions and other exercises of public or administrative power."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Who do you act for?",
+        "a": "We act for individuals, companies, business entities, organisations and other clients involved in civil disputes, whether as claimants, defendants, appellants or respondents."
+      },
+      {
+        "q": "Can you assess my case before I file a suit?",
+        "a": "Yes. We review the relevant facts and documents, identify the available causes of action and remedies, and advise on the appropriate legal strategy before proceedings are commenced."
+      },
+      {
+        "q": "How long will a civil case take?",
+        "a": "The duration depends on the nature and complexity of the dispute, the evidence involved, procedural developments and the court's schedule. We provide realistic guidance based on the circumstances of each matter."
+      },
+      {
+        "q": "Can a civil dispute be resolved without going to trial?",
+        "a": "In appropriate cases, settlement, negotiation or other dispute-resolution mechanisms may provide a more efficient solution. We advise clients on the available options and their respective legal and commercial implications."
+      },
+      {
+        "q": "How are legal fees discussed?",
+        "a": "Fees are discussed transparently after considering the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated to the client before commencement of the engagement."
+      }
+    ],
+    "lawyerSlugs": [],
+    "caseStudySlugs": []
+  },
+  {
     "slug": "arbitration",
-    "title": "Arbitration",
+    "title": "Arbitration & Mediation",
     "icon": "Handshake",
     "image": {
       "src": "https://images.unsplash.com/photo-1564846824194-346b7871b855?w=1200&auto=format&fit=crop&q=80",
@@ -433,97 +390,272 @@
     "caseStudySlugs": []
   },
   {
-    "slug": "corporate-commercial",
-    "title": "Corporate & Commercial",
-    "icon": "BriefcaseBusiness",
+    "slug": "criminal-law",
+    "title": "Criminal Litigation",
+    "icon": "Gavel",
     "image": {
-      "src": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&auto=format&fit=crop&q=80",
-      "alt": "Modern corporate office and business setting"
+      "src": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Legal books and courtroom setting"
     },
-    "copy": "Comprehensive legal advice and transactional support for businesses, investors, companies and entrepreneurs across their commercial activities.",
-    "valueProp": "Practical corporate and commercial solutions that support business objectives while managing legal, contractual and regulatory risks.",
+    "copy": "Comprehensive legal representation and strategic advice in criminal proceedings from investigation through trial, appeal and post-judgment proceedings.",
+    "valueProp": "Effective defence strategies, protection of legal rights and careful assessment of evidence and procedural remedies.",
     "overview": [
-      "We advise businesses ranging from emerging enterprises to established companies and corporate groups on their day-to-day legal requirements as well as significant strategic transactions.",
-      "Our approach combines commercial understanding with careful legal analysis to help clients structure transactions effectively, negotiate favourable terms and maintain compliance with applicable laws and regulations."
+      "We represent clients in a wide range of criminal matters before the courts and relevant authorities of Bangladesh.",
+      "Our approach focuses on protecting clients' legal rights, developing effective defence strategies, carefully assessing evidence and ensuring that every available procedural and substantive remedy is properly considered."
     ],
     "services": [
       {
-        "title": "Corporate Structuring & Establishment",
-        "copy": "Advice on establishing and structuring companies and other business entities, including corporate arrangements, ownership structures and related legal requirements."
+        "title": "Criminal Defence",
+        "copy": "Representation of accused persons in criminal cases, with a focus on developing effective defence strategies and protecting their legal and procedural rights."
       },
       {
-        "title": "Corporate Governance",
-        "copy": "Advisory on directors' duties, shareholder rights, board and shareholder meetings, corporate resolutions, statutory records and other governance matters."
+        "title": "Bail & Anticipatory Bail",
+        "copy": "Advice and representation in regular bail, anticipatory bail and other applications for release from custody at appropriate stages of criminal proceedings."
       },
       {
-        "title": "Commercial Contracts",
-        "copy": "Drafting, reviewing and negotiating commercial agreements, including service agreements, supply contracts, distribution arrangements, agency agreements and other business contracts."
+        "title": "Criminal Complaints & Proceedings",
+        "copy": "Assistance in initiating and pursuing criminal complaints, including assessment of the facts, applicable offences, supporting evidence and appropriate legal remedies."
       },
       {
-        "title": "Shareholders' Agreements",
-        "copy": "Advice on shareholder arrangements, management rights, voting mechanisms, transfer restrictions, exit arrangements and other matters governing relationships between shareholders."
+        "title": "Investigation & Police Proceedings",
+        "copy": "Legal assistance during investigation, including advice concerning police inquiries, statements, notices, arrest, seizure and other investigative procedures."
       },
       {
-        "title": "Mergers & Acquisitions",
-        "copy": "Legal advice and transactional support for mergers, acquisitions, business transfers and other corporate restructuring transactions, including due diligence and transaction documentation."
+        "title": "Criminal Trial",
+        "copy": "Representation of accused persons and other parties throughout trial proceedings, including examination and cross-examination of witnesses, submission of evidence and legal arguments."
       },
       {
-        "title": "Investment & Joint Ventures",
-        "copy": "Assistance with domestic and foreign investment structures, joint ventures, strategic partnerships and related contractual and corporate arrangements."
+        "title": "Criminal Appeals & Revisions",
+        "copy": "Representation in criminal appeals, revisions and other appellate or supervisory proceedings challenging judgments, convictions, sentences or significant procedural orders."
       },
       {
-        "title": "Corporate Due Diligence",
-        "copy": "Legal due diligence in connection with investments, acquisitions, financing and other transactions, including review of corporate, contractual, regulatory and litigation-related risks."
+        "title": "Quashing & Constitutional Remedies",
+        "copy": "Advice and representation in appropriate proceedings seeking to challenge unlawful criminal proceedings or actions of public authorities, including remedies available before the High Court Division."
       },
       {
-        "title": "Regulatory Compliance",
-        "copy": "Advice on corporate and commercial regulatory requirements, statutory obligations, licences, approvals and ongoing compliance applicable to business operations."
+        "title": "Cyber & Technology-Related Offences",
+        "copy": "Representation and legal advice concerning criminal allegations arising from digital communications, online activities, electronic evidence and technology-related offences."
       },
       {
-        "title": "Corporate Restructuring",
-        "copy": "Advice on reorganisations, changes in ownership or management structures, corporate arrangements and other measures undertaken to improve or restructure a business."
+        "title": "Financial & Commercial Offences",
+        "copy": "Advice and representation in criminal matters involving allegations of fraud, cheating, breach of trust, forgery, misappropriation and other offences arising from financial or commercial transactions."
       },
       {
-        "title": "Business & Commercial Transactions",
-        "copy": "Legal support for significant commercial transactions, negotiations and strategic business arrangements, with a focus on identifying risks and protecting the client's commercial interests."
+        "title": "Criminal Proceedings Against Companies & Individuals",
+        "copy": "Representation of corporate entities, directors, officers, employees and individuals facing criminal allegations arising from business or professional activities."
       },
       {
-        "title": "Corporate Secretarial & Statutory Matters",
-        "copy": "Assistance with corporate filings, statutory documentation, resolutions, changes in corporate particulars and other regulatory requirements applicable to companies."
-      },
-      {
-        "title": "Corporate & Commercial Disputes",
-        "copy": "Advice and representation in disputes arising from shareholder relationships, commercial contracts, business transactions and other corporate or commercial matters."
+        "title": "Post-Conviction & Sentence-Related Matters",
+        "copy": "Advice and representation concerning appeals, sentence-related remedies and other available legal proceedings following conviction or judgment."
       }
     ],
     "faqs": [
       {
         "q": "Who do you act for?",
-        "a": "We advise companies, shareholders, directors, investors, entrepreneurs, business groups and other commercial clients across a wide range of corporate and business matters."
+        "a": "We represent accused persons, complainants, victims, companies, directors, officers and other individuals or entities involved in criminal proceedings."
       },
       {
-        "q": "Can you assist with setting up a company?",
-        "a": "Yes. We provide legal assistance concerning corporate structuring, incorporation, constitutional documents, ownership arrangements and related regulatory requirements."
+        "q": "Can you advise me before a criminal case is filed?",
+        "a": "Yes. Early legal advice can be important in assessing potential criminal liability, available remedies, evidentiary issues and appropriate steps before proceedings are initiated."
       },
       {
-        "q": "Can you review or negotiate a commercial contract before I sign it?",
-        "a": "Yes. We review contractual terms, identify legal and commercial risks, and assist with negotiation and revision to ensure that the client's interests are appropriately protected."
+        "q": "Can you help if I have been arrested or am at risk of arrest?",
+        "a": "Yes. We provide urgent legal assistance concerning arrest, custody, bail and other available remedies, subject to the circumstances and applicable law."
       },
       {
-        "q": "Can you assist with an acquisition or investment?",
-        "a": "Yes. We provide legal support throughout corporate transactions, including transaction structuring, due diligence, negotiation, documentation and completion."
+        "q": "What should I do if I receive a police notice or summons?",
+        "a": "You should obtain legal advice before taking substantive steps. We can review the notice, explain its legal implications and advise on the appropriate response."
       },
       {
-        "q": "How can you help with corporate compliance?",
-        "a": "We advise on applicable statutory and regulatory obligations, corporate governance requirements, filings, approvals and other compliance matters relevant to the client's business."
-      },
-      {
-        "q": "Can you advise shareholders or directors in a corporate dispute?",
-        "a": "Yes. We advise and represent shareholders, directors and companies in disputes involving corporate governance, shareholder rights, contractual obligations and other corporate or commercial issues."
+        "q": "Can a criminal case be challenged before trial?",
+        "a": "In appropriate circumstances, available legal remedies may allow a party to challenge criminal proceedings or specific orders before the trial is concluded. The appropriate remedy depends on the facts, procedural stage and applicable law."
       },
       {
         "q": "How are legal fees discussed?",
-        "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the engagement. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+        "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+      }
+    ],
+    "lawyerSlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "banking-finance-law",
+    "title": "Banking, Finance & Investment",
+    "icon": "Banknote",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Financial documents and business planning"
+    },
+    "copy": "Comprehensive legal advice and representation for banks, financial institutions, borrowers, investors and other participants in the financial sector.",
+    "valueProp": "Regulatory insight and practical legal strategies for financing transactions, security arrangements, recovery and banking disputes.",
+    "overview": [
+      "We advise and represent financial institutions, businesses, borrowers, lenders and other clients on a wide range of banking and finance matters.",
+      "Our approach combines a thorough understanding of the applicable regulatory framework with practical advice designed to protect financial interests, structure transactions effectively and manage legal and enforcement risks."
+    ],
+    "services": [
+      {
+        "title": "Loan & Financing Transactions",
+        "copy": "Legal advice and assistance in structuring, documenting and negotiating loans, credit facilities, working capital arrangements and other financing transactions."
+      },
+      {
+        "title": "Banking Documentation",
+        "copy": "Drafting, reviewing and negotiating facility agreements, loan agreements, security documents, guarantees and other banking and finance documentation."
+      },
+      {
+        "title": "Security & Collateral",
+        "copy": "Advice on the creation, perfection and enforcement of security interests, including mortgages, charges, liens, pledges and other forms of collateral."
+      },
+      {
+        "title": "Corporate & Project Finance",
+        "copy": "Legal support for corporate financing, project finance and other structured financing arrangements, including transaction structuring and documentation."
+      },
+      {
+        "title": "Debt Recovery & Enforcement",
+        "copy": "Representation of banks and financial institutions in recovery proceedings and enforcement of loans, securities, guarantees and other financial obligations."
+      },
+      {
+        "title": "Negotiable Instruments & Banking Disputes",
+        "copy": "Advice and representation in disputes involving cheques, bills of exchange, promissory notes and other negotiable instruments, as well as banking-related claims and disputes."
+      },
+      {
+        "title": "Loan Restructuring & Rescheduling",
+        "copy": "Legal advice concerning restructuring, rescheduling, refinancing and settlement of outstanding financial obligations and distressed loan arrangements."
+      },
+      {
+        "title": "Guarantees & Letters of Credit",
+        "copy": "Advice on bank guarantees, letters of credit and other trade finance instruments, including interpretation, enforcement and disputes arising from such arrangements."
+      },
+      {
+        "title": "Regulatory & Compliance Matters",
+        "copy": "Advice to banks, financial institutions and businesses concerning applicable banking, financial and regulatory requirements, licensing, reporting and compliance obligations."
+      },
+      {
+        "title": "Banking Litigation",
+        "copy": "Representation in civil, commercial and other proceedings arising from lending transactions, security arrangements, recovery actions and banking relationships."
+      },
+      {
+        "title": "Financial & Commercial Disputes",
+        "copy": "Advice and representation in disputes involving financial institutions, borrowers, guarantors, investors and other parties to banking and finance transactions."
+      },
+      {
+        "title": "Insolvency & Recovery-Related Matters",
+        "copy": "Legal assistance in matters involving financially distressed borrowers, recovery strategies, creditor rights and proceedings connected with insolvency and debt enforcement."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can you assist with loan and financing documentation?",
+        "a": "Yes. We advise on and prepare financing documentation, including loan and facility agreements, security documents, guarantees and related transaction documents."
+      },
+      {
+        "q": "Can you assist a bank with recovery of outstanding loans?",
+        "a": "Yes. We represent banks and financial institutions in appropriate recovery and enforcement proceedings and advise on available legal remedies and strategies."
+      },
+      {
+        "q": "Can you review a loan agreement before I sign it?",
+        "a": "Yes. We can review the terms of a proposed financing arrangement, identify legal and commercial risks and advise on the rights and obligations arising under the agreement."
+      },
+      {
+        "q": "Can you advise on security for a loan?",
+        "a": "Yes. We advise lenders and borrowers on appropriate security arrangements, documentation, perfection and enforcement considerations in connection with financing transactions."
+      },
+      {
+        "q": "Can a banking dispute be resolved without litigation?",
+        "a": "In appropriate cases, negotiation, restructuring, rescheduling or settlement may provide an effective alternative to prolonged litigation. We assess the circumstances and advise on the most appropriate strategy."
+      },
+      {
+        "q": "How are legal fees discussed?",
+        "a": "Fees are discussed transparently after assessing the nature, complexity, value and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+      }
+    ],
+    "lawyerSlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "foreign-investment-facilitation",
+    "title": "Foreign Investment & Investment Facilitation",
+    "icon": "Plane",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Handshake over an international investment agreement"
+    },
+    "copy": "PLACEHOLDER — for client review. Advice and facilitation support for foreign investors establishing and operating in Bangladesh, and for local businesses seeking outbound investment.",
+    "valueProp": "PLACEHOLDER — for client review. Practical guidance through regulatory approvals, registration and investment structuring for cross-border investment.",
+    "overview": [
+      "PLACEHOLDER — for client review. We advise foreign investors, joint ventures and multinational clients on establishing and structuring their investment in Bangladesh, and on the regulatory approvals and facilitation required to do so.",
+      "PLACEHOLDER — for client review. Our approach combines knowledge of local investment regulation with practical coordination across the approvals, registrations and reporting an inbound or outbound investment typically requires."
+    ],
+    "services": [
+      {
+        "title": "Foreign Investment Structuring",
+        "copy": "PLACEHOLDER — for client review. Advice on the appropriate structure for foreign direct investment, including entity type, ownership and repatriation considerations."
+      },
+      {
+        "title": "Regulatory Approvals & Registration",
+        "copy": "PLACEHOLDER — for client review. Assistance with approvals and registrations required from the relevant investment, exchange control and sector regulators."
+      },
+      {
+        "title": "Investment Facilitation & Liaison",
+        "copy": "PLACEHOLDER — for client review. Coordination with government bodies and investment promotion agencies to facilitate the setup and ongoing operation of an investment."
+      },
+      {
+        "title": "Repatriation & Exchange Control",
+        "copy": "PLACEHOLDER — for client review. Advice on repatriation of profits, dividends and capital, and compliance with applicable exchange control requirements."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "PLACEHOLDER — for client review. Can foreign investors own a business in Bangladesh?",
+        "a": "PLACEHOLDER — for client review. Subject to sector-specific restrictions, foreign investors may generally establish and own businesses in Bangladesh. We advise on the applicable requirements for the relevant sector and structure."
+      },
+      {
+        "q": "How are legal fees discussed?",
+        "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+      }
+    ],
+    "lawyerSlugs": [],
+    "caseStudySlugs": []
+  },
+  {
+    "slug": "corporate-restructuring-project-documentation",
+    "title": "Corporate Restructuring & Project Documentation",
+    "icon": "Briefcase",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Reviewing project and transaction documentation"
+    },
+    "copy": "PLACEHOLDER — for client review. Advice on corporate restructurings and the documentation underpinning major projects and transactions.",
+    "valueProp": "PLACEHOLDER — for client review. Careful structuring and precise documentation to support restructurings, projects and complex transactions.",
+    "overview": [
+      "PLACEHOLDER — for client review. We advise companies and project sponsors on restructuring ownership, management and financing arrangements, and on preparing the documentation that underpins major projects and transactions.",
+      "PLACEHOLDER — for client review. Our approach combines careful legal structuring with precise drafting, so that restructurings and project documentation hold up under commercial and regulatory scrutiny."
+    ],
+    "services": [
+      {
+        "title": "Corporate Restructuring",
+        "copy": "PLACEHOLDER — for client review. Advice on reorganisations, ownership and management restructuring, and other measures undertaken to restructure or reorganise a business."
+      },
+      {
+        "title": "Project Documentation",
+        "copy": "PLACEHOLDER — for client review. Drafting and review of project agreements, financing and security documentation, and other instruments required for major projects."
+      },
+      {
+        "title": "Transaction Structuring",
+        "copy": "PLACEHOLDER — for client review. Advice on structuring complex transactions to meet commercial objectives while managing legal and regulatory risk."
+      },
+      {
+        "title": "Financing & Security Documentation",
+        "copy": "PLACEHOLDER — for client review. Preparation and negotiation of financing and security documents in connection with restructurings and project transactions."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "PLACEHOLDER — for client review. When should a business consider restructuring?",
+        "a": "PLACEHOLDER — for client review. Restructuring may be appropriate where a business is changing ownership, raising financing, addressing financial difficulty, or reorganising its operations. We assess the circumstances and advise on the appropriate approach."
+      },
+      {
+        "q": "How are legal fees discussed?",
+        "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
     ],
     "lawyerSlugs": [],
@@ -623,99 +755,6 @@
     "caseStudySlugs": []
   },
   {
-    "slug": "banking-finance-law",
-    "title": "Banking & Finance Law",
-    "icon": "Banknote",
-    "image": {
-      "src": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80",
-      "alt": "Financial documents and business planning"
-    },
-    "copy": "Comprehensive legal advice and representation for banks, financial institutions, borrowers, investors and other participants in the financial sector.",
-    "valueProp": "Regulatory insight and practical legal strategies for financing transactions, security arrangements, recovery and banking disputes.",
-    "overview": [
-      "We advise and represent financial institutions, businesses, borrowers, lenders and other clients on a wide range of banking and finance matters.",
-      "Our approach combines a thorough understanding of the applicable regulatory framework with practical advice designed to protect financial interests, structure transactions effectively and manage legal and enforcement risks."
-    ],
-    "services": [
-      {
-        "title": "Loan & Financing Transactions",
-        "copy": "Legal advice and assistance in structuring, documenting and negotiating loans, credit facilities, working capital arrangements and other financing transactions."
-      },
-      {
-        "title": "Banking Documentation",
-        "copy": "Drafting, reviewing and negotiating facility agreements, loan agreements, security documents, guarantees and other banking and finance documentation."
-      },
-      {
-        "title": "Security & Collateral",
-        "copy": "Advice on the creation, perfection and enforcement of security interests, including mortgages, charges, liens, pledges and other forms of collateral."
-      },
-      {
-        "title": "Corporate & Project Finance",
-        "copy": "Legal support for corporate financing, project finance and other structured financing arrangements, including transaction structuring and documentation."
-      },
-      {
-        "title": "Debt Recovery & Enforcement",
-        "copy": "Representation of banks and financial institutions in recovery proceedings and enforcement of loans, securities, guarantees and other financial obligations."
-      },
-      {
-        "title": "Negotiable Instruments & Banking Disputes",
-        "copy": "Advice and representation in disputes involving cheques, bills of exchange, promissory notes and other negotiable instruments, as well as banking-related claims and disputes."
-      },
-      {
-        "title": "Loan Restructuring & Rescheduling",
-        "copy": "Legal advice concerning restructuring, rescheduling, refinancing and settlement of outstanding financial obligations and distressed loan arrangements."
-      },
-      {
-        "title": "Guarantees & Letters of Credit",
-        "copy": "Advice on bank guarantees, letters of credit and other trade finance instruments, including interpretation, enforcement and disputes arising from such arrangements."
-      },
-      {
-        "title": "Regulatory & Compliance Matters",
-        "copy": "Advice to banks, financial institutions and businesses concerning applicable banking, financial and regulatory requirements, licensing, reporting and compliance obligations."
-      },
-      {
-        "title": "Banking Litigation",
-        "copy": "Representation in civil, commercial and other proceedings arising from lending transactions, security arrangements, recovery actions and banking relationships."
-      },
-      {
-        "title": "Financial & Commercial Disputes",
-        "copy": "Advice and representation in disputes involving financial institutions, borrowers, guarantors, investors and other parties to banking and finance transactions."
-      },
-      {
-        "title": "Insolvency & Recovery-Related Matters",
-        "copy": "Legal assistance in matters involving financially distressed borrowers, recovery strategies, creditor rights and proceedings connected with insolvency and debt enforcement."
-      }
-    ],
-    "faqs": [
-      {
-        "q": "Can you assist with loan and financing documentation?",
-        "a": "Yes. We advise on and prepare financing documentation, including loan and facility agreements, security documents, guarantees and related transaction documents."
-      },
-      {
-        "q": "Can you assist a bank with recovery of outstanding loans?",
-        "a": "Yes. We represent banks and financial institutions in appropriate recovery and enforcement proceedings and advise on available legal remedies and strategies."
-      },
-      {
-        "q": "Can you review a loan agreement before I sign it?",
-        "a": "Yes. We can review the terms of a proposed financing arrangement, identify legal and commercial risks and advise on the rights and obligations arising under the agreement."
-      },
-      {
-        "q": "Can you advise on security for a loan?",
-        "a": "Yes. We advise lenders and borrowers on appropriate security arrangements, documentation, perfection and enforcement considerations in connection with financing transactions."
-      },
-      {
-        "q": "Can a banking dispute be resolved without litigation?",
-        "a": "In appropriate cases, negotiation, restructuring, rescheduling or settlement may provide an effective alternative to prolonged litigation. We assess the circumstances and advise on the most appropriate strategy."
-      },
-      {
-        "q": "How are legal fees discussed?",
-        "a": "Fees are discussed transparently after assessing the nature, complexity, value and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
-      }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
-  },
-  {
     "slug": "taxation",
     "title": "Taxation",
     "icon": "Calculator",
@@ -803,103 +842,6 @@
       {
         "q": "Can tax disputes be resolved without litigation?",
         "a": "In appropriate circumstances, available statutory remedies, representations, negotiations or other dispute-resolution mechanisms may help resolve a tax matter without prolonged litigation. We assess the circumstances and advise on the appropriate course of action."
-      },
-      {
-        "q": "How are legal fees discussed?",
-        "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
-      }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
-  },
-  {
-    "slug": "intellectual-property-law",
-    "title": "Intellectual Property Law",
-    "icon": "Copyright",
-    "image": {
-      "src": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&auto=format&fit=crop&q=80",
-      "alt": "Creative and intellectual property concept"
-    },
-    "copy": "Legal advice and representation to protect, commercialise and enforce intellectual property rights.",
-    "valueProp": "Strategic intellectual property protection, rights management and enforcement designed to preserve the commercial value of clients' intellectual assets.",
-    "overview": [
-      "We advise clients on a broad range of intellectual property matters involving trademarks, copyrights, patents, industrial designs and other forms of intellectual property.",
-      "Our approach combines strategic advice, careful rights management and effective enforcement to help clients protect the value and commercial interests associated with their intellectual assets."
-    ],
-    "services": [
-      {
-        "title": "Trademark Registration & Protection",
-        "copy": "Advice and assistance with trademark selection, searches, applications, registration, renewal and protection of brand names, logos, symbols and other distinctive marks."
-      },
-      {
-        "title": "Trademark Disputes & Opposition",
-        "copy": "Representation in opposition, cancellation, rectification and other proceedings concerning trademark applications, registrations and competing marks."
-      },
-      {
-        "title": "Copyright Protection",
-        "copy": "Legal advice concerning the protection, ownership, licensing and enforcement of copyright in literary, artistic, musical, software and other copyrightable works."
-      },
-      {
-        "title": "Patent Matters",
-        "copy": "Advice and assistance concerning patent protection, applications, ownership, licensing and enforcement of rights relating to inventions and technical innovations."
-      },
-      {
-        "title": "Industrial Designs",
-        "copy": "Assistance with the protection, registration, commercialisation and enforcement of rights relating to industrial and product designs."
-      },
-      {
-        "title": "IP Licensing & Commercialisation",
-        "copy": "Drafting, reviewing and negotiating intellectual property licences, assignments, franchising arrangements and other agreements for the commercial use of intellectual property."
-      },
-      {
-        "title": "IP Due Diligence",
-        "copy": "Review and assessment of intellectual property ownership, registrations, licences, assignments and potential infringement risks in connection with investments, acquisitions and commercial transactions."
-      },
-      {
-        "title": "IP Infringement",
-        "copy": "Advice and representation concerning unauthorised use, reproduction, imitation or exploitation of intellectual property rights, including development of appropriate enforcement strategies."
-      },
-      {
-        "title": "Passing Off & Unfair Competition",
-        "copy": "Representation in disputes involving unauthorised use of business identity, branding or other commercial indicia, including claims arising from passing off and unfair competition."
-      },
-      {
-        "title": "Online & Digital IP Protection",
-        "copy": "Advice concerning intellectual property issues arising from websites, social media, digital content, software, e-commerce platforms and other online activities."
-      },
-      {
-        "title": "IP Enforcement & Litigation",
-        "copy": "Representation before relevant authorities and courts in proceedings concerning infringement, ownership, validity, registration and enforcement of intellectual property rights."
-      },
-      {
-        "title": "IP Portfolio Management",
-        "copy": "Ongoing legal support for managing intellectual property portfolios, including registrations, renewals, assignments, licensing arrangements and protection strategies."
-      }
-    ],
-    "faqs": [
-      {
-        "q": "How can I protect my brand or business name?",
-        "a": "Trademark registration is one of the principal ways of protecting distinctive business names, logos and other marks. We can assess the proposed mark and advise on the appropriate protection strategy."
-      },
-      {
-        "q": "Can you help me register a trademark?",
-        "a": "Yes. We assist with trademark searches, applications, registration, renewals and related proceedings before the relevant intellectual property authorities."
-      },
-      {
-        "q": "What should I do if someone is using my trademark or copyrighted work without permission?",
-        "a": "We can assess the nature of the unauthorised use, identify the available legal remedies and advise on an appropriate enforcement strategy, which may include notices, administrative proceedings or litigation."
-      },
-      {
-        "q": "Can intellectual property rights be licensed or transferred?",
-        "a": "Yes. Intellectual property rights can, subject to the applicable legal requirements, be licensed, assigned or otherwise commercially exploited. We assist with structuring and documenting such arrangements."
-      },
-      {
-        "q": "Can you protect intellectual property used online?",
-        "a": "Yes. We advise on intellectual property issues involving websites, social media, digital content, software, e-commerce and other online platforms, including appropriate enforcement measures where rights are infringed."
-      },
-      {
-        "q": "Can intellectual property disputes be resolved without litigation?",
-        "a": "In appropriate cases, cease-and-desist measures, negotiation, settlement or other available remedies may resolve an IP dispute without prolonged litigation. We assess the circumstances and advise on the most appropriate course of action."
       },
       {
         "q": "How are legal fees discussed?",
@@ -1011,8 +953,109 @@
     "caseStudySlugs": []
   },
   {
+    "slug": "international-law",
+    "title": "International Law",
+    "icon": "Globe",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1200&auto=format&fit=crop&q=80",
+      "alt": "A world globe on a desk"
+    },
+    "copy": "Legal advice and representation on cross-border transactions, international business activities, foreign investment and disputes with an international dimension.",
+    "valueProp": "Practical cross-border legal strategies combining domestic and international legal frameworks to manage jurisdictional risks and protect clients' interests.",
+    "overview": [
+      "We advise clients on a broad range of cross-border legal matters, including international transactions, investments, commercial arrangements, dispute resolution and issues of public and private international law.",
+      "Our approach combines knowledge of applicable domestic and international legal frameworks with practical strategies designed to manage cross-border legal risks and protect clients' interests."
+    ],
+    "services": [
+      {
+        "title": "Cross-Border Transactions",
+        "copy": "Legal advice and support for transactions involving parties, assets, businesses or obligations across different jurisdictions."
+      },
+      {
+        "title": "Foreign Investment",
+        "copy": "Assistance with the legal structuring and documentation of foreign investment, joint ventures, strategic partnerships and other cross-border investment arrangements."
+      },
+      {
+        "title": "International Commercial Contracts",
+        "copy": "Drafting, reviewing and negotiating international commercial agreements, including jurisdiction, governing law, dispute-resolution and enforcement provisions."
+      },
+      {
+        "title": "International Arbitration",
+        "copy": "Representation and legal advice in cross-border commercial arbitration, including arbitration agreements, proceedings, arbitral awards and enforcement."
+      },
+      {
+        "title": "Cross-Border Dispute Resolution",
+        "copy": "Advice and representation in disputes involving parties, transactions or legal issues connected with multiple jurisdictions."
+      },
+      {
+        "title": "International Trade & Commerce",
+        "copy": "Legal advice concerning international trade transactions, import and export arrangements, distribution, supply agreements and other cross-border commercial activities."
+      },
+      {
+        "title": "Private International Law",
+        "copy": "Advice concerning jurisdiction, choice of law, recognition of foreign judgments and other legal issues arising where a matter has connections with more than one jurisdiction."
+      },
+      {
+        "title": "Recognition & Enforcement of Foreign Judgments",
+        "copy": "Assistance with the recognition and enforcement of foreign judgments and orders in Bangladesh, subject to applicable legal requirements."
+      },
+      {
+        "title": "International Treaties & Public International Law",
+        "copy": "Advice on selected matters involving international treaties, conventions, state obligations and principles of public international law."
+      },
+      {
+        "title": "International Regulatory Compliance",
+        "copy": "Advice on legal and regulatory requirements affecting businesses and organisations engaged in cross-border activities, investments and international transactions."
+      },
+      {
+        "title": "Cross-Border Corporate Matters",
+        "copy": "Legal support for international corporate structures, foreign shareholders, overseas investments, corporate reorganisations and transactions involving entities in multiple jurisdictions."
+      },
+      {
+        "title": "International Intellectual Property",
+        "copy": "Advice on the protection, licensing, commercialisation and enforcement of intellectual property rights in cross-border transactions and international markets."
+      },
+      {
+        "title": "International Legal Coordination",
+        "copy": "Coordination with foreign counsel and legal advisers where a matter involves multiple jurisdictions, ensuring that domestic and international legal considerations are appropriately addressed."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can you advise on a transaction involving a foreign company?",
+        "a": "Yes. We advise on cross-border transactions involving foreign companies, investors and other international counterparties, including contractual, corporate, regulatory and dispute-resolution considerations."
+      },
+      {
+        "q": "Can you assist with foreign investment in Bangladesh?",
+        "a": "Yes. We provide legal advice concerning investment structures, corporate arrangements, regulatory requirements, transaction documentation and other legal issues relevant to foreign investment."
+      },
+      {
+        "q": "Which country's law will apply to an international contract?",
+        "a": "The applicable law depends on the contractual terms, the jurisdictions involved and the nature of the transaction. We review governing-law and jurisdiction provisions and advise on appropriate contractual arrangements."
+      },
+      {
+        "q": "Can a foreign judgment be enforced in Bangladesh?",
+        "a": "Foreign judgments may be capable of recognition and enforcement in Bangladesh subject to applicable law and procedural requirements. We assess the judgment and relevant circumstances before advising on the available remedies."
+      },
+      {
+        "q": "Can you handle an international arbitration matter?",
+        "a": "Yes. We provide advice and representation in appropriate international arbitration matters, including arbitration agreements, proceedings, awards and enforcement-related issues."
+      },
+      {
+        "q": "Do you work with lawyers in other countries?",
+        "a": "Where a matter involves multiple jurisdictions, we can coordinate with foreign counsel or other international legal advisers as necessary to address jurisdiction-specific issues."
+      },
+      {
+        "q": "How are legal fees discussed?",
+        "a": "Fees are discussed transparently after assessing the nature, complexity, jurisdictions involved and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+      }
+    ],
+    "lawyerSlugs": [],
+    "caseStudySlugs": []
+  },
+  {
     "slug": "it-technology-startups",
-    "title": "IT, Technology & Startups",
+    "title": "Telecommunications, IT & Technology",
     "icon": "Laptop",
     "image": {
       "src": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&auto=format&fit=crop&q=80",
@@ -1112,97 +1155,89 @@
     "caseStudySlugs": []
   },
   {
-    "slug": "litigation",
-    "title": "Litigation",
-    "icon": "ScrollText",
+    "slug": "family-law",
+    "title": "Family Law",
+    "icon": "HeartHandshake",
     "image": {
-      "src": "https://images.unsplash.com/photo-1636652966850-5ac4d02370e9?w=1200&auto=format&fit=crop&q=80",
-      "alt": "Classical courthouse columns and facade"
+      "src": "https://images.unsplash.com/photo-1496275068113-fff8c90750d1?w=1200&auto=format&fit=crop&q=80",
+      "alt": "A family walking together hand in hand"
     },
-    "copy": "Strategic legal representation and dispute-resolution support throughout the litigation lifecycle.",
-    "valueProp": "Thorough case assessment, effective pleadings, evidence-based advocacy and strategic courtroom representation focused on effective outcomes.",
+    "copy": "Sensitive, practical and strategic legal advice and representation in marriage, divorce, children, financial rights and family disputes.",
+    "valueProp": "Careful legal assessment and practical representation focused on protecting clients' legal rights and long-term interests.",
     "overview": [
-      "We represent clients in complex and high-stakes disputes before the courts and relevant judicial forums of Bangladesh.",
-      "Our approach combines thorough case assessment, effective pleadings, evidence-based advocacy and strategic courtroom representation, while considering the commercial, financial and practical implications of each dispute."
+      "We advise and represent individuals in a broad range of family and matrimonial matters before the Family Courts and other relevant courts and authorities of Bangladesh.",
+      "Our approach combines careful legal assessment, practical guidance and effective representation, with particular attention to the personal and financial circumstances involved in each matter."
     ],
     "services": [
       {
-        "title": "Dispute Assessment & Strategy",
-        "copy": "Assessment of legal disputes, available causes of action, potential defences, evidentiary issues, risks and available remedies to develop an appropriate litigation strategy."
+        "title": "Marriage & Matrimonial Matters",
+        "copy": "Legal advice concerning marriage, matrimonial rights and obligations, validity of marriage and other legal issues arising from marital relationships."
       },
       {
-        "title": "Pre-Litigation Advisory",
-        "copy": "Advice and representation before proceedings commence, including legal notices, responses, settlement discussions, preservation of evidence and assessment of litigation risks."
+        "title": "Divorce & Dissolution of Marriage",
+        "copy": "Advice and representation concerning divorce, dissolution of marriage and related legal proceedings, including the rights and obligations of the parties following separation."
       },
       {
-        "title": "Pleadings & Court Proceedings",
-        "copy": "Preparation and review of plaints, written statements, petitions, applications, affidavits and other pleadings and procedural documents required throughout litigation."
+        "title": "Dower & Maintenance",
+        "copy": "Representation in claims relating to dower, maintenance and other financial rights arising from marriage or the dissolution of a marital relationship."
       },
       {
-        "title": "Interim & Urgent Relief",
-        "copy": "Representation in applications for injunctions, stay orders, status quo orders, attachment and other interim measures necessary to protect a client's rights or interests during proceedings."
+        "title": "Child Custody & Guardianship",
+        "copy": "Advice and representation concerning custody, guardianship, care and welfare of children, with the best interests of the child remaining central to the legal strategy."
       },
       {
-        "title": "Evidence & Witnesses",
-        "copy": "Strategic assistance concerning documentary evidence, witness preparation, examination and cross-examination and other evidentiary issues arising during litigation."
+        "title": "Child Maintenance",
+        "copy": "Assistance with claims concerning financial support and maintenance for children, including assessment of the parties' respective legal obligations."
       },
       {
-        "title": "Trial Advocacy",
-        "copy": "Representation throughout trial proceedings, including presentation of evidence, examination and cross-examination of witnesses, legal submissions and final arguments."
+        "title": "Restitution of Conjugal Rights",
+        "copy": "Representation in proceedings concerning claims for restitution of conjugal rights and related matrimonial disputes."
       },
       {
-        "title": "Commercial & Business Litigation",
-        "copy": "Representation in disputes involving contracts, commercial transactions, shareholder relationships, financial obligations, business arrangements and other corporate or commercial interests."
+        "title": "Matrimonial Property & Financial Rights",
+        "copy": "Advice concerning financial interests, property-related claims and other rights arising between spouses in connection with marriage, separation or divorce."
       },
       {
-        "title": "Property & Civil Disputes",
-        "copy": "Representation in litigation concerning ownership, possession, title, boundaries, contractual rights, partition, inheritance and other civil disputes."
+        "title": "Domestic & Family Disputes",
+        "copy": "Legal assistance in disputes involving spouses and family members, including advice on available civil, family and other legal remedies."
       },
       {
-        "title": "Regulatory & Administrative Litigation",
-        "copy": "Advice and representation in disputes involving government authorities, statutory bodies, regulatory decisions and other exercises of public or administrative power."
+        "title": "Family Court Proceedings",
+        "copy": "Representation before Family Courts in proceedings involving dissolution of marriage, dower, maintenance, guardianship, custody and other matters falling within the court's jurisdiction."
       },
       {
-        "title": "Appeals & Revisions",
-        "copy": "Representation in appeals, revisions and other appellate or supervisory proceedings challenging judgments, orders or decisions of lower courts and relevant forums."
+        "title": "Appeals & Related Proceedings",
+        "copy": "Representation in appeals, revisions and other proceedings arising from judgments and orders in family and matrimonial matters."
       },
       {
-        "title": "Enforcement & Execution",
-        "copy": "Assistance with enforcement of judgments, decrees and orders, including execution proceedings and other available measures for securing the benefit of a successful outcome."
-      },
-      {
-        "title": "Alternative Dispute Resolution",
-        "copy": "Advice on negotiation, mediation, arbitration and other dispute-resolution mechanisms where an alternative to conventional litigation may provide a more efficient or commercially appropriate outcome."
+        "title": "Negotiation & Settlement",
+        "copy": "Assistance in negotiating practical settlements in family disputes, where appropriate, with a view to resolving issues efficiently while protecting the client's legal rights and interests."
       }
     ],
     "faqs": [
       {
-        "q": "When should I consult a lawyer about a dispute?",
-        "a": "Ideally, legal advice should be obtained as early as possible. Early assessment can help preserve evidence, identify available remedies, manage risks and determine whether litigation or another form of dispute resolution is appropriate."
+        "q": "Who do you act for?",
+        "a": "We represent individuals involved in matrimonial and family disputes, including spouses, parents, guardians and other parties seeking to protect their legal rights and interests."
       },
       {
-        "q": "Can you represent me throughout the entire litigation process?",
-        "a": "Yes. We can assist from initial case assessment and pre-litigation strategy through pleadings, interim applications, trial, judgment, appeal and enforcement, depending on the nature of the matter."
+        "q": "Can you advise me before filing a family case?",
+        "a": "Yes. We assess the circumstances, relevant documents and available legal remedies and advise on the appropriate course of action before proceedings are initiated."
       },
       {
-        "q": "Do all disputes need to go to trial?",
-        "a": "Not necessarily. Depending on the circumstances, negotiation, mediation, arbitration or settlement may provide a more efficient resolution. We assess the dispute and advise on the most appropriate course of action."
+        "q": "What rights do I have after separation or divorce?",
+        "a": "The applicable rights depend on the circumstances of the marriage, the parties involved and the governing personal and statutory laws. We assess the specific situation and advise on matters such as dower, maintenance, custody and other available remedies."
       },
       {
-        "q": "Can I obtain an urgent court order before the case is decided?",
-        "a": "In appropriate circumstances, interim or protective relief may be available to preserve rights or prevent irreparable harm while the dispute is pending. The availability of such relief depends on the facts and applicable law."
+        "q": "Can custody of a child be challenged or changed?",
+        "a": "In appropriate circumstances, custody and guardianship arrangements may be addressed through legal proceedings. The relevant court will consider the applicable law and the welfare and best interests of the child."
       },
       {
-        "q": "How do you assess the strength of a litigation case?",
-        "a": "We consider the applicable law, facts, documentary and other evidence, procedural position, potential defences, available remedies and practical risks before advising on the prospects and appropriate litigation strategy."
-      },
-      {
-        "q": "Can you handle an appeal after a judgment?",
-        "a": "Yes. We advise and represent clients in appropriate appellate and revisional proceedings and assess the available grounds, procedural requirements and prospects before pursuing an appeal or revision."
+        "q": "Can a family dispute be resolved without litigation?",
+        "a": "Yes. Where appropriate, negotiation, mediation or settlement may provide a more practical and less contentious way of resolving family disputes. We advise clients on the available options and their legal implications."
       },
       {
         "q": "How are legal fees discussed?",
-        "a": "Fees are discussed transparently after assessing the nature, complexity, value and scope of the dispute. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
+        "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
     ],
     "lawyerSlugs": [],
@@ -1300,107 +1335,6 @@
       {
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
-      }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
-  },
-  {
-    "slug": "international-law",
-    "title": "International Law",
-    "icon": "Globe",
-    "image": {
-      "src": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1200&auto=format&fit=crop&q=80",
-      "alt": "A world globe on a desk"
-    },
-    "copy": "Legal advice and representation on cross-border transactions, international business activities, foreign investment and disputes with an international dimension.",
-    "valueProp": "Practical cross-border legal strategies combining domestic and international legal frameworks to manage jurisdictional risks and protect clients' interests.",
-    "overview": [
-      "We advise clients on a broad range of cross-border legal matters, including international transactions, investments, commercial arrangements, dispute resolution and issues of public and private international law.",
-      "Our approach combines knowledge of applicable domestic and international legal frameworks with practical strategies designed to manage cross-border legal risks and protect clients' interests."
-    ],
-    "services": [
-      {
-        "title": "Cross-Border Transactions",
-        "copy": "Legal advice and support for transactions involving parties, assets, businesses or obligations across different jurisdictions."
-      },
-      {
-        "title": "Foreign Investment",
-        "copy": "Assistance with the legal structuring and documentation of foreign investment, joint ventures, strategic partnerships and other cross-border investment arrangements."
-      },
-      {
-        "title": "International Commercial Contracts",
-        "copy": "Drafting, reviewing and negotiating international commercial agreements, including jurisdiction, governing law, dispute-resolution and enforcement provisions."
-      },
-      {
-        "title": "International Arbitration",
-        "copy": "Representation and legal advice in cross-border commercial arbitration, including arbitration agreements, proceedings, arbitral awards and enforcement."
-      },
-      {
-        "title": "Cross-Border Dispute Resolution",
-        "copy": "Advice and representation in disputes involving parties, transactions or legal issues connected with multiple jurisdictions."
-      },
-      {
-        "title": "International Trade & Commerce",
-        "copy": "Legal advice concerning international trade transactions, import and export arrangements, distribution, supply agreements and other cross-border commercial activities."
-      },
-      {
-        "title": "Private International Law",
-        "copy": "Advice concerning jurisdiction, choice of law, recognition of foreign judgments and other legal issues arising where a matter has connections with more than one jurisdiction."
-      },
-      {
-        "title": "Recognition & Enforcement of Foreign Judgments",
-        "copy": "Assistance with the recognition and enforcement of foreign judgments and orders in Bangladesh, subject to applicable legal requirements."
-      },
-      {
-        "title": "International Treaties & Public International Law",
-        "copy": "Advice on selected matters involving international treaties, conventions, state obligations and principles of public international law."
-      },
-      {
-        "title": "International Regulatory Compliance",
-        "copy": "Advice on legal and regulatory requirements affecting businesses and organisations engaged in cross-border activities, investments and international transactions."
-      },
-      {
-        "title": "Cross-Border Corporate Matters",
-        "copy": "Legal support for international corporate structures, foreign shareholders, overseas investments, corporate reorganisations and transactions involving entities in multiple jurisdictions."
-      },
-      {
-        "title": "International Intellectual Property",
-        "copy": "Advice on the protection, licensing, commercialisation and enforcement of intellectual property rights in cross-border transactions and international markets."
-      },
-      {
-        "title": "International Legal Coordination",
-        "copy": "Coordination with foreign counsel and legal advisers where a matter involves multiple jurisdictions, ensuring that domestic and international legal considerations are appropriately addressed."
-      }
-    ],
-    "faqs": [
-      {
-        "q": "Can you advise on a transaction involving a foreign company?",
-        "a": "Yes. We advise on cross-border transactions involving foreign companies, investors and other international counterparties, including contractual, corporate, regulatory and dispute-resolution considerations."
-      },
-      {
-        "q": "Can you assist with foreign investment in Bangladesh?",
-        "a": "Yes. We provide legal advice concerning investment structures, corporate arrangements, regulatory requirements, transaction documentation and other legal issues relevant to foreign investment."
-      },
-      {
-        "q": "Which country's law will apply to an international contract?",
-        "a": "The applicable law depends on the contractual terms, the jurisdictions involved and the nature of the transaction. We review governing-law and jurisdiction provisions and advise on appropriate contractual arrangements."
-      },
-      {
-        "q": "Can a foreign judgment be enforced in Bangladesh?",
-        "a": "Foreign judgments may be capable of recognition and enforcement in Bangladesh subject to applicable law and procedural requirements. We assess the judgment and relevant circumstances before advising on the available remedies."
-      },
-      {
-        "q": "Can you handle an international arbitration matter?",
-        "a": "Yes. We provide advice and representation in appropriate international arbitration matters, including arbitration agreements, proceedings, awards and enforcement-related issues."
-      },
-      {
-        "q": "Do you work with lawyers in other countries?",
-        "a": "Where a matter involves multiple jurisdictions, we can coordinate with foreign counsel or other international legal advisers as necessary to address jurisdiction-specific issues."
-      },
-      {
-        "q": "How are legal fees discussed?",
-        "a": "Fees are discussed transparently after assessing the nature, complexity, jurisdictions involved and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
     ],
     "lawyerSlugs": [],

@@ -90,9 +90,11 @@ export function getCaseStudies(slugs: string[]): CaseStudy[] {
 // ---- Life at Avon gallery ---------------------------------------------------
 
 /** Edit src/data/gallery.json to add, remove or re-link photos — each entry's
- *  `src` can point anywhere (a placeholder today, Cloudinary later). */
+ *  `src` can point anywhere (a placeholder today, Cloudinary later). Photos are
+ *  shown in `order` sequence (lowest first) rather than file order, so the
+ *  sequence can be changed without reshuffling the underlying JSON. */
 export function getGalleryPhotos(): GalleryPhoto[] {
-  return galleryPhotos;
+  return [...galleryPhotos].sort((a, b) => a.order - b.order);
 }
 
 /** Distinct categories in the order they first appear in gallery.json,

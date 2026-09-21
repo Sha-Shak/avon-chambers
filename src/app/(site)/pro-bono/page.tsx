@@ -9,14 +9,14 @@ import { proBonoCard } from "@/lib/posts";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildOpenGraph } from "@/lib/seo";
 
-const DESCRIPTION = `Pro bono services and community work by the lawyers of ${siteConfig.name} — legal aid, outreach and awareness for those who need it most.`;
+const DESCRIPTION = `Social commitments and pro bono services by the lawyers of ${siteConfig.name} — legal aid, outreach and awareness for those who need it most.`;
 
 export const metadata: Metadata = {
-  title: "Pro Bono Services",
+  title: "Social Commitments and Pro Bono Services",
   description: DESCRIPTION,
   alternates: { canonical: "/pro-bono" },
   openGraph: buildOpenGraph({
-    title: `Pro Bono Services — ${siteConfig.name}`,
+    title: `Social Commitments and Pro Bono Services — ${siteConfig.name}`,
     description: DESCRIPTION,
     url: "/pro-bono",
   }),
@@ -30,13 +30,13 @@ export default async function ProBonoPage() {
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Pro Bono Services", path: "/pro-bono" },
+          { name: "Social Commitments and Pro Bono Services", path: "/pro-bono" },
         ])}
       />
 
       <PageBanner
         image="proBono"
-        eyebrow="Pro Bono Services"
+        eyebrow="Social Commitments and Pro Bono Services"
         title="Giving back through the law"
         description={DESCRIPTION}
       />

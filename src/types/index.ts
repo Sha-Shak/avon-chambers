@@ -102,6 +102,8 @@ export interface GalleryPhoto {
   title: string;
   description: string;
   category: string;
+  /** Display sequence in the "All" masonry view — lower numbers appear first. */
+  order: number;
 }
 
 /**
