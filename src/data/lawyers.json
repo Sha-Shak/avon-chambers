@@ -17,7 +17,7 @@
       "Admiralty Law"
     ],
     "practiceAreaSlugs": [
-      "litigation",
+      "civil-litigation",
       "arbitration-adr",
       "corporate-commercial",
       "banking-finance",
@@ -33,9 +33,12 @@
     "phone": "",
     "intro": "Asif Bin Anwar is the Managing Partner of Avon Chambers, a Lincoln's Inn Barrister and Advocate of the Appellate Division of the Supreme Court of Bangladesh with experience in litigation, arbitration, corporate and commercial law, and dispute resolution.",
     "bio": [
-      "Asif Bin Anwar is the Managing Partner of Avon Chambers and a Lincoln's Inn Barrister. He was called to the Bar of England and Wales by Lincoln's Inn in 2008, enrolled as an Advocate of the Bangladesh Bar Council in 2009, enrolled to practise before the High Court Division in 2012, and the Appellate Division in 2024.",
-      "He has extensive experience in litigation, arbitration, corporate and commercial law, dispute resolution, banking and finance, taxation, employment and labour law, intellectual property, telecommunications and information technology. He has appeared in civil, criminal, writ, company, corporate, commercial and admiralty matters before the Supreme Court of Bangladesh and advises clients on complex legal, regulatory and commercial issues.",
-      "Before establishing Avon Chambers, he served as Head of Chambers at Grays Chambers from November 2013 to June 2020. He also served as a Partner at Vertex Chambers, is currently an Of Counsel, and previously held senior positions at Chowdhury & Ullah and Khaled H Chowdhury & Associates."
+      "Asif Bin Anwar is the Managing Partner of Avon Chambers, a Barrister of Lincoln's Inn, and an Advocate of the Supreme Court of Bangladesh. He was called to the Bar of England and Wales by Lincoln's Inn in 2008, enrolled as an Advocate of the Bangladesh Bar Council in 2009, and subsequently enrolled to practise before the High Court Division in 2012 and the Appellate Division in 2024.",
+      "Mr. Anwar is an astute litigator and highly skilled in dispute management through Arbitration and Mediation. He has extensive experience in complex civil, commercial, corporate, criminal, writ, company and admiralty matters before the Supreme Court of Bangladesh, and is adept at handling multi-tier commercial and civil disputes. He also has considerable proficiency in International Commercial Arbitration and advises clients on complex legal, regulatory and commercial matters.",
+      "His practice encompasses Constitutional and Litigation matters, Corporate and Commercial Law, Arbitration and Mediation, Banking and Finance, Finance and Investment, Taxation, Property and Real Estate, Employment and Labour Law, Family Law, Intellectual Property, Telecommunications, Information Technology and other emerging areas of law. His experience includes advising on complex transactions, regulatory issues and disputes requiring a combination of legal, commercial and strategic considerations.",
+      "Mr. Anwar has held several senior positions in leading chambers. Before establishing Avon Chambers, he served as Head of Chambers at Grays Chambers from November 2013 to June 2020. He has also served as a Partner at Vertex Chambers, where he is currently Of Counsel, and previously held senior positions at Chowdhury & Ullah and Khaled H Chowdhury & Associates.",
+      "Alongside his legal practice, Mr. Anwar has contributed to legal scholarship and education. He has published articles in leading national newspapers, including The Daily Star, where his published work includes “Viability of Children’s Court.” Having previously taught law, he continues to contribute to legal education and occasionally delivers lectures as a guest faculty member at the London School of Legal Studies South and in distance-learning programmes associated with the University of London, BPP University and the University of the West of England.",
+      "Mr. Anwar has been recognised as a Top Corporate Lawyer by Asia Business Law Journal consecutively in 2024, 2025 and 2026. He has also received special mentions as a recommended lawyer in The Legal 500 for a number of years."
     ],
     "education": [
       "Called to the Bar of England and Wales, Lincoln's Inn (2008)"
@@ -156,7 +159,7 @@
     "practiceAreaSlugs": [
       "corporate-law",
       "commercial-law",
-      "intellectual-property-law",
+      "corporate-commercial",
       "regulatory-compliance",
       "dispute-resolution"
     ],
@@ -410,11 +413,8 @@
       }
     ],
     "notableCases": [],
-    "awards": [
-      
-    ],
-    "publications": [
-    ],
+    "awards": [],
+    "publications": [],
     "featured": false,
     "position": 5
   },
@@ -788,7 +788,7 @@
     "featured": false,
     "position": 12
   },
-   {
+  {
     "slug": "farha-binte-azad-etu",
     "name": "Farha Binte Azad Etu",
     "title": "Associate",
@@ -909,5 +909,4 @@
     "featured": false,
     "position": 11
   }
-
 ]

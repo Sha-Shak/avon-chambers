@@ -7,7 +7,8 @@
     "alt": "Avon Chambers office — photo 1",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 1
   },
   {
     "id": "our-chambers-2",
@@ -17,7 +18,8 @@
     "alt": "Avon Chambers office — photo 2",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 2
   },
   {
     "id": "our-chambers-3",
@@ -27,7 +29,8 @@
     "alt": "Avon Chambers office — photo 3",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 3
   },
   {
     "id": "our-chambers-4",
@@ -37,7 +40,8 @@
     "alt": "Avon Chambers office — photo 4",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 4
   },
   {
     "id": "our-chambers-5",
@@ -47,7 +51,8 @@
     "alt": "Avon Chambers office — photo 5",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 5
   },
   {
     "id": "our-chambers-6",
@@ -57,7 +62,8 @@
     "alt": "Avon Chambers office — photo 6",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 6
   },
   {
     "id": "our-chambers-7",
@@ -67,7 +73,8 @@
     "alt": "Avon Chambers office — photo 7",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 7
   },
   {
     "id": "our-chambers-8",
@@ -77,7 +84,8 @@
     "alt": "Avon Chambers office — photo 8",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 8
   },
   {
     "id": "our-chambers-9",
@@ -87,7 +95,8 @@
     "alt": "Avon Chambers office — photo 9",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 9
   },
   {
     "id": "our-chambers-10",
@@ -97,7 +106,8 @@
     "alt": "Avon Chambers office — photo 10",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 10
   },
   {
     "id": "our-chambers-11",
@@ -107,7 +117,8 @@
     "alt": "Avon Chambers office — photo 11",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 11
   },
   {
     "id": "our-chambers-12",
@@ -117,7 +128,8 @@
     "alt": "Avon Chambers office — photo 12",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 12
   },
   {
     "id": "our-chambers-13",
@@ -127,7 +139,8 @@
     "alt": "Avon Chambers office — photo 13",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 13
   },
   {
     "id": "our-chambers-14",
@@ -137,7 +150,8 @@
     "alt": "Avon Chambers office — photo 14",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 14
   },
   {
     "id": "our-chambers-15",
@@ -147,7 +161,8 @@
     "alt": "Avon Chambers office — photo 15",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 15
   },
   {
     "id": "our-chambers-16",
@@ -157,7 +172,8 @@
     "alt": "Avon Chambers office — photo 16",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 16
   },
   {
     "id": "our-chambers-17",
@@ -167,7 +183,8 @@
     "alt": "Avon Chambers office — photo 17",
     "title": "Our Chambers",
     "description": "A look around the Chambers.",
-    "category": "Our Chambers"
+    "category": "Our Chambers",
+    "order": 17
   },
   {
     "id": "our-team-1",
@@ -177,7 +194,8 @@
     "alt": "Our team — photo 1",
     "title": "Our team",
     "description": "The people of Avon Chambers.",
-    "category": "Our Team"
+    "category": "Our Team",
+    "order": 18
   },
   {
     "id": "our-team-2",
@@ -187,7 +205,8 @@
     "alt": "Our team — photo 2",
     "title": "Our team",
     "description": "The people of Avon Chambers.",
-    "category": "Our Team"
+    "category": "Our Team",
+    "order": 19
   },
   {
     "id": "our-team-3",
@@ -197,7 +216,8 @@
     "alt": "Our team — photo 3",
     "title": "Our team",
     "description": "The people of Avon Chambers.",
-    "category": "Our Team"
+    "category": "Our Team",
+    "order": 20
   },
   {
     "id": "team-discussions-1",
@@ -207,7 +227,8 @@
     "alt": "Team discussion — photo 1",
     "title": "Team discussion",
     "description": "Talking a matter through together.",
-    "category": "Team Discussions"
+    "category": "Team Discussions",
+    "order": 21
   },
   {
     "id": "team-discussions-2",
@@ -217,7 +238,8 @@
     "alt": "Team discussion — photo 2",
     "title": "Team discussion",
     "description": "Talking a matter through together.",
-    "category": "Team Discussions"
+    "category": "Team Discussions",
+    "order": 22
   },
   {
     "id": "team-discussions-3",
@@ -227,7 +249,8 @@
     "alt": "Team discussion — photo 3",
     "title": "Team discussion",
     "description": "Talking a matter through together.",
-    "category": "Team Discussions"
+    "category": "Team Discussions",
+    "order": 23
   },
   {
     "id": "client-meetings-1",
@@ -237,7 +260,8 @@
     "alt": "Client meeting — photo 1",
     "title": "Client meeting",
     "description": "Listening first, advising second.",
-    "category": "Client Meetings"
+    "category": "Client Meetings",
+    "order": 24
   },
   {
     "id": "client-meetings-2",
@@ -247,7 +271,8 @@
     "alt": "Client meeting — photo 2",
     "title": "Client meeting",
     "description": "Listening first, advising second.",
-    "category": "Client Meetings"
+    "category": "Client Meetings",
+    "order": 25
   },
   {
     "id": "client-meetings-3",
@@ -257,7 +282,8 @@
     "alt": "Client meeting — photo 3",
     "title": "Client meeting",
     "description": "Listening first, advising second.",
-    "category": "Client Meetings"
+    "category": "Client Meetings",
+    "order": 26
   },
   {
     "id": "client-meetings-4",
@@ -267,7 +293,8 @@
     "alt": "Client meeting — photo 4",
     "title": "Client meeting",
     "description": "Listening first, advising second.",
-    "category": "Client Meetings"
+    "category": "Client Meetings",
+    "order": 27
   },
   {
     "id": "at-work-1",
@@ -277,7 +304,8 @@
     "alt": "At work — photo 1",
     "title": "At work",
     "description": "Focused time at the desk.",
-    "category": "At Work"
+    "category": "At Work",
+    "order": 28
   },
   {
     "id": "at-work-2",
@@ -287,7 +315,8 @@
     "alt": "At work — photo 2",
     "title": "At work",
     "description": "Focused time at the desk.",
-    "category": "At Work"
+    "category": "At Work",
+    "order": 29
   },
   {
     "id": "at-work-3",
@@ -297,7 +326,8 @@
     "alt": "At work — photo 3",
     "title": "At work",
     "description": "Focused time at the desk.",
-    "category": "At Work"
+    "category": "At Work",
+    "order": 30
   },
   {
     "id": "chamber-dinner-1",
@@ -307,7 +337,8 @@
     "alt": "Chamber dinner — photo 1",
     "title": "Chamber dinner",
     "description": "An evening set aside to sit down together.",
-    "category": "Chamber Dinner"
+    "category": "Chamber Dinner",
+    "order": 31
   },
   {
     "id": "celebrations-1",
@@ -317,7 +348,8 @@
     "alt": "Festival celebration — photo 1",
     "title": "Festival celebration",
     "description": "Marking the festival season together.",
-    "category": "Celebrations"
+    "category": "Celebrations",
+    "order": 32
   },
   {
     "id": "celebrations-2",
@@ -327,7 +359,8 @@
     "alt": "Festival celebration — photo 2",
     "title": "Festival celebration",
     "description": "Marking the festival season together.",
-    "category": "Celebrations"
+    "category": "Celebrations",
+    "order": 33
   },
   {
     "id": "celebrations-3",
@@ -337,7 +370,8 @@
     "alt": "Festival celebration — photo 3",
     "title": "Festival celebration",
     "description": "Marking the festival season together.",
-    "category": "Celebrations"
+    "category": "Celebrations",
+    "order": 34
   },
   {
     "id": "firm-outings-1",
@@ -347,7 +381,8 @@
     "alt": "Sightseeing outing — photo 1",
     "title": "Sightseeing outing",
     "description": "Sightseeing with the team, away from the desk.",
-    "category": "Firm Outings"
+    "category": "Firm Outings",
+    "order": 35
   },
   {
     "id": "firm-outings-2",
@@ -357,7 +392,8 @@
     "alt": "Sightseeing outing — photo 2",
     "title": "Sightseeing outing",
     "description": "Sightseeing with the team, away from the desk.",
-    "category": "Firm Outings"
+    "category": "Firm Outings",
+    "order": 36
   },
   {
     "id": "firm-outings-3",
@@ -367,7 +403,8 @@
     "alt": "Sightseeing outing — photo 3",
     "title": "Sightseeing outing",
     "description": "Sightseeing with the team, away from the desk.",
-    "category": "Firm Outings"
+    "category": "Firm Outings",
+    "order": 37
   },
   {
     "id": "firm-outings-5",
@@ -377,7 +414,8 @@
     "alt": "Sightseeing outing — photo 5",
     "title": "Sightseeing outing",
     "description": "Sightseeing with the team, away from the desk.",
-    "category": "Firm Outings"
+    "category": "Firm Outings",
+    "order": 38
   },
   {
     "id": "firm-outings-6",
@@ -387,7 +425,8 @@
     "alt": "Sightseeing outing — photo 6",
     "title": "Sightseeing outing",
     "description": "Sightseeing with the team, away from the desk.",
-    "category": "Firm Outings"
+    "category": "Firm Outings",
+    "order": 39
   },
   {
     "id": "firm-outings-7",
@@ -397,6 +436,7 @@
     "alt": "Sightseeing outing — photo 7",
     "title": "Sightseeing outing",
     "description": "Sightseeing with the team, away from the desk.",
-    "category": "Firm Outings"
+    "category": "Firm Outings",
+    "order": 40
   }
 ]

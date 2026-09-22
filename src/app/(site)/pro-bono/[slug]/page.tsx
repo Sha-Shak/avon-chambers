@@ -67,7 +67,7 @@ export default async function ProBonoDetailPage({ params }: { params: Promise<{ 
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Pro Bono Services", path: "/pro-bono" },
+          { name: "Social Commitments and Probono Services", path: "/pro-bono" },
           { name: post.title, path: `/pro-bono/${post.slug}` },
         ])}
       />
