@@ -16,6 +16,8 @@ export const primaryNavLinks = [
   { label: "About", href: "/about" },
   { label: "Practice Areas", href: "/practice-areas" },
   { label: "Lawyers", href: "/lawyers" },
+  { label: "Social Commitments", href: "/pro-bono" },
+
   // { label: "Life at Avon", href: "/life-at-avon" },
 ] as const;
 
@@ -40,7 +42,6 @@ export const navGroups: readonly NavGroup[] = [
   {
     label: "Connect",
     links: [
-      { label: "Pro Bono", href: "/pro-bono" },
       { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
