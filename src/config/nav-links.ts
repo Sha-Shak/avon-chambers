@@ -16,7 +16,7 @@ export const primaryNavLinks = [
   { label: "About", href: "/about" },
   { label: "Practice Areas", href: "/practice-areas" },
   { label: "Lawyers", href: "/lawyers" },
-  { label: "Life at Avon", href: "/life-at-avon" },
+  // { label: "Life at Avon", href: "/life-at-avon" },
 ] as const;
 
 export interface NavLinkItem {

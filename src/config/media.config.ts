@@ -70,7 +70,7 @@ export const mediaConfig = {
    */
   banners: {
     about: image(cloud("v1789754276/Office-1200-800-1.webp"), "The reception at Avon Chambers", "center 40%"),
-    practiceAreas: image(cloud("v1789754261/Office-1200-800-5.webp"), "Law books lining the shelves at Avon Chambers", "center 45%"),
+    practiceAreas: image(cloud("v1790098141/office-interrior.webp"), "Law books lining the shelves at Avon Chambers", "center 45%"),
     lawyers: image(cloud("v1789754260/Office-1200-900-5.webp"), "A partner's room at Avon Chambers", "center 55%"),
     articles: image(cloud("v1789754273/Office-1200-800-2.webp"), "The Avon Chambers monogram beside a reception desk", "center 45%"),
     careers: image(cloud("v1789754268/Office-1200-900-3.webp"), "The open-plan workspace at Avon Chambers", "center 55%"),
@@ -88,7 +88,7 @@ export const mediaConfig = {
    */
   backdrops: {
     practiceAreas: image(cloud("v1789754273/Office-1200-800-2.webp"), "The Avon Chambers monogram beside a reception desk", "center 45%"),
-    acclamation: image(cloud("v1789754261/Office-1200-800-5.webp"), "Law books lining the shelves at Avon Chambers", "center 45%"),
+    acclamation: image(cloud("v1790098141/office-interrior.webp"), "Law books lining the shelves at Avon Chambers", "center 45%"),
     whyAvonChambers: image(cloud("v1789754261/Office-1200-900-8.webp"), "The boardroom at Avon Chambers", "center 55%"),
     testimonials: image(cloud("v1789754259/Office-1200-900-6.webp"), "The lounge at Avon Chambers", "center 55%"),
     process: image(cloud("v1789754274/Office-1200-900-2.webp"), "A plant on the reception desk at Avon Chambers", "center 50%"),
