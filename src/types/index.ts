@@ -68,18 +68,37 @@ export interface PracticeArea {
   services: PracticeAreaService[];
   faqs: PracticeAreaFaq[];
   lawyerSlugs: string[];
-  caseStudySlugs: string[];
 }
 
-export interface CaseStudy {
+export interface CaseStudyKeyResult {
+  value: string;
+  label: string;
+}
+
+export interface CaseStudyMeta {
   slug: string;
-  area: string;
   title: string;
-  metric: string;
-  metricLabel: string;
-  duration: string;
-  result: string;
-  summary: string;
+  excerpt: string;
+  practiceAreaSlugs: string[];
+  matterType?: string;
+  clientName?: string;
+  clientType?: string;
+  industry?: string;
+  jurisdictions?: string[];
+  duration?: string;
+  result?: string;
+  keyResults?: CaseStudyKeyResult[];
+  teamMembers?: string[];
+  confidentialityNote?: string;
+  featured?: boolean;
+  publishedAt: string;
+  updatedAt?: string;
+  coverImage?: SanityPicture | null;
+  seo?: SeoFields;
+}
+
+export interface CaseStudy extends CaseStudyMeta {
+  body: PortableTextBlock[];
 }
 
 /** A client's words. Testimonials are shown anonymously, so only the quote is needed. */

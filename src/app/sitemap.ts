@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site.config";
 import { getAllLawyers, getAllPracticeAreas } from "@/lib/data";
-import { getAllInsights, getAllJobPosts, getAllNewsEvents, getAllProBonoPosts, isJobOpen } from "@/lib/content";
+import { getAllCaseStudies, getAllInsights, getAllJobPosts, getAllNewsEvents, getAllProBonoPosts, isJobOpen } from "@/lib/content";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
@@ -31,12 +31,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  const [insights, jobs, newsEvents, proBonoPosts] = await Promise.all([
+  const [caseStudies, insights, jobs, newsEvents, proBonoPosts] = await Promise.all([
+    getAllCaseStudies(),
     getAllInsights(),
     getAllJobPosts(),
     getAllNewsEvents(),
     getAllProBonoPosts(),
   ]);
+
+  const caseStudyPages: MetadataRoute.Sitemap = caseStudies
+    .filter((study) => !study.seo?.noIndex)
+    .map((study) => ({
+      url: `${siteConfig.url}/case-studies/${study.slug}`,
+      lastModified: study.updatedAt ?? study.publishedAt,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    }));
 
   const insightPages: MetadataRoute.Sitemap = insights
     .filter((insight) => !insight.seo?.noIndex)
@@ -79,6 +89,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticPages,
     ...practiceAreaPages,
     ...lawyerPages,
+    ...caseStudyPages,
     ...insightPages,
     ...jobPages,
     ...newsEventPages,

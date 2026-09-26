@@ -13,9 +13,9 @@ import { PracticeAreaIcon } from "@/lib/icons";
 import {
   getAllPracticeAreas,
   getLawyers,
-  getCaseStudies,
   getPracticeArea,
 } from "@/lib/data";
+import { getCaseStudiesByPracticeArea } from "@/lib/content";
 import { breadcrumbSchema, practiceAreaSchema } from "@/lib/schema";
 import { buildOpenGraph } from "@/lib/seo";
 import { siteConfig } from "@/config/site.config";
@@ -56,7 +56,7 @@ export default async function PracticeAreaDetailPage({
   if (!area) notFound();
 
   const relatedLawyers = getLawyers(area.lawyerSlugs);
-  const relatedCases = getCaseStudies(area.caseStudySlugs);
+  const relatedCases = await getCaseStudiesByPracticeArea(area.slug);
   const { service, faqPage } = practiceAreaSchema(area);
 
   return (

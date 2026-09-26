@@ -60,7 +60,7 @@ export const richTextBlock = defineArrayMember({
 });
 
 /**
- * Cover image field shared by the News & Events and Pro Bono documents —
+ * Cover image field shared by Sanity-managed editorial documents —
  * alt text sits inside the image so screen readers and search get a proper
  * description whenever a picture is uploaded.
  */

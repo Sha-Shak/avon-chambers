@@ -102,13 +102,23 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
 }
 
 export function caseStudySchema(study: CaseStudy) {
+  const image = study.coverImage?.asset ? urlForImage(study.coverImage).width(1600).url() : undefined;
+
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
+    headline: study.seo?.metaTitle ?? study.title,
     name: study.title,
-    about: study.area,
-    abstract: study.summary,
-    provider: { "@id": organizationId() },
+    description: study.seo?.metaDescription ?? study.excerpt,
+    about: study.practiceAreaSlugs,
+    genre: study.matterType,
+    image,
+    datePublished: study.publishedAt,
+    dateModified: study.updatedAt ?? study.publishedAt,
+    url: abs(`/case-studies/${study.slug}`),
+    author: { "@id": organizationId() },
+    publisher: { "@id": organizationId() },
+    mainEntityOfPage: abs(`/case-studies/${study.slug}`),
   };
 }
 

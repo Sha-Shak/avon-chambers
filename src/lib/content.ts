@@ -1,5 +1,5 @@
 import { client } from "@/sanity/client";
-import type { Insight, InsightMeta, JobPost, JobPostMeta, NewsEvent, NewsEventMeta, ProBonoMeta, ProBonoPost } from "@/types";
+import type { CaseStudy, CaseStudyMeta, Insight, InsightMeta, JobPost, JobPostMeta, NewsEvent, NewsEventMeta, ProBonoMeta, ProBonoPost } from "@/types";
 
 const SEO_FIELDS = `
   seo{
@@ -59,6 +59,62 @@ const PRO_BONO_META_FIELDS = `
   coverImage,
   ${SEO_FIELDS}
 `;
+
+const CASE_STUDY_META_FIELDS = `
+  "slug": slug.current,
+  title,
+  excerpt,
+  practiceAreaSlugs,
+  matterType,
+  clientName,
+  clientType,
+  industry,
+  jurisdictions,
+  duration,
+  result,
+  keyResults[]{ value, label },
+  teamMembers,
+  confidentialityNote,
+  featured,
+  publishedAt,
+  updatedAt,
+  coverImage,
+  ${SEO_FIELDS}
+`;
+
+// ---- Case studies ---------------------------------------------------------
+
+export async function getAllCaseStudies(): Promise<CaseStudyMeta[]> {
+  return client.fetch(
+    `*[_type == "caseStudy" && defined(slug.current)] | order(publishedAt desc) { ${CASE_STUDY_META_FIELDS} }`,
+    {},
+    { next: { revalidate: 60 } },
+  );
+}
+
+export async function getCaseStudySlugs(): Promise<string[]> {
+  const studies = await client.fetch<{ slug: string }[]>(
+    `*[_type == "caseStudy" && defined(slug.current)]{ "slug": slug.current }`,
+  );
+  return studies.map((study) => study.slug);
+}
+
+export async function getCaseStudy(slug: string): Promise<CaseStudy | undefined> {
+  const result = await client.fetch<CaseStudy | null>(
+    `*[_type == "caseStudy" && slug.current == $slug][0]{ ${CASE_STUDY_META_FIELDS}, body }`,
+    { slug },
+    { next: { revalidate: 60 } },
+  );
+  return result ?? undefined;
+}
+
+export async function getCaseStudiesByPracticeArea(practiceAreaSlug: string): Promise<CaseStudyMeta[]> {
+  return client.fetch(
+    `*[_type == "caseStudy" && defined(slug.current) && $practiceAreaSlug in practiceAreaSlugs] | order(publishedAt desc) [0...3] { ${CASE_STUDY_META_FIELDS} }`,
+    { practiceAreaSlug },
+    { next: { revalidate: 60 } },
+  );
+}
 
 // ---- Insights (blog) --------------------------------------------------
 

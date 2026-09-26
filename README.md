@@ -65,7 +65,7 @@ built into this app, no separate deployment. Setup is one-time:
    "Editor" role (can create/edit/publish) rather than "Administrator"
    (can also change project settings and billing) unless they need that.
 
-Once set up, creating a blog post or job listing is: go to `/studio`, click
+Once set up, creating a blog post, case study or job listing is: go to `/studio`, click
 the relevant section, fill in the form, hit Publish. It appears on the live
 site within about a minute (content is cached for 60 seconds, so changes
 don't need a redeploy).
@@ -78,16 +78,14 @@ don't need a redeploy).
 | A job posting (Careers)               | `/studio` in your browser — not a file |
 | A lawyer's bio, photo, stats, etc.    | `src/data/lawyers.json`                |
 | A practice area                       | `src/data/practice-areas.json`         |
-| A case study                          | `src/data/case-studies.json`           |
+| A case study                          | `/studio` in your browser — not a file |
 | Firm name, address, phone, stats      | `src/config/site.config.ts`            |
 | Logo, hero image, OG image            | `src/config/media.config.ts`           |
 
-Lawyers, practice areas, and case studies stayed as JSON files rather
-than moving into Sanity, since you specifically asked for the lawyer
-roster to be a JSON file you can edit directly — and since these change far
-less often than blog posts or job listings, and are cross-referenced with
-each other by slug (a lawyer's `practiceAreaSlugs` must match a real
-slug in `practice-areas.json`).
+Lawyers and practice areas stay as JSON files because the lawyer roster is
+intended to be edited directly and both collections change infrequently.
+Case studies are managed in Sanity, including their practice-area links,
+matter details, cover image, rich text and SEO fields.
 
 `src/content/` holds the _original_ markdown seed files — the app doesn't
 read them anymore, they exist only as input for the one-time migration

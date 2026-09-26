@@ -1,12 +1,10 @@
 import lawyersData from "@/data/lawyers.json";
 import practiceAreasData from "@/data/practice-areas.json";
-import caseStudiesData from "@/data/case-studies.json";
 import galleryData from "@/data/gallery.json";
-import type { Lawyer, CaseStudy, PracticeArea, GalleryPhoto } from "@/types";
+import type { Lawyer, PracticeArea, GalleryPhoto } from "@/types";
 
 const lawyers = lawyersData as Lawyer[];
 const practiceAreas = practiceAreasData as PracticeArea[];
-const caseStudies = caseStudiesData as CaseStudy[];
 const galleryPhotos = galleryData as GalleryPhoto[];
 
 // ---- Lawyers ----------------------------------------------------------
@@ -70,21 +68,6 @@ export function getPracticeArea(slug: string): PracticeArea | undefined {
 
 export function getPracticeAreasForLawyer(lawyer: Lawyer): PracticeArea[] {
   return practiceAreas.filter((p) => lawyer.practiceAreaSlugs.includes(p.slug));
-}
-
-// ---- Case studies ---------------------------------------------------------
-
-export function getAllCaseStudies(): CaseStudy[] {
-  return caseStudies;
-}
-
-export function getCaseStudy(slug: string): CaseStudy | undefined {
-  return caseStudies.find((c) => c.slug === slug);
-}
-
-export function getCaseStudies(slugs: string[]): CaseStudy[] {
-  const bySlug = new Map(caseStudies.map((c) => [c.slug, c]));
-  return slugs.map((s) => bySlug.get(s)).filter((c): c is CaseStudy => Boolean(c));
 }
 
 // ---- Life at Avon gallery ---------------------------------------------------

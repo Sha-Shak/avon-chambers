@@ -1,8 +1,7 @@
 import { defineField, defineType } from "sanity";
+import { ARTICLE_CATEGORIES } from "@/config/article.config";
 import { RichTextInput } from "../components/rich-text-input";
 import { richTextBlock } from "./objects/postBody";
-
-const CATEGORIES = ["Corporate", "Litigation", "Employment", "Immigration", "Real Estate", "Family Law"];
 
 export const insight = defineType({
   name: "insight",
@@ -32,7 +31,8 @@ export const insight = defineType({
       name: "category",
       title: "Category",
       type: "string",
-      options: { list: CATEGORIES },
+      description: "Choose the main legal subject of the article. Use the closest practice area for cross-disciplinary pieces.",
+      options: { list: [...ARTICLE_CATEGORIES] },
       validation: (rule) => rule.required(),
     }),
     defineField({
