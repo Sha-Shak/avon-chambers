@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { richTextBlock } from "./objects/postBody";
 
 const CATEGORIES = ["Corporate", "Litigation", "Employment", "Immigration", "Real Estate", "Family Law"];
 
@@ -84,7 +85,9 @@ export const insight = defineType({
       name: "body",
       title: "Body",
       type: "array",
-      of: [{ type: "block" }],
+      description:
+        "Paste from Google Docs or Microsoft Word to retain headings, lists, bold, italic, underline, strike-through, and links.",
+      of: [richTextBlock],
       validation: (rule) => rule.required(),
     }),
   ],

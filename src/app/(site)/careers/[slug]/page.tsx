@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PortableText } from "@portabletext/react";
 import { ArrowLeft, Briefcase, MapPin } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
+import { PostBody } from "@/components/post-body";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { getJobPost, getJobPostSlugs } from "@/lib/content";
@@ -103,9 +103,7 @@ export default async function JobDetailPage({
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10 lg:py-20">
-        <div className="prose-insight prose">
-          <PortableText value={job.body} />
-        </div>
+        <PostBody value={job.body} />
         <FadeIn delay={80} className="mt-12 border-t border-foreground/15 pt-8">
           <p className="text-sm text-muted-foreground">
             Apply by emailing{" "}

@@ -1,9 +1,11 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
 import { urlForImage } from "@/sanity/image";
 
 type BodyImage = { asset?: { _ref: string }; alt?: string; caption?: string };
+type LinkMark = { href?: string; openInNewTab?: boolean };
 
 const components: PortableTextComponents = {
   types: {
@@ -25,6 +27,26 @@ const components: PortableTextComponents = {
             <figcaption className="mt-3 text-center text-xs text-muted-foreground">{value.caption}</figcaption>
           )}
         </figure>
+      );
+    },
+  },
+  marks: {
+    underline: ({ children }) => <u>{children}</u>,
+    "strike-through": ({ children }) => <s>{children}</s>,
+    link: ({ children, value }: { children?: ReactNode; value?: LinkMark }) => {
+      if (!value?.href) return <>{children}</>;
+
+      const external = /^https?:\/\//i.test(value.href);
+      const newTab = value.openInNewTab || external;
+
+      return (
+        <a
+          href={value.href}
+          target={newTab ? "_blank" : undefined}
+          rel={newTab ? "noopener noreferrer" : undefined}
+        >
+          {children}
+        </a>
       );
     },
   },

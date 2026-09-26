@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PortableText } from "@portabletext/react";
 import { ArrowLeft } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 import { InsightCard } from "@/components/cards/insight-card";
 import { ConsultationSection } from "@/components/consultation-section";
+import { PostBody } from "@/components/post-body";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
@@ -168,9 +168,7 @@ export default async function InsightDetailPage({
         )}
 
         <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10 lg:py-20">
-          <div className="prose-insight prose">
-            <PortableText value={insight.body} />
-          </div>
+          <PostBody value={insight.body} />
         </section>
       </article>
 

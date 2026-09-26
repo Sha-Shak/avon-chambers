@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { richTextBlock } from "./objects/postBody";
 
 export const jobPost = defineType({
   name: "jobPost",
@@ -86,8 +87,9 @@ export const jobPost = defineType({
       name: "body",
       title: "Full description",
       type: "array",
-      of: [{ type: "block" }],
-      description: "Responsibilities, requirements, how to apply.",
+      of: [richTextBlock],
+      description:
+        "Responsibilities, requirements, and how to apply. Paste from Google Docs or Microsoft Word to retain headings, lists, bold, italic, underline, strike-through, and links.",
       validation: (rule) => rule.required(),
     }),
   ],

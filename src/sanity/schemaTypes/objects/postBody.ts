@@ -1,5 +1,55 @@
 import { defineArrayMember, defineField } from "sanity";
 
+/** Shared long-form text rules for every editor in Sanity Studio. */
+export const richTextBlock = defineArrayMember({
+  type: "block",
+  styles: [
+    { title: "Normal", value: "normal" },
+    { title: "Heading", value: "h2" },
+    { title: "Subheading", value: "h3" },
+    { title: "Small heading", value: "h4" },
+    { title: "Quote", value: "blockquote" },
+  ],
+  lists: [
+    { title: "Bulleted list", value: "bullet" },
+    { title: "Numbered list", value: "number" },
+  ],
+  marks: {
+    decorators: [
+      { title: "Bold", value: "strong" },
+      { title: "Italic", value: "em" },
+      { title: "Underline", value: "underline" },
+      { title: "Strike", value: "strike-through" },
+      { title: "Code", value: "code" },
+    ],
+    annotations: [
+      defineArrayMember({
+        name: "link",
+        title: "Link",
+        type: "object",
+        fields: [
+          defineField({
+            name: "href",
+            title: "URL",
+            type: "url",
+            validation: (rule) =>
+              rule.required().uri({
+                allowRelative: true,
+                scheme: ["http", "https", "mailto", "tel"],
+              }),
+          }),
+          defineField({
+            name: "openInNewTab",
+            title: "Open in a new tab",
+            type: "boolean",
+            initialValue: false,
+          }),
+        ],
+      }),
+    ],
+  },
+});
+
 /**
  * Cover image field shared by the News & Events and Pro Bono documents —
  * alt text sits inside the image so screen readers and search get a proper
@@ -29,20 +79,10 @@ export const postBodyField = defineField({
   name: "body",
   title: "Post",
   type: "array",
+  description:
+    "Paste from Google Docs or Microsoft Word to retain headings, lists, bold, italic, underline, strike-through, and links.",
   of: [
-    defineArrayMember({
-      type: "block",
-      styles: [
-        { title: "Normal", value: "normal" },
-        { title: "Heading", value: "h2" },
-        { title: "Subheading", value: "h3" },
-        { title: "Quote", value: "blockquote" },
-      ],
-      lists: [
-        { title: "Bulleted list", value: "bullet" },
-        { title: "Numbered list", value: "number" },
-      ],
-    }),
+    richTextBlock,
     defineArrayMember({
       type: "image",
       options: { hotspot: true },
