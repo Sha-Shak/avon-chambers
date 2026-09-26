@@ -8,6 +8,11 @@ type BodyImage = { asset?: { _ref: string }; alt?: string; caption?: string };
 type LinkMark = { href?: string; openInNewTab?: boolean };
 
 const components: PortableTextComponents = {
+  block: {
+    indent1: ({ children }) => <p className="ps-6 sm:ps-8">{children}</p>,
+    indent2: ({ children }) => <p className="ps-10 sm:ps-16">{children}</p>,
+    indent3: ({ children }) => <p className="ps-14 sm:ps-24">{children}</p>,
+  },
   types: {
     image: ({ value }: { value: BodyImage }) => {
       if (!value?.asset) return null;

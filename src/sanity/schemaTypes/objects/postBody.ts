@@ -1,4 +1,10 @@
 import { defineArrayMember, defineField } from "sanity";
+import {
+  IndentOne,
+  IndentThree,
+  IndentTwo,
+  RichTextInput,
+} from "../../components/rich-text-input";
 
 /** Shared long-form text rules for every editor in Sanity Studio. */
 export const richTextBlock = defineArrayMember({
@@ -9,6 +15,9 @@ export const richTextBlock = defineArrayMember({
     { title: "Subheading", value: "h3" },
     { title: "Small heading", value: "h4" },
     { title: "Quote", value: "blockquote" },
+    { title: "Indent — level 1", value: "indent1", component: IndentOne },
+    { title: "Indent — level 2", value: "indent2", component: IndentTwo },
+    { title: "Indent — level 3", value: "indent3", component: IndentThree },
   ],
   lists: [
     { title: "Bulleted list", value: "bullet" },
@@ -80,7 +89,8 @@ export const postBodyField = defineField({
   title: "Post",
   type: "array",
   description:
-    "Paste from Google Docs or Microsoft Word to retain headings, lists, bold, italic, underline, strike-through, and links.",
+    "Paste from Google Docs or Microsoft Word to retain headings, lists, indentation, bold, italic, underline, strike-through, and links.",
+  components: { input: RichTextInput },
   of: [
     richTextBlock,
     defineArrayMember({

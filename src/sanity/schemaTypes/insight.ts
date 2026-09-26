@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { RichTextInput } from "../components/rich-text-input";
 import { richTextBlock } from "./objects/postBody";
 
 const CATEGORIES = ["Corporate", "Litigation", "Employment", "Immigration", "Real Estate", "Family Law"];
@@ -86,7 +87,8 @@ export const insight = defineType({
       title: "Body",
       type: "array",
       description:
-        "Paste from Google Docs or Microsoft Word to retain headings, lists, bold, italic, underline, strike-through, and links.",
+        "Paste from Google Docs or Microsoft Word to retain headings, lists, indentation, bold, italic, underline, strike-through, and links.",
+      components: { input: RichTextInput },
       of: [richTextBlock],
       validation: (rule) => rule.required(),
     }),

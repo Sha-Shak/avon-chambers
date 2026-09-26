@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { RichTextInput } from "../components/rich-text-input";
 import { richTextBlock } from "./objects/postBody";
 
 export const jobPost = defineType({
@@ -89,7 +90,8 @@ export const jobPost = defineType({
       type: "array",
       of: [richTextBlock],
       description:
-        "Responsibilities, requirements, and how to apply. Paste from Google Docs or Microsoft Word to retain headings, lists, bold, italic, underline, strike-through, and links.",
+        "Responsibilities, requirements, and how to apply. Paste from Google Docs or Microsoft Word to retain headings, lists, indentation, bold, italic, underline, strike-through, and links.",
+      components: { input: RichTextInput },
       validation: (rule) => rule.required(),
     }),
   ],
