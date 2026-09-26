@@ -167,7 +167,7 @@ export default async function LawyerProfilePage({
                     href={`/practice-areas/${p.slug}`}
                     className="border border-cream/25 px-4 py-2 text-[0.6875rem] tracking-[0.14em] text-cream/80 uppercase transition-colors hover:bg-cream hover:text-navy"
                   >
-                    {p.title}
+                    {p.displayTitle}
                   </Link>
                 ))}
               </div>

@@ -792,19 +792,17 @@
     "slug": "farha-binte-azad-etu",
     "name": "Farha Binte Azad Etu",
     "title": "Associate",
-    "area": "Civil & Commercial Litigation, Company, Family & Criminal Matters",
+    "area": "Civil & Commercial Litigation, Criminal Litigation, Family Matters & Arbitration",
     "areas": [
-      "Civil and Commercial Litigation",
-      "Family Matters",
-      "Company Matters",
+      "Civil & Commercial Litigation",
       "Criminal Litigation",
+      "Family Matters",
       "Arbitration"
     ],
     "practiceAreaSlugs": [
-      "civil-commercial-litigation",
-      "family-matters",
-      "company-matters",
-      "criminal-litigation",
+      "civil-litigation",
+      "criminal-law",
+      "family-law",
       "arbitration"
     ],
     "photo": "/images/lawyers/Etu.webp",
@@ -836,7 +834,7 @@
         "label": "Notable matters"
       },
       {
-        "value": "5",
+        "value": "4",
         "label": "Practice areas"
       },
       {

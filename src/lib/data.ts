@@ -66,8 +66,13 @@ export function getPracticeArea(slug: string): PracticeArea | undefined {
   return practiceAreas.find((p) => p.slug === slug);
 }
 
-export function getPracticeAreasForLawyer(lawyer: Lawyer): PracticeArea[] {
-  return practiceAreas.filter((p) => lawyer.practiceAreaSlugs.includes(p.slug));
+export function getPracticeAreasForLawyer(lawyer: Lawyer): (PracticeArea & { displayTitle: string })[] {
+  const bySlug = new Map(practiceAreas.map((area) => [area.slug, area]));
+
+  return lawyer.practiceAreaSlugs.flatMap((slug, index) => {
+    const area = bySlug.get(slug);
+    return area ? [{ ...area, displayTitle: lawyer.areas[index] ?? area.title }] : [];
+  });
 }
 
 // ---- Life at Avon gallery ---------------------------------------------------
