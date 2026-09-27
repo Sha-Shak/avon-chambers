@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { getJobPost, getJobPostSlugs } from "@/lib/content";
 import { breadcrumbSchema, jobPostingSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
 import { urlForImage } from "@/sanity/image";
 
 export async function generateStaticParams() {
@@ -27,8 +27,8 @@ export async function generateMetadata({
   const job = await getJobPost(slug);
   if (!job) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = job.seo?.metaTitle ?? job.title;
-  const description = job.seo?.metaDescription ?? job.summary;
+  const title = resolveSeoText(job.seo?.metaTitle, job.title);
+  const description = resolveSeoText(job.seo?.metaDescription, job.summary);
   const image = job.seo?.ogImage?.asset
     ? urlForImage(job.seo.ogImage.asset).width(1200).height(630).url()
     : mediaConfig.og.default.src;

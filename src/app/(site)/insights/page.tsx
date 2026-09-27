@@ -10,16 +10,21 @@ import { buildOpenGraph } from "@/lib/seo";
 
 const DESCRIPTION = `Articles and legal insights from ${siteConfig.name} in Bangladesh.`;
 
-export const metadata: Metadata = {
-  title: "Articles",
-  description: DESCRIPTION,
-  alternates: { canonical: "/insights" },
-  openGraph: buildOpenGraph({
-    title: `Articles — ${siteConfig.name}`,
+export async function generateMetadata(): Promise<Metadata> {
+  const insights = await getAllInsights();
+
+  return {
+    title: "Articles",
     description: DESCRIPTION,
-    url: "/insights",
-  }),
-};
+    alternates: { canonical: "/insights" },
+    robots: insights.length > 0 ? undefined : { index: false, follow: true },
+    openGraph: buildOpenGraph({
+      title: `Articles — ${siteConfig.name}`,
+      description: DESCRIPTION,
+      url: "/insights",
+    }),
+  };
+}
 
 export default async function InsightsPage() {
   const insights = await getAllInsights();

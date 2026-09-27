@@ -4,11 +4,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
+import { InsightCard } from "@/components/cards/insight-card";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site.config";
 import { getAllLawyers, getLawyer, getPracticeAreasForLawyer } from "@/lib/data";
+import { getInsightsByAuthor } from "@/lib/content";
 import { lawyerSchema, breadcrumbSchema } from "@/lib/schema";
 import { buildOpenGraph } from "@/lib/seo";
 
@@ -54,6 +56,7 @@ export default async function LawyerProfilePage({
   if (!lawyer) notFound();
 
   const areaLinks = getPracticeAreasForLawyer(lawyer);
+  const authoredInsights = (await getInsightsByAuthor(lawyer.slug)).slice(0, 3);
 
   // Some records carry placeholder stat slots ("N/A" or an empty value) for
   // a figure that hasn't been supplied yet — skip those rather than showing
@@ -273,6 +276,24 @@ export default async function LawyerProfilePage({
                 </ul>
               </FadeIn>
             )}
+          </div>
+        </section>
+      )}
+
+      {authoredInsights.length > 0 && (
+        <section className="border-t border-foreground/10 bg-secondary/50">
+          <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+            <FadeIn className="max-w-2xl">
+              <p className="eyebrow">Legal analysis</p>
+              <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Articles by {lawyer.name}</h2>
+            </FadeIn>
+            <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
+              {authoredInsights.map((insight, index) => (
+                <FadeIn key={insight.slug} delay={index * 60}>
+                  <InsightCard insight={insight} />
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </section>
       )}

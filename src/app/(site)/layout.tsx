@@ -58,9 +58,15 @@ export const viewport: Viewport = {
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background font-sans antialiased">
+      <a
+        href="#main-content"
+        className="fixed top-3 left-3 z-[100] -translate-y-20 bg-foreground px-4 py-2 text-sm text-background shadow-lg transition-transform focus:translate-y-0"
+      >
+        Skip to main content
+      </a>
       <JsonLd data={organizationSchema()} />
       <SiteHeader />
-      <main>{children}</main>
+      <main id="main-content" tabIndex={-1}>{children}</main>
       <SiteFooter />
       <WhatsAppButton />
       <Analytics />

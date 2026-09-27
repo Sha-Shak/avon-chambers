@@ -10,7 +10,7 @@ import { mediaConfig } from "@/config/media.config";
 import { getAllProBonoPosts, getProBonoPost, getProBonoSlugs } from "@/lib/content";
 import { pictureUrl, proBonoCard } from "@/lib/posts";
 import { breadcrumbSchema, postSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const slugs = await getProBonoSlugs();
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = await getProBonoPost(slug);
   if (!post) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = post.seo?.metaTitle ?? post.title;
-  const description = post.seo?.metaDescription ?? post.excerpt;
+  const title = resolveSeoText(post.seo?.metaTitle, post.title);
+  const description = resolveSeoText(post.seo?.metaDescription, post.excerpt);
   const image = pictureUrl(post.seo?.ogImage ?? post.coverImage, 1200, 630) ?? mediaConfig.og.default.src;
 
   return {
@@ -67,7 +67,7 @@ export default async function ProBonoDetailPage({ params }: { params: Promise<{ 
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Social Commitments and Probono Services", path: "/pro-bono" },
+          { name: "Social Commitments and Pro Bono Services", path: "/pro-bono" },
           { name: post.title, path: `/pro-bono/${post.slug}` },
         ])}
       />

@@ -2,6 +2,29 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 
+const EDITORIAL_INSTRUCTION_PATTERNS = [
+  /^placeholder\b/i,
+  /for client review/i,
+  /overrides? the page title search engines/i,
+  /the snippet shown under the title in search results/i,
+  /leave blank to (?:use|fall back)/i,
+  /sweet spot is \d/i,
+];
+
+/**
+ * Prevent Sanity help text, placeholders or empty overrides from leaking into
+ * public metadata. Editors still receive field-level validation in Studio,
+ * while this runtime guard supplies the document's real title/summary if bad
+ * legacy data is already published.
+ */
+export function resolveSeoText(value: string | null | undefined, fallback: string) {
+  const candidate = value?.trim();
+  if (!candidate || EDITORIAL_INSTRUCTION_PATTERNS.some((pattern) => pattern.test(candidate))) {
+    return fallback.trim();
+  }
+  return candidate;
+}
+
 /**
  * Next.js does NOT deep-merge `openGraph` between a layout and a page — a
  * page that defines its own `openGraph` object entirely replaces the

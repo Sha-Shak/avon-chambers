@@ -10,7 +10,7 @@ import { mediaConfig } from "@/config/media.config";
 import { getAllNewsEvents, getNewsEvent, getNewsEventSlugs } from "@/lib/content";
 import { newsEventCard, pictureUrl } from "@/lib/posts";
 import { breadcrumbSchema, postSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const slugs = await getNewsEventSlugs();
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const item = await getNewsEvent(slug);
   if (!item) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = item.seo?.metaTitle ?? item.title;
-  const description = item.seo?.metaDescription ?? item.excerpt;
+  const title = resolveSeoText(item.seo?.metaTitle, item.title);
+  const description = resolveSeoText(item.seo?.metaDescription, item.excerpt);
   const image = pictureUrl(item.seo?.ogImage ?? item.coverImage, 1200, 630) ?? mediaConfig.og.default.src;
 
   return {

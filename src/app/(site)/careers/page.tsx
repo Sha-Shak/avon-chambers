@@ -9,12 +9,21 @@ import { buildOpenGraph } from "@/lib/seo";
 
 const DESCRIPTION = `Career opportunities at ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
 
-export const metadata: Metadata = {
-  title: "Careers",
-  description: DESCRIPTION,
-  alternates: { canonical: "/careers" },
-  openGraph: buildOpenGraph({ title: `Careers — ${siteConfig.name}`, description: DESCRIPTION, url: "/careers" }),
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const openRoles = (await getAllJobPosts()).filter(isJobOpen);
+
+  return {
+    title: "Careers",
+    description: DESCRIPTION,
+    alternates: { canonical: "/careers" },
+    robots: openRoles.length > 0 ? undefined : { index: false, follow: true },
+    openGraph: buildOpenGraph({
+      title: `Careers — ${siteConfig.name}`,
+      description: DESCRIPTION,
+      url: "/careers",
+    }),
+  };
+}
 
 export default async function CareersPage() {
   const openRoles = (await getAllJobPosts()).filter(isJobOpen);

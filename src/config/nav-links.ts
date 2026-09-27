@@ -16,7 +16,8 @@ export const primaryNavLinks = [
   { label: "About", href: "/about" },
   { label: "Practice Areas", href: "/practice-areas" },
   { label: "Lawyers", href: "/lawyers" },
-  { label: "Social Commitments", href: "/pro-bono" },
+  // Re-enable once at least one reviewed Pro Bono post has been published.
+  // { label: "Social Commitments", href: "/pro-bono" },
 
   // { label: "Life at Avon", href: "/life-at-avon" },
 ] as const;

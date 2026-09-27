@@ -1,4 +1,5 @@
 import { client } from "@/sanity/client";
+import { ARTICLE_CATEGORY_BY_PRACTICE_AREA } from "@/config/article.config";
 import type { CaseStudy, CaseStudyMeta, Insight, InsightMeta, JobPost, JobPostMeta, NewsEvent, NewsEventMeta, ProBonoMeta, ProBonoPost } from "@/types";
 
 const SEO_FIELDS = `
@@ -17,6 +18,9 @@ const INSIGHT_META_FIELDS = `
   category,
   excerpt,
   authorSlug,
+  reviewedBySlug,
+  practiceAreaSlugs,
+  references[]{ title, url },
   publishedAt,
   updatedAt,
   readingTime,
@@ -145,6 +149,15 @@ export async function getInsight(slug: string): Promise<Insight | undefined> {
 export async function getInsightsByAuthor(authorSlug: string): Promise<InsightMeta[]> {
   const insights = await getAllInsights();
   return insights.filter((i) => i.authorSlug === authorSlug);
+}
+
+export async function getInsightsByPracticeArea(practiceAreaSlug: string): Promise<InsightMeta[]> {
+  const category = ARTICLE_CATEGORY_BY_PRACTICE_AREA[practiceAreaSlug] ?? "";
+  return client.fetch(
+    `*[_type == "insight" && defined(slug.current) && ($practiceAreaSlug in coalesce(practiceAreaSlugs, []) || category == $category)] | order(publishedAt desc) [0...3] { ${INSIGHT_META_FIELDS} }`,
+    { practiceAreaSlug, category },
+    { next: { revalidate: 60 } },
+  );
 }
 
 // ---- Careers (job posts) -----------------------------------------------

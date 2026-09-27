@@ -1,5 +1,18 @@
 import { defineField, defineType } from "sanity";
 
+const INSTRUCTIONAL_COPY = [
+  /^placeholder\b/i,
+  /for client review/i,
+  /overrides? the page title search engines/i,
+  /the snippet shown under the title in search results/i,
+  /leave blank to (?:use|fall back)/i,
+  /sweet spot is \d/i,
+];
+
+function isInstructionalCopy(value: string | undefined) {
+  return value ? INSTRUCTIONAL_COPY.some((pattern) => pattern.test(value.trim())) : false;
+}
+
 /**
  * Reusable "SEO & Social" panel, attached to any document type via
  * `defineField({ name: "seo", type: "seo" })`. Every field is optional —
@@ -19,7 +32,12 @@ export const seo = defineType({
       type: "string",
       description:
         "Overrides the page title search engines and browser tabs show. Leave blank to use the title above. Aim for under 60 characters — longer titles get truncated in search results.",
-      validation: (rule) => rule.max(70).warning("Titles over ~60 characters are usually truncated in Google search results."),
+      validation: (rule) => [
+        rule.max(70).warning("Titles over ~60 characters are usually truncated in Google search results."),
+        rule
+          .custom((value) => !isInstructionalCopy(value) || "Replace the instructional or placeholder text with a real meta title, or leave this field blank.")
+          .error(),
+      ],
     }),
     defineField({
       name: "metaDescription",
@@ -28,12 +46,16 @@ export const seo = defineType({
       rows: 3,
       description:
         "The snippet shown under the title in search results and in social previews. Leave blank to fall back to the excerpt/summary above. Sweet spot is 120–160 characters — short enough to avoid truncation, long enough to be worth showing.",
-      validation: (rule) =>
+      validation: (rule) => [
         rule
           .max(160)
           .warning("Over ~160 characters and search engines will truncate this.")
           .min(70)
           .warning("Under ~70 characters is a missed opportunity — there's room to say more."),
+        rule
+          .custom((value) => !isInstructionalCopy(value) || "Replace the instructional or placeholder text with a real meta description, or leave this field blank.")
+          .error(),
+      ],
     }),
     defineField({
       name: "keywords",

@@ -1,5 +1,7 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 import { ARTICLE_CATEGORIES } from "@/config/article.config";
+import { CASE_STUDY_PRACTICE_AREAS } from "@/config/case-study.config";
+import lawyersData from "@/data/lawyers.json";
 import { RichTextInput } from "../components/rich-text-input";
 import { richTextBlock } from "./objects/postBody";
 
@@ -36,6 +38,15 @@ export const insight = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "practiceAreaSlugs",
+      title: "Related practice areas",
+      type: "array",
+      description: "Connect this article to every relevant Practice Area page. This powers related-content links across the website.",
+      of: [defineArrayMember({ type: "string" })],
+      options: { list: [...CASE_STUDY_PRACTICE_AREAS], layout: "grid" },
+      validation: (rule) => rule.unique(),
+    }),
+    defineField({
       name: "excerpt",
       title: "Excerpt",
       type: "text",
@@ -54,8 +65,25 @@ export const insight = defineType({
       name: "authorSlug",
       title: "Author",
       type: "string",
-      description:
-        "Must match a lawyer's slug in src/data/lawyers.json, e.g. \"helena-marchetti\". Leave blank to credit the firm generally.",
+      description: "Leave blank to credit Avon Chambers generally.",
+      options: {
+        list: lawyersData
+          .slice()
+          .sort((a, b) => a.position - b.position)
+          .map((lawyer) => ({ title: lawyer.name, value: lawyer.slug })),
+      },
+    }),
+    defineField({
+      name: "reviewedBySlug",
+      title: "Reviewed by",
+      type: "string",
+      description: "Optional. Select the lawyer who checked the legal accuracy of this article.",
+      options: {
+        list: lawyersData
+          .slice()
+          .sort((a, b) => a.position - b.position)
+          .map((lawyer) => ({ title: lawyer.name, value: lawyer.slug })),
+      },
     }),
     defineField({
       name: "publishedAt",
@@ -91,6 +119,28 @@ export const insight = defineType({
       components: { input: RichTextInput },
       of: [richTextBlock],
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "references",
+      title: "References and sources",
+      type: "array",
+      description: "Optional public references such as legislation, judgments, regulations or official guidance.",
+      of: [
+        defineArrayMember({
+          type: "object",
+          name: "sourceLink",
+          fields: [
+            defineField({ name: "title", title: "Source title", type: "string", validation: (rule) => rule.required() }),
+            defineField({
+              name: "url",
+              title: "Source URL",
+              type: "url",
+              validation: (rule) => rule.required().uri({ scheme: ["http", "https"] }),
+            }),
+          ],
+          preview: { select: { title: "title", subtitle: "url" } },
+        }),
+      ],
     }),
   ],
   preview: {

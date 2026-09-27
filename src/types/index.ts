@@ -145,6 +145,9 @@ export interface InsightMeta {
   category: string;
   excerpt: string;
   authorSlug?: string;
+  reviewedBySlug?: string;
+  practiceAreaSlugs?: string[];
+  references?: { title: string; url: string }[];
   publishedAt: string; // ISO date
   updatedAt?: string; // ISO date, only set once a post is actually revised
   readingTime: string;

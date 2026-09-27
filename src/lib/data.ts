@@ -27,7 +27,9 @@ export function getLawyers(slugs: string[]): Lawyer[] {
 }
 
 export function getLawyersForPracticeArea(practiceAreaSlug: string): Lawyer[] {
-  return getAllLawyers().filter((l) => l.practiceAreaSlugs.includes(practiceAreaSlug));
+  return getAllLawyers().filter((lawyer) =>
+    getPracticeAreasForLawyer(lawyer).some((area) => area.slug === practiceAreaSlug),
+  );
 }
 
 /** Seniority tiers shown as separate sections on the lawyers directory —
@@ -66,13 +68,46 @@ export function getPracticeArea(slug: string): PracticeArea | undefined {
   return practiceAreas.find((p) => p.slug === slug);
 }
 
+/**
+ * Older lawyer records use precise matter-level slugs, while the public site
+ * now has 15 broader canonical Practice Areas. Resolve those legacy labels to
+ * their nearest public page so profile badges and reciprocal lawyer listings
+ * remain useful without flattening the detailed wording in each biography.
+ */
+function canonicalPracticeAreaSlug(slug: string, label: string): string | undefined {
+  if (getPracticeArea(slug)) return slug;
+
+  const subject = `${slug} ${label}`.toLowerCase();
+  if (/constitutional|administrative|writ|judicial-review|policy-advocacy|government-institutions/.test(subject)) return "constitutional-litigation-writ";
+  if (/foreign-investment/.test(subject)) return "foreign-investment-facilitation";
+  if (/restructur|project|power-energy|public-private|insolvency|debt-restructuring/.test(subject)) return "corporate-restructuring-project-documentation";
+  if (/banking|financial|artha-rin|loan-recovery/.test(subject)) return "banking-finance-law";
+  if (/employment|labour/.test(subject)) return "employment-labour-law";
+  if (/arbitration|mediation|alternative-dispute|\badr\b|adjudication/.test(subject)) return "arbitration";
+  if (/criminal|fraud|forgery|white-collar|animal-welfare/.test(subject)) return "criminal-law";
+  if (/property|real-estate|\bland\b|lease|tenancy|mortgage|inheritance|succession/.test(subject)) return "property-real-estate";
+  if (/family|divorce|custody|guardianship|maintenance|personal-law/.test(subject)) return "family-law";
+  if (/\btax\b|customs/.test(subject)) return "taxation";
+  if (/international|cross-border|admiralty/.test(subject)) return "international-law";
+  if (/telecommunication|information-technology|e-commerce|cyber|startup/.test(subject)) return "it-technology-startups";
+  if (/intellectual-property|emerging|digital/.test(subject)) return "new-developing-areas";
+  if (/corporate|commercial|company|contract|regulatory|compliance|fmcg|industry-establishment|merger|acquisition/.test(subject)) return "corporate-commercial";
+  if (/litigation|dispute|legal-advisory/.test(subject)) return "civil-litigation";
+  return undefined;
+}
+
 export function getPracticeAreasForLawyer(lawyer: Lawyer): (PracticeArea & { displayTitle: string })[] {
   const bySlug = new Map(practiceAreas.map((area) => [area.slug, area]));
+  const resolved = new Map<string, PracticeArea & { displayTitle: string }>();
 
-  return lawyer.practiceAreaSlugs.flatMap((slug, index) => {
-    const area = bySlug.get(slug);
-    return area ? [{ ...area, displayTitle: lawyer.areas[index] ?? area.title }] : [];
+  lawyer.practiceAreaSlugs.forEach((slug, index) => {
+    const displayTitle = lawyer.areas[index] ?? slug;
+    const canonicalSlug = canonicalPracticeAreaSlug(slug, displayTitle);
+    const area = canonicalSlug ? bySlug.get(canonicalSlug) : undefined;
+    if (area && !resolved.has(area.slug)) resolved.set(area.slug, { ...area, displayTitle });
   });
+
+  return [...resolved.values()];
 }
 
 // ---- Life at Avon gallery ---------------------------------------------------

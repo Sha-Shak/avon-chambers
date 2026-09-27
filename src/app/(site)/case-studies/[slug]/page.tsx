@@ -14,7 +14,7 @@ import { siteConfig } from "@/config/site.config";
 import { getAllCaseStudies, getCaseStudy, getCaseStudySlugs } from "@/lib/content";
 import { pictureUrl, formatPostDate } from "@/lib/posts";
 import { breadcrumbSchema, caseStudySchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const slugs = await getCaseStudySlugs();
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const study = await getCaseStudy(slug);
   if (!study) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = study.seo?.metaTitle ?? study.title;
-  const description = study.seo?.metaDescription ?? study.excerpt;
+  const title = resolveSeoText(study.seo?.metaTitle, study.title);
+  const description = resolveSeoText(study.seo?.metaDescription, study.excerpt);
   const image = pictureUrl(study.seo?.ogImage ?? study.coverImage, 1200, 630) ?? mediaConfig.og.default.src;
 
   return {

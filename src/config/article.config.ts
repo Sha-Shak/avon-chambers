@@ -38,3 +38,22 @@ export const ARTICLE_CATEGORIES = [
   { title: "New & Developing Areas", value: "New & Developing Areas" },
   { title: "Legal Updates & Commentary", value: "Legal Updates & Commentary" },
 ] as const;
+
+/** Legacy-compatible Article category value for each public Practice Area. */
+export const ARTICLE_CATEGORY_BY_PRACTICE_AREA: Readonly<Record<string, string>> = {
+  "constitutional-litigation-writ": "Constitutional Law & Writs",
+  "corporate-commercial": "Corporate",
+  "civil-litigation": "Litigation",
+  arbitration: "Arbitration & Mediation",
+  "criminal-law": "Criminal Litigation",
+  "banking-finance-law": "Banking, Finance & Investment",
+  "foreign-investment-facilitation": "Foreign Investment & Investment Facilitation",
+  "corporate-restructuring-project-documentation": "Corporate Restructuring & Project Documentation",
+  "property-real-estate": "Real Estate",
+  taxation: "Taxation & VAT",
+  "employment-labour-law": "Employment",
+  "international-law": "International & Cross-Border Law",
+  "it-technology-startups": "Telecommunications, IT & Technology",
+  "family-law": "Family Law",
+  "new-developing-areas": "New & Developing Areas",
+};

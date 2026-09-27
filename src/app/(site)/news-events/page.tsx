@@ -11,16 +11,21 @@ import { buildOpenGraph } from "@/lib/seo";
 
 const DESCRIPTION = `News, announcements and events from ${siteConfig.name} — what the Chambers has been up to, and what is coming next.`;
 
-export const metadata: Metadata = {
-  title: "News & Events",
-  description: DESCRIPTION,
-  alternates: { canonical: "/news-events" },
-  openGraph: buildOpenGraph({
-    title: `News & Events — ${siteConfig.name}`,
+export async function generateMetadata(): Promise<Metadata> {
+  const items = await getAllNewsEvents();
+
+  return {
+    title: "News & Events",
     description: DESCRIPTION,
-    url: "/news-events",
-  }),
-};
+    alternates: { canonical: "/news-events" },
+    robots: items.length > 0 ? undefined : { index: false, follow: true },
+    openGraph: buildOpenGraph({
+      title: `News & Events — ${siteConfig.name}`,
+      description: DESCRIPTION,
+      url: "/news-events",
+    }),
+  };
+}
 
 export default async function NewsEventsPage() {
   const items = await getAllNewsEvents();

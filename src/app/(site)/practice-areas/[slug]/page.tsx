@@ -6,16 +6,17 @@ import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 import { LawyerGrid } from "@/components/lawyer-grid";
 import { CaseStudyCard } from "@/components/cards/case-study-card";
+import { InsightCard } from "@/components/cards/insight-card";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { PracticeAreaIcon } from "@/lib/icons";
 import {
   getAllPracticeAreas,
-  getLawyers,
+  getLawyersForPracticeArea,
   getPracticeArea,
 } from "@/lib/data";
-import { getCaseStudiesByPracticeArea } from "@/lib/content";
+import { getCaseStudiesByPracticeArea, getInsightsByPracticeArea } from "@/lib/content";
 import { breadcrumbSchema, practiceAreaSchema } from "@/lib/schema";
 import { buildOpenGraph } from "@/lib/seo";
 import { siteConfig } from "@/config/site.config";
@@ -32,13 +33,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const area = getPracticeArea(slug);
   if (!area) return { title: "Unavailable", robots: { index: false, follow: false } };
+  const seoTitle = `${area.title.replace(/\s+Law$/, "")} Lawyers in Bangladesh`;
 
   return {
-    title: area.title,
+    title: seoTitle,
     description: area.valueProp,
     alternates: { canonical: `/practice-areas/${area.slug}` },
     openGraph: buildOpenGraph({
-      title: `${area.title} — ${siteConfig.name}`,
+      title: `${seoTitle} — ${siteConfig.name}`,
       description: area.valueProp,
       url: `/practice-areas/${area.slug}`,
       image: { url: area.image.src, alt: area.image.alt },
@@ -55,8 +57,11 @@ export default async function PracticeAreaDetailPage({
   const area = getPracticeArea(slug);
   if (!area) notFound();
 
-  const relatedLawyers = getLawyers(area.lawyerSlugs);
-  const relatedCases = await getCaseStudiesByPracticeArea(area.slug);
+  const relatedLawyers = getLawyersForPracticeArea(area.slug);
+  const [relatedCases, relatedInsights] = await Promise.all([
+    getCaseStudiesByPracticeArea(area.slug),
+    getInsightsByPracticeArea(area.slug),
+  ]);
   const { service, faqPage } = practiceAreaSchema(area);
 
   return (
@@ -187,6 +192,32 @@ export default async function PracticeAreaDetailPage({
                 <CaseStudyCard study={c} />
               </FadeIn>
             ))}
+          </div>
+        </section>
+      )}
+
+      {relatedInsights.length > 0 && (
+        <section className="border-t border-foreground/10 bg-secondary/50">
+          <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+            <FadeIn className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
+              <div className="max-w-2xl">
+                <p className="eyebrow">Related analysis</p>
+                <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">Articles on {area.title}</h2>
+              </div>
+              <Link
+                href="/insights"
+                className="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase"
+              >
+                All articles <ArrowUpRight className="size-4" />
+              </Link>
+            </FadeIn>
+            <div className="mt-14 grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedInsights.map((insight, index) => (
+                <FadeIn key={insight.slug} delay={index * 60}>
+                  <InsightCard insight={insight} />
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </section>
       )}

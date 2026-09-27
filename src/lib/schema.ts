@@ -1,6 +1,7 @@
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { urlForImage } from "@/sanity/image";
+import { resolveSeoText } from "@/lib/seo";
 import type { Lawyer, CaseStudy, Insight, JobPost, PracticeArea } from "@/types";
 
 const abs = (pathname: string) => `${siteConfig.url}${pathname}`;
@@ -107,9 +108,9 @@ export function caseStudySchema(study: CaseStudy) {
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    headline: study.seo?.metaTitle ?? study.title,
+    headline: resolveSeoText(study.seo?.metaTitle, study.title),
     name: study.title,
-    description: study.seo?.metaDescription ?? study.excerpt,
+    description: resolveSeoText(study.seo?.metaDescription, study.excerpt),
     about: study.practiceAreaSlugs,
     genre: study.matterType,
     image,
@@ -131,15 +132,19 @@ function wordCount(body: Insight["body"]) {
   return text.split(/\s+/).filter(Boolean).length;
 }
 
-export function insightSchema(insight: Insight, author?: { name: string; url?: string }) {
+export function insightSchema(
+  insight: Insight,
+  author?: { name: string; url?: string },
+  reviewer?: { name: string; url?: string },
+) {
   const authorName = author?.name ?? siteConfig.name;
   const image = insight.coverImage?.asset ? urlForImage(insight.coverImage.asset).width(1600).url() : undefined;
 
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: insight.seo?.metaTitle ?? insight.title,
-    description: insight.seo?.metaDescription ?? insight.excerpt,
+    headline: resolveSeoText(insight.seo?.metaTitle, insight.title),
+    description: resolveSeoText(insight.seo?.metaDescription, insight.excerpt),
     image,
     articleSection: insight.category,
     keywords: insight.seo?.keywords?.length ? insight.seo.keywords.join(", ") : undefined,
@@ -148,6 +153,9 @@ export function insightSchema(insight: Insight, author?: { name: string; url?: s
     dateModified: insight.updatedAt ?? insight.publishedAt,
     url: abs(`/insights/${insight.slug}`),
     author: author?.url ? { "@type": "Person", name: authorName, url: author.url } : { "@type": "Person", name: authorName },
+    reviewedBy: reviewer
+      ? { "@type": "Person", name: reviewer.name, url: reviewer.url }
+      : undefined,
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
@@ -169,7 +177,7 @@ export function jobPostingSchema(job: JobPost) {
     "@context": "https://schema.org",
     "@type": "JobPosting",
     title: job.title,
-    description: job.seo?.metaDescription ?? job.summary,
+    description: resolveSeoText(job.seo?.metaDescription, job.summary),
     datePosted: job.postedAt,
     validThrough: job.closingDate,
     employmentType: JOB_TYPE_SCHEMA[job.type],
