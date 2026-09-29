@@ -2,6 +2,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site.config";
+import { mediaConfig } from "@/config/media.config";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ const inter = Inter({
 // this base into a single absolute <link rel="canonical">.
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  icons: { icon: mediaConfig.brand.favicon },
 };
 
 export default function RootLayout({

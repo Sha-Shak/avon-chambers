@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site.config";
+import { mediaConfig } from "@/config/media.config";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -12,7 +13,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#1E2A44",
     icons: [
       {
-        src: "/favicon.png",
+        src: mediaConfig.brand.favicon,
         sizes: "64x64",
         type: "image/png",
       },

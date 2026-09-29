@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     images: [mediaConfig.og.default.src],
   },
   icons: {
-    icon: "/favicon.png",
+    icon: mediaConfig.brand.favicon,
   },
   robots: {
     index: true,
