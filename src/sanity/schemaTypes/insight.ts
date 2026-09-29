@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { ARTICLE_CATEGORIES } from "@/config/article.config";
-import { CASE_STUDY_PRACTICE_AREAS } from "@/config/case-study.config";
+import { PRACTICE_AREA_OPTIONS } from "@/config/practice-areas.config";
 import lawyersData from "@/data/lawyers.json";
 import { RichTextInput } from "../components/rich-text-input";
 import { richTextBlock } from "./objects/postBody";
@@ -38,13 +38,21 @@ export const insight = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "practiceAreaSlugs",
+      name: "practiceAreaIds",
       title: "Related practice areas",
       type: "array",
       description: "Connect this article to every relevant Practice Area page. This powers related-content links across the website.",
-      of: [defineArrayMember({ type: "string" })],
-      options: { list: [...CASE_STUDY_PRACTICE_AREAS], layout: "grid" },
+      of: [defineArrayMember({ type: "number" })],
+      options: { list: PRACTICE_AREA_OPTIONS, layout: "grid" },
       validation: (rule) => rule.unique(),
+    }),
+    defineField({
+      name: "practiceAreaSlugs",
+      title: "Legacy practice links",
+      type: "array",
+      of: [defineArrayMember({ type: "string" })],
+      hidden: true,
+      readOnly: true,
     }),
     defineField({
       name: "excerpt",

@@ -40,20 +40,20 @@ export const ARTICLE_CATEGORIES = [
 ] as const;
 
 /** Legacy-compatible Article category value for each public Practice Area. */
-export const ARTICLE_CATEGORY_BY_PRACTICE_AREA: Readonly<Record<string, string>> = {
-  "constitutional-litigation-writ": "Constitutional Law & Writs",
-  "corporate-commercial": "Corporate",
-  "civil-litigation": "Litigation",
-  arbitration: "Arbitration & Mediation",
-  "criminal-law": "Criminal Litigation",
-  "banking-finance-law": "Banking, Finance & Investment",
-  "foreign-investment-facilitation": "Foreign Investment & Investment Facilitation",
-  "corporate-restructuring-project-documentation": "Corporate Restructuring & Project Documentation",
-  "property-real-estate": "Real Estate",
-  taxation: "Taxation & VAT",
-  "employment-labour-law": "Employment",
-  "international-law": "International & Cross-Border Law",
-  "it-technology-startups": "Telecommunications, IT & Technology",
-  "family-law": "Family Law",
-  "new-developing-areas": "New & Developing Areas",
+export const ARTICLE_CATEGORY_BY_PRACTICE_AREA_ID: Readonly<Record<number, string>> = {
+  1: "Constitutional Law & Writs",
+  2: "Corporate",
+  3: "Litigation",
+  4: "Arbitration & Mediation",
+  5: "Criminal Litigation",
+  6: "Banking, Finance & Investment",
+  7: "Foreign Investment & Investment Facilitation",
+  8: "Corporate Restructuring & Project Documentation",
+  9: "Real Estate",
+  10: "Taxation & VAT",
+  11: "Employment",
+  12: "International & Cross-Border Law",
+  13: "Telecommunications, IT & Technology",
+  14: "Family Law",
+  15: "New & Developing Areas",
 };

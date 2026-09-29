@@ -10,7 +10,8 @@ import { PostBody } from "@/components/post-body";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
-import { getLawyer, getPracticeArea } from "@/lib/data";
+import { getLawyer } from "@/lib/data";
+import { practiceAreaById } from "@/config/practice-areas.config";
 import { getAllInsights, getInsight, getInsightSlugs } from "@/lib/content";
 import { breadcrumbSchema, insightSchema } from "@/lib/schema";
 import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
@@ -83,8 +84,8 @@ export default async function InsightDetailPage({
     ? getLawyer(insight.authorSlug)
     : undefined;
   const reviewer = insight.reviewedBySlug ? getLawyer(insight.reviewedBySlug) : undefined;
-  const practiceAreas = (insight.practiceAreaSlugs ?? [])
-    .map(getPracticeArea)
+  const practiceAreas = (insight.practiceAreaIds ?? [])
+    .map(practiceAreaById)
     .filter((area) => area !== undefined);
   const morePosts = (await getAllInsights())
     .filter((i) => i.slug !== insight.slug)

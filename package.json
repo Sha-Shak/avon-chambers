@@ -12,6 +12,7 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
+    "validate:practice-areas": "node scripts/validate-practice-areas.mjs",
     "migrate:sanity": "tsx scripts/migrate-to-sanity.ts"
   },
   "dependencies": {

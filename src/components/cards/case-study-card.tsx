@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { practiceAreaTitle } from "@/config/case-study.config";
+import { practiceAreaById } from "@/config/practice-areas.config";
 import { mediaConfig } from "@/config/media.config";
 import { pictureUrl } from "@/lib/posts";
 import type { CaseStudyMeta } from "@/types";
@@ -9,9 +9,7 @@ import type { CaseStudyMeta } from "@/types";
 export function CaseStudyCard({ study }: { study: CaseStudyMeta }) {
   const href = `/case-studies/${study.slug}`;
   const imageUrl = pictureUrl(study.coverImage, 900, 600);
-  const primaryArea = study.practiceAreaSlugs[0]
-    ? practiceAreaTitle(study.practiceAreaSlugs[0])
-    : "Case study";
+  const primaryArea = practiceAreaById(study.practiceAreaIds[0])?.title ?? "Case study";
   const highlight = study.keyResults?.[0];
 
   return (

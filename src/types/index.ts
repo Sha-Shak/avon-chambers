@@ -3,9 +3,8 @@ import type { PortableTextBlock } from "@portabletext/types";
 /**
  * Shared content types for Avon Chambers.
  *
- * Lawyer and PracticeArea records are cross-referenced by slug
- * (lawyer.practiceAreaSlugs <-> practiceArea.lawyerSlugs) so either
- * side can be looked up from the other without duplicating data.
+ * Practice areas have stable numeric IDs. Their slugs remain public URLs;
+ * lawyers and Sanity posts reference the IDs so URL labels can change safely.
  */
 
 export interface LawyerStat {
@@ -21,8 +20,8 @@ export interface Lawyer {
   area: string;
   /** Full practice area names this lawyer covers, for display */
   areas: string[];
-  /** Practice area slugs this lawyer covers, for cross-linking */
-  practiceAreaSlugs: string[];
+  /** Practice area IDs, aligned with `areas` for each display label. */
+  practiceAreaIds: number[];
   photo: string;
   email: string;
   phone: string;
@@ -56,6 +55,8 @@ export interface PracticeAreaImage {
 }
 
 export interface PracticeArea {
+  /** Stable ID used by lawyer and Sanity content links; do not renumber. */
+  id: number;
   slug: string;
   title: string;
   /** lucide-react icon name, resolved at render time */
@@ -67,7 +68,6 @@ export interface PracticeArea {
   overview: string[];
   services: PracticeAreaService[];
   faqs: PracticeAreaFaq[];
-  lawyerSlugs: string[];
 }
 
 export interface CaseStudyKeyResult {
@@ -79,7 +79,7 @@ export interface CaseStudyMeta {
   slug: string;
   title: string;
   excerpt: string;
-  practiceAreaSlugs: string[];
+  practiceAreaIds: number[];
   matterType?: string;
   clientName?: string;
   clientType?: string;
@@ -146,7 +146,7 @@ export interface InsightMeta {
   excerpt: string;
   authorSlug?: string;
   reviewedBySlug?: string;
-  practiceAreaSlugs?: string[];
+  practiceAreaIds?: number[];
   references?: { title: string; url: string }[];
   publishedAt: string; // ISO date
   updatedAt?: string; // ISO date, only set once a post is actually revised

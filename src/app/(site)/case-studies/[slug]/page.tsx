@@ -8,13 +8,14 @@ import { FadeIn } from "@/components/fade-in";
 import { PageBanner } from "@/components/page-banner";
 import { PostBody } from "@/components/post-body";
 import { JsonLd } from "@/components/seo/json-ld";
-import { practiceAreaTitle } from "@/config/case-study.config";
+import { practiceAreaById } from "@/config/practice-areas.config";
 import { mediaConfig } from "@/config/media.config";
 import { siteConfig } from "@/config/site.config";
 import { getAllCaseStudies, getCaseStudy, getCaseStudySlugs } from "@/lib/content";
 import { pictureUrl, formatPostDate } from "@/lib/posts";
 import { breadcrumbSchema, caseStudySchema } from "@/lib/schema";
 import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
+import { cn } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const slugs = await getCaseStudySlugs();
@@ -66,6 +67,8 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
     { label: "Result / status", value: study.result },
     { label: "Matter team", value: study.teamMembers?.join(" · ") },
   ].filter((fact): fact is { label: string; value: string } => Boolean(fact.value));
+  const keyResults = study.keyResults ?? [];
+  const hasKeyResults = keyResults.length > 0;
 
   return (
     <>
@@ -99,23 +102,31 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                 <CalendarDays className="size-4" />
                 <time dateTime={study.publishedAt}>{formatPostDate(study.publishedAt)}</time>
               </span>
-              {study.practiceAreaSlugs.map((areaSlug) => (
-                <Link key={areaSlug} href={`/practice-areas/${areaSlug}`} className="hover:text-foreground">
-                  {practiceAreaTitle(areaSlug)}
-                </Link>
-              ))}
+              {study.practiceAreaIds.map((areaId) => {
+                const area = practiceAreaById(areaId);
+                return area ? (
+                  <Link key={area.id} href={`/practice-areas/${area.slug}`} className="hover:text-foreground">
+                    {area.title}
+                  </Link>
+                ) : null;
+              })}
             </div>
 
             <p className="mt-8 font-serif text-xl leading-relaxed text-foreground sm:text-2xl">{study.excerpt}</p>
           </FadeIn>
         </div>
 
-        {(facts.length > 0 || (study.keyResults?.length ?? 0) > 0) && (
-          <section className="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.38fr)] lg:px-10 lg:py-16">
-            {study.keyResults && study.keyResults.length > 0 && (
-              <FadeIn className="frost grid gap-px overflow-hidden border border-foreground/10 bg-foreground/10 sm:grid-cols-2">
-                {study.keyResults.map((item) => (
-                  <div key={`${item.value}-${item.label}`} className="bg-background/75 p-7 backdrop-blur-xl">
+        {(facts.length > 0 || hasKeyResults) && (
+          <section
+            className={cn(
+              "mx-auto grid gap-8 px-6 py-12 lg:px-10 lg:py-16",
+              facts.length > 0 && hasKeyResults ? "max-w-7xl lg:grid-cols-2" : "max-w-4xl",
+            )}
+          >
+            {hasKeyResults && (
+              <FadeIn className="frost grid min-w-0 gap-px overflow-hidden border border-foreground/10 bg-foreground/10 sm:grid-cols-2">
+                {keyResults.map((item) => (
+                  <div key={`${item.value}-${item.label}`} className="min-w-0 break-words bg-background/75 p-7 backdrop-blur-xl">
                     <p className="font-serif text-3xl text-foreground">{item.value}</p>
                     <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{item.label}</p>
                   </div>
@@ -124,13 +135,13 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             )}
 
             {facts.length > 0 && (
-              <FadeIn delay={80} className="frost p-7">
+              <FadeIn delay={80} className="frost min-w-0 p-7">
                 <h2 className="text-lg text-foreground">Matter at a glance</h2>
                 <dl className="mt-5 divide-y divide-foreground/10 border-t border-foreground/10">
                   {facts.map((fact) => (
-                    <div key={fact.label} className="grid gap-1 py-4 sm:grid-cols-[7rem_1fr]">
-                      <dt className="text-xs text-muted-foreground">{fact.label}</dt>
-                      <dd className="text-sm leading-relaxed text-foreground">{fact.value}</dd>
+                    <div key={fact.label} className="grid min-w-0 items-start gap-x-4 gap-y-1 py-4 sm:grid-cols-[minmax(0,9rem)_minmax(0,1fr)]">
+                      <dt className="text-xs leading-relaxed text-muted-foreground">{fact.label}</dt>
+                      <dd className="min-w-0 break-words text-sm leading-relaxed text-foreground">{fact.value}</dd>
                     </div>
                   ))}
                 </dl>

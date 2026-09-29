@@ -1,6 +1,7 @@
 [
   {
     "slug": "constitutional-litigation-writ",
+    "id": 1,
     "title": "Constitutional Law & Writs",
     "icon": "Landmark",
     "image": {
@@ -84,12 +85,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "corporate-commercial",
+    "id": 2,
     "title": "Corporate & Commercial Law",
     "icon": "BriefcaseBusiness",
     "image": {
@@ -194,12 +194,11 @@
         "q": "Can you help protect our intellectual property?",
         "a": "Yes. We advise on trademark, copyright, patent and industrial design protection, and assist with licensing, commercialisation and enforcement of intellectual property rights alongside our clients' broader corporate and commercial matters."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "civil-litigation",
+    "id": 3,
     "title": "Civil Litigation & Dispute Resolution",
     "icon": "Scale",
     "image": {
@@ -300,12 +299,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after considering the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated to the client before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "arbitration",
+    "id": 4,
     "title": "Arbitration & Mediation",
     "icon": "Handshake",
     "image": {
@@ -385,12 +383,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity, value and scope of the arbitration. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "criminal-law",
+    "id": 5,
     "title": "Criminal Litigation",
     "icon": "Gavel",
     "image": {
@@ -474,12 +471,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "banking-finance-law",
+    "id": 6,
     "title": "Banking, Finance & Investment",
     "icon": "Banknote",
     "image": {
@@ -567,12 +563,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity, value and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "foreign-investment-facilitation",
+    "id": 7,
     "title": "Foreign Investment & Investment Facilitation",
     "icon": "Plane",
     "image": {
@@ -612,12 +607,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "corporate-restructuring-project-documentation",
+    "id": 8,
     "title": "Corporate Restructuring & Project Documentation",
     "icon": "Briefcase",
     "image": {
@@ -657,12 +651,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "property-real-estate",
+    "id": 9,
     "title": "Property & Real Estate",
     "icon": "Building2",
     "image": {
@@ -750,12 +743,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "taxation",
+    "id": 10,
     "title": "Taxation",
     "icon": "Calculator",
     "image": {
@@ -847,12 +839,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "employment-labour-law",
+    "id": 11,
     "title": "Employment & Labour Law",
     "icon": "UsersRound",
     "image": {
@@ -948,12 +939,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "international-law",
+    "id": 12,
     "title": "International Law",
     "icon": "Globe",
     "image": {
@@ -1049,12 +1039,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity, jurisdictions involved and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "it-technology-startups",
+    "id": 13,
     "title": "Telecommunications, IT & Technology",
     "icon": "Laptop",
     "image": {
@@ -1150,12 +1139,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "family-law",
+    "id": 14,
     "title": "Family Law",
     "icon": "HeartHandshake",
     "image": {
@@ -1239,12 +1227,11 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   },
   {
     "slug": "new-developing-areas",
+    "id": 15,
     "title": "New & Developing Areas",
     "icon": "Sparkles",
     "image": {
@@ -1336,8 +1323,6 @@
         "q": "How are legal fees discussed?",
         "a": "Fees are discussed transparently after assessing the nature, complexity and scope of the matter. The proposed fee structure and professional engagement terms are communicated before commencement of the engagement."
       }
-    ],
-    "lawyerSlugs": [],
-    "caseStudySlugs": []
+    ]
   }
 ]

@@ -2,6 +2,7 @@ import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { urlForImage } from "@/sanity/image";
 import { resolveSeoText } from "@/lib/seo";
+import { practiceAreaById } from "@/config/practice-areas.config";
 import type { Lawyer, CaseStudy, Insight, JobPost, PracticeArea } from "@/types";
 
 const abs = (pathname: string) => `${siteConfig.url}${pathname}`;
@@ -111,7 +112,7 @@ export function caseStudySchema(study: CaseStudy) {
     headline: resolveSeoText(study.seo?.metaTitle, study.title),
     name: study.title,
     description: resolveSeoText(study.seo?.metaDescription, study.excerpt),
-    about: study.practiceAreaSlugs,
+    about: study.practiceAreaIds.map((id) => practiceAreaById(id)?.title).filter(Boolean),
     genre: study.matterType,
     image,
     datePublished: study.publishedAt,

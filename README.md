@@ -87,6 +87,17 @@ intended to be edited directly and both collections change infrequently.
 Case studies are managed in Sanity, including their practice-area links,
 matter details, cover image, rich text and SEO fields.
 
+### Practice-area links
+
+Each record in `src/data/practice-areas.json` has a permanent numeric `id` and a
+public URL `slug`. Lawyers use `practiceAreaIds` in `src/data/lawyers.json`;
+the IDs line up with the custom labels in each lawyer's `areas` array. Articles
+and case studies use the same IDs in Sanity. Change a title or slug without
+changing its ID, and assign a new ID when adding a practice area. Run
+`npm run validate:practice-areas` after editing the JSON files to catch missing
+IDs and mismatched lawyer labels. Previously published Sanity posts with
+slug-based practice links continue to render until updated in Studio.
+
 `src/content/` holds the _original_ markdown seed files — the app doesn't
 read them anymore, they exist only as input for the one-time migration
 script. Safe to delete once you've confirmed the migrated content in

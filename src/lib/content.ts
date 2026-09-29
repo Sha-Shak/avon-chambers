@@ -1,5 +1,6 @@
 import { client } from "@/sanity/client";
-import { ARTICLE_CATEGORY_BY_PRACTICE_AREA } from "@/config/article.config";
+import { ARTICLE_CATEGORY_BY_PRACTICE_AREA_ID } from "@/config/article.config";
+import { practiceAreaById, resolvePracticeAreaIds } from "@/config/practice-areas.config";
 import type { CaseStudy, CaseStudyMeta, Insight, InsightMeta, JobPost, JobPostMeta, NewsEvent, NewsEventMeta, ProBonoMeta, ProBonoPost } from "@/types";
 
 const SEO_FIELDS = `
@@ -19,7 +20,8 @@ const INSIGHT_META_FIELDS = `
   excerpt,
   authorSlug,
   reviewedBySlug,
-  practiceAreaSlugs,
+  practiceAreaIds,
+  "legacyPracticeAreaSlugs": practiceAreaSlugs,
   references[]{ title, url },
   publishedAt,
   updatedAt,
@@ -68,7 +70,8 @@ const CASE_STUDY_META_FIELDS = `
   "slug": slug.current,
   title,
   excerpt,
-  practiceAreaSlugs,
+  practiceAreaIds,
+  "legacyPracticeAreaSlugs": practiceAreaSlugs,
   matterType,
   clientName,
   clientType,
@@ -88,12 +91,23 @@ const CASE_STUDY_META_FIELDS = `
 
 // ---- Case studies ---------------------------------------------------------
 
+type LegacyPracticeLinks = { practiceAreaIds?: number[]; legacyPracticeAreaSlugs?: string[] };
+
+function withPracticeAreaIds<T extends LegacyPracticeLinks>(item: T): T & { practiceAreaIds: number[] } {
+  const { legacyPracticeAreaSlugs, ...rest } = item;
+  return {
+    ...rest,
+    practiceAreaIds: resolvePracticeAreaIds(item.practiceAreaIds, legacyPracticeAreaSlugs),
+  } as T & { practiceAreaIds: number[] };
+}
+
 export async function getAllCaseStudies(): Promise<CaseStudyMeta[]> {
-  return client.fetch(
+  const studies = await client.fetch<(CaseStudyMeta & LegacyPracticeLinks)[]>(
     `*[_type == "caseStudy" && defined(slug.current)] | order(publishedAt desc) { ${CASE_STUDY_META_FIELDS} }`,
     {},
     { next: { revalidate: 60 } },
   );
+  return studies.map(withPracticeAreaIds);
 }
 
 export async function getCaseStudySlugs(): Promise<string[]> {
@@ -104,30 +118,34 @@ export async function getCaseStudySlugs(): Promise<string[]> {
 }
 
 export async function getCaseStudy(slug: string): Promise<CaseStudy | undefined> {
-  const result = await client.fetch<CaseStudy | null>(
+  const result = await client.fetch<(CaseStudy & LegacyPracticeLinks) | null>(
     `*[_type == "caseStudy" && slug.current == $slug][0]{ ${CASE_STUDY_META_FIELDS}, body }`,
     { slug },
     { next: { revalidate: 60 } },
   );
-  return result ?? undefined;
+  return result ? withPracticeAreaIds(result) : undefined;
 }
 
-export async function getCaseStudiesByPracticeArea(practiceAreaSlug: string): Promise<CaseStudyMeta[]> {
-  return client.fetch(
-    `*[_type == "caseStudy" && defined(slug.current) && $practiceAreaSlug in practiceAreaSlugs] | order(publishedAt desc) [0...3] { ${CASE_STUDY_META_FIELDS} }`,
-    { practiceAreaSlug },
+export async function getCaseStudiesByPracticeArea(practiceAreaId: number): Promise<CaseStudyMeta[]> {
+  const area = practiceAreaById(practiceAreaId);
+  if (!area) return [];
+  const studies = await client.fetch<(CaseStudyMeta & LegacyPracticeLinks)[]>(
+    `*[_type == "caseStudy" && defined(slug.current) && ($practiceAreaId in coalesce(practiceAreaIds, []) || (count(coalesce(practiceAreaIds, [])) == 0 && $legacySlug in coalesce(practiceAreaSlugs, [])))] | order(publishedAt desc) [0...3] { ${CASE_STUDY_META_FIELDS} }`,
+    { practiceAreaId, legacySlug: area.slug },
     { next: { revalidate: 60 } },
   );
+  return studies.map(withPracticeAreaIds);
 }
 
 // ---- Insights (blog) --------------------------------------------------
 
 export async function getAllInsights(): Promise<InsightMeta[]> {
-  return client.fetch(
+  const insights = await client.fetch<(InsightMeta & LegacyPracticeLinks)[]>(
     `*[_type == "insight" && defined(slug.current)] | order(publishedAt desc) { ${INSIGHT_META_FIELDS} }`,
     {},
     { next: { revalidate: 60 } },
   );
+  return insights.map(withPracticeAreaIds);
 }
 
 export async function getInsightSlugs(): Promise<string[]> {
@@ -138,12 +156,12 @@ export async function getInsightSlugs(): Promise<string[]> {
 }
 
 export async function getInsight(slug: string): Promise<Insight | undefined> {
-  const result = await client.fetch<Insight | null>(
+  const result = await client.fetch<(Insight & LegacyPracticeLinks) | null>(
     `*[_type == "insight" && slug.current == $slug][0]{ ${INSIGHT_META_FIELDS}, body }`,
     { slug },
     { next: { revalidate: 60 } },
   );
-  return result ?? undefined;
+  return result ? withPracticeAreaIds(result) : undefined;
 }
 
 export async function getInsightsByAuthor(authorSlug: string): Promise<InsightMeta[]> {
@@ -151,13 +169,16 @@ export async function getInsightsByAuthor(authorSlug: string): Promise<InsightMe
   return insights.filter((i) => i.authorSlug === authorSlug);
 }
 
-export async function getInsightsByPracticeArea(practiceAreaSlug: string): Promise<InsightMeta[]> {
-  const category = ARTICLE_CATEGORY_BY_PRACTICE_AREA[practiceAreaSlug] ?? "";
-  return client.fetch(
-    `*[_type == "insight" && defined(slug.current) && ($practiceAreaSlug in coalesce(practiceAreaSlugs, []) || category == $category)] | order(publishedAt desc) [0...3] { ${INSIGHT_META_FIELDS} }`,
-    { practiceAreaSlug, category },
+export async function getInsightsByPracticeArea(practiceAreaId: number): Promise<InsightMeta[]> {
+  const area = practiceAreaById(practiceAreaId);
+  if (!area) return [];
+  const category = ARTICLE_CATEGORY_BY_PRACTICE_AREA_ID[practiceAreaId] ?? "";
+  const insights = await client.fetch<(InsightMeta & LegacyPracticeLinks)[]>(
+    `*[_type == "insight" && defined(slug.current) && ($practiceAreaId in coalesce(practiceAreaIds, []) || (count(coalesce(practiceAreaIds, [])) == 0 && $legacySlug in coalesce(practiceAreaSlugs, [])) || (count(coalesce(practiceAreaIds, [])) == 0 && count(coalesce(practiceAreaSlugs, [])) == 0 && category == $category))] | order(publishedAt desc) [0...3] { ${INSIGHT_META_FIELDS} }`,
+    { practiceAreaId, legacySlug: area.slug, category },
     { next: { revalidate: 60 } },
   );
+  return insights.map(withPracticeAreaIds);
 }
 
 // ---- Careers (job posts) -----------------------------------------------

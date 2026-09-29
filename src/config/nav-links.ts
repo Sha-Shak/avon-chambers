@@ -38,6 +38,7 @@ export const navGroups: readonly NavGroup[] = [
     links: [
       { label: "News & Events", href: "/news-events" },
       { label: "Articles", href: "/insights" },
+      { label: "Case Studies", href: "/case-studies" },
     ],
   },
   {

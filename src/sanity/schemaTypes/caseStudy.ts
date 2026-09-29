@@ -1,5 +1,6 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
-import { CASE_STUDY_MATTER_TYPES, CASE_STUDY_PRACTICE_AREAS } from "@/config/case-study.config";
+import { CASE_STUDY_MATTER_TYPES } from "@/config/case-study.config";
+import { PRACTICE_AREA_OPTIONS, practiceAreaById, resolvePracticeAreaIds } from "@/config/practice-areas.config";
 import { coverImageField, postBodyField } from "./objects/postBody";
 
 export const caseStudy = defineType({
@@ -57,14 +58,29 @@ export const caseStudy = defineType({
     { ...postBodyField, title: "Full case study", group: "content" },
 
     defineField({
-      name: "practiceAreaSlugs",
+      name: "practiceAreaIds",
       title: "Practice areas",
       type: "array",
       group: "matter",
-      of: [defineArrayMember({ type: "string" })],
-      options: { list: [...CASE_STUDY_PRACTICE_AREAS], layout: "grid" },
+      of: [defineArrayMember({ type: "number" })],
+      options: { list: PRACTICE_AREA_OPTIONS, layout: "grid" },
       description: "Select every relevant practice area. These links also place the study on matching practice-area pages.",
-      validation: (rule) => rule.required().min(1).unique(),
+      validation: (rule) =>
+        rule.unique().custom((ids, context) => {
+          if (ids?.length || (Array.isArray(context.document?.practiceAreaSlugs) && context.document.practiceAreaSlugs.length)) {
+            return true;
+          }
+          return "Select at least one practice area";
+        }),
+    }),
+    defineField({
+      name: "practiceAreaSlugs",
+      title: "Legacy practice links",
+      type: "array",
+      group: "matter",
+      of: [defineArrayMember({ type: "string" })],
+      hidden: true,
+      readOnly: true,
     }),
     defineField({
       name: "matterType",
@@ -168,11 +184,16 @@ export const caseStudy = defineType({
   ],
   orderings: [{ title: "Newest first", name: "publishedAtDesc", by: [{ field: "publishedAt", direction: "desc" }] }],
   preview: {
-    select: { title: "title", practiceAreas: "practiceAreaSlugs", media: "coverImage" },
-    prepare({ title, practiceAreas }) {
-      const labels = Array.isArray(practiceAreas)
-        ? practiceAreas.map((slug) => CASE_STUDY_PRACTICE_AREAS.find((area) => area.value === slug)?.title ?? slug)
-        : [];
+    select: {
+      title: "title",
+      practiceAreas: "practiceAreaIds",
+      legacyPracticeAreas: "practiceAreaSlugs",
+      media: "coverImage",
+    },
+    prepare({ title, practiceAreas, legacyPracticeAreas }) {
+      const labels = resolvePracticeAreaIds(practiceAreas, legacyPracticeAreas).map(
+        (id) => practiceAreaById(id)?.title ?? String(id),
+      );
       return { title, subtitle: labels.join(" · ") || "No practice area selected" };
     },
   },

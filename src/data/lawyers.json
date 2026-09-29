@@ -16,17 +16,17 @@
       "Family Law",
       "Admiralty Law"
     ],
-    "practiceAreaSlugs": [
-      "civil-litigation",
-      "arbitration-adr",
-      "corporate-commercial",
-      "banking-finance",
-      "taxation",
-      "employment-labour",
-      "intellectual-property",
-      "telecommunications-information-technology",
-      "family-law",
-      "admiralty-law"
+    "practiceAreaIds": [
+      3,
+      4,
+      2,
+      6,
+      10,
+      11,
+      15,
+      13,
+      14,
+      12
     ],
     "photo": "/images/lawyers/Asif.webp",
     "email": "info@avonchambers.com",
@@ -89,11 +89,11 @@
       "Employment and Labour",
       "Family"
     ],
-    "practiceAreaSlugs": [
-      "corporate",
-      "commercial",
-      "employment-labour",
-      "family"
+    "practiceAreaIds": [
+      2,
+      2,
+      11,
+      14
     ],
     "photo": "/images/lawyers/Maeesha.webp",
     "email": "info@avonchambers.com",
@@ -156,12 +156,12 @@
       "Regulatory Compliance",
       "Dispute Resolution"
     ],
-    "practiceAreaSlugs": [
-      "corporate-law",
-      "commercial-law",
-      "corporate-commercial",
-      "regulatory-compliance",
-      "dispute-resolution"
+    "practiceAreaIds": [
+      2,
+      2,
+      15,
+      2,
+      3
     ],
     "photo": "/images/lawyers/Mohannad.webp",
     "email": "info@avonchambers.com",
@@ -224,15 +224,15 @@
       "Public-Private Partnerships",
       "Policy Advocacy"
     ],
-    "practiceAreaSlugs": [
-      "litigation-criminal-civil-labour-company-writ",
-      "dispute-resolution-arbitration",
-      "corporate-commercial",
-      "mergers-acquisitions",
-      "banking-finance",
-      "power-energy",
-      "public-private-partnerships",
-      "policy-advocacy"
+    "practiceAreaIds": [
+      1,
+      4,
+      2,
+      2,
+      6,
+      8,
+      8,
+      1
     ],
     "photo": "/images/lawyers/Krishti.webp",
     "email": "info@avonchambers.com",
@@ -288,12 +288,12 @@
       "Company Law",
       "Legal Advisory"
     ],
-    "practiceAreaSlugs": [
-      "civil-litigation",
-      "criminal-litigation",
-      "tax-law",
-      "company-law",
-      "legal-advisory"
+    "practiceAreaIds": [
+      3,
+      5,
+      10,
+      2,
+      3
     ],
     "photo": "/images/lawyers/Sajid.webp",
     "email": "info@avonchambers.com",
@@ -358,20 +358,20 @@
       "Land & Property Law",
       "Insolvency & Debt Restructuring"
     ],
-    "practiceAreaSlugs": [
-      "corporate-commercial-disputes",
-      "criminal-litigation",
-      "arbitration",
-      "family-divorce-child-custody",
-      "civil-litigation",
-      "contract-drafting-vetting",
-      "employment-labour-disputes",
-      "artha-rin-loan-recovery",
-      "real-estate-property-disputes",
-      "legal-notice-pre-litigation-advisory",
-      "corporate-commercial-advisory",
-      "land-property-law",
-      "insolvency-debt-restructuring"
+    "practiceAreaIds": [
+      2,
+      5,
+      4,
+      14,
+      3,
+      2,
+      11,
+      6,
+      9,
+      3,
+      2,
+      9,
+      8
     ],
     "photo": "/images/lawyers/Radia.webp",
     "email": "info@avonchambers.com",
@@ -431,13 +431,13 @@
       "Policy Making for Government Institutions",
       "Advisory Role in Legal Disputes"
     ],
-    "practiceAreaSlugs": [
-      "civil-commercial-disputes",
-      "banking-financial-litigation",
-      "civil-commercial-mediation",
-      "policy-making-financial-institutions",
-      "policy-making-government-institutions",
-      "legal-dispute-advisory"
+    "practiceAreaIds": [
+      3,
+      6,
+      4,
+      6,
+      1,
+      3
     ],
     "photo": "/images/lawyers/Alif.webp",
     "email": "info@avonchambers.com",
@@ -529,30 +529,30 @@
       "Fraud, Forgery & White-Collar Disputes",
       "Cross-Border Litigation & Arbitration"
     ],
-    "practiceAreaSlugs": [
-      "litigation-dispute-resolution",
-      "civil-litigation",
-      "commercial-litigation",
-      "constitutional-administrative-law",
-      "writs-judicial-review",
-      "arbitration-alternative-dispute-resolution",
-      "corporate-commercial-advisory",
-      "company-law-corporate-governance",
-      "contracts-commercial-agreements",
-      "shareholder-corporate-disputes",
-      "banking-financial-disputes",
-      "regulatory-compliance-risk-advisory",
-      "tax-advisory-tax-disputes",
-      "customs-trade-regulatory-matters",
-      "labour-employment",
-      "land-property-real-estate-disputes",
-      "lease-tenancy-mortgage-disputes",
-      "inheritance-succession",
-      "family-personal-law",
-      "divorce-maintenance-guardianship-custody",
-      "criminal-litigation-complaints",
-      "fraud-forgery-white-collar-disputes",
-      "cross-border-litigation-arbitration"
+    "practiceAreaIds": [
+      3,
+      3,
+      3,
+      1,
+      1,
+      4,
+      2,
+      2,
+      2,
+      2,
+      6,
+      2,
+      10,
+      10,
+      11,
+      9,
+      9,
+      9,
+      14,
+      14,
+      5,
+      5,
+      4
     ],
     "photo": "/images/lawyers/Mahir.webp",
     "email": "info@avonchambers.com",
@@ -644,18 +644,18 @@
       "Arbitration & Adjudication",
       "Contract Drafting & Vetting"
     ],
-    "practiceAreaSlugs": [
-      "commercial-corporate-disputes",
-      "banking-financial-litigation",
-      "artha-rin-loan-recovery",
-      "civil-litigation",
-      "land-property-inheritance",
-      "employment-labour-disputes",
-      "family-divorce-child-custody",
-      "criminal-regulatory-litigation",
-      "animal-welfare-disputes",
-      "arbitration-adjudication",
-      "contract-drafting-vetting"
+    "practiceAreaIds": [
+      2,
+      6,
+      6,
+      3,
+      9,
+      11,
+      14,
+      5,
+      5,
+      4,
+      2
     ],
     "photo": "/images/lawyers/Nazifa.webp",
     "email": "info@avonchambers.com",
@@ -738,16 +738,16 @@
       "Company Law",
       "Financial Crime Compliance"
     ],
-    "practiceAreaSlugs": [
-      "contracts",
-      "fmcg-compliance",
-      "industry-establishment-compliance",
-      "e-commerce",
-      "cyber-law",
-      "employment-labour-law",
-      "financial-compliance-due-diligence",
-      "company-law",
-      "financial-crime-compliance"
+    "practiceAreaIds": [
+      2,
+      2,
+      2,
+      13,
+      13,
+      11,
+      6,
+      2,
+      6
     ],
     "photo": "/images/lawyers/Shafqat.webp",
     "email": "info@avonchambers.com",
@@ -799,11 +799,11 @@
       "Family Matters",
       "Arbitration"
     ],
-    "practiceAreaSlugs": [
-      "civil-litigation",
-      "criminal-law",
-      "family-law",
-      "arbitration"
+    "practiceAreaIds": [
+      3,
+      5,
+      14,
+      4
     ],
     "photo": "/images/lawyers/Etu.webp",
     "email": "info@avonchambers.com",
@@ -862,11 +862,11 @@
       "Land Matters",
       "Family Matters"
     ],
-    "practiceAreaSlugs": [
-      "criminal-litigation",
-      "civil-litigation",
-      "land-matters",
-      "family-matters"
+    "practiceAreaIds": [
+      5,
+      3,
+      9,
+      14
     ],
     "photo": "/images/lawyers/Eshrat.webp",
     "email": "info@avonchambers.com",

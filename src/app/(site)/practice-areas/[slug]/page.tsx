@@ -57,10 +57,10 @@ export default async function PracticeAreaDetailPage({
   const area = getPracticeArea(slug);
   if (!area) notFound();
 
-  const relatedLawyers = getLawyersForPracticeArea(area.slug);
+  const relatedLawyers = getLawyersForPracticeArea(area.id);
   const [relatedCases, relatedInsights] = await Promise.all([
-    getCaseStudiesByPracticeArea(area.slug),
-    getInsightsByPracticeArea(area.slug),
+    getCaseStudiesByPracticeArea(area.id),
+    getInsightsByPracticeArea(area.id),
   ]);
   const { service, faqPage } = practiceAreaSchema(area);
 
