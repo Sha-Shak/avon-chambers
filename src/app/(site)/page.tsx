@@ -19,13 +19,16 @@ import { getAllInsights } from "@/lib/content";
 import testimonialsData from "@/data/testimonials.json";
 import type { ClientTestimonial } from "@/types";
 
+const HOME_DESCRIPTION =
+  "Avon Chambers is a law firm in Dhaka, Bangladesh, advising businesses and individuals on corporate law, litigation, arbitration and other legal matters.";
+
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
-  description: siteConfig.description,
+  description: HOME_DESCRIPTION,
   alternates: { canonical: "/" },
   openGraph: buildOpenGraph({
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
+    description: HOME_DESCRIPTION,
     url: "/",
   }),
 };
@@ -90,7 +93,7 @@ const differentiators = [
   {
     icon: ShieldCheck,
     title: "Specific expertise",
-    copy: "We serve corporate firms, companies and private clients across a range of legal matters.",
+    copy: "From Dhanmondi, Dhaka, our lawyers advise companies and private clients on corporate law, litigation and other legal matters.",
   },
 ];
 
