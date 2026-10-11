@@ -78,3 +78,32 @@ export function buildOpenGraph({
     ],
   } as NonNullable<Metadata["openGraph"]>;
 }
+
+/** Keep every platform on the same page-specific title, description and image. */
+export function buildSocialMetadata(input: Parameters<typeof buildOpenGraph>[0]): Pick<Metadata, "openGraph" | "twitter"> {
+  const title = input.title.replace(/\s+[—–]\s+/g, " | ");
+  const image = input.image ?? {
+    url: mediaConfig.og.default.src,
+    width: mediaConfig.og.default.width,
+    height: mediaConfig.og.default.height,
+    alt: title,
+  };
+  return {
+    openGraph: buildOpenGraph({ ...input, title, image }),
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: input.description,
+      images: [{ url: image.url, alt: image.alt ?? title }],
+    },
+  };
+}
+
+/** A brand-only CMS override cannot describe an individual article. */
+export function resolveSeoTitle(value: string | null | undefined, fallback: string) {
+  const title = resolveSeoText(value, fallback);
+  const parts = title.split(/\s*[|—–]\s*/).filter(Boolean);
+  return parts.every((part) => part.toLowerCase() === siteConfig.name.toLowerCase())
+    ? fallback.trim()
+    : title.replace(new RegExp(`\\s*[|—–]\\s*${siteConfig.name}$`, "i"), "").trim();
+}

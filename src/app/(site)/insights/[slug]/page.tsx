@@ -14,7 +14,7 @@ import { getLawyer } from "@/lib/data";
 import { practiceAreaById } from "@/config/practice-areas.config";
 import { getAllInsights, getInsight, getInsightSlugs } from "@/lib/content";
 import { breadcrumbSchema, insightSchema } from "@/lib/schema";
-import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
+import { buildSocialMetadata, resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 import { urlForImage } from "@/sanity/image";
 
 export async function generateStaticParams() {
@@ -32,7 +32,7 @@ export async function generateMetadata({
   if (!insight)
     return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = resolveSeoText(insight.seo?.metaTitle, insight.title);
+  const title = resolveSeoTitle(insight.seo?.metaTitle, insight.title);
   const description = resolveSeoText(insight.seo?.metaDescription, insight.excerpt);
   const ogImageAsset = insight.seo?.ogImage?.asset ?? insight.coverImage?.asset;
   const image = ogImageAsset
@@ -45,8 +45,8 @@ export async function generateMetadata({
     keywords: insight.seo?.keywords,
     alternates: { canonical: `/insights/${insight.slug}` },
     robots: insight.seo?.noIndex ? { index: false, follow: true } : undefined,
-    openGraph: buildOpenGraph({
-      title: `${title} — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `${title} | ${siteConfig.name}`,
       description,
       url: `/insights/${insight.slug}`,
       type: "article",
@@ -54,12 +54,6 @@ export async function generateMetadata({
       publishedTime: insight.publishedAt,
       modifiedTime: insight.updatedAt ?? insight.publishedAt,
     }),
-    twitter: {
-      card: "summary_large_image",
-      title: `${title} — ${siteConfig.name}`,
-      description,
-      images: [image],
-    },
   };
 }
 

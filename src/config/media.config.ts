@@ -111,19 +111,12 @@ export const mediaConfig = {
     width: 700,
     height: 800,
   },
-  /**
-   * Default Open Graph / Twitter card image for pages without a more
-   * specific one (e.g. an insight's own cover image, or a lawyer's own
-   * portrait). Currently the brand monogram — a 300x300 square, not the
-   * 1200x630 landscape crop most platforms prefer, so it may get cropped
-   * tight or letterboxed in some link previews. Swap for a dedicated
-   * 1200x630 image later if that becomes worth fixing.
-   */
+  /** Landscape brand card shared by pages without their own cover image. */
   og: {
     default: {
-      src: "/images/brand/Avon_Chambers_Logo.webp",
-      width: 300,
-      height: 300,
+      src: "/social-image",
+      width: 1200,
+      height: 630,
     },
   },
 } as const;

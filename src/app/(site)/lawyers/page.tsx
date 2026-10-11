@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getLawyersByTier } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Meet the legal professionals of ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Lawyers",
   description: DESCRIPTION,
   alternates: { canonical: "/lawyers" },
-  openGraph: buildOpenGraph({ title: `Lawyers — ${siteConfig.name}`, description: DESCRIPTION, url: "/lawyers" }),
+  ...buildSocialMetadata({ title: `Lawyers | ${siteConfig.name}`, description: DESCRIPTION, url: "/lawyers" }),
 };
 
 export default function LawyersPage() {

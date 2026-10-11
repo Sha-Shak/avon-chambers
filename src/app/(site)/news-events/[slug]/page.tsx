@@ -10,7 +10,7 @@ import { mediaConfig } from "@/config/media.config";
 import { getAllNewsEvents, getNewsEvent, getNewsEventSlugs } from "@/lib/content";
 import { newsEventCard, pictureUrl } from "@/lib/posts";
 import { breadcrumbSchema, postSchema } from "@/lib/schema";
-import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
+import { buildSocialMetadata, resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const slugs = await getNewsEventSlugs();
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const item = await getNewsEvent(slug);
   if (!item) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = resolveSeoText(item.seo?.metaTitle, item.title);
+  const title = resolveSeoTitle(item.seo?.metaTitle, item.title);
   const description = resolveSeoText(item.seo?.metaDescription, item.excerpt);
   const image = pictureUrl(item.seo?.ogImage ?? item.coverImage, 1200, 630) ?? mediaConfig.og.default.src;
 
@@ -32,15 +32,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     keywords: item.seo?.keywords,
     alternates: { canonical: `/news-events/${item.slug}` },
     robots: item.seo?.noIndex ? { index: false, follow: true } : undefined,
-    openGraph: buildOpenGraph({
-      title: `${title} — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `${title} | ${siteConfig.name}`,
       description,
       url: `/news-events/${item.slug}`,
       type: "article",
       image: { url: image },
       publishedTime: item.publishedAt,
     }),
-    twitter: { card: "summary_large_image", title: `${title} — ${siteConfig.name}`, description, images: [image] },
   };
 }
 

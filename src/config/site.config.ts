@@ -79,7 +79,7 @@ export const siteConfig = {
   email: "info@avonchambers.com",
   consultationPhoneDisplay: "(88) 01841010059",
   consultationPhoneE164: "+8801841010059",
-  officeHours: "Sat–Thurs, 9:30am – 6:30pm",
+  officeHours: "Saturday to Thursday, 9:30am to 6:30pm",
   address: {
     streetAddress: "Flat 4A, Level 3, Kanak Bindu, House 39A, Road No. 8",
     addressLocality: "Dhanmondi",

@@ -14,7 +14,7 @@ import { siteConfig } from "@/config/site.config";
 import { getAllCaseStudies, getCaseStudy, getCaseStudySlugs } from "@/lib/content";
 import { pictureUrl, formatPostDate } from "@/lib/posts";
 import { breadcrumbSchema, caseStudySchema } from "@/lib/schema";
-import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
+import { buildSocialMetadata, resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export async function generateStaticParams() {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const study = await getCaseStudy(slug);
   if (!study) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = resolveSeoText(study.seo?.metaTitle, study.title);
+  const title = resolveSeoTitle(study.seo?.metaTitle, study.title);
   const description = resolveSeoText(study.seo?.metaDescription, study.excerpt);
   const image = pictureUrl(study.seo?.ogImage ?? study.coverImage, 1200, 630) ?? mediaConfig.og.default.src;
 
@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     keywords: study.seo?.keywords,
     alternates: { canonical: `/case-studies/${study.slug}` },
     robots: study.seo?.noIndex ? { index: false, follow: true } : undefined,
-    openGraph: buildOpenGraph({
-      title: `${title} — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `${title} | ${siteConfig.name}`,
       description,
       url: `/case-studies/${study.slug}`,
       type: "article",
@@ -46,7 +46,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: study.publishedAt,
       modifiedTime: study.updatedAt ?? study.publishedAt,
     }),
-    twitter: { card: "summary_large_image", title: `${title} — ${siteConfig.name}`, description, images: [image] },
   };
 }
 

@@ -7,9 +7,9 @@ import { siteConfig } from "@/config/site.config";
 import { getAllProBonoPosts } from "@/lib/content";
 import { proBonoCard } from "@/lib/posts";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 
-const DESCRIPTION = `Social commitments and pro bono services by the lawyers of ${siteConfig.name} — legal aid, outreach and awareness for those who need it most.`;
+const DESCRIPTION = `Legal aid, community outreach and pro bono work by the lawyers of ${siteConfig.name}.`;
 
 export async function generateMetadata(): Promise<Metadata> {
   const hasPublishedContent = (await getAllProBonoPosts()).length > 0;
@@ -18,8 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description: DESCRIPTION,
     alternates: { canonical: "/pro-bono" },
     robots: hasPublishedContent ? undefined : { index: false, follow: true },
-    openGraph: buildOpenGraph({
-      title: `Social Commitments and Pro Bono Services — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `Social Commitments and Pro Bono Services | ${siteConfig.name}`,
       description: DESCRIPTION,
       url: "/pro-bono",
     }),

@@ -7,6 +7,7 @@ export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   ...studioMetadata,
+  robots: { index: false, follow: false },
   icons: { icon: mediaConfig.brand.favicon },
 };
 

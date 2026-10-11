@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { getJobPost, getJobPostSlugs } from "@/lib/content";
 import { breadcrumbSchema, jobPostingSchema } from "@/lib/schema";
-import { buildOpenGraph, resolveSeoText } from "@/lib/seo";
+import { buildSocialMetadata, resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 import { urlForImage } from "@/sanity/image";
 
 export async function generateStaticParams() {
@@ -27,7 +27,7 @@ export async function generateMetadata({
   const job = await getJobPost(slug);
   if (!job) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = resolveSeoText(job.seo?.metaTitle, job.title);
+  const title = resolveSeoTitle(job.seo?.metaTitle, job.title);
   const description = resolveSeoText(job.seo?.metaDescription, job.summary);
   const image = job.seo?.ogImage?.asset
     ? urlForImage(job.seo.ogImage.asset).width(1200).height(630).url()
@@ -39,18 +39,12 @@ export async function generateMetadata({
     keywords: job.seo?.keywords,
     alternates: { canonical: `/careers/${job.slug}` },
     robots: job.seo?.noIndex ? { index: false, follow: true } : undefined,
-    openGraph: buildOpenGraph({
-      title: `${title} — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `${title} | ${siteConfig.name}`,
       description,
       url: `/careers/${job.slug}`,
       image: { url: image },
     }),
-    twitter: {
-      card: "summary_large_image",
-      title: `${title} — ${siteConfig.name}`,
-      description,
-      images: [image],
-    },
   };
 }
 
@@ -110,7 +104,7 @@ export default async function JobDetailPage({
             <a href={`mailto:${job.applyEmail}?subject=${encodeURIComponent(job.title)}`} className="text-foreground hover:underline">
               {job.applyEmail}
             </a>{" "}
-            directly — no account, portal or CV upload required.
+            directly by email.
           </p>
           <Button asChild variant="navy" size="xl" className="mt-6 rounded-none">
             <a href={`mailto:${job.applyEmail}?subject=${encodeURIComponent(job.title)}`}>Email your application</a>

@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllCaseStudies } from "@/lib/content";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Explore selected matters handled by ${siteConfig.name}, including the legal issues, approach and outcomes.`;
 
@@ -19,8 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description: DESCRIPTION,
     alternates: { canonical: "/case-studies" },
     robots: caseStudies.length > 0 ? undefined : { index: false, follow: true },
-    openGraph: buildOpenGraph({
-      title: `Case Studies — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `Case Studies | ${siteConfig.name}`,
       description: DESCRIPTION,
       url: "/case-studies",
     }),

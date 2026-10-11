@@ -7,9 +7,9 @@ import { siteConfig } from "@/config/site.config";
 import { getAllNewsEvents } from "@/lib/content";
 import { newsEventCard } from "@/lib/posts";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 
-const DESCRIPTION = `News, announcements and events from ${siteConfig.name} — what the Chambers has been up to, and what is coming next.`;
+const DESCRIPTION = `The latest news, announcements and events from ${siteConfig.name}.`;
 
 export async function generateMetadata(): Promise<Metadata> {
   const items = await getAllNewsEvents();
@@ -19,8 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description: DESCRIPTION,
     alternates: { canonical: "/news-events" },
     robots: items.length > 0 ? undefined : { index: false, follow: true },
-    openGraph: buildOpenGraph({
-      title: `News & Events — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `News & Events | ${siteConfig.name}`,
       description: DESCRIPTION,
       url: "/news-events",
     }),

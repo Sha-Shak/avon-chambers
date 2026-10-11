@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllInsights } from "@/lib/content";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Articles and legal insights from ${siteConfig.name} in Bangladesh.`;
 
@@ -18,8 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description: DESCRIPTION,
     alternates: { canonical: "/insights" },
     robots: insights.length > 0 ? undefined : { index: false, follow: true },
-    openGraph: buildOpenGraph({
-      title: `Articles — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `Articles | ${siteConfig.name}`,
       description: DESCRIPTION,
       url: "/insights",
     }),
@@ -42,7 +42,7 @@ export default async function InsightsPage() {
         image="articles"
         eyebrow="Notes and analysis"
         title="Articles"
-        description={<>Practical writing from the partners at {siteConfig.name} — the questions clients actually ask, answered in the open.</>}
+        description={<>Articles from the lawyers at {siteConfig.name} on legal developments and the questions that matter to our clients.</>}
       />
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
@@ -50,7 +50,7 @@ export default async function InsightsPage() {
           <InsightsCollection insights={insights} />
         ) : (
           <p className="max-w-xl text-muted-foreground">
-            New writing is on its way — check back shortly.
+            Articles will be published here soon.
           </p>
         )}
       </section>

@@ -6,16 +6,16 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getGalleryCategories, getGalleryPhotos } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 
-const DESCRIPTION = `A look inside ${siteConfig.name} — the office, the people, and the moments in between the casework.`;
+const DESCRIPTION = `Meet the people at ${siteConfig.name} and see everyday life at the Chambers.`;
 
 export const metadata: Metadata = {
   title: "Life at Avon",
   description: DESCRIPTION,
   alternates: { canonical: "/life-at-avon" },
-  openGraph: buildOpenGraph({
-    title: `Life at Avon — ${siteConfig.name}`,
+  ...buildSocialMetadata({
+    title: `Life at Avon | ${siteConfig.name}`,
     description: DESCRIPTION,
     url: "/life-at-avon",
   }),

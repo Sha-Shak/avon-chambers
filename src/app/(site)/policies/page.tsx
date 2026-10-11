@@ -7,7 +7,7 @@ import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Terms of engagement and the policies that govern how ${siteConfig.name} works with clients, handles data and conducts itself.`;
 
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   title: "Policies & Terms of Engagement",
   description: DESCRIPTION,
   alternates: { canonical: "/policies" },
-  openGraph: buildOpenGraph({
-    title: `Policies & Terms of Engagement — ${siteConfig.name}`,
+  ...buildSocialMetadata({
+    title: `Policies & Terms of Engagement | ${siteConfig.name}`,
     description: DESCRIPTION,
     url: "/policies",
   }),
@@ -53,7 +53,7 @@ export default function PoliciesPage() {
         image="policies"
         eyebrow="Policies"
         title="Policies & Terms of Engagement"
-        description={<>{DESCRIPTION} This page is a working draft prepared to give the site complete, honest policy coverage from launch — the firm should have it reviewed by its own counsel and refined to reflect its actual practice before treating any clause as final.</>}
+        description={<>{DESCRIPTION} These policies are currently in draft form and remain subject to review by the Chambers.</>}
       >
         <div className="mt-8 flex flex-wrap gap-2">
           {SECTIONS.map((s) => (
@@ -73,8 +73,7 @@ export default function PoliciesPage() {
           <p>
             These terms govern the relationship between {siteConfig.name} (&ldquo;the Chambers&rdquo;, &ldquo;we&rdquo;,
             &ldquo;us&rdquo;) and any person or entity who instructs us (&ldquo;the client&rdquo;, &ldquo;you&rdquo;). They apply
-            from the point a matter is accepted, alongside any engagement letter issued for that specific matter —
-            where the two conflict, the engagement letter for that matter takes precedence.
+            from the point a matter is accepted, alongside any engagement letter issued for that specific matter. If the two conflict, the engagement letter for that matter takes precedence.
           </p>
           <h3>Scope of engagement</h3>
           <p>
@@ -86,8 +85,8 @@ export default function PoliciesPage() {
           <h3>Fees, retainers and disbursements</h3>
           <p>
             Fees are agreed before work begins, on the fixed-fee, hourly-rate or retainer basis set out in the
-            engagement letter for that matter. Disbursements — court fees, stamp duty, expert or counsel fees,
-            travel and similar third-party costs — are billed separately as incurred. See{" "}
+            engagement letter for that matter. Disbursements, including court fees, stamp duty, expert or counsel fees,
+            travel and similar third-party costs, are billed separately as incurred. See{" "}
             <a href="#fees-and-billing">Fees &amp; Billing</a> below for invoicing and payment terms.
           </p>
           <h3>Client responsibilities</h3>
@@ -107,7 +106,7 @@ export default function PoliciesPage() {
           <h3>Conflicts of interest</h3>
           <p>
             Before accepting a new instruction we check it against our existing and former clients. Where a
-            conflict — or a risk of one — is identified, we will decline the instruction, or act only once an
+            conflict or a potential conflict is identified, we will decline the instruction, or act only once an
             appropriate conflict waiver has been obtained from everyone affected.
           </p>
           <h3>Limitation of liability</h3>
@@ -139,15 +138,15 @@ export default function PoliciesPage() {
           <h3>What we collect</h3>
           <ul>
             <li>
-              <strong>Consultation and contact form submissions</strong> — name, email, phone number, and the
+              <strong>Consultation and contact form submissions</strong>: name, email, phone number, and the
               details of your enquiry, submitted voluntarily when you book a consultation or contact us.
             </li>
             <li>
-              <strong>Client and matter records</strong> — information you provide once we act for you, held as
+              <strong>Client and matter records</strong>: information you provide once we act for you, held as
               part of the file for that matter.
             </li>
             <li>
-              <strong>Usage data</strong> — where analytics are enabled on this site, aggregated, anonymised
+              <strong>Usage data</strong>: where analytics are enabled on this site, aggregated, anonymised
               information about how visitors use it (pages viewed, general location, device type) is collected to
               help us improve the site. See <a href="#cookie-policy">Cookies</a> below.
             </li>
@@ -155,7 +154,7 @@ export default function PoliciesPage() {
           <h3>How we use it</h3>
           <p>
             We use personal data to respond to enquiries, provide legal services to clients, meet our own legal
-            and regulatory obligations, and — only with appropriate care — to improve this website. We do not sell
+            and regulatory obligations, and, with appropriate care, to improve this website. We do not sell
             personal data, and we do not share it with third parties except: service providers who help us run
             this site or our practice (under confidentiality obligations), where required by law or a court order,
             or with your consent.
@@ -202,7 +201,7 @@ export default function PoliciesPage() {
           <p>This site uses a small number of cookies and similar technologies, grouped as follows.</p>
           <h3>Essential cookies</h3>
           <p>
-            Used for core site functionality — for example, remembering your appearance (light/dark) preference.
+            Used for core site functionality, such as remembering your appearance (light/dark) preference.
             These cannot be switched off, as the site would not function correctly without them.
           </p>
           <h3>Analytics cookies</h3>
@@ -281,7 +280,7 @@ export default function PoliciesPage() {
           <h3>Reporting obligations</h3>
           <p>
             Where we are required by law to report a suspicion of money laundering or other financial crime to the
-            relevant authority, we will do so — this obligation can override our usual duty of confidentiality,
+            relevant authority, we will do so. This obligation can override our usual duty of confidentiality,
             and in some circumstances the law prevents us from telling the client that a report has been made.
           </p>
         </PolicySection>
@@ -294,7 +293,7 @@ export default function PoliciesPage() {
             under the laws of Bangladesh.
           </p>
           <p>
-            Anyone — staff, client, or third party — who believes they have experienced or witnessed conduct
+            Any staff member, client or third party who believes they have experienced or witnessed conduct
             falling short of this commitment can raise it confidentially with the firm using the contact details on
             our <Link href="/contact">Contact</Link> page.
           </p>
@@ -304,7 +303,7 @@ export default function PoliciesPage() {
           <p>
             This website is attorney advertising. It is provided for general informational purposes only and does
             not constitute legal advice, nor does viewing it or contacting us through it create a lawyer&ndash;client
-            relationship — that relationship only comes into existence once we have confirmed in writing that we
+            relationship. That relationship only comes into existence once we have confirmed in writing that we
             are acting for you, and any necessary conflict checks have been completed.
           </p>
           <p>
@@ -336,7 +335,7 @@ export default function PoliciesPage() {
           <p>
             If you find any part of this site difficult to use, please tell us at{" "}
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or{" "}
-            <a href={`tel:${siteConfig.consultationPhoneE164}`}>{siteConfig.consultationPhoneDisplay}</a> — include
+            <a href={`tel:${siteConfig.consultationPhoneE164}`}>{siteConfig.consultationPhoneDisplay}</a>. Please include
             the page and what happened, and we will do our best to fix it.
           </p>
         </PolicySection>

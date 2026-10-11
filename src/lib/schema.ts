@@ -1,7 +1,7 @@
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { urlForImage } from "@/sanity/image";
-import { resolveSeoText } from "@/lib/seo";
+import { resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 import { practiceAreaById } from "@/config/practice-areas.config";
 import type { Lawyer, CaseStudy, Insight, JobPost, PracticeArea } from "@/types";
 
@@ -32,7 +32,7 @@ export function organizationSchema() {
       postalCode: siteConfig.address.postalCode,
       addressCountry: siteConfig.address.addressCountry,
     },
-    areaServed: siteConfig.address.addressRegion,
+    areaServed: siteConfig.address.addressCountry,
     sameAs: Object.values(siteConfig.social).filter(Boolean),
   };
 }
@@ -71,7 +71,7 @@ export function practiceAreaSchema(area: PracticeArea) {
     description: area.valueProp,
     url: abs(`/practice-areas/${area.slug}`),
     provider: { "@id": organizationId() },
-    areaServed: siteConfig.address.addressRegion,
+    areaServed: siteConfig.address.addressCountry,
   };
 
   const faqPage =
@@ -109,7 +109,7 @@ export function caseStudySchema(study: CaseStudy) {
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    headline: resolveSeoText(study.seo?.metaTitle, study.title),
+    headline: resolveSeoTitle(study.seo?.metaTitle, study.title),
     name: study.title,
     description: resolveSeoText(study.seo?.metaDescription, study.excerpt),
     about: study.practiceAreaIds.map((id) => practiceAreaById(id)?.title).filter(Boolean),
@@ -144,7 +144,7 @@ export function insightSchema(
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: resolveSeoText(insight.seo?.metaTitle, insight.title),
+    headline: resolveSeoTitle(insight.seo?.metaTitle, insight.title),
     description: resolveSeoText(insight.seo?.metaDescription, insight.excerpt),
     image,
     articleSection: insight.category,

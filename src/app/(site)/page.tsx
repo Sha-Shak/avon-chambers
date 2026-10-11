@@ -14,7 +14,7 @@ import { InteractiveMarquee } from "@/components/interactive-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { getAllPracticeAreas } from "@/lib/data";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 import { getAllInsights } from "@/lib/content";
 import testimonialsData from "@/data/testimonials.json";
 import type { ClientTestimonial } from "@/types";
@@ -23,11 +23,11 @@ const HOME_DESCRIPTION =
   "Avon Chambers is a law firm in Dhaka, Bangladesh, advising businesses and individuals on corporate law, litigation, arbitration and other legal matters.";
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} — ${siteConfig.tagline}`,
+  title: { absolute: `${siteConfig.name} | ${siteConfig.tagline}` },
   description: HOME_DESCRIPTION,
   alternates: { canonical: "/" },
-  openGraph: buildOpenGraph({
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+  ...buildSocialMetadata({
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: HOME_DESCRIPTION,
     url: "/",
   }),
@@ -45,8 +45,8 @@ const heroContent: Omit<HeroSlide, "image">[] = [
   },
   {
     eyebrow: "Our commitment",
-    heading: "Dedicated service, Professional expertise, Practical solutions",
-    subheading: "We are a dynamic and vibrant chambers committed to clear advice, high professional standards and confidentiality",
+    heading: "Dedicated service. Practical advice.",
+    subheading: "We give clear advice, prepare each matter carefully and treat your information with confidence",
   },
   {
     eyebrow: "Practice areas",
@@ -373,7 +373,7 @@ export default async function HomePage() {
             </FadeIn>
           ) : (
             <FadeIn className="mt-14 border-t border-foreground/10 pt-8 text-muted-foreground">
-              New writing is on its way — check back shortly.
+              Articles will be published here soon.
             </FadeIn>
           )}
         </div>

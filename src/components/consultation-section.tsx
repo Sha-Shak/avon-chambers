@@ -80,7 +80,7 @@ export function ConsultationSection({
           <div>
             <p className="text-[0.6875rem] tracking-[0.2em] text-cream/50 uppercase">Get in touch</p>
             <p className="mt-4 text-base leading-relaxed text-cream/70">
-              The fastest way to reach us — message the team directly on WhatsApp and we&rsquo;ll respond
+              Message our team on WhatsApp and we&rsquo;ll respond
               as soon as we can.
             </p>
           </div>

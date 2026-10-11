@@ -4,40 +4,33 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Analytics } from "@/components/analytics/google-analytics";
 import { WhatsAppButton } from "@/components/whatsapp-button";
-import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
+import { siteConfig } from "@/config/site.config";
 import { organizationSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
-    template: `%s — ${siteConfig.name}`,
+    default: `${siteConfig.name} | ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.name }],
   alternates: { canonical: "/" },
-  openGraph: buildOpenGraph({
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+  ...buildSocialMetadata({
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
     url: "/",
   }),
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
-    images: [mediaConfig.og.default.src],
-  },
   icons: {
     icon: mediaConfig.brand.favicon,
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
   },
   // Not read by Google, but some other search tools and SEO auditors still
   // look for a plain `<meta name="publisher">` tag.

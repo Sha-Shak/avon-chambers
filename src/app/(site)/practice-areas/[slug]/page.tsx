@@ -18,7 +18,7 @@ import {
 } from "@/lib/data";
 import { getCaseStudiesByPracticeArea, getInsightsByPracticeArea } from "@/lib/content";
 import { breadcrumbSchema, practiceAreaSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site.config";
 
 export function generateStaticParams() {
@@ -39,8 +39,8 @@ export async function generateMetadata({
     title: seoTitle,
     description: area.valueProp,
     alternates: { canonical: `/practice-areas/${area.slug}` },
-    openGraph: buildOpenGraph({
-      title: `${seoTitle} — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `${seoTitle} | ${siteConfig.name}`,
       description: area.valueProp,
       url: `/practice-areas/${area.slug}`,
       image: { url: area.image.src, alt: area.image.alt },

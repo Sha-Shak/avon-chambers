@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllJobPosts, isJobOpen } from "@/lib/content";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Career opportunities at ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
 
@@ -17,8 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description: DESCRIPTION,
     alternates: { canonical: "/careers" },
     robots: openRoles.length > 0 ? undefined : { index: false, follow: true },
-    openGraph: buildOpenGraph({
-      title: `Careers — ${siteConfig.name}`,
+    ...buildSocialMetadata({
+      title: `Careers | ${siteConfig.name}`,
       description: DESCRIPTION,
       url: "/careers",
     }),
@@ -41,7 +41,7 @@ export default async function CareersPage() {
         image="careers"
         eyebrow="Careers"
         title={`Work at ${siteConfig.name}`}
-        description={<>We stay small on purpose, so every hire matters. Below are the roles we&rsquo;re actively filling — apply directly by email, no account or portal required.</>}
+        description={<>View our current vacancies below. To apply, email your application to the team.</>}
       />
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">

@@ -7,7 +7,7 @@ import { SocialLinks } from "@/components/social-links";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Contact ${siteConfig.name} in Dhanmondi, Dhaka for professional legal advice and representation.`;
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description: DESCRIPTION,
   alternates: { canonical: "/contact" },
-  openGraph: buildOpenGraph({ title: `Contact ${siteConfig.name}`, description: DESCRIPTION, url: "/contact" }),
+  ...buildSocialMetadata({ title: `Contact ${siteConfig.name}`, description: DESCRIPTION, url: "/contact" }),
 };
 
 export default function ContactPage() {
@@ -94,7 +94,7 @@ export default function ContactPage() {
           <FadeIn delay={100} className="min-w-0">
             <div className="frost-strong flex h-full flex-col justify-center gap-6 p-8 sm:p-10">
               <p className="text-base leading-relaxed text-muted-foreground">
-                The fastest way to reach us — message the team directly on WhatsApp and we&rsquo;ll
+                Message our team on WhatsApp and we&rsquo;ll
                 respond as soon as we can.
               </p>
               <WhatsAppCta />
