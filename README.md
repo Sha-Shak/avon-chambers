@@ -8,8 +8,11 @@ areas, case studies, firm details) is plain JSON/config files in the repo.
 
 ## Quick start
 
+Use Node.js 24 and npm 11, matching the Netlify build configuration.
+
 ```bash
-npm install
+nvm use
+npm ci
 cp .env.example .env.local   # then fill in the values, see below
 npm run dev                  # http://localhost:3000
 ```
