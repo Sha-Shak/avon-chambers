@@ -23,6 +23,8 @@ export interface Lawyer {
   /** Practice area IDs, aligned with `areas` for each display label. */
   practiceAreaIds: number[];
   photo: string;
+  /** Crop position for the small circular article byline portrait. */
+  avatarPosition?: string;
   email: string;
   phone: string;
   intro: string;

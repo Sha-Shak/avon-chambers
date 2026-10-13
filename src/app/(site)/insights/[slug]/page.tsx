@@ -143,6 +143,7 @@ export default async function InsightDetailPage({
                     <Link href={`/lawyers/${author.slug}`} className="inline-flex items-center gap-3 hover:opacity-80">
                       <Image
                         src={author.photo}
+                        style={{ objectPosition: author.avatarPosition ?? "50% 0%" }}
                         alt=""
                         width={40}
                         height={40}
@@ -158,6 +159,7 @@ export default async function InsightDetailPage({
                     <Link href={`/lawyers/${reviewer.slug}`} className="inline-flex items-center gap-3 hover:opacity-80">
                       <Image
                         src={reviewer.photo}
+                        style={{ objectPosition: reviewer.avatarPosition ?? "50% 0%" }}
                         alt=""
                         width={40}
                         height={40}
