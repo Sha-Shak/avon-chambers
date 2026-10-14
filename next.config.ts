@@ -26,6 +26,9 @@ const nextConfig: NextConfig = {
   // existing links and bookmarks still resolve.
   async redirects() {
     return [
+      // Intellectual property services were consolidated into Corporate & Commercial.
+      // Preserve the old public URL instead of serving the noindex not-found page.
+      { source: "/practice-areas/intellectual-property-law", destination: "/practice-areas/corporate-commercial", permanent: true },
       { source: "/terms-of-engagement", destination: "/policies#terms-of-engagement", permanent: true },
       { source: "/privacy-policy", destination: "/policies#privacy-policy", permanent: true },
       { source: "/lawyer-advertising", destination: "/policies#lawyer-advertising", permanent: true },

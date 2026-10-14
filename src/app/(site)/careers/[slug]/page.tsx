@@ -49,7 +49,7 @@ export async function generateMetadata({
 }
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
+  return new Date(iso).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 }
 
 export default async function JobDetailPage({
