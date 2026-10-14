@@ -1,27 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { InsightCard } from "@/components/cards/insight-card";
+import { useEffect, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import type { InsightMeta } from "@/types";
 
 /**
  * Auto-advancing groups of the latest articles. Each slide uses the same card
  * grid as the Articles listing so visitors can scan several posts at once.
  */
 export function ArticlesCarousel({
-  insights,
+  slides,
   intervalMs = 7000,
 }: {
-  insights: InsightMeta[];
+  slides: ReactNode[];
   intervalMs?: number;
 }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const slides = Array.from(
-    { length: Math.ceil(insights.length / 3) },
-    (_, slideIndex) => insights.slice(slideIndex * 3, slideIndex * 3 + 3),
-  );
+
 
   useEffect(() => {
     if (paused || slides.length <= 1) return;
@@ -43,17 +38,16 @@ export function ArticlesCarousel({
         <div className="grid">
           {slides.map((slide, i) => (
             <div
-              key={slide.map((insight) => insight.slug).join("-")}
+              key={i}
               aria-hidden={i !== index}
+              inert={i !== index}
               className={cn(
                 "col-start-1 row-start-1 translate-y-2 transition-[opacity,transform] duration-700 ease-out",
                 i === index ? "translate-y-0 opacity-100" : "pointer-events-none opacity-0",
               )}
             >
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {slide.map((insight) => (
-                  <InsightCard key={insight.slug} insight={insight} />
-                ))}
+                {slide}
               </div>
             </div>
           ))}
@@ -64,7 +58,7 @@ export function ArticlesCarousel({
         <div className="mt-6 flex justify-center gap-2">
           {slides.map((slide, i) => (
             <button
-              key={slide.map((insight) => insight.slug).join("-")}
+              key={i}
               type="button"
               aria-label={`Show article group ${i + 1}`}
               aria-current={i === index}

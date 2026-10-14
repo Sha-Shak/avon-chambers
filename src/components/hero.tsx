@@ -26,14 +26,20 @@ export interface HeroSlide {
 export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; intervalMs: number }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [imagesReady, setImagesReady] = useState(false);
 
   useEffect(() => {
-    if (paused || slides.length <= 1) return;
+    const timer = window.setTimeout(() => setImagesReady(true), intervalMs);
+    return () => window.clearTimeout(timer);
+  }, [intervalMs]);
+
+  useEffect(() => {
+    if (!imagesReady || paused || slides.length <= 1) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const timer = setInterval(() => setIndex((i) => (i + 1) % slides.length), intervalMs);
     return () => clearInterval(timer);
-  }, [paused, slides.length, intervalMs]);
+  }, [imagesReady, paused, slides.length, intervalMs]);
 
   return (
     <div
@@ -42,7 +48,7 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
       onMouseLeave={() => setPaused(false)}
     >
       {slides.map((slide, i) => (
-        <Image
+        (i === 0 || imagesReady || i === index) && <Image
           key={slide.image.src}
           src={slide.image.src}
           alt={slide.image.alt}
@@ -53,7 +59,7 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
             "object-cover transition-[opacity,transform] duration-[1600ms] ease-out",
             i === index ? "scale-100 opacity-100" : "scale-105 opacity-0",
           )}
-          priority={i === 0}
+          preload={i === 0}
         />
       ))}
 

@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     }];
   },
   images: {
+    qualities: [60, 75],
     remotePatterns: [
       // Sanity-hosted content images (insight cover images, uploaded via
       // the Studio).

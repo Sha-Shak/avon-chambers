@@ -35,6 +35,7 @@ export function SectionBackdrop({
         fill
         sizes="100vw"
         loading="lazy"
+        quality={60}
         style={{ objectPosition: backdrop.position ?? "center" }}
         className="-z-20 object-cover"
       />

@@ -15,7 +15,7 @@ export function PracticeAreaCard({ area }: { area: PracticeArea }) {
           src={area.image.src}
           alt={area.image.alt}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          sizes="(min-width: 640px) 352px, 86vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute top-4 left-4 flex size-10 items-center justify-center rounded-full bg-navy/80 backdrop-blur">

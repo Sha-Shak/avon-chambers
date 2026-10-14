@@ -7,6 +7,7 @@ import { Hero, type HeroSlide } from "@/components/hero";
 import { SectionBackdrop } from "@/components/section-backdrop";
 import { AnimatedNumber } from "@/components/animated-number";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
+import { InsightCard } from "@/components/cards/insight-card";
 import { ArticlesCarousel } from "@/components/articles-carousel";
 import { ConsultationSection } from "@/components/consultation-section";
 import { TestimonialMarquee } from "@/components/testimonial-marquee";
@@ -154,12 +155,10 @@ export default async function HomePage() {
     <div className="min-h-screen bg-background">
       {/* 1. Hero */}
       <section>
-        <FadeIn>
-          <Hero
+        <Hero
             slides={heroSlides}
             intervalMs={mediaConfig.hero.sliderIntervalMs}
-          />
-        </FadeIn>
+        />
       </section>
 
       {/* 2. Trust bar — a dark frosted strip: its top half overlaps the hero photo, its bottom half sits on a navy band that runs into the next section */}
@@ -233,7 +232,7 @@ export default async function HomePage() {
                     alt={a.logo.alt}
                     width={a.logo.width}
                     height={a.logo.height}
-                    sizes="(min-width: 768px) 20rem, 60vw"
+                    sizes="(min-width: 640px) 160px, 128px"
                     className="max-h-32 w-auto object-contain sm:max-h-40"
                   />
                 </div>
@@ -369,7 +368,12 @@ export default async function HomePage() {
           </FadeIn>
           {latestInsights.length > 0 ? (
             <FadeIn className="mt-14">
-              <ArticlesCarousel insights={latestInsights} />
+              <ArticlesCarousel slides={Array.from(
+                { length: Math.ceil(latestInsights.length / 3) },
+                (_, i) => latestInsights.slice(i * 3, i * 3 + 3).map((insight) => (
+                  <InsightCard key={insight.slug} insight={insight} />
+                )),
+              )} />
             </FadeIn>
           ) : (
             <FadeIn className="mt-14 border-t border-foreground/10 pt-8 text-muted-foreground">

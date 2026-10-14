@@ -1,22 +1,26 @@
 "use client";
 
 import { useEffect } from "react";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { sendGAEvent } from "@next/third-parties/google";
+import Script from "next/script";
 import { siteConfig } from "@/config/site.config";
 
-/**
- * Renders nothing unless NEXT_PUBLIC_GA_MEASUREMENT_ID is set (see
- * .env.example). Uses @next/third-parties, the officially maintained
- * package for this — it loads the GA script off the main thread via a
- * web worker (through Partytown) rather than a hand-rolled <Script> tag.
- */
+/** Queue events immediately; load the analytics library during browser idle time. */
 export function Analytics() {
   if (!siteConfig.gaMeasurementId) return null;
   return (
     <>
       <ConversionEventTracker />
-      <GoogleAnalytics gaId={siteConfig.gaMeasurementId} />
+      <Script id="avon-ga-init" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){ window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', ${JSON.stringify(siteConfig.gaMeasurementId)});
+      `}</Script>
+      <Script
+        id="avon-ga"
+        src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}
+        strategy="lazyOnload"
+      />
     </>
   );
 }
@@ -36,7 +40,8 @@ function ConversionEventTracker() {
       else if (href === "/contact" || href.startsWith("/contact?")) eventName = "consultation_click";
 
       if (eventName) {
-        sendGAEvent("event", eventName, {
+        const analyticsWindow = window as Window & { gtag?: (...args: unknown[]) => void };
+        analyticsWindow.gtag?.("event", eventName, {
           page_path: window.location.pathname,
           link_text: link.textContent?.trim().slice(0, 80) || undefined,
         });

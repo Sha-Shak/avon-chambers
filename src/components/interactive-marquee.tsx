@@ -45,6 +45,17 @@ export function InteractiveMarquee({
   const hoveredRef = useRef(false);
   const dragRef = useRef({ startX: 0, startScrollLeft: 0, moved: false, pointerId: 0 });
   const reducedMotionRef = useRef(false);
+  const visibleRef = useRef(false);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      visibleRef.current = entry.isIntersecting;
+    });
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, []);
 
   const wrapScroll = useCallback(() => {
     const track = trackRef.current;
@@ -77,7 +88,7 @@ export function InteractiveMarquee({
       const dt = now - last;
       last = now;
       const track = trackRef.current;
-      if (track && !draggingRef.current && !hoveredRef.current && now >= pausedUntilRef.current) {
+      if (track && visibleRef.current && !document.hidden && !draggingRef.current && !hoveredRef.current && now >= pausedUntilRef.current) {
         track.scrollLeft += (speedPxPerSec * dt) / 1000;
         wrapScroll();
       }
@@ -200,7 +211,7 @@ export function InteractiveMarquee({
               // `contents` keeps this wrapper out of the box tree so the item
               // beneath it is still a direct flex child of the track — that's
               // what lets align-items:stretch equalize every card's height.
-              <div key={`${repeat}-${index}`} className="contents" aria-hidden={repeat > 0 || undefined}>
+              <div key={`${repeat}-${index}`} className="contents" aria-hidden={repeat > 0 || undefined} inert={repeat > 0}>
                 {item}
               </div>
             ))}
