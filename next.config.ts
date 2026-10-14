@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Deliver the small Tailwind stylesheet with HTML instead of a blocking round trip.
+  experimental: { inlineCss: true },
   async headers() {
     return [{
       source: "/studio/:path*",

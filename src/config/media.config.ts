@@ -26,7 +26,6 @@ export interface MediaImage {
 }
 
 const image = (src: string, alt: string, position?: string): MediaImage => ({ src, alt, position });
-const cloud = (path: string) => `https://res.cloudinary.com/x1h1eyhj/image/upload/${path}`;
 
 export const mediaConfig = {
   brand: {
@@ -42,23 +41,22 @@ export const mediaConfig = {
     /**
      * Homepage hero slideshow — one image per narrative beat (branding,
      * track record, practice areas); see `heroContent` in the homepage for
-     * the matching copy. The firm's own photo leads, followed by placeholder
-     * stock photography (hotlinked from Unsplash) — swap any entry for real
-     * firm photography later; nothing else needs to change. The third value
+     * the matching copy. All slideshow photos are stored locally in public/images.
+     * Swap a file or update its path here to change the photography. The third value
      * of each image is its focal point (CSS object-position, "x% y%") — it
      * decides which part of the photo stays in view when the hero crops it, so
      * move it if a slide's main subject is getting cut off.
      */
     homeSlides: [
       image(
-        cloud("v1786546841/avon-chambers-office.png"),
+        "/images/hero/avon-chambers-office.webp",
         "Lawyers of Avon Chambers in conference with a client",
         // The monogram sits near the top of this photo, so favour the top
         // (and the right, where the desk is) when it's cropped to a wide strip.
         "65% 12%",
       ),
-      image(cloud("v1789754268/Office-1200-900-3.webp"), "Avon Chambers Office", "60% 55%"),
-      image(cloud("v1789754260/Office-1200-900-5.webp"), "A partner's room at Avon Chambers", "55% 62%"),
+      image("/images/backgrounds/office-1200-900-3.webp", "Avon Chambers Office", "60% 55%"),
+      image("/images/backgrounds/office-1200-900-5.webp", "A partner's room at Avon Chambers", "55% 62%"),
     ],
     /** How long each hero slide stays on screen before advancing, in milliseconds. */
     sliderIntervalMs: 6000,
@@ -69,17 +67,17 @@ export const mediaConfig = {
    * Landscape photos work best; `position` picks the part that stays visible.
    */
   banners: {
-    about: image(cloud("v1789754276/Office-1200-800-1.webp"), "The reception at Avon Chambers", "center 40%"),
-    practiceAreas: image(cloud("v1790098141/office-interrior.webp"), "Law books lining the shelves at Avon Chambers", "center 45%"),
-    lawyers: image(cloud("v1789754260/Office-1200-900-5.webp"), "A partner's room at Avon Chambers", "center 55%"),
-    articles: image(cloud("v1789754273/Office-1200-800-2.webp"), "The Avon Chambers monogram beside a reception desk", "center 45%"),
-    careers: image(cloud("v1789754268/Office-1200-900-3.webp"), "The open-plan workspace at Avon Chambers", "center 55%"),
-    contact: image(cloud("v1789754259/Office-1200-900-6.webp"), "The lounge at Avon Chambers", "center 55%"),
-    lifeAtAvon: image(cloud("v1789754265/Office-1200-800-4.webp"), "The workspace at Avon Chambers", "center 55%"),
-    caseStudies: image(cloud("v1789754261/Office-1200-900-8.webp"), "The boardroom at Avon Chambers", "center 60%"),
-    policies: image(cloud("v1789754274/Office-1200-900-2.webp"), "A quiet corner of the reception at Avon Chambers", "center 50%"),
-    newsEvents: image(cloud("v1789754263/Office-1200-900-4.webp"), "The workspace at Avon Chambers", "center 55%"),
-    proBono: image(cloud("v1789754267/Office-1200-900-7.webp"), "A meeting room at Avon Chambers", "center 60%"),
+    about: image("/images/backgrounds/office-1200-800-1.webp", "The reception at Avon Chambers", "center 40%"),
+    practiceAreas: image("/images/backgrounds/office-interrior.webp", "Law books lining the shelves at Avon Chambers", "center 45%"),
+    lawyers: image("/images/backgrounds/office-1200-900-5.webp", "A partner's room at Avon Chambers", "center 55%"),
+    articles: image("/images/backgrounds/office-1200-800-2.webp", "The Avon Chambers monogram beside a reception desk", "center 45%"),
+    careers: image("/images/backgrounds/office-1200-900-3.webp", "The open-plan workspace at Avon Chambers", "center 55%"),
+    contact: image("/images/backgrounds/office-1200-900-6.webp", "The lounge at Avon Chambers", "center 55%"),
+    lifeAtAvon: image("/images/backgrounds/office-1200-800-4.webp", "The workspace at Avon Chambers", "center 55%"),
+    caseStudies: image("/images/backgrounds/office-1200-900-8.webp", "The boardroom at Avon Chambers", "center 60%"),
+    policies: image("/images/backgrounds/office-1200-900-2.webp", "A quiet corner of the reception at Avon Chambers", "center 50%"),
+    newsEvents: image("/images/backgrounds/office-1200-900-4.webp", "The workspace at Avon Chambers", "center 55%"),
+    proBono: image("/images/backgrounds/office-1200-900-7.webp", "A meeting room at Avon Chambers", "center 60%"),
   },
   /**
    * HOME PAGE BACKDROPS — photos behind the frosted-glass sections of the
@@ -87,13 +85,13 @@ export const mediaConfig = {
    * link and that section's background changes.
    */
   backdrops: {
-    practiceAreas: image(cloud("v1789754273/Office-1200-800-2.webp"), "The Avon Chambers monogram beside a reception desk", "center 45%"),
-    acclamation: image(cloud("v1790098141/office-interrior.webp"), "Law books lining the shelves at Avon Chambers", "center 45%"),
-    whyAvonChambers: image(cloud("v1789754261/Office-1200-900-8.webp"), "The boardroom at Avon Chambers", "center 55%"),
-    testimonials: image(cloud("v1789754259/Office-1200-900-6.webp"), "The lounge at Avon Chambers", "center 55%"),
-    process: image(cloud("v1789754274/Office-1200-900-2.webp"), "A plant on the reception desk at Avon Chambers", "center 50%"),
-    consultation: image(cloud("v1789754267/Office-1200-900-7.webp"), "A meeting room at Avon Chambers", "center 55%"),
-    articles: image(cloud("v1789754279/Office-1200-900-1.webp"), "The fluted monogram wall at Avon Chambers", "center 40%"),
+    practiceAreas: image("/images/backgrounds/office-1200-800-2.webp", "The Avon Chambers monogram beside a reception desk", "center 45%"),
+    acclamation: image("/images/backgrounds/office-interrior.webp", "Law books lining the shelves at Avon Chambers", "center 45%"),
+    whyAvonChambers: image("/images/backgrounds/office-1200-900-8.webp", "The boardroom at Avon Chambers", "center 55%"),
+    testimonials: image("/images/backgrounds/office-1200-900-6.webp", "The lounge at Avon Chambers", "center 55%"),
+    process: image("/images/backgrounds/office-1200-900-2.webp", "A plant on the reception desk at Avon Chambers", "center 50%"),
+    consultation: image("/images/backgrounds/office-1200-900-7.webp", "A meeting room at Avon Chambers", "center 55%"),
+    articles: image("/images/backgrounds/office-1200-900-1.webp", "The fluted monogram wall at Avon Chambers", "center 40%"),
   },
   /**
    * Logos of publications and directories that have recognised the firm,
