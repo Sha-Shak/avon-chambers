@@ -1,5 +1,5 @@
+import { PracticeLanguageSwitcher } from "@/components/practice-language-switcher";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
 import { PageBanner } from "@/components/page-banner";
@@ -36,7 +36,7 @@ export default function BanglaPracticeAreasPage() {
     <div lang="bn" className="[&_h1]:leading-normal [&_h2]:leading-normal [&_h3]:leading-normal">
       <JsonLd data={breadcrumbSchema([{ name: "হোম", path: "/" }, { name: "সেবার ক্ষেত্র", path: "/bn/practice-areas" }])} />
       <PageBanner image={{ ...mediaConfig.banners.practiceAreas, alt: "অ্যাভন চেম্বার্সের তাকজুড়ে আইনের বই" }} eyebrow="সেবার ক্ষেত্র" title="এক ঠিকানায় পূর্ণাঙ্গ আইনি পরামর্শ">
-        <Link href="/practice-areas" hrefLang="en-BD" lang="en" className="mt-6 inline-block underline">Read in English</Link>
+        <PracticeLanguageSwitcher locale="bn" />
       </PageBanner>
       <section className="border-b border-foreground/10">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:px-10 lg:py-24">

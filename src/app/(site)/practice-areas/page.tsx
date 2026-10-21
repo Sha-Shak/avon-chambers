@@ -1,5 +1,5 @@
+import { PracticeLanguageSwitcher } from "@/components/practice-language-switcher";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
 import { PageBanner } from "@/components/page-banner";
@@ -46,7 +46,7 @@ export default function PracticeAreasPage() {
         eyebrow="Practice areas"
         title="Comprehensive legal advice under one roof"
       >
-        <Link href="/bn/practice-areas" hrefLang="bn-BD" lang="bn" className="mt-6 inline-block underline">বাংলায় পড়ুন</Link>
+        <PracticeLanguageSwitcher locale="en" />
       </PageBanner>
 
       <section className="border-b border-foreground/10">

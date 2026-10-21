@@ -1,3 +1,4 @@
+import { PracticeLanguageSwitcher } from "@/components/practice-language-switcher";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -119,7 +120,7 @@ export default async function PracticeAreaDetailPage({
               </Link>
             </div>
             {practiceLocalizations[area.slug] && (
-              <Link href={`/practice-areas/${area.slug}`} hrefLang="en-BD" lang="en" className="mt-5 inline-block underline">Read in English</Link>
+              <PracticeLanguageSwitcher locale="bn" slug={area.slug} />
             )}
             <h1 className="mt-8 text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">ঢাকা, বাংলাদেশে {area.title}</h1>
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/70">অ্যাভন চেম্বার্স ঢাকার ধানমন্ডির কার্যালয় থেকে সারা বাংলাদেশের ক্লায়েন্টকে {area.title} বিষয়ে পরামর্শ দেয়। {area.valueProp}</p>

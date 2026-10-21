@@ -1,3 +1,4 @@
+import { PracticeLanguageSwitcher } from "@/components/practice-language-switcher";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -115,7 +116,7 @@ export default async function PracticeAreaDetailPage({
               </Link>
             </div>
             {practiceLocalizations[area.slug] && (
-              <Link href={`/bn/practice-areas/${area.slug}`} hrefLang="bn-BD" lang="bn" className="mt-5 inline-block underline">বাংলায় পড়ুন</Link>
+              <PracticeLanguageSwitcher locale="en" slug={area.slug} />
             )}
             <h1 className="mt-8 text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">{area.title} in Dhaka, Bangladesh</h1>
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/70">{practiceAnswer(area)}</p>
