@@ -20,6 +20,7 @@ const INSIGHT_META_FIELDS = `
   excerpt,
   authorSlug,
   reviewedBySlug,
+  reviewedAt,
   practiceAreaIds,
   "legacyPracticeAreaSlugs": practiceAreaSlugs,
   references[]{ title, url },

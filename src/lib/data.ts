@@ -72,9 +72,9 @@ export function getPracticeArea(slug: string): PracticeArea | undefined {
 export function getPracticeAreasForLawyer(lawyer: Lawyer): (PracticeArea & { displayTitle: string })[] {
   const resolved = new Map<number, PracticeArea & { displayTitle: string }>();
 
-  lawyer.practiceAreaIds.forEach((id, index) => {
+  lawyer.practiceAreaIds.forEach((id) => {
     const area = practiceAreaById(id);
-    if (area && !resolved.has(id)) resolved.set(id, { ...area, displayTitle: lawyer.areas[index] ?? area.title });
+    if (area && !resolved.has(id)) resolved.set(id, { ...area, displayTitle: area.title });
   });
 
   return [...resolved.values()];

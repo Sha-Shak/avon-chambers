@@ -8,10 +8,10 @@ import { getLawyersByTier } from "@/lib/data";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
-const DESCRIPTION = `Meet the legal professionals of ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
+const DESCRIPTION = `Meet the barristers, advocates and legal consultants at ${siteConfig.name} in Dhanmondi, Dhaka. View their practice areas, qualifications and experience.`;
 
 export const metadata: Metadata = {
-  title: "Lawyers",
+  title: "Our Lawyers in Dhaka, Bangladesh",
   description: DESCRIPTION,
   alternates: { canonical: "/lawyers" },
   ...buildSocialMetadata({ title: `Lawyers | ${siteConfig.name}`, description: DESCRIPTION, url: "/lawyers" }),
@@ -46,7 +46,7 @@ export default function LawyersPage() {
       <PageBanner
         image="lawyers"
         eyebrow="Lawyers"
-        title="Legal professionals with a broad range of expertise"
+        title="Our Lawyers in Dhaka, Bangladesh"
         description={<>{siteConfig.name} comprises Barristers, Solicitors, Advocates and Legal Consultants working individually and collectively to provide professional legal services.</>}
       />
 

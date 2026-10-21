@@ -1,3 +1,5 @@
+import { phoneE164, phoneDisplay } from "@/lib/contact";
+import { lawyerPortraitAlt } from "@/lib/page-seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,17 +33,19 @@ export async function generateMetadata({
   const lawyer = getLawyer(slug);
   if (!lawyer) return { title: "Unavailable", robots: { index: false, follow: false } };
 
-  const title = `${lawyer.name}, ${lawyer.title}`;
+  const practices = getPracticeAreasForLawyer(lawyer);
+  const title = `${lawyer.name} | ${practices[0]?.title ?? lawyer.title}`;
+  const description = `${lawyer.name}, ${lawyer.title} at Avon Chambers, Dhaka. View practice areas, qualifications and experience.`;
   return {
     title,
-    description: lawyer.intro,
+    description,
     alternates: { canonical: `/lawyers/${lawyer.slug}` },
     ...buildSocialMetadata({
       title: `${title} | ${siteConfig.name}`,
-      description: lawyer.intro,
+      description,
       url: `/lawyers/${lawyer.slug}`,
       type: "profile",
-      image: { url: lawyer.photo, alt: `Portrait of ${lawyer.name}` },
+      image: { url: lawyer.photo, alt: lawyerPortraitAlt(lawyer) },
     }),
   };
 }
@@ -61,7 +65,12 @@ export default async function LawyerProfilePage({
   // Some records carry placeholder stat slots ("N/A" or an empty value) for
   // a figure that hasn't been supplied yet — skip those rather than showing
   // a blank stat block.
-  const visibleStats = lawyer.stats.filter(
+  const profileStats = lawyer.stats.map((stat) =>
+    /^(core )?practice areas$/i.test(stat.label) && /^\d+$/.test(stat.value)
+      ? { ...stat, value: String(areaLinks.length) }
+      : stat,
+  );
+  const visibleStats = profileStats.filter(
     (s) => s.value.trim() !== "" && s.value.trim().toUpperCase() !== "N/A",
   );
   const isPartialStatsRow = visibleStats.length > 0 && visibleStats.length < MAX_STAT_COLUMNS;
@@ -97,14 +106,24 @@ export default async function LawyerProfilePage({
           </ul>
         </div>
       )}
+      {lawyer.profileLinks && lawyer.profileLinks.length > 0 && (
+        <div>
+          <p className="eyebrow">Professional profiles</p>
+          <ul className="mt-5 space-y-3">
+            {lawyer.profileLinks.map((profile) => (
+              <li key={profile.url}><a href={profile.url} rel="noopener noreferrer" target="_blank" className="underline">{profile.title}</a></li>
+            ))}
+          </ul>
+        </div>
+      )}
       <div>
         <p className="eyebrow">Contact</p>
         <ul className="mt-5 space-y-4 border-t border-foreground/15 pt-5 text-sm text-muted-foreground">
           {hasPhone && (
             <li className="flex gap-3">
               <Phone className="mt-0.5 size-4 shrink-0 text-muted-foreground" strokeWidth={1.5} />
-              <a href={`tel:${lawyer.phone.replace(/[^\d+]/g, "")}`} className="hover:text-foreground">
-                {lawyer.phone}
+              <a href={`tel:${phoneE164(lawyer.phone)}`} className="hover:text-foreground">
+                {phoneDisplay(lawyer.phone)}
               </a>
             </li>
           )}
@@ -145,7 +164,7 @@ export default async function LawyerProfilePage({
             <div className="relative aspect-3/4 w-full overflow-hidden">
               <Image
                 src={lawyer.photo}
-                alt={`Portrait of ${lawyer.name}`}
+                alt={lawyerPortraitAlt(lawyer)}
                 fill
                 sizes="(min-width: 1024px) 38vw, 100vw"
                 className="object-cover"
@@ -300,7 +319,7 @@ export default async function LawyerProfilePage({
 
       <ConsultationSection
         eyebrow={`${lawyer.title} · ${lawyer.area}`}
-        heading={`Book a consultation with ${lawyer.name}.`}
+        heading={`Ask ${lawyer.name} about your legal matter.`}
         blurb={`Consultations with ${lawyer.name} run 45 minutes and are held in person or by call, at your preference.`}
         contactPhone={hasPhone ? lawyer.phone : undefined}
         contactEmail={lawyer.email}

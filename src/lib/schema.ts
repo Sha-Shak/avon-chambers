@@ -1,3 +1,5 @@
+import { phoneE164 } from "@/lib/contact";
+import { practiceSeo } from "@/lib/page-seo";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { urlForImage } from "@/sanity/image";
@@ -33,6 +35,12 @@ export function organizationSchema() {
       addressCountry: siteConfig.address.addressCountry,
     },
     areaServed: siteConfig.address.addressCountry,
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: siteConfig.openingHours.days.map((day) => `https://schema.org/${day}`),
+      opens: siteConfig.openingHours.opens,
+      closes: siteConfig.openingHours.closes,
+    },
     sameAs: Object.values(siteConfig.social).filter(Boolean),
   };
 }
@@ -52,9 +60,15 @@ export function lawyerSchema(lawyer: Lawyer) {
     image: abs(lawyer.photo),
     url: abs(`/lawyers/${lawyer.slug}`),
     email: lawyer.email,
-    telephone: lawyer.phone,
+    telephone: lawyer.phone ? phoneE164(lawyer.phone) : undefined,
     worksFor: { "@id": organizationId() },
-    knowsAbout: lawyer.areas,
+    knowsAbout: [...new Set(lawyer.practiceAreaIds.map((id) => practiceAreaById(id)?.title).filter(Boolean))],
+    hasCredential: lawyer.admissions.map((name) => ({
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Professional admission",
+      name,
+    })),
+    sameAs: lawyer.profileLinks?.map((link) => link.url),
     alumniOf: lawyer.education.map((line) => ({
       "@type": "CollegeOrUniversity",
       name: line.split(",")[1]?.trim().replace(/\s*\(.*\)$/, "") ?? line,
@@ -68,7 +82,7 @@ export function practiceAreaSchema(area: PracticeArea) {
     "@type": "Service",
     serviceType: area.title,
     name: area.title,
-    description: area.valueProp,
+    description: practiceSeo(area).description,
     url: abs(`/practice-areas/${area.slug}`),
     provider: { "@id": organizationId() },
     areaServed: siteConfig.address.addressCountry,
@@ -153,7 +167,10 @@ export function insightSchema(
     datePublished: insight.publishedAt,
     dateModified: insight.updatedAt ?? insight.publishedAt,
     url: abs(`/insights/${insight.slug}`),
-    author: author?.url ? { "@type": "Person", name: authorName, url: author.url } : { "@type": "Person", name: authorName },
+    author: author
+      ? { "@type": "Person", name: authorName, url: author.url }
+      : { "@type": "Organization", "@id": organizationId(), name: siteConfig.name },
+    lastReviewed: reviewer && insight.reviewedAt ? insight.reviewedAt : undefined,
     reviewedBy: reviewer
       ? { "@type": "Person", name: reviewer.name, url: reviewer.url }
       : undefined,

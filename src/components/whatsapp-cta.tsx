@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 /** Prominent WhatsApp click-to-chat button — the primary contact call-to-action
  *  wherever a lead-capture form used to sit (see ConsultationSection and the
  *  Contact page). `message` pre-fills the chat, e.g. with a page's own heading. */
-export function WhatsAppCta({ message, className }: { message?: string; className?: string }) {
+export function WhatsAppCta({ message, className, label = "Contact us on WhatsApp" }: { message?: string; className?: string; label?: string }) {
   return (
     <a
       href={getWhatsAppUrl(message)}
@@ -17,7 +17,7 @@ export function WhatsAppCta({ message, className }: { message?: string; classNam
       )}
     >
       <FaWhatsapp className="size-6" />
-      Contact us on WhatsApp
+      {label}
     </a>
   );
 }

@@ -13,11 +13,7 @@ import type { ClientTestimonial } from "@/types";
  * always dark, so it looks the same in light and dark theme.
  */
 export function TestimonialMarquee({ testimonials }: { testimonials: ClientTestimonial[] }) {
-  // The marquee repeats its items to loop. With an odd number of cards the
-  // corner pattern would clash where one loop ends and the next begins (two
-  // same-corner cards side by side), so odd lists are doubled to keep the
-  // alternation unbroken.
-  const cards = testimonials.length % 2 === 1 ? [...testimonials, ...testimonials] : testimonials;
+  const cards = testimonials;
 
   return (
     <InteractiveMarquee

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
 import { PageBanner } from "@/components/page-banner";
@@ -14,7 +15,7 @@ const DESCRIPTION = `Explore the legal practice areas of ${siteConfig.name}, a B
 export const metadata: Metadata = {
   title: "Practice Areas",
   description: DESCRIPTION,
-  alternates: { canonical: "/practice-areas" },
+  alternates: { canonical: "/practice-areas", languages: { "en-BD": "/practice-areas", "bn-BD": "/bn/practice-areas", "x-default": "/practice-areas" } },
   ...buildSocialMetadata({
     title: `Practice Areas | ${siteConfig.name}`,
     description: DESCRIPTION,
@@ -44,7 +45,9 @@ export default function PracticeAreasPage() {
         image="practiceAreas"
         eyebrow="Practice areas"
         title="Comprehensive legal advice under one roof"
-      />
+      >
+        <Link href="/bn/practice-areas" hrefLang="bn-BD" lang="bn" className="mt-6 inline-block underline">বাংলায় পড়ুন</Link>
+      </PageBanner>
 
       <section className="border-b border-foreground/10">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:px-10 lg:py-24">

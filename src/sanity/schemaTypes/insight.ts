@@ -73,7 +73,8 @@ export const insight = defineType({
       name: "authorSlug",
       title: "Author",
       type: "string",
-      description: "Leave blank to credit Avon Chambers generally.",
+      description: "Select the lawyer who wrote the article. Only leave blank for an article authored by the firm as an organization.",
+      validation: (rule) => rule.required().warning("Select a named author for individual legal analysis."),
       options: {
         list: lawyersData
           .slice()
@@ -85,13 +86,23 @@ export const insight = defineType({
       name: "reviewedBySlug",
       title: "Reviewed by",
       type: "string",
-      description: "Optional. Select the lawyer who checked the legal accuracy of this article.",
+      description: "Select the lawyer who checked the legal accuracy of this article. Only credit a review that has actually taken place.",
+      validation: (rule) => rule.required().warning("A named legal reviewer is recommended for legal analysis."),
       options: {
         list: lawyersData
           .slice()
           .sort((a, b) => a.position - b.position)
           .map((lawyer) => ({ title: lawyer.name, value: lawyer.slug })),
       },
+    }),
+    defineField({
+      name: "reviewedAt",
+      title: "Legal review date",
+      type: "datetime",
+      description: "Set only when the selected reviewer has actually reviewed the legal accuracy. This is separate from an editorial update.",
+      validation: (rule) => rule.custom((value, context) =>
+        !value || context.document?.reviewedBySlug ? true : "Select the lawyer who performed this review.",
+      ),
     }),
     defineField({
       name: "publishedAt",

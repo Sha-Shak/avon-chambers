@@ -1,11 +1,8 @@
 "use client";
 
-import { Fragment, useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-
-/** Minimum number of item-slots to fill before repeating the set, so the loop never feels short. */
-const MIN_TRACK_ITEMS = 12;
 
 /** How long a user interaction (drag/wheel) pauses the auto-scroll before it resumes. */
 const RESUME_DELAY_MS = 2600;
@@ -15,10 +12,7 @@ const RESUME_DELAY_MS = 2600;
  * they touch it: drag (mouse or touch) or spin the wheel to move it yourself,
  * and it quietly resumes auto-scrolling a couple of seconds after you let go.
  *
- * Built on native horizontal scroll (not a CSS keyframe transform) so drag and
- * wheel input can drive the same `scrollLeft` the rAF loop advances. At least
- * three repeats of the item set are rendered so the loop can always jump
- * backward or forward by exactly one repeat-width without a visible seam.
+ * Renders each item once. Automatic scrolling reverses at either end.
  *
  * `items` takes already-rendered elements (one per item, in a stable order)
  * rather than a render-prop, so a Server Component caller can build the cards
@@ -37,7 +31,7 @@ export function InteractiveMarquee({
   className?: string;
   trackClassName?: string;
 }) {
-  const repeats = Math.max(3, Math.ceil(MIN_TRACK_ITEMS / Math.max(items.length, 1)));
+  const directionRef = useRef(1);
 
   const trackRef = useRef<HTMLDivElement>(null);
   const pausedUntilRef = useRef(0);
@@ -60,23 +54,17 @@ export function InteractiveMarquee({
   const wrapScroll = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
-    const repeatWidth = track.scrollWidth / repeats;
-    if (repeatWidth <= 0) return;
-    const lower = repeatWidth * 0.5;
-    const upper = repeatWidth * (repeats - 1.5);
-    if (track.scrollLeft < lower) {
-      track.scrollLeft += repeatWidth;
-    } else if (track.scrollLeft > upper) {
-      track.scrollLeft -= repeatWidth;
-    }
-  }, [repeats]);
+    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    if (track.scrollLeft >= maxScroll - 1) directionRef.current = -1;
+    if (track.scrollLeft <= 1) directionRef.current = 1;
+  }, []);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
     reducedMotionRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    track.scrollLeft = track.scrollWidth / repeats;
-  }, [repeats]);
+
+  }, []);
 
   useEffect(() => {
     if (reducedMotionRef.current) return;
@@ -85,11 +73,11 @@ export function InteractiveMarquee({
 
     const step = (now: number) => {
       if (last === null) last = now;
-      const dt = now - last;
+      const dt = Math.min(now - last, 50);
       last = now;
       const track = trackRef.current;
-      if (track && visibleRef.current && !document.hidden && !draggingRef.current && !hoveredRef.current && now >= pausedUntilRef.current) {
-        track.scrollLeft += (speedPxPerSec * dt) / 1000;
+      if (track && visibleRef.current && !document.hidden && !draggingRef.current && !hoveredRef.current && !track.contains(document.activeElement) && now >= pausedUntilRef.current) {
+        track.scrollLeft += (directionRef.current * speedPxPerSec * dt) / 1000;
         wrapScroll();
       }
       raf = requestAnimationFrame(step);
@@ -112,6 +100,8 @@ export function InteractiveMarquee({
     const handleWheel = (e: WheelEvent) => {
       const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
       if (delta === 0) return;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if ((delta < 0 && track.scrollLeft <= 0) || (delta > 0 && track.scrollLeft >= maxScroll - 1)) return;
       e.preventDefault();
       track.scrollLeft += delta;
       wrapScroll();
@@ -204,18 +194,13 @@ export function InteractiveMarquee({
         onPointerCancel={endDrag}
         onScroll={onScroll}
         onClickCapture={onClickCapture}
+        onFocusCapture={() => { hoveredRef.current = true; }}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) hoveredRef.current = false;
+        }}
       >
-        {Array.from({ length: repeats }, (_, repeat) => (
-          <Fragment key={repeat}>
-            {items.map((item, index) => (
-              // `contents` keeps this wrapper out of the box tree so the item
-              // beneath it is still a direct flex child of the track — that's
-              // what lets align-items:stretch equalize every card's height.
-              <div key={`${repeat}-${index}`} className="contents" aria-hidden={repeat > 0 || undefined} inert={repeat > 0}>
-                {item}
-              </div>
-            ))}
-          </Fragment>
+        {items.map((item, index) => (
+          <div key={index} className="contents">{item}</div>
         ))}
       </div>
     </div>

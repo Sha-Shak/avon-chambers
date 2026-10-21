@@ -9,16 +9,19 @@ import { CaseStudyCard } from "@/components/cards/case-study-card";
 import { InsightCard } from "@/components/cards/insight-card";
 import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { PracticeAreaIcon } from "@/lib/icons";
 import {
   getAllPracticeAreas,
+  getAllLawyers,
   getLawyersForPracticeArea,
   getPracticeArea,
 } from "@/lib/data";
 import { getCaseStudiesByPracticeArea, getInsightsByPracticeArea } from "@/lib/content";
 import { breadcrumbSchema, practiceAreaSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
+import { practiceLocalizations } from "@/data/practice-localizations";
+import { PRACTICE_PROCESS, PRACTICE_DOCUMENTS } from "@/config/practice-guidance";
+import { practiceSeo, practiceAnswer } from "@/lib/page-seo";
 import { siteConfig } from "@/config/site.config";
 
 export function generateStaticParams() {
@@ -33,17 +36,23 @@ export async function generateMetadata({
   const { slug } = await params;
   const area = getPracticeArea(slug);
   if (!area) return { title: "Unavailable", robots: { index: false, follow: false } };
-  const seoTitle = `${area.title.replace(/\s+Law$/, "")} Lawyers in Bangladesh`;
+  const { title: seoTitle, description } = practiceSeo(area);
 
   return {
     title: seoTitle,
-    description: area.valueProp,
-    alternates: { canonical: `/practice-areas/${area.slug}` },
+    description,
+    alternates: {
+      canonical: `/practice-areas/${area.slug}`,
+      ...(practiceLocalizations[area.slug] ? { languages: {
+        "en-BD": `/practice-areas/${area.slug}`,
+        "bn-BD": `/bn/practice-areas/${area.slug}`,
+        "x-default": `/practice-areas/${area.slug}`,
+      } } : {}),
+    },
     ...buildSocialMetadata({
       title: `${seoTitle} | ${siteConfig.name}`,
-      description: area.valueProp,
+      description,
       url: `/practice-areas/${area.slug}`,
-      image: { url: area.image.src, alt: area.image.alt },
     }),
   };
 }
@@ -57,11 +66,17 @@ export default async function PracticeAreaDetailPage({
   const area = getPracticeArea(slug);
   if (!area) notFound();
 
+  const reviewer = area.reviewedBySlug ? getAllLawyers().find((lawyer) => lawyer.slug === area.reviewedBySlug) : undefined;
+  const process = area.process ?? PRACTICE_PROCESS;
+  const documents = area.documents ?? PRACTICE_DOCUMENTS[area.id] ?? [];
   const relatedLawyers = getLawyersForPracticeArea(area.id);
   const [relatedCases, relatedInsights] = await Promise.all([
     getCaseStudiesByPracticeArea(area.id),
     getInsightsByPracticeArea(area.id),
   ]);
+  const relatedAreas = getAllPracticeAreas().filter((candidate) =>
+    candidate.id !== area.id && relatedLawyers.some((lawyer) => lawyer.practiceAreaIds.includes(candidate.id)),
+  ).slice(0, 4);
   const { service, faqPage } = practiceAreaSchema(area);
 
   return (
@@ -82,7 +97,7 @@ export default async function PracticeAreaDetailPage({
           alt={area.image.alt}
           fill
           sizes="100vw"
-          priority
+          preload
           className="object-cover"
         />
       </div>
@@ -99,8 +114,16 @@ export default async function PracticeAreaDetailPage({
                 Practice areas
               </Link>
             </div>
-            <h1 className="mt-8 text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">{area.title}</h1>
-            <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/70">{area.valueProp}</p>
+            {practiceLocalizations[area.slug] && (
+              <Link href={`/bn/practice-areas/${area.slug}`} hrefLang="bn-BD" lang="bn" className="mt-5 inline-block underline">বাংলায় পড়ুন</Link>
+            )}
+            <h1 className="mt-8 text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">{area.title} in Dhaka, Bangladesh</h1>
+            <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/70">{practiceAnswer(area)}</p>
+            {reviewer && area.reviewedAt && (
+              <p className="mt-5 text-sm text-cream/80">Last reviewed by <Link className="underline" href={`/lawyers/${reviewer.slug}`}>{reviewer.name}</Link>{" "}
+                on <time dateTime={area.reviewedAt}>{new Date(area.reviewedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>.
+              </p>
+            )}
           </FadeIn>
         </div>
       </section>
@@ -139,24 +162,37 @@ export default async function PracticeAreaDetailPage({
         </div>
       </section>
 
+      {(process.length || documents.length) ? (
+        <section className="mx-auto grid max-w-7xl gap-12 px-6 py-12 lg:grid-cols-2 lg:px-10">
+          {process.length > 0 && (
+            <div><h2 className="text-2xl">Process and timeline</h2><ol className="mt-6 space-y-5">
+              {process.map((step) => <li key={step.title}><h3 className="font-medium">{step.title}</h3><p className="mt-2 text-muted-foreground">{step.copy}</p></li>)}
+            </ol></div>
+          )}
+          {documents.length > 0 && (
+            <div><h2 className="text-2xl">Documents to prepare</h2><p className="mt-3 text-sm text-muted-foreground">These can help us assess your matter. Bring what you have; we will confirm any additional documents needed for your case.</p><ul className="mt-6 list-disc space-y-3 pl-5">
+              {documents.map((document) => <li key={document}>{document}</li>)}
+            </ul></div>
+          )}
+        </section>
+      ) : null}
+
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[0.35fr_0.65fr]">
           <FadeIn>
             <p className="eyebrow">Common questions</p>
             <h2 className="mt-5 text-2xl text-foreground sm:text-3xl">What clients ask before engaging us</h2>
           </FadeIn>
-          <FadeIn delay={80}>
-            <Accordion type="single" collapsible className="border-t border-foreground/15">
-              {area.faqs.map((f, i) => (
-                <AccordionItem key={f.q} value={`item-${i}`} className="border-b border-foreground/15">
-                  <AccordionTrigger className="py-6 text-left text-base text-foreground hover:no-underline">
-                    {f.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6 text-sm leading-relaxed text-muted-foreground">{f.a}</AccordionContent>
-                </AccordionItem>
+          <div>
+            <div className="border-t border-foreground/15">
+              {area.faqs.map((f) => (
+                <details key={f.q} className="group border-b border-foreground/15">
+                  <summary className="cursor-pointer py-6 text-base text-foreground">{f.q}</summary>
+                  <p className="pb-6 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                </details>
               ))}
-            </Accordion>
-          </FadeIn>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -219,6 +255,17 @@ export default async function PracticeAreaDetailPage({
               ))}
             </div>
           </div>
+        </section>
+      )}
+
+      {relatedAreas.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10">
+          <h2 className="text-2xl text-foreground">Related practice areas</h2>
+          <ul className="mt-6 flex flex-wrap gap-4">
+            {relatedAreas.map((related) => (
+              <li key={related.id}><Link className="underline" href={`/practice-areas/${related.slug}`}>{related.title}</Link></li>
+            ))}
+          </ul>
         </section>
       )}
 

@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title,
     description,
-    keywords: post.seo?.keywords,
+
     alternates: { canonical: `/pro-bono/${post.slug}` },
     robots: post.seo?.noIndex ? { index: false, follow: true } : undefined,
     ...buildSocialMetadata({

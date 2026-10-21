@@ -36,7 +36,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    keywords: job.seo?.keywords,
+
     alternates: { canonical: `/careers/${job.slug}` },
     robots: job.seo?.noIndex ? { index: false, follow: true } : undefined,
     ...buildSocialMetadata({

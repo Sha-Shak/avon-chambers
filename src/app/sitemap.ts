@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { practiceLocalizations } from "@/data/practice-localizations";
 import { siteConfig } from "@/config/site.config";
 import { getAllLawyers, getAllPracticeAreas } from "@/lib/data";
 import { getAllCaseStudies, getAllInsights, getAllJobPosts, getAllNewsEvents, getAllProBonoPosts, isJobOpen } from "@/lib/content";
@@ -7,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${siteConfig.url}/`, changeFrequency: "weekly", priority: 1.0 },
     { url: `${siteConfig.url}/about`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${siteConfig.url}/practice-areas`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${siteConfig.url}/practice-areas`, alternates: { languages: { "en-BD": `${siteConfig.url}/practice-areas`, "bn-BD": `${siteConfig.url}/bn/practice-areas` } }, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteConfig.url}/lawyers`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.url}/contact`, changeFrequency: "yearly", priority: 0.8 },
     { url: `${siteConfig.url}/life-at-avon`, changeFrequency: "monthly", priority: 0.5 },
@@ -16,6 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const practiceAreaPages: MetadataRoute.Sitemap = getAllPracticeAreas().map((area) => ({
     url: `${siteConfig.url}/practice-areas/${area.slug}`,
+    ...(practiceLocalizations[area.slug] ? { alternates: { languages: { "en-BD": `${siteConfig.url}/practice-areas/${area.slug}`, "bn-BD": `${siteConfig.url}/bn/practice-areas/${area.slug}` } } } : {}),
     changeFrequency: "monthly",
     priority: 0.8,
   }));
@@ -99,6 +101,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   return [
+    { url: `${siteConfig.url}/bn/practice-areas`, changeFrequency: "monthly", priority: 0.9, alternates: { languages: { "en-BD": `${siteConfig.url}/practice-areas`, "bn-BD": `${siteConfig.url}/bn/practice-areas` } } },
+    ...Object.keys(practiceLocalizations).map((slug) => ({
+      url: `${siteConfig.url}/bn/practice-areas/${slug}`,
+      alternates: { languages: { "en-BD": `${siteConfig.url}/practice-areas/${slug}`, "bn-BD": `${siteConfig.url}/bn/practice-areas/${slug}` } },
+    })),
     ...staticPages,
     ...contentIndexPages,
     ...practiceAreaPages,

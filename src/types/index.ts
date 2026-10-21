@@ -25,6 +25,8 @@ export interface Lawyer {
   photo: string;
   /** Crop position for the small circular article byline portrait. */
   avatarPosition?: string;
+  /** Verified public profile and directory links, shown on the profile and in schema. */
+  profileLinks?: { title: string; url: string }[];
   email: string;
   phone: string;
   intro: string;
@@ -70,6 +72,10 @@ export interface PracticeArea {
   overview: string[];
   services: PracticeAreaService[];
   faqs: PracticeAreaFaq[];
+  process?: PracticeAreaService[];
+  documents?: string[];
+  reviewedBySlug?: string;
+  reviewedAt?: string;
 }
 
 export interface CaseStudyKeyResult {
@@ -148,6 +154,7 @@ export interface InsightMeta {
   excerpt: string;
   authorSlug?: string;
   reviewedBySlug?: string;
+  reviewedAt?: string;
   practiceAreaIds?: number[];
   references?: { title: string; url: string }[];
   publishedAt: string; // ISO date

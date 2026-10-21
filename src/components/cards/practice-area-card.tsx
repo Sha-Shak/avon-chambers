@@ -4,10 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { PracticeAreaIcon } from "@/lib/icons";
 import type { PracticeArea } from "@/types";
 
-export function PracticeAreaCard({ area }: { area: PracticeArea }) {
+export function PracticeAreaCard({ area, locale = "en" }: { area: PracticeArea; locale?: "en" | "bn" }) {
   return (
     <Link
-      href={`/practice-areas/${area.slug}`}
+      href={`${locale === "bn" ? "/bn" : ""}/practice-areas/${area.slug}`}
       className="frost group flex h-full w-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden bg-secondary">
@@ -26,7 +26,7 @@ export function PracticeAreaCard({ area }: { area: PracticeArea }) {
         <h3 className="text-xl text-foreground">{area.title}</h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{area.copy}</p>
         <span className="mt-7 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] text-foreground uppercase">
-          Learn more
+          {locale === "bn" ? "বিস্তারিত জানুন" : "Learn more"}
           <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
         </span>
       </div>

@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 import { InsightCard } from "@/components/cards/insight-card";
 import { ConsultationSection } from "@/components/consultation-section";
+import { prepareArticleBody } from "@/lib/article-body";
 import { PostBody } from "@/components/post-body";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
@@ -32,6 +33,7 @@ export async function generateMetadata({
   if (!insight)
     return { title: "Unavailable", robots: { index: false, follow: false } };
 
+  const author = insight.authorSlug ? getLawyer(insight.authorSlug) : undefined;
   const title = resolveSeoTitle(insight.seo?.metaTitle, insight.title);
   const description = resolveSeoText(insight.seo?.metaDescription, insight.excerpt);
   const ogImageAsset = insight.seo?.ogImage?.asset ?? insight.coverImage?.asset;
@@ -42,7 +44,9 @@ export async function generateMetadata({
   return {
     title,
     description,
-    keywords: insight.seo?.keywords,
+    authors: author
+      ? [{ name: author.name, url: `${siteConfig.url}/lawyers/${author.slug}` }]
+      : [{ name: siteConfig.name, url: siteConfig.url }],
     alternates: { canonical: `/insights/${insight.slug}` },
     robots: insight.seo?.noIndex ? { index: false, follow: true } : undefined,
     ...buildSocialMetadata({
@@ -125,13 +129,19 @@ export default async function InsightDetailPage({
                   <>
                     <span aria-hidden>·</span>
                     <span>
-                      Reviewed <time dateTime={insight.updatedAt}>{formatDate(insight.updatedAt)}</time>
+                      Updated <time dateTime={insight.updatedAt}>{formatDate(insight.updatedAt)}</time>
                     </span>
                   </>
                 )}
                 <span aria-hidden>·</span>
                 <span>{insight.readingTime}</span>
               </div>
+              {reviewer && insight.reviewedAt && (
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Last reviewed by <Link className="underline" href={`/lawyers/${reviewer.slug}`}>{reviewer.name}</Link>{" "}
+                  on <time dateTime={insight.reviewedAt}>{formatDate(insight.reviewedAt)}</time>.
+                </p>
+              )}
               <h1 className="mt-6 text-4xl leading-[1.12] text-foreground sm:text-5xl">
                 {insight.title}
               </h1>
@@ -210,7 +220,14 @@ export default async function InsightDetailPage({
         )}
 
         <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10 lg:py-20">
-          <PostBody value={insight.body} />
+          <PostBody value={prepareArticleBody(insight.body)} />
+          {author && (
+            <aside className="mt-12 border-t border-foreground/15 pt-8" aria-label="About the author">
+              <h2 className="text-xl text-foreground">About {author.name}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{author.intro}</p>
+              <Link className="mt-3 inline-block underline" href={`/lawyers/${author.slug}`}>View {author.name}&apos;s profile</Link>
+            </aside>
+          )}
           {insight.references && insight.references.length > 0 && (
             <div className="mt-14 border-t border-foreground/10 pt-8">
               <h2 className="text-xl text-foreground">References and sources</h2>

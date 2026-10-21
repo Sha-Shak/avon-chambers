@@ -14,7 +14,7 @@ import { TestimonialMarquee } from "@/components/testimonial-marquee";
 import { InteractiveMarquee } from "@/components/interactive-marquee";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
-import { getAllPracticeAreas } from "@/lib/data";
+import { getAllLawyers, getAllPracticeAreas } from "@/lib/data";
 import { buildSocialMetadata } from "@/lib/seo";
 import { getAllInsights } from "@/lib/content";
 import testimonialsData from "@/data/testimonials.json";
@@ -24,7 +24,7 @@ const HOME_DESCRIPTION =
   "Avon Chambers is a law firm in Dhaka, Bangladesh, advising businesses and individuals on corporate law, litigation, arbitration and other legal matters.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${siteConfig.name} | ${siteConfig.tagline}` },
+  title: { absolute: `Law Firm in Dhaka, Bangladesh | ${siteConfig.name}` },
   description: HOME_DESCRIPTION,
   alternates: { canonical: "/" },
   ...buildSocialMetadata({
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
 const heroContent: Omit<HeroSlide, "image">[] = [
   {
     eyebrow: `${siteConfig.name} · ${siteConfig.address.addressLocality}`,
-    heading: siteConfig.tagline,
-    subheading: "Avon Chambers brings together Barristers, Solicitors, Advocates and Legal Consultants to provide practical legal advice and representation",
+    heading: "Law Firm in Dhaka, Bangladesh",
+    subheading: `${siteConfig.tagline}. Avon Chambers brings together Barristers, Solicitors, Advocates and Legal Consultants to provide practical legal advice and representation`,
   },
   {
     eyebrow: "Our commitment",
@@ -183,14 +183,22 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10" aria-label="About the firm">
+        <p className="max-w-3xl text-base leading-relaxed text-muted-foreground">
+          Avon Chambers is a law firm in Dhanmondi, Dhaka, Bangladesh. Our team of {getAllLawyers().length} lawyers
+          advises businesses and individuals across {practiceAreas.length} practice areas, including corporate
+          and commercial law, litigation, arbitration, property, employment and family law.
+          {" "}<Link href="/about" className="underline">Learn about the Chambers</Link>.
+        </p>
+      </section>
+
       {/* 3. Practice areas */}
       <SectionBackdrop image="practiceAreas">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">Practice areas</p>
             <h2 className="mt-5 text-3xl text-foreground sm:text-4xl">
-              {practiceAreas.length} disciplines, practised deliberately
-              narrowly
+              Legal advice across {practiceAreas.length} practice areas
             </h2>
           </FadeIn>
           <InteractiveMarquee

@@ -5,7 +5,7 @@
     "title": "Constitutional Law & Writs",
     "icon": "Landmark",
     "image": {
-      "src": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/constitutional-litigation-writ.webp",
       "alt": "Government and constitutional legal setting"
     },
     "copy": "Constitutional and public law representation before the High Court Division of the Supreme Court of Bangladesh.",
@@ -93,7 +93,7 @@
     "title": "Corporate & Commercial Law",
     "icon": "BriefcaseBusiness",
     "image": {
-      "src": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/corporate-commercial.webp",
       "alt": "Modern corporate office and business setting"
     },
     "copy": "Comprehensive legal advice and transactional support for businesses, investors, companies and entrepreneurs across their commercial activities.",
@@ -202,7 +202,7 @@
     "title": "Civil Litigation & Dispute Resolution",
     "icon": "Scale",
     "image": {
-      "src": "https://images.unsplash.com/photo-1589216532372-1c2a367900d9?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/civil-litigation.webp",
       "alt": "Law books in a legal setting"
     },
     "copy": "Strategic legal representation and practical advice in contractual, commercial, financial, property-related and other civil disputes.",
@@ -307,7 +307,7 @@
     "title": "Arbitration & Mediation",
     "icon": "Handshake",
     "image": {
-      "src": "https://images.unsplash.com/photo-1564846824194-346b7871b855?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/arbitration.webp",
       "alt": "Signing a settlement agreement"
     },
     "copy": "Strategic legal advice and representation in commercial and contractual disputes resolved through arbitration.",
@@ -391,7 +391,7 @@
     "title": "Criminal Litigation",
     "icon": "Gavel",
     "image": {
-      "src": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/criminal-law.webp",
       "alt": "Legal books and courtroom setting"
     },
     "copy": "Comprehensive legal representation and strategic advice in criminal proceedings from investigation through trial, appeal and post-judgment proceedings.",
@@ -479,7 +479,7 @@
     "title": "Banking, Finance & Investment",
     "icon": "Banknote",
     "image": {
-      "src": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/banking-finance-law.webp",
       "alt": "Financial documents and business planning"
     },
     "copy": "Comprehensive legal advice and representation for banks, financial institutions, borrowers, investors and other participants in the financial sector.",
@@ -571,7 +571,7 @@
     "title": "Foreign Investment & Investment Facilitation",
     "icon": "Plane",
     "image": {
-      "src": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/foreign-investment-facilitation.webp",
       "alt": "Handshake over an international investment agreement"
     },
     "copy": "Legal advice and practical facilitation for foreign investors establishing, operating and expanding in Bangladesh, and for local businesses pursuing cross-border investment.",
@@ -615,7 +615,7 @@
     "title": "Corporate Restructuring & Project Documentation",
     "icon": "Briefcase",
     "image": {
-      "src": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/corporate-restructuring-project-documentation.webp",
       "alt": "Reviewing project and transaction documentation"
     },
     "copy": "Legal advice on corporate reorganisations and the agreements, financing instruments and security documents that support major projects and complex transactions.",
@@ -659,7 +659,7 @@
     "title": "Property & Real Estate",
     "icon": "Building2",
     "image": {
-      "src": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/property-real-estate.webp",
       "alt": "Modern property and real estate development"
     },
     "copy": "Comprehensive legal advice and representation across real estate transactions, ownership, development, leasing, financing and property disputes.",
@@ -751,7 +751,7 @@
     "title": "Taxation",
     "icon": "Calculator",
     "image": {
-      "src": "https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/taxation.webp",
       "alt": "Financial planning and tax documents"
     },
     "copy": "Comprehensive legal advice and representation on direct and indirect tax matters, including planning, compliance, assessments, disputes and litigation.",
@@ -847,7 +847,7 @@
     "title": "Employment & Labour Law",
     "icon": "UsersRound",
     "image": {
-      "src": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/employment-labour-law.webp",
       "alt": "Professional workplace and employment setting"
     },
     "copy": "Legal advice and representation to employers, employees and organisations on workplace, employment and labour matters.",
@@ -947,7 +947,7 @@
     "title": "International Law",
     "icon": "Globe",
     "image": {
-      "src": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/international-law.webp",
       "alt": "A world globe on a desk"
     },
     "copy": "Legal advice and representation on cross-border transactions, international business activities, foreign investment and disputes with an international dimension.",
@@ -1047,7 +1047,7 @@
     "title": "Telecommunications, IT & Technology",
     "icon": "Laptop",
     "image": {
-      "src": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/it-technology-startups.webp",
       "alt": "Technology business meeting"
     },
     "copy": "Practical and commercially focused legal advice for technology companies, startups, founders, investors and digital businesses.",
@@ -1147,7 +1147,7 @@
     "title": "Family Law",
     "icon": "HeartHandshake",
     "image": {
-      "src": "https://images.unsplash.com/photo-1496275068113-fff8c90750d1?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/family-law.webp",
       "alt": "A family walking together hand in hand"
     },
     "copy": "Sensitive, practical and strategic legal advice and representation in marriage, divorce, children, financial rights and family disputes.",
@@ -1235,7 +1235,7 @@
     "title": "New & Developing Areas",
     "icon": "Sparkles",
     "image": {
-      "src": "https://images.unsplash.com/photo-1576242112365-49e5d83e1b31?w=1200&auto=format&fit=crop&q=80",
+      "src": "/images/practice-areas/new-developing-areas.webp",
       "alt": "Modern glass office towers lit up at night"
     },
     "copy": "Forward-looking legal advice on emerging technologies, evolving business models and developing regulatory landscapes.",

@@ -63,7 +63,7 @@ export const seo = defineType({
       type: "array",
       of: [{ type: "string" }],
       options: { layout: "tags" },
-      description: "Optional. Terms this page should be found for — used in meta keywords and JSON-LD, not a ranking factor on its own.",
+      description: "Optional. Terms this page should be found for — used in article JSON-LD, not a ranking factor on its own.",
     }),
     defineField({
       name: "ogImage",

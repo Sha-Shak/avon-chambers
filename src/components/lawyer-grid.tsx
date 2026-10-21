@@ -26,11 +26,13 @@ const ITEM_WIDTH_BY_GAP: Record<string, string> = {
  */
 export function LawyerGrid({
   lawyers,
+  locale = "en",
   gap = "gap-12",
   delayStepMs = 60,
   className,
 }: {
   lawyers: Lawyer[];
+  locale?: "en" | "bn";
   /** Tailwind gap utility, e.g. "gap-8" or "gap-12" — sections vary this to match their surrounding rhythm. */
   gap?: string;
   /** Stagger, in ms, between each card's reveal animation. */
@@ -45,7 +47,7 @@ export function LawyerGrid({
     <div className={cn("flex flex-wrap justify-center", gap, className)}>
       {lawyers.map((lawyer, index) => (
         <FadeIn key={lawyer.slug} delay={index * delayStepMs} className={itemWidth}>
-          <LawyerCard lawyer={lawyer} />
+          <LawyerCard lawyer={lawyer} locale={locale} />
         </FadeIn>
       ))}
     </div>

@@ -349,3 +349,12 @@
     0 12px 40px color-mix(in oklab, var(--navy) 22%, transparent),
     inset 0 1px 0 color-mix(in oklab, var(--foreground) 16%, transparent);
 }
+
+/* Bengali vowel marks and conjuncts need natural spacing and generous leading. */
+:lang(bn) {
+  letter-spacing: normal;
+}
+:lang(bn):is(h1, h2, h3, h4) {
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
