@@ -48,9 +48,11 @@ const JOB_META_FIELDS = `
 const NEWS_EVENT_META_FIELDS = `
   "slug": slug.current,
   title,
+  practiceAreaIds,
   kind,
   excerpt,
   publishedAt,
+  updatedAt,
   eventDate,
   location,
   coverImage,
@@ -63,6 +65,7 @@ const PRO_BONO_META_FIELDS = `
   category,
   excerpt,
   publishedAt,
+  updatedAt,
   coverImage,
   ${SEO_FIELDS}
 `;
@@ -264,4 +267,14 @@ export async function getProBonoPost(slug: string): Promise<ProBonoPost | undefi
     { next: { revalidate: 60 } },
   );
   return result ?? undefined;
+}
+
+
+/** Explicit CMS relationships only; never infer legal classifications from a headline. */
+export async function getNewsEventsByPracticeArea(practiceAreaId: number): Promise<NewsEventMeta[]> {
+  return client.fetch(
+    `*[_type == "newsEvent" && defined(slug.current) && $practiceAreaId in coalesce(practiceAreaIds, []) && seo.noIndex != true] | order(publishedAt desc) [0...3] { ${NEWS_EVENT_META_FIELDS} }`,
+    { practiceAreaId },
+    { next: { revalidate: 60 } },
+  );
 }

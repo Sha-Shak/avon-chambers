@@ -50,10 +50,15 @@ export function organizationSchema() {
  * type, which represents the professional service/business rather than an
  * individual) with worksFor pointing back at the firm record above.
  */
+export function personId(slug: string) {
+  return `${abs(`/lawyers/${slug}`)}#person`;
+}
+
 export function lawyerSchema(lawyer: Lawyer) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": personId(lawyer.slug),
     name: lawyer.name,
     jobTitle: lawyer.title,
     description: lawyer.intro,
@@ -63,16 +68,11 @@ export function lawyerSchema(lawyer: Lawyer) {
     telephone: lawyer.phone ? phoneE164(lawyer.phone) : undefined,
     worksFor: { "@id": organizationId() },
     knowsAbout: [...new Set(lawyer.practiceAreaIds.map((id) => practiceAreaById(id)?.title).filter(Boolean))],
-    hasCredential: lawyer.admissions.map((name) => ({
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "Professional admission",
-      name,
-    })),
+    hasCredential: [
+      ...lawyer.admissions.map((name) => ({ "@type": "EducationalOccupationalCredential", credentialCategory: "Professional admission", name })),
+      ...lawyer.education.map((name) => ({ "@type": "EducationalOccupationalCredential", credentialCategory: "Education and training", name })),
+    ],
     sameAs: lawyer.profileLinks?.map((link) => link.url),
-    alumniOf: lawyer.education.map((line) => ({
-      "@type": "CollegeOrUniversity",
-      name: line.split(",")[1]?.trim().replace(/\s*\(.*\)$/, "") ?? line,
-    })),
   };
 }
 
@@ -80,6 +80,7 @@ export function practiceAreaSchema(area: PracticeArea) {
   const service = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${abs(`/practice-areas/${area.slug}`)}#service`,
     serviceType: area.title,
     name: area.title,
     description: practiceSeo(area).description,
@@ -168,14 +169,15 @@ export function insightSchema(
     dateModified: insight.updatedAt ?? insight.publishedAt,
     url: abs(`/insights/${insight.slug}`),
     author: author
-      ? { "@type": "Person", name: authorName, url: author.url }
+      ? { "@type": "Person", "@id": author.url ? `${author.url}#person` : undefined, name: authorName, url: author.url }
       : { "@type": "Organization", "@id": organizationId(), name: siteConfig.name },
     lastReviewed: reviewer && insight.reviewedAt ? insight.reviewedAt : undefined,
     reviewedBy: reviewer
-      ? { "@type": "Person", name: reviewer.name, url: reviewer.url }
+      ? { "@type": "Person", "@id": reviewer.url ? `${reviewer.url}#person` : undefined, name: reviewer.name, url: reviewer.url }
       : undefined,
     publisher: {
       "@type": "Organization",
+      "@id": organizationId(),
       name: siteConfig.name,
       logo: { "@type": "ImageObject", url: abs(mediaConfig.brand.logo.src) },
     },
@@ -224,6 +226,7 @@ export function postSchema(post: {
   excerpt: string;
   path: string;
   publishedAt: string;
+  updatedAt?: string;
   imageUrl?: string;
   section: string;
   event?: { startDate?: string; location?: string };
@@ -231,23 +234,22 @@ export function postSchema(post: {
   const url = abs(post.path);
   const publisher = {
     "@type": "Organization",
+    "@id": organizationId(),
     name: siteConfig.name,
     logo: { "@type": "ImageObject", url: abs(mediaConfig.brand.logo.src) },
   };
 
-  if (post.event) {
+  if (post.event?.startDate) {
     return {
       "@context": "https://schema.org",
       "@type": "Event",
       name: post.title,
       description: post.excerpt,
-      startDate: post.event.startDate ?? post.publishedAt,
-      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      startDate: post.event.startDate,
       location: post.event.location
         ? { "@type": "Place", name: post.event.location }
-        : { "@type": "Place", name: siteConfig.name, address: siteConfig.address.streetAddress },
+        : undefined,
       image: post.imageUrl,
-      organizer: publisher,
       url,
     };
   }
@@ -260,9 +262,38 @@ export function postSchema(post: {
     image: post.imageUrl,
     articleSection: post.section,
     datePublished: post.publishedAt,
+    dateModified: post.updatedAt ?? post.publishedAt,
     url,
-    author: { "@type": "Organization", name: siteConfig.name },
+    author: { "@type": "Organization", "@id": organizationId(), name: siteConfig.name },
     publisher,
     mainEntityOfPage: url,
+  };
+}
+
+
+export function webPageSchema(path: string, name: string, type: "WebPage" | "AboutPage" | "ContactPage" | "ProfilePage" = "WebPage", entityId = organizationId()) {
+  const url = abs(path);
+  return {
+    "@context": "https://schema.org",
+    "@type": type,
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    inLanguage: path.startsWith("/bn/") ? "bn-BD" : "en-BD",
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    about: { "@id": organizationId() },
+    mainEntity: { "@id": entityId },
+  };
+}
+
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteConfig.url}/#website`,
+    url: `${siteConfig.url}/`,
+    name: siteConfig.name,
+    publisher: { "@id": organizationId() },
+    inLanguage: ["en-BD", "bn-BD"],
   };
 }

@@ -45,6 +45,12 @@ export const proBono = defineType({
       type: "datetime",
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: "updatedAt",
+      title: "Content last updated",
+      type: "datetime",
+      description: "Set only when the published content is substantively revised. Leave blank for the original publication.",
+    }),
     postBodyField,
     defineField({ name: "seo", title: "SEO & Social", type: "seo" }),
   ],

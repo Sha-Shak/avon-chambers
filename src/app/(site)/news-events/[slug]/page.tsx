@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { practiceAreaById } from "@/config/practice-areas.config";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FadeIn } from "@/components/fade-in";
@@ -9,7 +12,7 @@ import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { getAllNewsEvents, getNewsEvent, getNewsEventSlugs } from "@/lib/content";
 import { newsEventCard, pictureUrl } from "@/lib/posts";
-import { breadcrumbSchema, postSchema } from "@/lib/schema";
+import { postSchema } from "@/lib/schema";
 import { buildSocialMetadata, resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -39,6 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "article",
       image: { url: image },
       publishedTime: item.publishedAt,
+      modifiedTime: item.updatedAt ?? item.publishedAt,
     }),
   };
 }
@@ -60,18 +64,17 @@ export default async function NewsEventDetailPage({ params }: { params: Promise<
           excerpt: item.excerpt,
           path: `/news-events/${item.slug}`,
           publishedAt: item.publishedAt,
+          updatedAt: item.updatedAt,
           imageUrl: pictureUrl(item.coverImage, 1600),
           section: item.kind,
           event: isEvent ? { startDate: item.eventDate, location: item.location } : undefined,
         })}
       />
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "News & Events", path: "/news-events" },
           { name: item.title, path: `/news-events/${item.slug}` },
-        ])}
-      />
+        ]} />
 
       <PostArticle
         backHref="/news-events"
@@ -86,6 +89,7 @@ export default async function NewsEventDetailPage({ params }: { params: Promise<
         location={isEvent ? item.location : undefined}
         body={item.body}
       >
+        {(item.practiceAreaIds ?? []).length > 0 && <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10"><h2 className="text-2xl">Related practice areas</h2><ul className="mt-5 flex flex-wrap gap-4">{item.practiceAreaIds?.map((id) => { const area = practiceAreaById(id); return area ? <li key={id}><Link href={`/practice-areas/${area.slug}`} className="underline">{area.title}</Link></li> : null; })}</ul></section>}
         {more.length > 0 && (
           <section className="border-t border-foreground/10 bg-secondary/50">
             <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">

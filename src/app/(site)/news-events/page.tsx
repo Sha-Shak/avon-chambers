@@ -1,12 +1,11 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { PageBanner } from "@/components/page-banner";
 import { PostCollection } from "@/components/post-collection";
 import { ConsultationSection } from "@/components/consultation-section";
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllNewsEvents } from "@/lib/content";
 import { newsEventCard } from "@/lib/posts";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `The latest news, announcements and events from ${siteConfig.name}.`;
@@ -32,12 +31,10 @@ export default async function NewsEventsPage() {
 
   return (
     <div>
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "News & Events", path: "/news-events" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="newsEvents"

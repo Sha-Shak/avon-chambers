@@ -196,11 +196,13 @@ export interface SanityPicture {
 export type NewsEventKind = "News" | "Event";
 
 export interface NewsEventMeta {
+  practiceAreaIds?: number[];
   slug: string;
   title: string;
   kind: NewsEventKind;
   excerpt: string;
-  publishedAt: string; // ISO date
+  publishedAt: string;
+  updatedAt?: string; // ISO date
   eventDate?: string; // ISO date, Events only
   location?: string; // Events only
   coverImage?: SanityPicture | null;
@@ -216,7 +218,8 @@ export interface ProBonoMeta {
   title: string;
   category: string;
   excerpt: string;
-  publishedAt: string; // ISO date
+  publishedAt: string;
+  updatedAt?: string; // ISO date
   coverImage?: SanityPicture | null;
   seo?: SeoFields;
 }

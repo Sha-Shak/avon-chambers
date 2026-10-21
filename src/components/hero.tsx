@@ -60,6 +60,7 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
             i === index ? "scale-100 opacity-100" : "scale-105 opacity-0",
           )}
           preload={i === 0}
+          quality={60}
         />
       ))}
 
@@ -127,10 +128,10 @@ export function Hero({ slides, intervalMs }: { slides: readonly HeroSlide[]; int
               aria-current={i === index}
               onClick={() => setIndex(i)}
               className={cn(
-                "size-2 rounded-full transition-colors",
-                i === index ? "bg-cream" : "bg-cream/40 hover:bg-cream/70",
+                "flex size-11 items-center justify-center rounded-full transition-colors",
+                "hover:bg-navy/30",
               )}
-            />
+            ><span aria-hidden="true" className={cn("size-2 rounded-full", i === index ? "bg-cream" : "bg-cream/60")} /></button>
           ))}
         </div>
       )}

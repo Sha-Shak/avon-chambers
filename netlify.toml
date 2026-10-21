@@ -1,3 +1,25 @@
+[build]
+  command = "npm run build"
+
 [build.environment]
   NODE_VERSION = "24"
   NPM_VERSION = "11"
+
+# Preserve paths and query parameters while consolidating the public domain.
+[[redirects]]
+  from = "https://avonchambers.com/*"
+  to = "https://www.avonchambers.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://avonchambers.com/*"
+  to = "https://www.avonchambers.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.avonchambers.com/*"
+  to = "https://www.avonchambers.com/:splat"
+  status = 301
+  force = true

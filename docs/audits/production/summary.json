@@ -1,0 +1,20 @@
+{
+  "measuredAt": "2026-10-21T17:49:17.162Z",
+  "mode": "Production HTTP crawl of server-rendered HTML; separate Lighthouse reports cover JavaScript-rendered templates",
+  "pages": 64,
+  "sitemapUrls": 63,
+  "missing": [],
+  "issues": [
+    {
+      "url": "https://www.avonchambers.com/news-events",
+      "errors": [
+        "Incomplete HTTP fetch (curl 28); indexability not verified",
+        "Sitemap URL could not be verified because its fetch failed"
+      ]
+    }
+  ],
+  "robots": {
+    "status": 200,
+    "body": "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /studio\nDisallow: /studio/\n\nSitemap: https://www.avonchambers.com/sitemap.xml\n"
+  }
+}

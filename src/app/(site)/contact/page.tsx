@@ -1,12 +1,13 @@
+import { JsonLd } from "@/components/seo/json-ld";
+import { webPageSchema } from "@/lib/schema";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 import { PageBanner } from "@/components/page-banner";
 import { WhatsAppCta } from "@/components/whatsapp-cta";
 import { SocialLinks } from "@/components/social-links";
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Contact ${siteConfig.name} in Dhanmondi, Dhaka for professional legal advice and representation.`;
@@ -21,12 +22,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div>
-      <JsonLd
-        data={breadcrumbSchema([
+      <JsonLd data={webPageSchema("/contact", "Contact Avon Chambers", "ContactPage")} />
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Contact", path: "/contact" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="contact"
@@ -72,6 +72,7 @@ export default function ContactPage() {
                   {siteConfig.address.addressLocality}, {siteConfig.address.addressRegion}{" "}
                   {siteConfig.address.postalCode}
                 </p>
+                <a href={siteConfig.directionsUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center underline underline-offset-4">Get directions to our office</a>
               </div>
             </div>
             <div className="flex gap-4">

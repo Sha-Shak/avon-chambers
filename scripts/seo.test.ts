@@ -64,7 +64,7 @@ test("organization hours and person credentials use existing business data", asy
   assert.equal(firm.openingHoursSpecification.closes, "18:30");
   assert.ok(!firm.openingHoursSpecification.dayOfWeek.includes("https://schema.org/Friday"));
   const lawyer = getAllLawyers()[0];
-  assert.deepEqual(lawyerSchema(lawyer).hasCredential.map((credential) => credential.name), lawyer.admissions);
+  assert.deepEqual(lawyerSchema(lawyer).hasCredential.filter((credential) => credential.credentialCategory === "Professional admission").map((credential) => credential.name), lawyer.admissions);
   const article = insightSchema({ slug: "example", title: "Example", excerpt: "Summary", category: "Corporate", publishedAt: "2026-10-21", readingTime: "1 min read", body: [] });
   assert.equal(article.author["@type"], "Organization");
   assert.equal(article.lastReviewed, undefined, "never manufacture a legal review");
@@ -100,4 +100,39 @@ test("every practice has a complete Bangla translation with matching sections", 
     assert.notEqual(translated.title, source.title);
     assert.notEqual(translated.services[0].copy, source.services[0].copy);
   }
+});
+
+test("public URL normalization preserves assets, APIs and Studio paths", async () => {
+  const { normalizedPublicPath } = await import("../src/lib/url-normalization");
+  assert.equal(normalizedPublicPath("/Practice-Areas/Corporate-Commercial"), "/practice-areas/corporate-commercial");
+  assert.equal(normalizedPublicPath("/BN/Practice-Areas/Family-Law"), "/bn/practice-areas/family-law");
+  for (const path of ["/api/CaseSensitive", "/studio/MyDocument", "/images/brand/Avon_Chambers_Logo.webp", "/_next/Chunks/Main.js"]) assert.equal(normalizedPublicPath(path), path);
+});
+
+test("lawyer profiles and authored articles share stable Person and organization IDs", async () => {
+  const { personId, organizationId, lawyerSchema, insightSchema, webPageSchema } = await import("../src/lib/schema");
+  for (const lawyer of getAllLawyers()) {
+    const person = lawyerSchema(lawyer);
+    assert.equal(person["@id"], `${person.url}#person`);
+    assert.equal(person.worksFor["@id"], organizationId());
+    const page = webPageSchema(`/lawyers/${lawyer.slug}`, lawyer.name, "ProfilePage", personId(lawyer.slug));
+    assert.equal(page.mainEntity["@id"], person["@id"]);
+    const article = insightSchema({ slug: "example", title: "Example", excerpt: "Summary", category: "Corporate", publishedAt: "2026-10-21", readingTime: "1 min read", body: [] }, { name: lawyer.name, url: person.url });
+    assert.equal(article.author["@id"], person["@id"]);
+    assert.equal(article.publisher["@id"], organizationId());
+    assert.equal(article.dateModified, article.datePublished);
+  }
+});
+
+test("event schema never invents a date, venue or attendance mode", async () => {
+  const { postSchema } = await import("../src/lib/schema");
+  const post = { title: "Event update", excerpt: "Details", path: "/news-events/example", publishedAt: "2026-10-21", section: "Event" };
+  const undated = postSchema({ ...post, event: {} });
+  assert.equal(undated["@type"], "NewsArticle");
+  assert.equal(undated.startDate, undefined);
+  const dated = postSchema({ ...post, event: { startDate: "2026-11-01" } });
+  assert.equal(dated["@type"], "Event");
+  assert.equal(dated.startDate, "2026-11-01");
+  assert.equal(dated.location, undefined);
+  assert.ok(!('eventAttendanceMode' in dated));
 });

@@ -1,11 +1,10 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { PageBanner } from "@/components/page-banner";
 import { LawyerGrid } from "@/components/lawyer-grid";
 import { ConsultationSection } from "@/components/consultation-section";
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getLawyersByTier } from "@/lib/data";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Meet the barristers, advocates and legal consultants at ${siteConfig.name} in Dhanmondi, Dhaka. View their practice areas, qualifications and experience.`;
@@ -36,12 +35,10 @@ export default function LawyersPage() {
 
   return (
     <div>
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Lawyers", path: "/lawyers" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="lawyers"

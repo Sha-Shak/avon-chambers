@@ -12,7 +12,7 @@ export function WhatsAppCta({ message, className, label = "Contact us on WhatsAp
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex h-16 w-full items-center justify-center gap-3 bg-[#25D366] px-8 text-base font-medium tracking-wide text-white transition-transform hover:scale-[1.02]",
+        "inline-flex h-16 w-full items-center justify-center gap-3 bg-[#25D366] px-8 text-base font-medium tracking-wide text-navy transition-transform hover:scale-[1.02]",
         className,
       )}
     >

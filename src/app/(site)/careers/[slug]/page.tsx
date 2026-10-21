@@ -1,3 +1,4 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -9,7 +10,7 @@ import { PostBody } from "@/components/post-body";
 import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { getJobPost, getJobPostSlugs } from "@/lib/content";
-import { breadcrumbSchema, jobPostingSchema } from "@/lib/schema";
+import { jobPostingSchema } from "@/lib/schema";
 import { buildSocialMetadata, resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 import { urlForImage } from "@/sanity/image";
 
@@ -64,13 +65,11 @@ export default async function JobDetailPage({
   return (
     <div>
       <JsonLd data={jobPostingSchema(job)} />
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Careers", path: "/careers" },
           { name: job.title, path: `/careers/${job.slug}` },
-        ])}
-      />
+        ]} />
 
       <section className="border-b border-foreground/10">
         <div className="mx-auto max-w-3xl px-6 py-20 lg:px-10 lg:py-28">

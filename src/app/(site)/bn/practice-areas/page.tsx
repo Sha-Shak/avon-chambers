@@ -1,14 +1,13 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PracticeLanguageSwitcher } from "@/components/practice-language-switcher";
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
 import { PageBanner } from "@/components/page-banner";
 import { ConsultationSection } from "@/components/consultation-section";
-import { JsonLd } from "@/components/seo/json-ld";
 import { mediaConfig } from "@/config/media.config";
 import { getAllPracticeAreas } from "@/lib/data";
 import { banglaPractice } from "@/lib/practice-bangla";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const description = "বাংলাদেশের অ্যাভন চেম্বার্সের ১৫টি আইনি সেবার ক্ষেত্র সম্পর্কে বাংলায় জানুন। প্রতিটি ক্ষেত্রে সেবা, কাজের ধাপ, প্রয়োজনীয় নথি ও সাধারণ প্রশ্নের পূর্ণ বিবরণ রয়েছে।";
@@ -34,7 +33,7 @@ export default function BanglaPracticeAreasPage() {
   ];
   return (
     <div lang="bn" className="[&_h1]:leading-normal [&_h2]:leading-normal [&_h3]:leading-normal">
-      <JsonLd data={breadcrumbSchema([{ name: "হোম", path: "/" }, { name: "সেবার ক্ষেত্র", path: "/bn/practice-areas" }])} />
+      <Breadcrumbs items={[{ name: "হোম", path: "/" }, { name: "সেবার ক্ষেত্র", path: "/bn/practice-areas" }]} />
       <PageBanner image={{ ...mediaConfig.banners.practiceAreas, alt: "অ্যাভন চেম্বার্সের তাকজুড়ে আইনের বই" }} eyebrow="সেবার ক্ষেত্র" title="এক ঠিকানায় পূর্ণাঙ্গ আইনি পরামর্শ">
         <PracticeLanguageSwitcher locale="bn" />
       </PageBanner>

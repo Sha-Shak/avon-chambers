@@ -15,6 +15,8 @@ export function PracticeAreaCard({ area, locale = "en" }: { area: PracticeArea; 
           src={area.image.src}
           alt={area.image.alt}
           fill
+          quality={60}
+          fetchPriority="low"
           sizes="(min-width: 640px) 352px, 86vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />

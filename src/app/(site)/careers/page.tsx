@@ -1,10 +1,9 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { PageBanner } from "@/components/page-banner";
 import { JobCard } from "@/components/cards/job-card";
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllJobPosts, isJobOpen } from "@/lib/content";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Career opportunities at ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
@@ -30,12 +29,10 @@ export default async function CareersPage() {
 
   return (
     <div>
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Careers", path: "/careers" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="careers"

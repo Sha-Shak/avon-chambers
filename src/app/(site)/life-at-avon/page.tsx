@@ -1,11 +1,10 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
 import { PageBanner } from "@/components/page-banner";
 import { PhotoGallery } from "@/components/gallery/photo-gallery";
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getGalleryCategories, getGalleryPhotos } from "@/lib/data";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Meet the people at ${siteConfig.name} and see everyday life at the Chambers.`;
@@ -27,12 +26,10 @@ export default function LifeAtAvonPage() {
 
   return (
     <div>
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Life at Avon", path: "/life-at-avon" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="lifeAtAvon"

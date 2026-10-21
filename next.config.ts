@@ -3,8 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Deliver the small Tailwind stylesheet with HTML instead of a blocking round trip.
   experimental: { inlineCss: true },
+  trailingSlash: false,
   async headers() {
-    return [{
+    const preview = process.env.NETLIFY === "true" && ["deploy-preview", "branch-deploy"].includes(process.env.CONTEXT ?? "");
+    return [...(preview ? [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }] : []), {
       source: "/studio/:path*",
       headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
     }];

@@ -1,3 +1,4 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +15,7 @@ import { mediaConfig } from "@/config/media.config";
 import { getLawyer } from "@/lib/data";
 import { practiceAreaById } from "@/config/practice-areas.config";
 import { getAllInsights, getInsight, getInsightSlugs } from "@/lib/content";
-import { breadcrumbSchema, insightSchema } from "@/lib/schema";
+import { insightSchema } from "@/lib/schema";
 import { buildSocialMetadata, resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 import { urlForImage } from "@/sanity/image";
 
@@ -99,13 +100,11 @@ export default async function InsightDetailPage({
           reviewer ? { name: reviewer.name, url: `${siteConfig.url}/lawyers/${reviewer.slug}` } : undefined,
         )}
       />
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Articles", path: "/insights" },
           { name: insight.title, path: `/insights/${insight.slug}` },
-        ])}
-      />
+        ]} />
 
       <article>
         <section className="border-b border-foreground/10">

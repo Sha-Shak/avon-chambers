@@ -1,3 +1,4 @@
+import { PracticeDirectoryLink } from "@/components/practice-directory-link";
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { SocialLinks } from "@/components/social-links";
@@ -31,20 +32,18 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-[0.6875rem] tracking-[0.2em] text-cream/40 uppercase">Quick links</p>
+          <p className="text-[0.6875rem] tracking-[0.2em] text-cream/70 uppercase">Quick links</p>
           <ul className="mt-5 space-y-3">
             {navLinks.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="text-sm text-cream/70 transition-colors hover:text-cream">
-                  {l.label}
-                </Link>
+                {l.href === "/practice-areas" ? <PracticeDirectoryLink className="text-sm text-cream/70 transition-colors hover:text-cream">{l.label}</PracticeDirectoryLink> : <Link href={l.href} className="text-sm text-cream/70 transition-colors hover:text-cream">{l.label}</Link>}
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <p className="text-[0.6875rem] tracking-[0.2em] text-cream/40 uppercase">Contact</p>
+          <p className="text-[0.6875rem] tracking-[0.2em] text-cream/70 uppercase">Contact</p>
           <ul className="mt-5 space-y-3 text-sm text-cream/70">
             <li>
               <a href={`tel:${siteConfig.consultationPhoneE164}`} className="hover:text-cream">
@@ -67,7 +66,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-[0.6875rem] tracking-[0.2em] text-cream/40 uppercase">Legal</p>
+          <p className="text-[0.6875rem] tracking-[0.2em] text-cream/70 uppercase">Legal</p>
           <ul className="mt-5 space-y-3 text-sm text-cream/70">
             {legalLinks.map((l) => (
               <li key={l.href}>
@@ -81,7 +80,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-cream/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-6 text-xs text-cream/40 sm:flex-row sm:justify-between lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-6 text-xs text-cream/70 sm:flex-row sm:justify-between lg:px-10">
           <p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
           <p>Prior results do not guarantee a similar outcome.</p>
         </div>

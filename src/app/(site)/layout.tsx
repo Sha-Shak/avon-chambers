@@ -6,7 +6,7 @@ import { Analytics } from "@/components/analytics/google-analytics";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { mediaConfig } from "@/config/media.config";
 import { siteConfig } from "@/config/site.config";
-import { organizationSchema } from "@/lib/schema";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 import "./globals.css";
 
@@ -58,6 +58,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         Skip to main content
       </a>
       <JsonLd data={organizationSchema()} />
+      <JsonLd data={websiteSchema()} />
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>{children}</main>
       <SiteFooter />

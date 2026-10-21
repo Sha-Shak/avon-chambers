@@ -1,11 +1,10 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { PageBanner } from "@/components/page-banner";
 import { InsightsCollection } from "@/components/insights-collection";
 import { ConsultationSection } from "@/components/consultation-section";
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllInsights } from "@/lib/content";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Articles and legal insights from ${siteConfig.name} in Bangladesh.`;
@@ -31,12 +30,10 @@ export default async function InsightsPage() {
 
   return (
     <div>
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Articles", path: "/insights" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="articles"

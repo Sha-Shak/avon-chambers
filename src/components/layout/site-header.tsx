@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,7 +17,8 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+  const localHref = (href: string) => pathname.startsWith("/bn/") && href === "/practice-areas" ? "/bn/practice-areas" : href;
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(localHref(href)));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -51,9 +52,9 @@ export function SiteHeader() {
         </Link>
 
         <div className="flex items-center gap-5">
-          <nav className="hidden items-center gap-5 xl:flex 2xl:gap-6">
+          <nav aria-label="Main navigation" className="hidden items-center gap-5 xl:flex 2xl:gap-6">
             {primaryNavLinks.map((l) => (
-              <NavLink key={l.href} href={l.href} active={isActive(l.href)}>
+              <NavLink key={l.href} href={localHref(l.href)} active={isActive(l.href)}>
                 {l.label}
               </NavLink>
             ))}
@@ -71,6 +72,7 @@ export function SiteHeader() {
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((v) => !v)}
             className="inline-flex size-11 shrink-0 items-center justify-center text-foreground xl:hidden"
           >
@@ -81,9 +83,9 @@ export function SiteHeader() {
 
       {open && (
         <div className="border-t border-foreground/10 bg-background/90 backdrop-blur-md xl:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
+          <nav aria-label="Mobile navigation" id="mobile-navigation" className="mx-auto flex max-w-7xl flex-col px-6 py-4">
             {primaryNavLinks.map((l) => (
-              <MobileLink key={l.href} href={l.href} onNavigate={() => setOpen(false)}>
+              <MobileLink key={l.href} href={localHref(l.href)} onNavigate={() => setOpen(false)}>
                 {l.label}
               </MobileLink>
             ))}
@@ -117,6 +119,7 @@ function NavLink({ href, active, children }: { href: string; active: boolean; ch
   return (
     <Link
       href={href}
+      aria-current={active ? "page" : undefined}
       className={cn(
         "text-[0.8125rem] tracking-wide transition-colors",
         active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
@@ -152,6 +155,8 @@ function NavDropdown({ group, isActive }: { group: NavGroup; isActive: (href: st
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const lastPointer = useRef<string>("");
+  const trigger = useRef<HTMLButtonElement>(null);
+  const id = useId();
   const hasActiveChild = group.links.some((l) => isActive(l.href));
 
   useEffect(() => {
@@ -160,7 +165,7 @@ function NavDropdown({ group, isActive }: { group: NavGroup; isActive: (href: st
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     };
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") { setOpen(false); trigger.current?.focus(); }
     };
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("keydown", onKeyDown);
@@ -179,7 +184,8 @@ function NavDropdown({ group, isActive }: { group: NavGroup; isActive: (href: st
     >
       <button
         type="button"
-        aria-haspopup="menu"
+        ref={trigger}
+        aria-controls={id}
         aria-expanded={open}
         // A mouse click keeps the menu open (hover already opened it); touch and keyboard clicks toggle it.
         onClick={(e) => setOpen((v) => (e.detail > 0 && lastPointer.current === "mouse" ? true : !v))}
@@ -201,14 +207,13 @@ function NavDropdown({ group, isActive }: { group: NavGroup; isActive: (href: st
         )}
       >
         <ul
-          role="menu"
+          id={id}
           className="min-w-52 border border-foreground/10 bg-background/95 py-2 shadow-xl shadow-navy/10 backdrop-blur-md"
         >
           {group.links.map((l) => (
-            <li key={l.href} role="none">
+            <li key={l.href}>
               <Link
                 href={l.href}
-                role="menuitem"
                 onClick={() => setOpen(false)}
                 className={cn(
                   "block px-5 py-2.5 text-[0.8125rem] tracking-wide transition-colors hover:bg-secondary",

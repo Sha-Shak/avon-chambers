@@ -1,4 +1,5 @@
-import { defineField, defineType } from "sanity";
+import { PRACTICE_AREA_OPTIONS } from "@/config/practice-areas.config";
+import { defineArrayMember, defineField, defineType } from "sanity";
 import { coverImageField, postBodyField } from "./objects/postBody";
 
 export const newsEvent = defineType({
@@ -37,6 +38,15 @@ export const newsEvent = defineType({
       description: "One or two sentences shown on the listing page and in search results.",
       validation: (rule) => rule.required().max(320),
     }),
+    defineField({
+      name: "practiceAreaIds",
+      title: "Related practice areas",
+      type: "array",
+      description: "Select the services genuinely relevant to this update. These links appear on both the update and practice pages.",
+      of: [defineArrayMember({ type: "number" })],
+      options: { list: PRACTICE_AREA_OPTIONS, layout: "grid" },
+      validation: (rule) => rule.unique(),
+    }),
     coverImageField,
     defineField({
       name: "publishedAt",
@@ -57,6 +67,12 @@ export const newsEvent = defineType({
       type: "string",
       description: "Where the event takes place, e.g. \"Chambers, Dhanmondi\".",
       hidden: ({ parent }) => parent?.kind !== "Event",
+    }),
+    defineField({
+      name: "updatedAt",
+      title: "Content last updated",
+      type: "datetime",
+      description: "Set only when the published content is substantively revised. Leave blank for the original publication.",
     }),
     postBodyField,
     defineField({ name: "seo", title: "SEO & Social", type: "seo" }),

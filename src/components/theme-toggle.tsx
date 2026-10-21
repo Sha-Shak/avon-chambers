@@ -23,7 +23,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       type="button"
       aria-label="Toggle dark mode"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className={cn("shrink-0 text-foreground", className)}
+      className={cn("inline-flex size-11 shrink-0 items-center justify-center text-foreground", className)}
     >
       {mounted && resolvedTheme === "dark" ? (
         <Sun className="size-5" />

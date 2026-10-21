@@ -17,6 +17,19 @@
  */
 
 const FALLBACK_URL = "https://www.avonchambers.com";
+const OFFICE_ADDRESS = {
+  streetAddress: "Flat 4A, Level 3, Kanak Bindu, House 39A, Road No. 8",
+  addressLocality: "Dhanmondi",
+  addressRegion: "Dhaka",
+  postalCode: "1205",
+  addressCountry: "Bangladesh",
+} as const;
+const OFFICE_HOURS = { days: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], opens: "09:30", closes: "18:30" } as const;
+const displayTime = (value: string) => {
+  const [hour, minutes] = value.split(":");
+  return `${Number(hour) % 12 || 12}:${minutes}${Number(hour) < 12 ? "am" : "pm"}`;
+};
+
 
 export const siteConfig = {
   name: "Avon Chambers",
@@ -31,15 +44,11 @@ export const siteConfig = {
   email: "info@avonchambers.com",
   consultationPhoneDisplay: "+880 1841-010059",
   consultationPhoneE164: "+8801841010059",
-  openingHours: { days: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], opens: "09:30", closes: "18:30" },
-  officeHours: "Saturday to Thursday, 9:30am to 6:30pm",
-  address: {
-    streetAddress: "Flat 4A, Level 3, Kanak Bindu, House 39A, Road No. 8",
-    addressLocality: "Dhanmondi",
-    addressRegion: "Dhaka",
-    postalCode: "1205",
-    addressCountry: "Bangladesh",
-  },
+  openingHours: OFFICE_HOURS,
+  officeHours: `${OFFICE_HOURS.days[0]} to ${OFFICE_HOURS.days.at(-1)}, ${displayTime(OFFICE_HOURS.opens)} to ${displayTime(OFFICE_HOURS.closes)}`,
+  address: OFFICE_ADDRESS,
+  addressBn: { streetAddress: "ফ্ল্যাট ৪এ, লেভেল ৩, কনক বিন্দু, হাউস ৩৯এ, রোড ৮", locality: "ধানমন্ডি, ঢাকা ১২০৫" },
+  directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(`Avon Chambers, ${OFFICE_ADDRESS.streetAddress}, ${OFFICE_ADDRESS.addressLocality}, ${OFFICE_ADDRESS.addressRegion} ${OFFICE_ADDRESS.postalCode}, ${OFFICE_ADDRESS.addressCountry}`),
   /**
    * Social profile links, shown in the footer, contact page and the
    * consultation CTA, and fed into the Organization JSON-LD `sameAs` list.

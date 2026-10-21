@@ -37,7 +37,8 @@ export function PageBanner({
         src={banner.src}
         alt={banner.alt}
         fill
-        priority
+        preload
+        quality={60}
         sizes="100vw"
         style={{ objectPosition: banner.position ?? "center" }}
         className="-z-20 object-cover"

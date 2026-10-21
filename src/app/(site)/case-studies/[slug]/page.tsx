@@ -1,3 +1,4 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -13,7 +14,7 @@ import { mediaConfig } from "@/config/media.config";
 import { siteConfig } from "@/config/site.config";
 import { getAllCaseStudies, getCaseStudy, getCaseStudySlugs } from "@/lib/content";
 import { pictureUrl, formatPostDate } from "@/lib/posts";
-import { breadcrumbSchema, caseStudySchema } from "@/lib/schema";
+import { caseStudySchema } from "@/lib/schema";
 import { buildSocialMetadata, resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
@@ -72,13 +73,11 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
   return (
     <>
       <JsonLd data={caseStudySchema(study)} />
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Case Studies", path: "/case-studies" },
           { name: study.title, path: `/case-studies/${study.slug}` },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image={coverUrl ? { src: coverUrl, alt: study.coverImage?.alt ?? study.title } : "caseStudies"}

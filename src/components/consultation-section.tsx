@@ -60,9 +60,9 @@ export function ConsultationSection({
               <dl>
                 <dt className="text-cream/50">{bn ? "কার্যালয়" : "Office"}</dt>
                 <dd className="mt-1 leading-relaxed">
-                  {bn ? "ফ্ল্যাট ৪এ, লেভেল ৩, কনক বিন্দু, হাউস ৩৯এ, রোড ৮" : siteConfig.address.streetAddress}
+                  {bn ? siteConfig.addressBn.streetAddress : siteConfig.address.streetAddress}
                   <br />
-                  {bn ? "ধানমন্ডি, ঢাকা ১২০৫" : `${siteConfig.address.addressLocality}, ${siteConfig.address.addressRegion} ${siteConfig.address.postalCode}`}
+                  {bn ? siteConfig.addressBn.locality : `${siteConfig.address.addressLocality}, ${siteConfig.address.addressRegion} ${siteConfig.address.postalCode}`}
                 </dd>
               </dl>
             </div>

@@ -1,3 +1,4 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FadeIn } from "@/components/fade-in";
@@ -9,7 +10,7 @@ import { siteConfig } from "@/config/site.config";
 import { mediaConfig } from "@/config/media.config";
 import { getAllProBonoPosts, getProBonoPost, getProBonoSlugs } from "@/lib/content";
 import { pictureUrl, proBonoCard } from "@/lib/posts";
-import { breadcrumbSchema, postSchema } from "@/lib/schema";
+import { postSchema } from "@/lib/schema";
 import { buildSocialMetadata, resolveSeoText, resolveSeoTitle } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -63,13 +64,11 @@ export default async function ProBonoDetailPage({ params }: { params: Promise<{ 
           section: post.category,
         })}
       />
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Social Commitments and Pro Bono Services", path: "/pro-bono" },
           { name: post.title, path: `/pro-bono/${post.slug}` },
-        ])}
-      />
+        ]} />
 
       <PostArticle
         backHref="/pro-bono"

@@ -15,7 +15,7 @@ export function PracticeLanguageSwitcher({ locale, slug }: { locale: "en" | "bn"
         return active ? (
           <span key={language} lang={language} aria-current="true" className={className}>{text}</span>
         ) : (
-          <Link key={language} href={`${language === "bn" ? "/bn" : ""}${path}`} hrefLang={`${language}-BD`} lang={language} aria-label={language === "bn" ? "এই পৃষ্ঠাটি বাংলায় পড়ুন" : "Read this page in English"} className={className}>{text}</Link>
+          <Link key={language} prefetch={false} href={`${language === "bn" ? "/bn" : ""}${path}`} hrefLang={`${language}-BD`} lang={language} aria-label={language === "bn" ? "এই পৃষ্ঠাটি বাংলায় পড়ুন" : "Read this page in English"} className={className}>{text}</Link>
         );
       })}
     </nav>

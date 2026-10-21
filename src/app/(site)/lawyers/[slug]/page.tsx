@@ -1,3 +1,5 @@
+import { webPageSchema, personId } from "@/lib/schema";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { phoneE164, phoneDisplay } from "@/lib/contact";
 import { lawyerPortraitAlt } from "@/lib/page-seo";
 import type { Metadata } from "next";
@@ -13,7 +15,7 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site.config";
 import { getAllLawyers, getLawyer, getPracticeAreasForLawyer } from "@/lib/data";
 import { getInsightsByAuthor } from "@/lib/content";
-import { lawyerSchema, breadcrumbSchema } from "@/lib/schema";
+import { lawyerSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 /** Widest column count the stats row reaches (its `lg:grid-cols-4`) — a
@@ -150,13 +152,12 @@ export default async function LawyerProfilePage({
   return (
     <div>
       <JsonLd data={lawyerSchema(lawyer)} />
-      <JsonLd
-        data={breadcrumbSchema([
+      <JsonLd data={webPageSchema(`/lawyers/${lawyer.slug}`, lawyer.name, "ProfilePage", personId(lawyer.slug))} />
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Lawyers", path: "/lawyers" },
           { name: lawyer.name, path: `/lawyers/${lawyer.slug}` },
-        ])}
-      />
+        ]} />
 
       <section className="bg-navy text-cream">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[0.38fr_0.62fr] lg:gap-20 lg:px-10 lg:py-28">

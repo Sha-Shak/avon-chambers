@@ -142,3 +142,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 .codex/
+
+# Keep compact benchmark summaries; full local Lighthouse reports are large.
+docs/audits/lighthouse-*/*.json
+!docs/audits/lighthouse-*/summary.json

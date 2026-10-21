@@ -187,61 +187,25 @@
   color: var(--muted-foreground);
 }
 
-@utility fade-up {
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+/* Progressive enhancement: content stays visible with no JavaScript or animation support. */
+@utility fade-up { opacity: 1; }
+@utility fade-left { opacity: 1; }
+@utility fade-right { opacity: 1; }
 
-  &[data-visible="true"] {
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
-/* Same easing/timing as fade-up, entering from the side instead — used sparingly for variety. */
-@utility fade-left {
-  opacity: 0;
-  transform: translateX(-24px);
-  transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-
-  &[data-visible="true"] {
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
-@utility fade-right {
-  opacity: 0;
-  transform: translateX(24px);
-  transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-
-  &[data-visible="true"] {
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    opacity: 1;
-    transform: none;
-    transition: none;
+@keyframes reveal-up { from { transform: translateY(12px); } to { transform: none; } }
+@keyframes reveal-left { from { transform: translateX(-12px); } to { transform: none; } }
+@keyframes reveal-right { from { transform: translateX(12px); } to { transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .fade-up, .fade-left, .fade-right {
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+    .fade-up { animation-name: reveal-up; }
+    .fade-left { animation-name: reveal-left; }
+    .fade-right { animation-name: reveal-right; }
   }
 }
 
@@ -357,4 +321,11 @@
 :lang(bn):is(h1, h2, h3, h4) {
   font-family: var(--font-sans);
   line-height: 1.5;
+}
+
+
+/* Keep keyboard focus clear on links, disclosure controls and contact actions. */
+:where(a, button, summary, input, textarea, select):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }

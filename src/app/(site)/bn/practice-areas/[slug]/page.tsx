@@ -1,3 +1,7 @@
+import { PostCard } from "@/components/post-collection";
+import { newsEventCard } from "@/lib/posts";
+import { webPageSchema } from "@/lib/schema";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PracticeLanguageSwitcher } from "@/components/practice-language-switcher";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -17,8 +21,8 @@ import {
   getLawyersForPracticeArea,
   getPracticeArea,
 } from "@/lib/data";
-import { getCaseStudiesByPracticeArea, getInsightsByPracticeArea } from "@/lib/content";
-import { breadcrumbSchema, practiceAreaSchema } from "@/lib/schema";
+import { getCaseStudiesByPracticeArea, getInsightsByPracticeArea, getNewsEventsByPracticeArea } from "@/lib/content";
+import { practiceAreaSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 import { practiceLocalizations } from "@/data/practice-localizations";
 import { PRACTICE_PROCESS, PRACTICE_DOCUMENTS } from "@/config/practice-guidance";
@@ -73,28 +77,28 @@ export default async function PracticeAreaDetailPage({
   const process = (area.process ?? PRACTICE_PROCESS).map((step) => ({ title: t(step.title), copy: t(step.copy) }));
   const documents = (area.documents ?? PRACTICE_DOCUMENTS[area.id] ?? []).map(t);
   const relatedLawyers = getLawyersForPracticeArea(area.id);
-  const [relatedCases, relatedInsights] = await Promise.all([
+  const [relatedCases, relatedInsights, relatedNews] = await Promise.all([
     getCaseStudiesByPracticeArea(area.id),
     getInsightsByPracticeArea(area.id),
+    getNewsEventsByPracticeArea(area.id),
   ]);
   const relatedAreas = getAllPracticeAreas().filter((candidate) =>
     candidate.id !== area.id && relatedLawyers.some((lawyer) => lawyer.practiceAreaIds.includes(candidate.id)),
   ).slice(0, 4).map(banglaPractice);
   const schemas = practiceAreaSchema(area);
-  const service = { ...schemas.service, description: area.copy, url: `${siteConfig.url}/bn/practice-areas/${area.slug}`, inLanguage: "bn-BD" };
+  const service = { ...schemas.service, "@id": `${siteConfig.url}/bn/practice-areas/${area.slug}#service`, description: area.copy, url: `${siteConfig.url}/bn/practice-areas/${area.slug}` };
   const faqPage = schemas.faqPage ? { ...schemas.faqPage, inLanguage: "bn-BD" } : undefined;
 
   return (
     <div lang="bn" className="[&_h1]:leading-normal [&_h2]:leading-normal [&_h3]:leading-normal">
       <JsonLd data={service} />
+      <JsonLd data={webPageSchema(`/bn/practice-areas/${area.slug}`, area.title, "WebPage", service["@id"])} />
       {faqPage && <JsonLd data={faqPage} />}
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "হোম", path: "/" },
           { name: "সেবার ক্ষেত্র", path: "/bn/practice-areas" },
           { name: area.title, path: `/bn/practice-areas/${area.slug}` },
-        ])}
-      />
+        ]} />
 
       <div className="relative aspect-21/9 w-full overflow-hidden">
         <Image
@@ -103,6 +107,7 @@ export default async function PracticeAreaDetailPage({
           fill
           sizes="100vw"
           preload
+          quality={60}
           className="object-cover"
         />
       </div>
@@ -262,6 +267,8 @@ export default async function PracticeAreaDetailPage({
           </div>
         </section>
       )}
+
+      {relatedNews.length > 0 && <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10"><h2 className="text-2xl">সংশ্লিষ্ট সংবাদ ও মামলার আপডেট (ইংরেজি)</h2><div lang="en" className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{relatedNews.map((post) => <PostCard key={post.slug} post={newsEventCard(post)} />)}</div></section>}
 
       {relatedAreas.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10">

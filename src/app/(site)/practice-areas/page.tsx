@@ -1,13 +1,12 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PracticeLanguageSwitcher } from "@/components/practice-language-switcher";
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
 import { PracticeAreaCard } from "@/components/cards/practice-area-card";
 import { PageBanner } from "@/components/page-banner";
 import { ConsultationSection } from "@/components/consultation-section";
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllPracticeAreas } from "@/lib/data";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Explore the legal practice areas of ${siteConfig.name}, a Bangladesh-based set of law chambers.`;
@@ -34,12 +33,10 @@ export default function PracticeAreasPage() {
 
   return (
     <div>
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Practice Areas", path: "/practice-areas" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="practiceAreas"

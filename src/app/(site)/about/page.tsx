@@ -1,3 +1,4 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -9,7 +10,7 @@ import { ConsultationSection } from "@/components/consultation-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllPracticeAreas } from "@/lib/data";
-import { breadcrumbSchema, organizationId } from "@/lib/schema";
+import { organizationId } from "@/lib/schema";
 import { PracticeAreaIcon } from "@/lib/icons";
 import { buildSocialMetadata } from "@/lib/seo";
 
@@ -87,12 +88,10 @@ export default function AboutPage() {
           about: { "@id": organizationId() },
         }}
       />
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "About", path: "/about" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="about"

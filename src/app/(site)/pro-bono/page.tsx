@@ -1,12 +1,11 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { PageBanner } from "@/components/page-banner";
 import { PostCollection } from "@/components/post-collection";
 import { ConsultationSection } from "@/components/consultation-section";
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
 import { getAllProBonoPosts } from "@/lib/content";
 import { proBonoCard } from "@/lib/posts";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Legal aid, community outreach and pro bono work by the lawyers of ${siteConfig.name}.`;
@@ -31,12 +30,10 @@ export default async function ProBonoPage() {
 
   return (
     <div>
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Social Commitments and Pro Bono Services", path: "/pro-bono" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="proBono"

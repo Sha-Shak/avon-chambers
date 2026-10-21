@@ -1,12 +1,11 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 import { PageBanner } from "@/components/page-banner";
 import { ConsultationSection } from "@/components/consultation-section";
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site.config";
-import { breadcrumbSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 
 const DESCRIPTION = `Terms of engagement and the policies that govern how ${siteConfig.name} works with clients, handles data and conducts itself.`;
@@ -42,12 +41,10 @@ const SECTIONS = [
 export default function PoliciesPage() {
   return (
     <div>
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Policies & Terms of Engagement", path: "/policies" },
-        ])}
-      />
+        ]} />
 
       <PageBanner
         image="policies"

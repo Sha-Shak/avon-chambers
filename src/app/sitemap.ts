@@ -4,6 +4,8 @@ import { siteConfig } from "@/config/site.config";
 import { getAllLawyers, getAllPracticeAreas } from "@/lib/data";
 import { getAllCaseStudies, getAllInsights, getAllJobPosts, getAllNewsEvents, getAllProBonoPosts, isJobOpen } from "@/lib/content";
 
+export const revalidate = 60;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${siteConfig.url}/`, changeFrequency: "weekly", priority: 1.0 },
@@ -68,7 +70,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((item) => !item.seo?.noIndex)
     .map((item) => ({
       url: `${siteConfig.url}/news-events/${item.slug}`,
-      lastModified: item.publishedAt,
+      lastModified: item.updatedAt ?? item.publishedAt,
       changeFrequency: "yearly",
       priority: 0.5,
     }));
@@ -77,7 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((post) => !post.seo?.noIndex)
     .map((post) => ({
       url: `${siteConfig.url}/pro-bono/${post.slug}`,
-      lastModified: post.publishedAt,
+      lastModified: post.updatedAt ?? post.publishedAt,
       changeFrequency: "yearly",
       priority: 0.5,
     }));

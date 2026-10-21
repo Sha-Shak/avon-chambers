@@ -14,7 +14,10 @@
     "type-check": "tsc --noEmit",
     "validate:practice-areas": "node scripts/validate-practice-areas.mjs",
     "migrate:sanity": "tsx scripts/migrate-to-sanity.ts",
-    "test:seo": "node --import tsx --test scripts/seo.test.ts"
+    "test:seo": "node --import tsx --test scripts/seo.test.ts scripts/seo-html.test.mjs",
+    "audit:seo": "node scripts/seo-audit.mjs",
+    "audit:seo:live": "node scripts/seo-audit.mjs --live",
+    "postbuild": "node scripts/seo-audit.mjs --strict"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.0",
@@ -54,6 +57,7 @@
     "prettier": "^3.9.6",
     "tailwindcss": "^4",
     "tsx": "^4.23.12",
-    "typescript": "^5"
+    "typescript": "^5",
+    "parse5": "^8.0.1"
   }
 }

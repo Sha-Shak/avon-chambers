@@ -1,3 +1,7 @@
+import { PostCard } from "@/components/post-collection";
+import { newsEventCard } from "@/lib/posts";
+import { webPageSchema } from "@/lib/schema";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PracticeLanguageSwitcher } from "@/components/practice-language-switcher";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -17,8 +21,8 @@ import {
   getLawyersForPracticeArea,
   getPracticeArea,
 } from "@/lib/data";
-import { getCaseStudiesByPracticeArea, getInsightsByPracticeArea } from "@/lib/content";
-import { breadcrumbSchema, practiceAreaSchema } from "@/lib/schema";
+import { getCaseStudiesByPracticeArea, getInsightsByPracticeArea, getNewsEventsByPracticeArea } from "@/lib/content";
+import { practiceAreaSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 import { practiceLocalizations } from "@/data/practice-localizations";
 import { PRACTICE_PROCESS, PRACTICE_DOCUMENTS } from "@/config/practice-guidance";
@@ -71,9 +75,10 @@ export default async function PracticeAreaDetailPage({
   const process = area.process ?? PRACTICE_PROCESS;
   const documents = area.documents ?? PRACTICE_DOCUMENTS[area.id] ?? [];
   const relatedLawyers = getLawyersForPracticeArea(area.id);
-  const [relatedCases, relatedInsights] = await Promise.all([
+  const [relatedCases, relatedInsights, relatedNews] = await Promise.all([
     getCaseStudiesByPracticeArea(area.id),
     getInsightsByPracticeArea(area.id),
+    getNewsEventsByPracticeArea(area.id),
   ]);
   const relatedAreas = getAllPracticeAreas().filter((candidate) =>
     candidate.id !== area.id && relatedLawyers.some((lawyer) => lawyer.practiceAreaIds.includes(candidate.id)),
@@ -83,14 +88,13 @@ export default async function PracticeAreaDetailPage({
   return (
     <div>
       <JsonLd data={service} />
+      <JsonLd data={webPageSchema(`/practice-areas/${area.slug}`, area.title, "WebPage", service["@id"])} />
       {faqPage && <JsonLd data={faqPage} />}
-      <JsonLd
-        data={breadcrumbSchema([
+      <Breadcrumbs items={[
           { name: "Home", path: "/" },
           { name: "Practice Areas", path: "/practice-areas" },
           { name: area.title, path: `/practice-areas/${area.slug}` },
-        ])}
-      />
+        ]} />
 
       <div className="relative aspect-21/9 w-full overflow-hidden">
         <Image
@@ -99,6 +103,7 @@ export default async function PracticeAreaDetailPage({
           fill
           sizes="100vw"
           preload
+          quality={60}
           className="object-cover"
         />
       </div>
@@ -258,6 +263,8 @@ export default async function PracticeAreaDetailPage({
           </div>
         </section>
       )}
+
+      {relatedNews.length > 0 && <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10"><h2 className="text-2xl">Related news and case updates</h2><div lang="en" className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{relatedNews.map((post) => <PostCard key={post.slug} post={newsEventCard(post)} />)}</div></section>}
 
       {relatedAreas.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10">
