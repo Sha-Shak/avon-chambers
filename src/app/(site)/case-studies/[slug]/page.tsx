@@ -1,3 +1,4 @@
+import { RelatedLegalServices } from "@/components/related-legal-services";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -161,6 +162,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         </section>
       </article>
 
+      <RelatedLegalServices {...study} />
       {moreStudies.length > 0 && (
         <section className="border-t border-foreground/10 bg-secondary/50">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">

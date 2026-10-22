@@ -1,3 +1,4 @@
+import { practiceAreasField, responsibleLawyersField } from "./objects/legalRelationships";
 import { defineField, defineType } from "sanity";
 import { coverImageField, postBodyField } from "./objects/postBody";
 
@@ -8,6 +9,8 @@ export const proBono = defineType({
   title: "Pro Bono post",
   type: "document",
   fields: [
+    practiceAreasField,
+    responsibleLawyersField,
     defineField({
       name: "title",
       title: "Title",

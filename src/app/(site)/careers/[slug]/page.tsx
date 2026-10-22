@@ -1,3 +1,4 @@
+import { RelatedLegalServices } from "@/components/related-legal-services";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -110,6 +111,7 @@ export default async function JobDetailPage({
           </Button>
         </FadeIn>
       </section>
+      <RelatedLegalServices {...job} />
     </div>
   );
 }

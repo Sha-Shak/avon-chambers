@@ -1,5 +1,6 @@
 import { PostCard } from "@/components/post-collection";
-import { newsEventCard } from "@/lib/posts";
+import { JobCard } from "@/components/cards/job-card";
+import { newsEventCard, proBonoCard } from "@/lib/posts";
 import { webPageSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PracticeLanguageSwitcher } from "@/components/practice-language-switcher";
@@ -21,7 +22,7 @@ import {
   getLawyersForPracticeArea,
   getPracticeArea,
 } from "@/lib/data";
-import { getCaseStudiesByPracticeArea, getInsightsByPracticeArea, getNewsEventsByPracticeArea } from "@/lib/content";
+import { getCaseStudiesByPracticeArea, getInsightsByPracticeArea, getNewsEventsByPracticeArea, getProBonoByPracticeArea, getJobsByPracticeArea } from "@/lib/content";
 import { practiceAreaSchema } from "@/lib/schema";
 import { buildSocialMetadata } from "@/lib/seo";
 import { practiceLocalizations } from "@/data/practice-localizations";
@@ -75,10 +76,12 @@ export default async function PracticeAreaDetailPage({
   const process = area.process ?? PRACTICE_PROCESS;
   const documents = area.documents ?? PRACTICE_DOCUMENTS[area.id] ?? [];
   const relatedLawyers = getLawyersForPracticeArea(area.id);
-  const [relatedCases, relatedInsights, relatedNews] = await Promise.all([
+  const [relatedCases, relatedInsights, relatedNews, relatedProBono, relatedJobs] = await Promise.all([
     getCaseStudiesByPracticeArea(area.id),
     getInsightsByPracticeArea(area.id),
     getNewsEventsByPracticeArea(area.id),
+    getProBonoByPracticeArea(area.id),
+    getJobsByPracticeArea(area.id),
   ]);
   const relatedAreas = getAllPracticeAreas().filter((candidate) =>
     candidate.id !== area.id && relatedLawyers.some((lawyer) => lawyer.practiceAreaIds.includes(candidate.id)),
@@ -265,6 +268,9 @@ export default async function PracticeAreaDetailPage({
       )}
 
       {relatedNews.length > 0 && <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10"><h2 className="text-2xl">Related news and case updates</h2><div lang="en" className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{relatedNews.map((post) => <PostCard key={post.slug} post={newsEventCard(post)} />)}</div></section>}
+
+      {relatedProBono.length > 0 && <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10"><h2 className="text-2xl">Related pro bono work</h2><div lang="en" className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{relatedProBono.map((post) => <PostCard key={post.slug} post={proBonoCard(post)} />)}</div></section>}
+      {relatedJobs.length > 0 && <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10"><h2 className="text-2xl">Opportunities in this practice</h2><div lang="en" className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{relatedJobs.map((job) => <JobCard key={job.slug} job={job} />)}</div></section>}
 
       {relatedAreas.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10">

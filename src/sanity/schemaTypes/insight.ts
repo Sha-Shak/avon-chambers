@@ -1,6 +1,6 @@
+import { practiceAreasField, responsibleLawyersField } from "./objects/legalRelationships";
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { ARTICLE_CATEGORIES } from "@/config/article.config";
-import { PRACTICE_AREA_OPTIONS } from "@/config/practice-areas.config";
 import lawyersData from "@/data/lawyers.json";
 import { RichTextInput } from "../components/rich-text-input";
 import { richTextBlock } from "./objects/postBody";
@@ -37,15 +37,8 @@ export const insight = defineType({
       options: { list: [...ARTICLE_CATEGORIES] },
       validation: (rule) => rule.required(),
     }),
-    defineField({
-      name: "practiceAreaIds",
-      title: "Related practice areas",
-      type: "array",
-      description: "Connect this article to every relevant Practice Area page. This powers related-content links across the website.",
-      of: [defineArrayMember({ type: "number" })],
-      options: { list: PRACTICE_AREA_OPTIONS, layout: "grid" },
-      validation: (rule) => rule.unique(),
-    }),
+    practiceAreasField,
+    responsibleLawyersField,
     defineField({
       name: "practiceAreaSlugs",
       title: "Legacy practice links",

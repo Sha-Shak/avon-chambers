@@ -1,3 +1,4 @@
+import { articlePageCount, articlePagePath } from "@/lib/article-pagination";
 import type { MetadataRoute } from "next";
 import { practiceLocalizations } from "@/data/practice-localizations";
 import { siteConfig } from "@/config/site.config";
@@ -114,6 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...lawyerPages,
     ...caseStudyPages,
     ...insightPages,
+    ...Array.from({ length: articlePageCount(insights.length) - 1 }, (_, index) => ({ url: `${siteConfig.url}${articlePagePath(index + 2)}`, changeFrequency: "weekly" as const, priority: 0.5 })),
     ...jobPages,
     ...newsEventPages,
     ...proBonoPages,

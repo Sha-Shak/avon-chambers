@@ -21,13 +21,14 @@ const INSIGHT_META_FIELDS = `
   authorSlug,
   reviewedBySlug,
   reviewedAt,
-  practiceAreaIds,
   "legacyPracticeAreaSlugs": practiceAreaSlugs,
   references[]{ title, url },
   publishedAt,
   updatedAt,
   readingTime,
   coverImage,
+  practiceAreaIds,
+  responsibleLawyerSlugs,
   ${SEO_FIELDS}
 `;
 
@@ -42,13 +43,14 @@ const JOB_META_FIELDS = `
   closingDate,
   summary,
   applyEmail,
+  practiceAreaIds,
+  responsibleLawyerSlugs,
   ${SEO_FIELDS}
 `;
 
 const NEWS_EVENT_META_FIELDS = `
   "slug": slug.current,
   title,
-  practiceAreaIds,
   kind,
   excerpt,
   publishedAt,
@@ -56,6 +58,8 @@ const NEWS_EVENT_META_FIELDS = `
   eventDate,
   location,
   coverImage,
+  practiceAreaIds,
+  responsibleLawyerSlugs,
   ${SEO_FIELDS}
 `;
 
@@ -67,6 +71,8 @@ const PRO_BONO_META_FIELDS = `
   publishedAt,
   updatedAt,
   coverImage,
+  practiceAreaIds,
+  responsibleLawyerSlugs,
   ${SEO_FIELDS}
 `;
 
@@ -74,7 +80,6 @@ const CASE_STUDY_META_FIELDS = `
   "slug": slug.current,
   title,
   excerpt,
-  practiceAreaIds,
   "legacyPracticeAreaSlugs": practiceAreaSlugs,
   matterType,
   clientName,
@@ -90,6 +95,8 @@ const CASE_STUDY_META_FIELDS = `
   publishedAt,
   updatedAt,
   coverImage,
+  practiceAreaIds,
+  responsibleLawyerSlugs,
   ${SEO_FIELDS}
 `;
 
@@ -277,4 +284,17 @@ export async function getNewsEventsByPracticeArea(practiceAreaId: number): Promi
     { practiceAreaId },
     { next: { revalidate: 60 } },
   );
+}
+
+export async function getProBonoByPracticeArea(practiceAreaId: number): Promise<ProBonoMeta[]> {
+  return client.fetch(
+    `*[_type == "proBono" && defined(slug.current) && $practiceAreaId in coalesce(practiceAreaIds, []) && seo.noIndex != true] | order(publishedAt desc) [0...3] { ${PRO_BONO_META_FIELDS} }`,
+    { practiceAreaId },
+    { next: { revalidate: 60 } },
+  );
+}
+
+export async function getJobsByPracticeArea(practiceAreaId: number): Promise<JobPostMeta[]> {
+  const jobs = await getAllJobPosts();
+  return jobs.filter((job) => !job.seo?.noIndex && isJobOpen(job) && job.practiceAreaIds?.includes(practiceAreaId)).slice(0, 3);
 }

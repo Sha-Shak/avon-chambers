@@ -83,7 +83,12 @@ export interface CaseStudyKeyResult {
   label: string;
 }
 
-export interface CaseStudyMeta {
+export interface LegalRelationships {
+  practiceAreaIds?: number[];
+  responsibleLawyerSlugs?: string[];
+}
+
+export interface CaseStudyMeta extends LegalRelationships {
   slug: string;
   title: string;
   excerpt: string;
@@ -147,7 +152,7 @@ export interface SeoFields {
   noIndex?: boolean;
 }
 
-export interface InsightMeta {
+export interface InsightMeta extends LegalRelationships {
   slug: string;
   title: string;
   category: string;
@@ -170,7 +175,7 @@ export interface Insight extends InsightMeta {
 
 export type JobType = "Full-time" | "Part-time" | "Contract" | "Internship";
 
-export interface JobPostMeta {
+export interface JobPostMeta extends LegalRelationships {
   slug: string;
   title: string;
   department: string;
@@ -195,7 +200,7 @@ export interface SanityPicture {
 
 export type NewsEventKind = "News" | "Event";
 
-export interface NewsEventMeta {
+export interface NewsEventMeta extends LegalRelationships {
   practiceAreaIds?: number[];
   slug: string;
   title: string;
@@ -213,7 +218,7 @@ export interface NewsEvent extends NewsEventMeta {
   body: PortableTextBlock[];
 }
 
-export interface ProBonoMeta {
+export interface ProBonoMeta extends LegalRelationships {
   slug: string;
   title: string;
   category: string;

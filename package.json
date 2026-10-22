@@ -14,10 +14,12 @@
     "type-check": "tsc --noEmit",
     "validate:practice-areas": "node scripts/validate-practice-areas.mjs",
     "migrate:sanity": "tsx scripts/migrate-to-sanity.ts",
-    "test:seo": "node --import tsx --test scripts/seo.test.ts scripts/seo-html.test.mjs",
+    "test:seo": "NEXT_PUBLIC_SANITY_DATASET=test NEXT_PUBLIC_SANITY_PROJECT_ID=test node --import tsx --test scripts/seo.test.ts scripts/seo-html.test.mjs scripts/legal-navigation.test.ts",
     "audit:seo": "node scripts/seo-audit.mjs",
     "audit:seo:live": "node scripts/seo-audit.mjs --live",
-    "postbuild": "node scripts/seo-audit.mjs --strict"
+    "postbuild": "node scripts/seo-audit.mjs --strict",
+    "audit:seo:from-home": "node scripts/seo-audit.mjs --live --from-home",
+    "audit:indexing": "node scripts/inspect-indexing.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.0",

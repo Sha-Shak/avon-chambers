@@ -1,3 +1,4 @@
+import { practiceAreasField, responsibleLawyersField } from "./objects/legalRelationships";
 import { defineField, defineType } from "sanity";
 import { RichTextInput } from "../components/rich-text-input";
 import { richTextBlock } from "./objects/postBody";
@@ -7,6 +8,8 @@ export const jobPost = defineType({
   title: "Job posting",
   type: "document",
   fields: [
+    practiceAreasField,
+    responsibleLawyersField,
     defineField({
       name: "title",
       title: "Job title",

@@ -119,6 +119,9 @@ export default function AboutPage() {
               <Button asChild variant="navyOutline" size="xl" className="rounded-none">
                 <Link href="/lawyers">Meet the lawyers</Link>
               </Button>
+              <Link href="/life-at-avon" className="inline-flex min-h-11 items-center px-3 text-sm underline underline-offset-4">
+                See life at Avon Chambers
+              </Link>
             </div>
           </FadeIn>
           <FadeIn delay={120} className="grid grid-cols-2 gap-8 self-center">

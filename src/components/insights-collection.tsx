@@ -10,8 +10,9 @@ import { mediaConfig } from "@/config/media.config";
 import { urlForImage } from "@/sanity/image";
 import type { InsightMeta } from "@/types";
 
+import { ARTICLE_PAGE_SIZE, articlePagePath } from "@/lib/article-pagination";
+
 type SortOrder = "newest" | "oldest";
-const PAGE_SIZE = 9;
 
 function byPublishedDate(a: InsightMeta, b: InsightMeta, order: SortOrder) {
   const difference =
@@ -31,20 +32,18 @@ function formatDate(iso: string) {
 }
 
 /** A complete, date-sortable archive that keeps the listing manageable as it grows. */
-export function InsightsCollection({ insights }: { insights: InsightMeta[] }) {
+export function InsightsCollection({ insights, page = 1 }: { insights: InsightMeta[]; page?: number }) {
   const [sortOrder, setSortOrder] = useState<SortOrder>("newest");
-  const [page, setPage] = useState(1);
   const sortedInsights = useMemo(
     () => [...insights].sort((a, b) => byPublishedDate(a, b, sortOrder)),
     [insights, sortOrder],
   );
-  const totalPages = Math.ceil(sortedInsights.length / PAGE_SIZE);
-  const pageStart = (page - 1) * PAGE_SIZE;
-  const visibleInsights = sortedInsights.slice(pageStart, pageStart + PAGE_SIZE);
+  const totalPages = Math.ceil(sortedInsights.length / ARTICLE_PAGE_SIZE);
+  const pageStart = (page - 1) * ARTICLE_PAGE_SIZE;
+  const visibleInsights = sortedInsights.slice(pageStart, pageStart + ARTICLE_PAGE_SIZE);
 
   function changeSortOrder(order: SortOrder) {
     setSortOrder(order);
-    setPage(1);
   }
 
   return (
@@ -123,25 +122,9 @@ export function InsightsCollection({ insights }: { insights: InsightMeta[] }) {
 
       {totalPages > 1 && (
         <nav className="mt-10 flex items-center justify-between gap-4" aria-label="Article pagination">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => setPage((currentPage) => currentPage - 1)}
-            disabled={page === 1}
-          >
-            Previous
-          </Button>
-          <p className="text-sm text-muted-foreground" aria-live="polite">
-            Page {page} of {totalPages}
-          </p>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => setPage((currentPage) => currentPage + 1)}
-            disabled={page === totalPages}
-          >
-            Next
-          </Button>
+          {page > 1 ? <Button asChild variant="outline"><Link href={articlePagePath(page - 1)}>Previous</Link></Button> : <span className="text-sm text-muted-foreground">Previous</span>}
+          <p className="text-sm text-muted-foreground">Page {page} of {totalPages}</p>
+          {page < totalPages ? <Button asChild variant="outline"><Link href={articlePagePath(page + 1)}>Next</Link></Button> : <span className="text-sm text-muted-foreground">Next</span>}
         </nav>
       )}
     </>

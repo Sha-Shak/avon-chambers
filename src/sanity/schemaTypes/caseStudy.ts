@@ -1,6 +1,7 @@
+import { practiceAreasField, responsibleLawyersField } from "./objects/legalRelationships";
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { CASE_STUDY_MATTER_TYPES } from "@/config/case-study.config";
-import { PRACTICE_AREA_OPTIONS, practiceAreaById, resolvePracticeAreaIds } from "@/config/practice-areas.config";
+import { practiceAreaById, resolvePracticeAreaIds } from "@/config/practice-areas.config";
 import { coverImageField, postBodyField } from "./objects/postBody";
 
 export const caseStudy = defineType({
@@ -57,22 +58,12 @@ export const caseStudy = defineType({
     }),
     { ...postBodyField, title: "Full case study", group: "content" },
 
-    defineField({
-      name: "practiceAreaIds",
-      title: "Practice areas",
-      type: "array",
-      group: "matter",
-      of: [defineArrayMember({ type: "number" })],
-      options: { list: PRACTICE_AREA_OPTIONS, layout: "grid" },
-      description: "Select every relevant practice area. These links also place the study on matching practice-area pages.",
-      validation: (rule) =>
-        rule.unique().custom((ids, context) => {
-          if (ids?.length || (Array.isArray(context.document?.practiceAreaSlugs) && context.document.practiceAreaSlugs.length)) {
-            return true;
-          }
-          return "Select at least one practice area";
-        }),
-    }),
+    { ...practiceAreasField, group: "matter", validation: (rule) => rule.unique().custom((ids, context) =>
+      Array.isArray(ids) && ids.some((id) => typeof id !== "number" || !practiceAreaById(id)) ? "Select an existing practice area." :
+      (Array.isArray(ids) && ids.length) || (Array.isArray(context.document?.practiceAreaSlugs) && context.document.practiceAreaSlugs.length)
+        ? true : "Select at least one practice area",
+    ) },
+    { ...responsibleLawyersField, group: "matter" },
     defineField({
       name: "practiceAreaSlugs",
       title: "Legacy practice links",

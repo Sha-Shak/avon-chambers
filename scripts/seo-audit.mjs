@@ -7,6 +7,7 @@ import path from 'node:path';
 
 const live = process.argv.includes('--live');
 const strict = process.argv.includes('--strict');
+const fromHome = process.argv.includes('--from-home');
 const base = 'https://www.avonchambers.com';
 const directory = process.env.SEO_AUDIT_OUTPUT ?? `docs/audits/${live ? 'production' : 'build'}`;
 const csv = (value) => `"${String(value ?? '').replaceAll('"', '""')}"`;
@@ -34,7 +35,7 @@ if (!sitemapUrls.size) throw new Error('No sitemap URLs found');
 const records = new Map();
 let robots;
 if (live) {
-  const pending = new Set([`${base}/`, ...sitemapUrls]);
+  const pending = new Set(fromHome ? [`${base}/`] : [`${base}/`, ...sitemapUrls]);
   while (pending.size && records.size < 200) {
     for (const url of pending) if (records.has(url)) pending.delete(url);
     const batch = [...pending].slice(0, 3);
@@ -76,20 +77,30 @@ for (const page of records.values()) {
   page.sitemap = sitemapUrls.has(page.url);
   for (const target of page.links) records.get(target)?.inlinks.add(page.url);
 }
+// A disconnected cluster can have inlinks and still be unreachable from Home.
+// Traverse actual HTML anchors, without adding sitemap URLs to this graph.
+const depths = new Map([[`${base}/`, 0]]);
+for (const [url, depth] of depths) {
+  for (const target of records.get(url)?.links ?? []) {
+    if (!depths.has(target) && records.get(target)?.status === 200) depths.set(target, depth + 1);
+  }
+}
 for (const page of records.values()) {
   if (page.sitemap && !page.status) page.errors.push('Sitemap URL could not be verified because its fetch failed');
   else if (page.sitemap && (page.status !== 200 || /noindex/i.test(page.robots))) page.errors.push('Sitemap contains a non-indexable URL');
   if (page.status === 200 && !/noindex/i.test(page.robots)) {
     if (!page.sitemap) page.errors.push('Indexable page missing from sitemap');
     if (page.url !== `${base}/` && page.inlinks.size === 0) page.errors.push('Orphan: no internal inlinks');
+    if (!depths.has(page.url)) page.errors.push('Unreachable from homepage HTML links');
+    if (/\/(?:bn\/)?practice-areas\/[^/]+$/.test(page.url) && (depths.get(page.url) ?? Infinity) > 3) page.errors.push('Service page is more than three clicks from Home');
   }
 }
 const missing = [...sitemapUrls].filter((url) => !records.has(url));
 await mkdir(directory, { recursive: true });
-const fields = ['URL', 'Status', 'Title', 'Canonical', 'Meta robots', 'H1', 'Internal inlinks', 'Sitemap inclusion', 'Issues'];
-const rows = [...records.values()].sort((a, b) => a.url.localeCompare(b.url)).map((page) => [page.url, page.status || 'FETCH_FAILED', page.title, page.canonical, page.robots, page.h1.join(' | '), page.inlinks.size, page.sitemap ? 'yes' : 'no', page.errors.join('; ')]);
+const fields = ['URL', 'Status', 'Title', 'Canonical', 'Meta robots', 'H1', 'Internal inlinks', 'Clicks from Home', 'Sitemap inclusion', 'Issues'];
+const rows = [...records.values()].sort((a, b) => a.url.localeCompare(b.url)).map((page) => [page.url, page.status || 'FETCH_FAILED', page.title, page.canonical, page.robots, page.h1.join(' | '), page.inlinks.size, depths.get(page.url) ?? 'unreachable', page.sitemap ? 'yes' : 'no', page.errors.join('; ')]);
 await writeFile(`${directory}/inventory.csv`, [fields, ...rows].map((row) => row.map(csv).join(',')).join('\n') + '\n');
-const summary = { measuredAt: new Date().toISOString(), mode: live ? 'Production HTTP crawl of server-rendered HTML; separate Lighthouse reports cover JavaScript-rendered templates' : 'Production build HTML validation', pages: records.size, sitemapUrls: sitemapUrls.size, missing, issues: [...records.values()].filter((page) => page.errors.length).map((page) => ({ url: page.url, errors: page.errors })), robots: robots ? { status: robots.status, body: robots.body } : undefined };
+const summary = { measuredAt: new Date().toISOString(), mode: live ? `Production HTTP crawl of server-rendered HTML${fromHome ? ', seeded only from Home' : ''}; separate Lighthouse reports cover JavaScript-rendered templates` : 'Production build HTML validation', pages: records.size, sitemapUrls: sitemapUrls.size, reachableFromHome: [...records.values()].filter((page) => depths.has(page.url)).length, serviceDepths: [...records.values()].filter((page) => /\/(?:bn\/)?practice-areas\/[^/]+$/.test(page.url)).map((page) => ({ url: page.url, clicks: depths.get(page.url) ?? null })), missing, issues: [...records.values()].filter((page) => page.errors.length).map((page) => ({ url: page.url, errors: page.errors })), robots: robots ? { status: robots.status, body: robots.body } : undefined };
 await writeFile(`${directory}/summary.json`, JSON.stringify(summary, null, 2));
 console.log(JSON.stringify(summary, null, 2));
 if (strict && (summary.issues.length || missing.length)) process.exitCode = 1;

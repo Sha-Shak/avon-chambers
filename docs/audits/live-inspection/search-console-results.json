@@ -1,0 +1,80 @@
+[
+  {
+    "url": "https://www.avonchambers.com/practice-areas",
+    "googleIndexStatus": "Page is indexed",
+    "liveTestTime": "2026-10-22T00:03:35+06:00",
+    "liveVerdict": "URL is available to Google",
+    "pageAvailability": "Page can be indexed",
+    "crawlAllowed": true,
+    "pageFetch": "Successful",
+    "indexingAllowed": true,
+    "userDeclaredCanonical": "https://www.avonchambers.com/practice-areas",
+    "liveGoogleSelectedCanonical": "Only determined after indexing",
+    "renderedMainContentAndLinksVerified": true
+  },
+  {
+    "url": "https://www.avonchambers.com/insights",
+    "googleIndexStatus": "Discovered - currently not indexed",
+    "liveTestTime": "2026-10-22T00:07:00+06:00",
+    "liveVerdict": "URL is available to Google",
+    "pageAvailability": "Page can be indexed",
+    "crawlAllowed": true,
+    "pageFetch": "Successful",
+    "indexingAllowed": true,
+    "userDeclaredCanonical": "https://www.avonchambers.com/insights",
+    "liveGoogleSelectedCanonical": "Only determined after indexing",
+    "renderedMainContentAndLinksVerified": true
+  },
+  {
+    "url": "https://www.avonchambers.com/about",
+    "googleIndexStatus": "Discovered - currently not indexed",
+    "liveTestTime": "2026-10-22T00:11:09+06:00",
+    "liveVerdict": "URL is available to Google",
+    "pageAvailability": "Page can be indexed",
+    "crawlAllowed": true,
+    "pageFetch": "Successful",
+    "indexingAllowed": true,
+    "userDeclaredCanonical": "https://www.avonchambers.com/about",
+    "liveGoogleSelectedCanonical": "Only determined after indexing",
+    "renderedMainContentAndLinksVerified": true
+  },
+  {
+    "url": "https://www.avonchambers.com/case-studies",
+    "googleIndexStatus": "URL is unknown to Google",
+    "liveTestTime": "2026-10-22T00:14:47+06:00",
+    "liveVerdict": "URL is available to Google",
+    "pageAvailability": "Page can be indexed",
+    "crawlAllowed": true,
+    "pageFetch": "Successful",
+    "indexingAllowed": true,
+    "userDeclaredCanonical": "https://www.avonchambers.com/case-studies",
+    "liveGoogleSelectedCanonical": "Only determined after indexing",
+    "renderedMainContentAndLinksVerified": true
+  },
+  {
+    "url": "https://www.avonchambers.com/news-events/high-court-rejects-habeas-corpus-shortcut-in-child-custody-dispute-family-court-appeal-cannot-be",
+    "googleIndexStatus": "URL is unknown to Google",
+    "liveTestTime": "2026-10-22T00:16:20+06:00",
+    "liveVerdict": "URL is available to Google",
+    "pageAvailability": "Page can be indexed",
+    "crawlAllowed": true,
+    "pageFetch": "Successful",
+    "indexingAllowed": true,
+    "userDeclaredCanonical": "https://www.avonchambers.com/news-events/high-court-rejects-habeas-corpus-shortcut-in-child-custody-dispute-family-court-appeal-cannot-be",
+    "liveGoogleSelectedCanonical": "Only determined after indexing",
+    "renderedMainContentAndLinksVerified": true
+  },
+  {
+    "url": "https://www.avonchambers.com/news-events/high-court-stays-unfair-suspension-of-college-officer",
+    "googleIndexStatus": "URL is unknown to Google",
+    "liveTestTime": "2026-10-22T10:02:12+06:00",
+    "liveVerdict": "URL is available to Google",
+    "pageAvailability": "Page can be indexed",
+    "crawlAllowed": true,
+    "pageFetch": "Successful",
+    "indexingAllowed": true,
+    "userDeclaredCanonical": "https://www.avonchambers.com/news-events/high-court-stays-unfair-suspension-of-college-officer",
+    "liveGoogleSelectedCanonical": "Only determined after indexing",
+    "renderedMainContentAndLinksVerified": true
+  }
+]

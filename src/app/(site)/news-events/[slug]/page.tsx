@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { practiceAreaById } from "@/config/practice-areas.config";
+import { RelatedLegalServices } from "@/components/related-legal-services";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -89,7 +88,7 @@ export default async function NewsEventDetailPage({ params }: { params: Promise<
         location={isEvent ? item.location : undefined}
         body={item.body}
       >
-        {(item.practiceAreaIds ?? []).length > 0 && <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10"><h2 className="text-2xl">Related practice areas</h2><ul className="mt-5 flex flex-wrap gap-4">{item.practiceAreaIds?.map((id) => { const area = practiceAreaById(id); return area ? <li key={id}><Link href={`/practice-areas/${area.slug}`} className="underline">{area.title}</Link></li> : null; })}</ul></section>}
+        <RelatedLegalServices {...item} />
         {more.length > 0 && (
           <section className="border-t border-foreground/10 bg-secondary/50">
             <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">

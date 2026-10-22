@@ -1,0 +1,49 @@
+[
+  {
+    "url": "http://avonchambers.com/",
+    "status": 301,
+    "location": "https://avonchambers.com/",
+    "canonical": "",
+    "robots": "index, follow (default)"
+  },
+  {
+    "url": "http://www.avonchambers.com/",
+    "status": 301,
+    "location": "https://www.avonchambers.com/",
+    "canonical": "",
+    "robots": "index, follow (default)"
+  },
+  {
+    "url": "https://avonchambers.com/",
+    "status": 301,
+    "location": "https://www.avonchambers.com/",
+    "canonical": "",
+    "robots": "index, follow (default)"
+  },
+  {
+    "url": "https://www.avonchambers.com/practice-areas/corporate-commercial/",
+    "status": 308,
+    "location": "/practice-areas/corporate-commercial",
+    "canonical": "",
+    "robots": "index, follow (default)"
+  },
+  {
+    "url": "https://www.avonchambers.com/Practice-Areas/Corporate-Commercial",
+    "status": 308,
+    "location": "/practice-areas/corporate-commercial",
+    "canonical": "",
+    "robots": "index, follow (default)"
+  },
+  {
+    "url": "https://www.avonchambers.com/?utm_source=seo-audit",
+    "status": 200,
+    "canonical": "https://www.avonchambers.com",
+    "robots": "index, follow"
+  },
+  {
+    "url": "https://www.avonchambers.com/this-page-does-not-exist-seo-audit",
+    "status": 404,
+    "canonical": "",
+    "robots": "noindex"
+  }
+]

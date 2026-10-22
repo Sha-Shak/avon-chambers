@@ -1,8 +1,131 @@
 {
-  "measuredAt": "2026-10-21T17:49:36.412Z",
+  "measuredAt": "2026-10-22T04:06:43.185Z",
   "mode": "Production build HTML validation",
   "pages": 65,
   "sitemapUrls": 63,
+  "reachableFromHome": 64,
+  "serviceDepths": [
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/arbitration",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/banking-finance-law",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/civil-litigation",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/constitutional-litigation-writ",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/corporate-commercial",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/corporate-restructuring-project-documentation",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/criminal-law",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/employment-labour-law",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/family-law",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/foreign-investment-facilitation",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/international-law",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/it-technology-startups",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/new-developing-areas",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/property-real-estate",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/bn/practice-areas/taxation",
+      "clicks": 2
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/arbitration",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/banking-finance-law",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/civil-litigation",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/constitutional-litigation-writ",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/corporate-commercial",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/corporate-restructuring-project-documentation",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/criminal-law",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/employment-labour-law",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/family-law",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/foreign-investment-facilitation",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/international-law",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/it-technology-startups",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/new-developing-areas",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/property-real-estate",
+      "clicks": 1
+    },
+    {
+      "url": "https://www.avonchambers.com/practice-areas/taxation",
+      "clicks": 1
+    }
+  ],
   "missing": [],
   "issues": []
 }
