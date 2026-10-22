@@ -24,7 +24,7 @@ const HOME_DESCRIPTION =
   "Avon Chambers is a law firm in Dhaka, Bangladesh, advising businesses and individuals on corporate law, litigation, arbitration and other legal matters.";
 
 export const metadata: Metadata = {
-  title: { absolute: `Law Firm in Dhaka, Bangladesh | ${siteConfig.name}` },
+  title: { absolute: `Best Law Firm in Dhaka, Bangladesh | ${siteConfig.name}` },
   description: HOME_DESCRIPTION,
   alternates: { canonical: "/" },
   ...buildSocialMetadata({
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 const heroContent: Omit<HeroSlide, "image">[] = [
   {
     eyebrow: `${siteConfig.name} · ${siteConfig.address.addressLocality}`,
-    heading: "Law Firm in Dhaka, Bangladesh",
+    heading: "Best Law Firm in Dhaka, Bangladesh",
     subheading: `${siteConfig.tagline}. Avon Chambers brings together Barristers, Solicitors, Advocates and Legal Consultants to provide practical legal advice and representation`,
   },
   {

@@ -10,7 +10,7 @@ import { buildSocialMetadata } from "@/lib/seo";
 const DESCRIPTION = `Meet the barristers, advocates and legal consultants at ${siteConfig.name} in Dhanmondi, Dhaka. View their practice areas, qualifications and experience.`;
 
 export const metadata: Metadata = {
-  title: "Our Lawyers in Dhaka, Bangladesh",
+  title: "Our Lawyers in Bangladesh",
   description: DESCRIPTION,
   alternates: { canonical: "/lawyers" },
   ...buildSocialMetadata({ title: `Lawyers | ${siteConfig.name}`, description: DESCRIPTION, url: "/lawyers" }),
@@ -43,7 +43,7 @@ export default function LawyersPage() {
       <PageBanner
         image="lawyers"
         eyebrow="Lawyers"
-        title="Our Lawyers in Dhaka, Bangladesh"
+        title="Our Lawyers in Bangladesh"
         description={<>{siteConfig.name} comprises Barristers, Solicitors, Advocates and Legal Consultants working individually and collectively to provide professional legal services.</>}
       />
 
